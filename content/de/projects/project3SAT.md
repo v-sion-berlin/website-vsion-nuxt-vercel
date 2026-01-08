@@ -1,13 +1,24 @@
 ---
-type: project
-header: 3SAT
-slug: project3sat
+title: Project3SAT
 coverImage:
   src: /images/projects/3sat_cover.png
   alt: 3SAT
 detailImage:
   src: /images/projects/3sat_detail.svg
   alt: 3SAT
+header: 3SAT
+projectsHeader: Unsere Projekte
+sliderImages:
+  - src: /images/projects/test.jpg
+    alt: Studio View 1
+    title: Studio View vom 3SAT Studio
+  - src: /images/projects/test.jpg
+    alt: Studio View 2
+    title: Wettervorschau Animation
+  - src: /images/projects/test.jpg
+    alt: Studio View 3
+    title: Setup Studio
+slug: project3sat
 table:
   header:
     firstCol: Unsere Aufgaben
@@ -21,17 +32,7 @@ table:
     - Viz Artist
     - Viz Pilot
     - Adobe CC
-projectsHeader: Unsere Projekte
-sliderImages:
-  - src: /images/projects/test.jpg
-    alt: Studio View 1
-    title: Studio View vom 3SAT Studio
-  - src: /images/projects/test.jpg
-    alt: Studio View 2
-    title: Wettervorschau Animation
-  - src: /images/projects/test.jpg
-    alt: Studio View 3
-    title: Setup Studio
+type: project
 ---
 
 ::project-details

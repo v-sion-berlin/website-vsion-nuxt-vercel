@@ -1,6 +1,5 @@
 ---
-_path: /services
-type: services
+title: Services
 header: Services
 heroImage:
   src: /images/bg_services_top_full.png
@@ -15,6 +14,8 @@ menu:
     - Studio & Videowalls
     - Infographics
     - Storytelling
+type: services
+_path: /services
 ---
 
 ::title-block{:image-pos="tr" :image-src="heroImage"}

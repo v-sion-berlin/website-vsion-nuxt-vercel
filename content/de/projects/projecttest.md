@@ -1,14 +1,24 @@
 ---
 title: Project Another
-type: project
-header: Test
-slug: projecttest
 coverImage:
   src: /images/bg_about_top_full.png
   alt: Another
 detailImage:
   src: /images/projects/test.jpg
   alt: Another
+header: Test
+projectsHeader: Unser Project
+sliderImages:
+  - src: /images/projects/test.jpg
+    alt: Studio View 1
+    title: Studio View from 3SAT Studio
+  - src: /images/projects/test.jpg
+    alt: Studio View 2
+    title: Wettervorschau Animation
+  - src: /images/projects/test.jpg
+    alt: Studio View 3
+    title: Setup Studio
+slug: projecttest
 table:
   header:
     firstCol: Unser Aufgaben
@@ -22,17 +32,7 @@ table:
     - Viz Artist
     - Viz Pilot
     - Adobe CC
-projectsHeader: Unser Project
-sliderImages:
-  - src: /images/projects/test.jpg
-    alt: Studio View 1
-    title: Studio View from 3SAT Studio
-  - src: /images/projects/test.jpg
-    alt: Studio View 2
-    title: Wettervorschau Animation
-  - src: /images/projects/test.jpg
-    alt: Studio View 3
-    title: Setup Studio
+type: project
 ---
 
 ::project-details

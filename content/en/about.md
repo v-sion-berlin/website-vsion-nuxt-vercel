@@ -1,11 +1,5 @@
 ---
-_path: /about
-type: about
-header: Live to the world from Berlin
-subTitle: +49 30 29381928 contact@v-sion.de
-heroImage:
-  src: /images/bg_about_top_full.png
-  alt: Hero image showing Berlin skyline
+title: About
 addressBerlin:
   company: v-sion GmbH
   street: Warschauer Straße 59a
@@ -21,4 +15,11 @@ addressZDF:
 courtInfo:
   text: Amtsgericht Berlin Charlottenburg
   hrb: HRB 119 647
+header: Live to the world from Berlin
+heroImage:
+  src: /images/bg_about_top_full.png
+  alt: Hero image showing Berlin skyline
+subTitle: +49 30 29381928 contact@v-sion.de
+type: about
+_path: /about
 ---

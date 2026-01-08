@@ -1,35 +1,28 @@
 ---
-_path: /career
-type: career
-header: Career
-heroImage:
-  src: /images/bg_main_top_full.png
-  alt: Hero image showing Berlin skyline
+title: Career
 careerImage1:
   src: /images/bg_career_1.png
   alt: Career image one
 careerImage2:
   src: /images/bg_career_2.png
   alt: Career image two
+header: Career
+heroImage:
+  src: /images/bg_main_top_full.png
+  alt: Hero image showing Berlin skyline
 smallCards:
   - header: Modern work environment
-    text: "Our centrally located loft office is bright, stylish - and equipped with
-      everything you need: excellent coffee, a fully equipped kitchen, chilled
-      drinks, and fresh fruit await you."
+    text: "Our centrally located loft office is bright, stylish - and equipped with everything you need: excellent coffee, a fully equipped kitchen, chilled drinks, and fresh fruit await you."
   - header: Flexible work that fits you
-    text: Remote, hybrid, or on-site - you decide where you work. Our offices in
-      Mainz and Berlin are always open to you, but you can also work fully
-      remotely - whatever works best for you.
+    text: Remote, hybrid, or on-site - you decide where you work. Our offices in Mainz and Berlin are always open to you, but you can also work fully remotely - whatever works best for you.
   - header: Equipment tailored to your needs
-    text: Whether MacBook or Linux setup - we'll provide exactly the tools that make
-      you most productive. Naturally with a 4K display and high performance.
+    text: Whether MacBook or Linux setup - we'll provide exactly the tools that make you most productive. Naturally with a 4K display and high performance.
   - header: Team spirit at eye level
-    text: We pull together, support one another, and treat each other with respect.
-      For us, it's all about the WE - not just in projects, but every day.
+    text: We pull together, support one another, and treat each other with respect. For us, it's all about the WE - not just in projects, but every day.
   - header: Shared experiences
-    text: Whether summer parties, monthly breakfasts, or barbecues on the boat - we
-      regularly celebrate successes and togetherness. Because a strong team
-      grows beyond the office too.
+    text: Whether summer parties, monthly breakfasts, or barbecues on the boat - we regularly celebrate successes and togetherness. Because a strong team grows beyond the office too.
+type: career
+_path: /career
 ---
 
 ::title-block{:image-pos="tl" :image-src="heroImage" :text-pos="r"}

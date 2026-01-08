@@ -1,13 +1,24 @@
 ---
-type: project
-header: ZDF Moma
-slug: projectzdf
+title: ProjectZDF
 coverImage:
   src: /images/projects/zdf_cover.svg
   alt: ZDF
 detailImage:
   src: /images/projects/zdf_detail.png
   alt: ZDF
+header: ZDF Moma
+projectsHeader: Unsere Projekte
+sliderImages:
+  - src: /images/projects/test.jpg
+    alt: Studio View 1
+    title: Studio View vom ZDF Studio
+  - src: /images/projects/test.jpg
+    alt: Studio View 2
+    title: Wettervorschau Animation
+  - src: /images/projects/test.jpg
+    alt: Studio View 3
+    title: Setup Studio
+slug: projectzdf
 table:
   header:
     firstCol: Unsere Aufgaben
@@ -21,17 +32,7 @@ table:
     - Viz Artist
     - Viz Pilot
     - Adobe CC
-projectsHeader: Unsere Projekte
-sliderImages:
-  - src: /images/projects/test.jpg
-    alt: Studio View 1
-    title: Studio View vom ZDF Studio
-  - src: /images/projects/test.jpg
-    alt: Studio View 2
-    title: Wettervorschau Animation
-  - src: /images/projects/test.jpg
-    alt: Studio View 3
-    title: Setup Studio
+type: project
 ---
 
 ::project-details

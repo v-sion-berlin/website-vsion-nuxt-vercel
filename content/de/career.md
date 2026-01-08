@@ -1,37 +1,27 @@
 ---
-type: career
-header: Career
-heroImage:
-  src: /images/bg_main_top_full.png
-  alt: Hero image showing Berlin skyline
+title: Career
 careerImage1:
   src: /images/bg_career_1.png
   alt: Career image one
 careerImage2:
   src: /images/bg_career_2.png
   alt: Career image two
+header: Career
+heroImage:
+  src: /images/bg_main_top_full.png
+  alt: Hero image showing Berlin skyline
 smallCards:
   - header: Modernes Arbeitsumfeld
-    text: "Unser zentral gelegenes Loft-Büro ist lichtdurchflutet, stylisch - und
-      versorgt dich mit allem, was du brauchst: hervorragender Kaffee, eine voll
-      ausgestattete Küche, gekühlte Getränke und frisches Obst warten auf dich."
+    text: "Unser zentral gelegenes Loft-Büro ist lichtdurchflutet, stylisch - und versorgt dich mit allem, was du brauchst: hervorragender Kaffee, eine voll ausgestattete Küche, gekühlte Getränke und frisches Obst warten auf dich."
   - header: Flexibel arbeiten, wie es zu dir passt
-    text: "Remote, hybrid oder vor Ort: Du entscheidest, wo du arbeitest. Unsere
-      Standorte in Mainz und Berlin stehen dir jederzeit offen, aber du kannst
-      auch komplett remote arbeiten - so wie es für dich am besten
-      funktioniert."
+    text: "Remote, hybrid oder vor Ort: Du entscheidest, wo du arbeitest. Unsere Standorte in Mainz und Berlin stehen dir jederzeit offen, aber du kannst auch komplett remote arbeiten - so wie es für dich am besten funktioniert."
   - header: Ausstattung nach deinen Bedürfnissen
-    text: Ob MacBook oder Linux-Setup - du bekommst von uns genau die Technik, mit
-      der du am produktivsten bist. Selbstverständlich mit 4K-Display und
-      schneller Performance.
+    text: Ob MacBook oder Linux-Setup - du bekommst von uns genau die Technik, mit der du am produktivsten bist. Selbstverständlich mit 4K-Display und schneller Performance.
   - header: Teamgeist auf Augenhöhe
-    text: Wir ziehen an einem Strang, unterstützen uns gegenseitig und begegnen
-      einander mit Respekt. Bei uns zählt das WIR - nicht nur im Projekt,
-      sondern auch im Alltag.
+    text: Wir ziehen an einem Strang, unterstützen uns gegenseitig und begegnen einander mit Respekt. Bei uns zählt das WIR - nicht nur im Projekt, sondern auch im Alltag.
   - header: Gemeinsame Erlebnisse
-    text: Ob Sommerfest, Monthly Breakfast oder Grillen auf dem Boot - wir feiern
-      Erfolge und das Miteinander regelmäßig. Denn ein starkes Team wächst auch
-      außerhalb des Büros zusammen.
+    text: Ob Sommerfest, Monthly Breakfast oder Grillen auf dem Boot - wir feiern Erfolge und das Miteinander regelmäßig. Denn ein starkes Team wächst auch außerhalb des Büros zusammen.
+type: career
 ---
 
 ::title-block{:image-pos="tl" :image-src="heroImage" :text-pos="r"}

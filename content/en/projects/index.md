@@ -1,8 +1,8 @@
 ---
-_path: /projects
-type: projects
 header: Projects Overview
 slug: projects
+type: projects
+_path: /projects
 ---
 
 ::title-block

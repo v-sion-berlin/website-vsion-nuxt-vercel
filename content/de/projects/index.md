@@ -1,7 +1,7 @@
 ---
-type: projects
 header: Projects Overview
 slug: projects
+type: projects
 ---
 
 ::title-block
