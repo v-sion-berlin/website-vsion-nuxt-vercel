@@ -206,3 +206,11 @@ h1 {
   width: max-content;
   margin: 0;
 }
+
+/* Nuxt studio side menu override */
+.sticky-header,
+.mobile-drawer,
+.mobile-overlay {
+  right: 0 !important;
+  left: auto;
+}
