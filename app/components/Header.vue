@@ -47,11 +47,14 @@
     <!-- mobile overlay -->
     <div
       class="mobile-overlay"
-      :class="{ active: drawerOpen }"
+      :class="{ active: drawerOpen, closed: drawerOpen! }"
       @click="toggleDrawer"
     ></div>
 
-    <div class="mobile-drawer" :class="{ open: drawerOpen }">
+    <div
+      class="mobile-drawer"
+      :class="{ open: drawerOpen, closed: drawerOpen! }"
+    >
       <div class="drawer-header">
         <div class="close-btn" @click="toggleDrawer">X</div>
       </div>
@@ -242,6 +245,7 @@ function scrollToTop() {
 }
 .mobile-drawer.open {
   right: 0;
+  display: flex;
 }
 
 .desktop-nav {
@@ -249,6 +253,10 @@ function scrollToTop() {
 }
 
 .mobile-only {
+  display: none;
+}
+
+.closed {
   display: none;
 }
 
