@@ -244,8 +244,8 @@ function scrollToTop() {
   z-index: 1000;
 }
 .mobile-drawer.open {
-  right: 0;
   display: flex;
+  opacity: 1;
 }
 
 .desktop-nav {
@@ -258,6 +258,7 @@ function scrollToTop() {
 
 .closed {
   display: none;
+  opacity: 0;
 }
 
 @media (max-width: 700px) {
