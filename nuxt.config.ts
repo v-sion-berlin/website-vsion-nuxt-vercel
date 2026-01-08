@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/icon",
     "@nuxt/fonts",
-    "@nuxt/fonts",
     "@nuxtjs/i18n",
     "nuxt-studio",
   ],
@@ -32,8 +31,8 @@ export default defineNuxtConfig({
     repository: {
       provider: "github",
       owner: "v-sion-berlin",
-      repo: "website-vsion-nuxt",
-      branch: "master",
+      repo: "website-vsion-nuxt-vercel",
+      branch: "main",
       private: false,
     },
   },
@@ -107,6 +106,12 @@ export default defineNuxtConfig({
           href: "/favicon-96x96.png",
           sizes: "96x96",
         },
+        // Classic favicon (important!)
+        {
+          rel: "icon",
+          href: "/favicon.ico",
+          sizes: "any",
+        },
         // Safari pinned tab
         {
           rel: "mask-icon",
@@ -116,7 +121,7 @@ export default defineNuxtConfig({
         // Apple touch icon (placeholder)
         {
           rel: "apple-touch-icon",
-          id: "apple-touch-icon",
+          sizes: "180x180",
           href: "/apple-touch-icon.png",
         },
         // Web manifest
