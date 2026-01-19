@@ -146,7 +146,7 @@ const sliderImagesFull = computed(
     props.sliderImages?.map((img) => ({
       ...img,
       src: `${appBaseURL}${img.src.replace(/^\/+/, "")}`,
-    })) || []
+    })) || [],
 );
 
 const projectsFull = computed(
@@ -159,7 +159,7 @@ const projectsFull = computed(
             src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
           }
         : undefined,
-    })) || []
+    })) || [],
 );
 
 function localizedPath(subTitle: string) {
@@ -176,7 +176,7 @@ const { data: projects } = await useAsyncData(
   },
   {
     watch: [locale, slug],
-  }
+  },
 );
 
 const {
@@ -218,12 +218,7 @@ const {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(0.8);
   transition: filter 0.3s ease;
-}
-
-.slide-card:hover img {
-  filter: brightness(1);
 }
 
 .slide-card h2 {
