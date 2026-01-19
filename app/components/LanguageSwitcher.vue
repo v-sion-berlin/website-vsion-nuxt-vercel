@@ -62,10 +62,6 @@ watch(locale, (val) => {
   margin-left: auto;
 }
 
-span {
-  filter: drop-shadow(0 0 8px white);
-}
-
 .language-switcher {
   position: relative;
   display: inline-block;
