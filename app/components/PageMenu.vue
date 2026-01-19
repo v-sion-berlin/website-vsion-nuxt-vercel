@@ -66,7 +66,7 @@ watch(
 
     currentPage.value = page ? page.name : "Menu";
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 onClickOutside(menuRef, () => {
@@ -109,10 +109,6 @@ onClickOutside(menuRef, () => {
   margin-left: auto;
 }
 
-span {
-  filter: drop-shadow(0 0 8px white);
-}
-
 .page-menu {
   position: relative;
   display: inline-block;
@@ -134,10 +130,6 @@ span {
   user-select: none;
   min-width: 160px;
   width: auto;
-}
-
-.menu-item:hover {
-  background-color: var(--color-grey-menu-item-hover);
 }
 
 .dropdown {
