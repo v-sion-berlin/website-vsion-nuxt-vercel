@@ -180,13 +180,9 @@ h1 {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(0.8);
   transition: filter 0.3s ease;
 }
 
-.project-card:hover img {
-  filter: brightness(1);
-}
 
 .project-card h2 {
   display: flex;
