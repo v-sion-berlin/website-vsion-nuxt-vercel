@@ -170,14 +170,14 @@ function scrollToTop() {
   background-color: var(--color-grey-menu-item-hover);
 }
 
-.glow-white {
+/* .menu-item:hover .glow-white {
   filter: drop-shadow(0 0 8px white);
   z-index: 50;
 }
 
-.glow-red {
+.menu-item:hover .glow-red {
   filter: drop-shadow(0 0 8px var(--color-primary));
-}
+} */
 
 #logo-vsion {
   gap: 2px;
