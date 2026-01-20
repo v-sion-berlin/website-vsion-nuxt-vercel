@@ -8,16 +8,20 @@ detailImage:
   alt: 3SAT
 header: 3SAT
 projectsHeader: Unsere Projekte
-sliderImages:
-  - src: /images/projects/test.jpg
+sliderItems:
+  - type: image
+    src: /images/projects/test.jpg
     alt: Studio View 1
-    title: Studio View vom 3SAT Studio
-  - src: /images/projects/test.jpg
+    title: Studio View from 3SAT Studio
+  - type: video
+    provider: vimeo
+    videoId: "1058566689"
+    title: Behind the Scenes
+    poster: /images/projects/idlePlay.jpg
+  - type: image
+    src: /images/projects/test.jpg
     alt: Studio View 2
     title: Wettervorschau Animation
-  - src: /images/projects/test.jpg
-    alt: Studio View 3
-    title: Setup Studio
 slug: project3sat
 table:
   header:
@@ -39,7 +43,7 @@ type: project
 ---
 :image-src: detailImage
 :projects-header: projectsHeader
-:slider-images: sliderImages
+:slider-items: sliderItems
 :table-details: table
 ---
 3SAT

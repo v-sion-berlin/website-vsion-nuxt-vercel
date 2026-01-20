@@ -8,22 +8,20 @@ detailImage:
   alt: ARD Logo
 header: ARD Mima
 projectsHeader: Unsere Projekte
-sliderImages:
-  - src: /images/projects/ARDMittagsmagazin/010-ard-mima-abmoderation.webp
+sliderItems:
+  - type: image
+    src: /images/projects/test.jpg
     alt: Studio View 1
-    title: Studio View mima
-  - src: /images/projects/ARDMittagsmagazin/011-ard-mima-bundestag.webp
+    title: Studio View from 3SAT Studio
+  - type: video
+    provider: vimeo
+    videoId: "1058566689"
+    title: Behind the Scenes
+    poster: /images/projects/idlePlay.jpg
+  - type: image
+    src: /images/projects/test.jpg
     alt: Studio View 2
-    title: Studio Bundestag
-  - src: /images/projects/ARDMittagsmagazin/003-ard-mima-schalte.webp
-    alt: Schaltgast
-    title: Studio Videoschalte
-  - src: /images/projects/ARDMittagsmagazin/007-ard-mima-news.webp
-    alt: Moderation
-    title: News
-  - src: /images/projects/ARDMittagsmagazin/004-ard-mima-talk.webp
-    alt: Studio Talk
-    title: Studio Talk
+    title: Wettervorschau Animation
 slug: ardmima
 table:
   header:
@@ -46,7 +44,7 @@ navigation:
 ---
 :image-src: detailImage
 :projects-header: projectsHeader
-:slider-images: sliderImages
+:slider-items: sliderItems
 :table-details: table
 ---
 ARD

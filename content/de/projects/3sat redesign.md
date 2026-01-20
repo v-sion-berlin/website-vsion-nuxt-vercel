@@ -8,28 +8,20 @@ detailImage:
   alt: 3SAT
 header: 3SAT
 projectsHeader: Unsere Projekte
-sliderImages:
-  - src: /images/projects/3sat/3sat-bunt.jpg
-    alt: 3sat Redesign Licht
-    title: Key Visual
-  - src: /images/projects/3sat/3sat-theatertreffen.jpg
-    alt: 3sat Redesign Theatertreffen
-    title: Sendehinweis
-  - src: /images/projects/3sat/3sat-iris.jpg
-    alt: 3sat Resdesign Iris
-    title: Branding
-  - src: /images/projects/3sat/3sat-stark.jpg
-    alt: 3sat Redesign Typoanimation
-    title: Typoanimation
-  - src: /images/projects/3sat/3sat-anders-menschen.jpg
-    alt: 3sat Redesign Menschen
-    title: Key Visual
-  - src: /images/projects/3sat/3sat-ein-rahmen.jpg
-    alt: Typo Brand ID
-    title: Branding
-  - src: /images/projects/3sat/3sat-wilde-schweiz.jpg
-    alt: 3sat Redesign Schweiz
-    title: Sendehinweis
+sliderItems:
+  - type: image
+    src: /images/projects/test.jpg
+    alt: Studio View 1
+    title: Studio View from 3SAT Studio
+  - type: video
+    provider: vimeo
+    videoId: "1058566689"
+    title: Behind the Scenes
+    poster: /images/projects/idlePlay.jpg
+  - type: image
+    src: /images/projects/test.jpg
+    alt: Studio View 2
+    title: Wettervorschau Animation
 slug: 3sat
 table:
   header:
@@ -54,7 +46,7 @@ seo:
 ---
 :image-src: detailImage
 :projects-header: projectsHeader
-:slider-images: sliderImages
+:slider-items: sliderItems
 :table-details: table
 ---
 3sat
