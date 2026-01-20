@@ -1,7 +1,7 @@
 <template>
   <div>
     <main>
-      <section class="image-wrapper">
+      <section class="image-wrapper wrapper">
         <div class="first-image">
           <img :src="useImagePath(careerImage1?.src)" v-if="careerImage1" />
         </div>
