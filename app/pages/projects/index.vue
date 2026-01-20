@@ -109,4 +109,8 @@ const projectsFull = computed(
   width: 400px;
   height: 300px;
 }
+
+.project-card a {
+  cursor: pointer !important;
+}
 </style>

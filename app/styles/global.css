@@ -220,7 +220,11 @@ h1 {
   -webkit-user-drag: none;
   user-select: none;
   cursor: none;
+}
 
+.project-card .pointer a {
+
+  cursor: drag;
 }
 
 .project-card img {
