@@ -1,7 +1,7 @@
 <template>
   <section v-if="activeIndex === blockIndex || activeIndex === -1">
     <section>
-      <div id="text-container">
+      <div id="text-container" class="wrapper">
         <main>
           <section>
             <h2 id="text-container-big">
@@ -18,7 +18,7 @@
       </div>
     </section>
 
-    <section id="projects" v-if="showProjects">
+    <section id="projects" v-if="showProjects" class="wrapper">
       <div class="scroll-wrapper">
         <button
           class="scroll-arrow left"
@@ -82,7 +82,7 @@ const { data: projects } = await useAsyncData(
   },
   {
     watch: [locale, slug],
-  }
+  },
 );
 
 const appBaseURL = useNuxtApp().$config.app.baseURL;
@@ -97,7 +97,7 @@ const projectsFull = computed(
             src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
           }
         : undefined,
-    })) || []
+    })) || [],
 );
 
 const {

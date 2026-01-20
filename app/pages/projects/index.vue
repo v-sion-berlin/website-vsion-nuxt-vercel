@@ -20,7 +20,7 @@ const { data: overview } = await useAsyncData(
   () => {
     return queryCollection(`projects_overview_${locale.value}`).first();
   },
-  { watch: [locale, slug] }
+  { watch: [locale, slug] },
 );
 
 const { data: projects } = await useAsyncData(
@@ -32,16 +32,16 @@ const { data: projects } = await useAsyncData(
   },
   {
     watch: [locale, slug],
-  }
+  },
 );
 
 const { data: contactDataRaw } = await useAsyncData(
   `contact-data`,
   () =>
     queryCollection(
-      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections
+      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections,
     ).first(),
-  { watch: [locale] }
+  { watch: [locale] },
 );
 
 const contactData = computed<ContactData | null>(() => {
@@ -64,7 +64,7 @@ const projectsFull = computed(
             src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
           }
         : undefined,
-    })) || []
+    })) || [],
 );
 </script>
 
@@ -74,7 +74,7 @@ const projectsFull = computed(
   </div>
 
   <section v-if="projects">
-    <div class="grid-overview">
+    <div class="grid-overview wrapper">
       <div
         v-for="project in projectsFull"
         :key="project.slug"

@@ -1,7 +1,7 @@
 <template>
   <section id="hero">
     <div id="headline">
-      <div class="headline-content">
+      <div class="headline-content wrapper">
         <h1 :class="{ 'text-right': textPos === 'r' }">
           <slot v-if="$slots.default" mdc-unwrap="p" />
         </h1>
@@ -70,7 +70,7 @@ defineProps<{
   position: relative;
   max-width: 100%;
   padding: clamp(10rem, 12vw, 13.75rem) clamp(2rem, 10vw, 19.125rem)
-    clamp(2rem, 5vw, 4rem) clamp(0rem, 5vw, 5.625rem);
+    clamp(2rem, 5vw, 4rem) 0;
   overflow-x: clip;
 }
 
