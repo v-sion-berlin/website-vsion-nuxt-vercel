@@ -1,5 +1,5 @@
 <template>
-  <div id="text-container" class="career-container">
+  <div id="text-container" class="career-container wrapper">
     <main>
       <section>
         <div class="card">
