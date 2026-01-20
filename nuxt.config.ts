@@ -49,6 +49,8 @@ export default defineNuxtConfig({
     },
   },
 
+  css: ["plyr/dist/plyr.css"],
+
   app: {
     // baseURL: process.env.NUXT_APP_BASE_URL || "/",
     baseURL: "/",
