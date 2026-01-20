@@ -106,13 +106,23 @@ const projectSchema = z.object({
       technologies: z.array(z.string()).optional(),
     })
     .optional(),
-  sliderImages: z
+  sliderItems: z
     .array(
-      z.object({
-        src: property(z.string()).editor({ input: "media" }),
-        alt: z.string(),
-        title: z.string(),
-      })
+      z.union([
+        z.object({
+          type: z.literal("image"),
+          src: property(z.string()).editor({ input: "media" }),
+          alt: z.string(),
+          title: z.string(),
+        }),
+        z.object({
+          type: z.literal("video"),
+          provider: z.enum(["vimeo", "youtube"]),
+          videoId: z.string(),
+          title: z.string(),
+          poster: property(z.string()).editor({ input: "media" }).optional(),
+        }),
+      ]),
     )
     .optional(),
 });
@@ -131,7 +141,7 @@ const teamPageSchema = z.object({
         alt: z.string(),
         text: z.string(),
         alignment: z.string(),
-      })
+      }),
     )
     .optional(),
 });
@@ -244,7 +254,7 @@ const careerPageSchema = z.object({
       z.object({
         header: z.string(),
         text: z.string(),
-      })
+      }),
     )
     .optional(),
 });
