@@ -1,5 +1,5 @@
 <template>
-  <div id="text-container">
+  <div id="text-container" class="wrapper">
     <main>
       <section>
         <h2>
@@ -15,8 +15,8 @@
 
 <style scoped>
 #text-container {
-  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 12vw, 200px)
-    clamp(4rem, 5vw, 4rem) clamp(1rem, 12vw, 200px);
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 10vw, 19.125rem)
+    clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
   z-index: 200;
   position: relative;
 }
