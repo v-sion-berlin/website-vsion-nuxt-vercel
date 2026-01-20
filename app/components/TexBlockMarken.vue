@@ -1,5 +1,5 @@
 <template>
-  <div id="text-container">
+  <div id="text-container" class="wrapper">
     <main>
       <section>
         <h2>{{ page.textblock_marken_header }}</h2>
