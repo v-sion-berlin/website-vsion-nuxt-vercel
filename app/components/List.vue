@@ -174,12 +174,25 @@ const menuItems = [
   font-size: clamp(20px, 4vw, 40px);
   font-weight: 500;
   line-height: clamp(28px, 5vw, 56px);
-  padding: clamp(2rem, 3vw, 3rem) clamp(1rem, 5vw, 19.125rem)
-    clamp(2rem, 3vw, 3rem) clamp(1rem, 5vw, 5.625rem);
+  padding: clamp(2rem, 3vw, 3rem) 0;
   border-style: solid;
   border-color: #222;
   border-width: 1px 0;
   cursor: pointer;
+}
+
+.vertical-menu li .menu-link > span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  max-width: 1440px;
+  margin-inline: auto;
+
+  padding-left: clamp(1rem, 5vw, 5.625rem);
+  padding-right: clamp(1rem, 10vw, 19.125rem);
+  transition:
+    transform 0.5s ease,
+    opacity 0.3s ease;
 }
 
 /* Background animation */
