@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <div id="contact-section">
+    <div id="contact-section" class="wrapper">
       <div class="contact-left">
         <h2>{{ page.header }}</h2>
         <div class="button-container">
