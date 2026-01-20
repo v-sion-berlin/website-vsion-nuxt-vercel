@@ -46,7 +46,7 @@
     </div>
   </section>
 
-  <section id="projects" v-if="sliderImages?.length" class="wrapper">
+  <section v-if="sliderItems?.length" class="wrapper">
     <div class="header">{{ sliderHeader }}</div>
 
     <div class="scroll-wrapper">
@@ -55,17 +55,65 @@
         v-show="showLeftSliderArrow"
         @click="scrollLeft()"
       >
-        <div class="arrow"><</div>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
       </button>
 
       <div class="grid" ref="sliderRef">
         <div
-          v-for="(slide, index) in sliderImagesFull"
+          v-for="(item, index) in sliderItemsFull"
           :key="index"
           class="slide-card"
+          :class="{ 'is-video': item.type === 'video' }"
         >
-          <img :src="slide.src" :alt="slide.alt" />
-          <h2>{{ slide.title }}</h2>
+          <!-- image slide -->
+          <template v-if="item.type === 'image'">
+            <img :src="item.src" :alt="item.alt" />
+          </template>
+
+          <!-- video slide -->
+          <template v-else-if="item.type === 'video'">
+            <div
+              class="video-poster"
+              v-if="!activeVideoIndex || activeVideoIndex !== index"
+              @click="playVideo(index)"
+            >
+              <img
+                :src="item.poster || '/images/projects/test.jpg'"
+                :alt="item.title"
+              />
+              <button class="play-button" aria-label="Play video">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </button>
+            </div>
+
+            <div
+              v-else
+              class="video-player"
+              :ref="(el) => setVideoRef(el, index)"
+            >
+              <div class="plyr__video-embed">
+                <iframe
+                  :src="getVideoEmbedUrl(item)"
+                  allowfullscreen
+                  allowtransparency
+                  allow="autoplay"
+                ></iframe>
+              </div>
+            </div>
+          </template>
+
+          <h2 v-if="item.type === 'image' || activeVideoIndex !== index">
+            {{ item.title }}
+          </h2>
         </div>
       </div>
 
@@ -74,7 +122,14 @@
         v-show="showRightSliderArrow"
         @click="scrollRight()"
       >
-        <div class="arrow">></div>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M9 18l6-6-6-6" />
+        </svg>
       </button>
     </div>
   </section>
@@ -88,7 +143,14 @@
         v-show="showLeftProjectArrow"
         @click="scrollLeftGrid()"
       >
-        <div class="arrow"><</div>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
       </button>
 
       <div class="grid" ref="gridRef">
@@ -113,7 +175,14 @@
         v-show="showRightProjectArrow"
         @click="scrollRightGrid()"
       >
-        <div class="arrow">></div>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M9 18l6-6-6-6" />
+        </svg>
       </button>
     </div>
   </section>
@@ -124,10 +193,25 @@ import { useImagePath } from "~/composables/useImagePath";
 
 const { locale } = useI18n();
 const route = useRoute();
-
 const slug = computed(() => String(route.params.slug ?? ""));
-
 const appBaseURL = useNuxtApp().$config.app.baseURL;
+
+interface SliderImage {
+  type: "image";
+  src: string;
+  alt: string;
+  title: string;
+}
+
+interface SliderVideo {
+  type: "video";
+  provider: "vimeo" | "youtube";
+  videoId: string;
+  title: string;
+  poster?: string;
+}
+
+type SliderItem = SliderImage | SliderVideo;
 
 const props = defineProps<{
   imageSrc?: { src: string; alt: string };
@@ -138,16 +222,32 @@ const props = defineProps<{
   };
   projectsHeader?: string;
   sliderHeader?: string;
-  sliderImages?: { src: string; alt: string; title: string }[];
+  sliderItems?: SliderItem[];
 }>();
 
-const sliderImagesFull = computed(
-  () =>
-    props.sliderImages?.map((img) => ({
-      ...img,
-      src: `${appBaseURL}${img.src.replace(/^\/+/, "")}`,
-    })) || [],
-);
+const activeVideoIndex = ref<number | null>(null);
+const videoRefs = ref<Map<number, HTMLElement>>(new Map());
+let playerInstances = new Map<number, any>();
+
+const sliderItemsFull = computed(() => {
+  const items = props.sliderItems || [];
+
+  return items.map((item) => {
+    if (item.type === "image" || !item.type) {
+      return {
+        ...item,
+        type: "image" as const,
+        src: `${appBaseURL}${(item as SliderImage).src.replace(/^\/+/, "")}`,
+      };
+    }
+    return {
+      ...item,
+      poster: (item as SliderVideo).poster
+        ? `${appBaseURL}${(item as SliderVideo).poster!.replace(/^\/+/, "")}`
+        : undefined,
+    };
+  });
+});
 
 const projectsFull = computed(
   () =>
@@ -162,10 +262,86 @@ const projectsFull = computed(
     })) || [],
 );
 
-function localizedPath(subTitle: string) {
+const localizedPath = (subTitle: string) => {
   const isGerman = locale.value === "de";
   return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
-}
+};
+
+const getVideoEmbedUrl = (item: SliderVideo): string => {
+  if (item.provider === "vimeo") {
+    return `https://player.vimeo.com/video/${item.videoId}?autoplay=1&loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media`;
+  }
+  if (item.provider === "youtube") {
+    return `https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`;
+  }
+  return "";
+};
+
+const playVideo = async (index: number) => {
+  if (activeVideoIndex.value !== null && activeVideoIndex.value !== index) {
+    destroyPlayer(activeVideoIndex.value);
+  }
+
+  activeVideoIndex.value = index;
+
+  await nextTick();
+
+  const container = videoRefs.value.get(index);
+  if (container) {
+    const Plyr = (await import("plyr")).default;
+    const playerElement = container.querySelector(".plyr__video-embed");
+
+    if (playerElement) {
+      const player = new Plyr(playerElement as HTMLElement, {
+        controls: [
+          "play-large",
+          "play",
+          "progress",
+          "current-time",
+          "mute",
+          "volume",
+          "settings",
+          "pip",
+          "fullscreen",
+        ],
+        vimeo: {
+          byline: false,
+          portrait: false,
+          title: false,
+          speed: true,
+          transparent: false,
+        },
+        youtube: {
+          noCookie: true,
+          rel: 0,
+          showinfo: 0,
+          modestbranding: 1,
+        },
+      });
+
+      playerInstances.set(index, player);
+    }
+  }
+};
+
+const destroyPlayer = (index: number) => {
+  const player = playerInstances.get(index);
+  if (player) {
+    player.destroy();
+    playerInstances.delete(index);
+  }
+};
+
+const setVideoRef = (el: any, index: number) => {
+  if (el) {
+    videoRefs.value.set(index, el);
+  }
+};
+
+onBeforeUnmount(() => {
+  playerInstances.forEach((player) => player.destroy());
+  playerInstances.clear();
+});
 
 const { data: projects } = await useAsyncData(
   () => `projects-${locale.value}-${slug.value}`,
@@ -200,6 +376,36 @@ const {
 .grid {
   margin-bottom: 5rem;
   margin-top: 5rem;
+
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: none;
+
+  user-select: none;
+}
+
+.grid::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-card img,
+.project-card a img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.slide-card img,
+.project-card img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .slide-card {
@@ -209,7 +415,7 @@ const {
   overflow: hidden;
   position: relative;
   scroll-snap-align: start;
-  cursor: grab;
+  cursor: none;
   transition: transform 0.3s ease;
 }
 
@@ -219,6 +425,7 @@ const {
   object-fit: cover;
   display: block;
   transition: filter 0.3s ease;
+  cursor: none;
 }
 
 .slide-card h2 {
@@ -232,7 +439,7 @@ const {
   padding: 19px 32px;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  cursor: pointer;
+  cursor: none;
   border-radius: 16px;
   color: var(--color-text);
   font-size: clamp(16px, 2vw, 24px);
@@ -325,5 +532,78 @@ const {
 .img {
   width: clamp(80px, 10vw, 137px);
   margin-left: auto;
+}
+
+/* video slide */
+.slide-card.is-video {
+  background: #000;
+}
+
+.video-poster {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: none;
+}
+
+.video-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.play-button svg {
+  width: 40px;
+  height: 40px;
+  color: white;
+  margin-left: 4px;
+}
+
+.play-button:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+}
+
+.video-player .plyr__video-embed {
+  width: 100%;
+  height: 100%;
+}
+
+.video-player .plyr__video-embed iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.slide-card :deep(.plyr) {
+  width: 100%;
+  height: 100%;
+}
+
+.slide-card :deep(.plyr__video-wrapper) {
+  height: 100%;
 }
 </style>
