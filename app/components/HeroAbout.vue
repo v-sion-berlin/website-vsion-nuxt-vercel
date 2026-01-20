@@ -4,36 +4,44 @@
     <section id="headline">
       <img :src="useImagePath(page.heroImage?.src)" class="blur-img" />
       <img :src="useImagePath(page.heroImage?.src)" class="img" />
-      <h1>{{ page?.header }}</h1>
-      <h2>{{ page.subTitle }}</h2>
+      <div class="wrapper">
+        <h1>{{ page?.header }}</h1>
+        <h2>{{ page.subTitle }}</h2>
+      </div>
     </section>
 
     <!-- Address Cards Section -->
     <section id="card-section">
-      <div class="card" v-if="page.addressBerlin">
-        <h3>{{ page.addressBerlin.company }}</h3>
-        <p>{{ page.addressBerlin.street }}</p>
-        <p>{{ page.addressBerlin.zip }}</p>
-        <p v-if="page.addressBerlin.phone">T: {{ page.addressBerlin.phone }}</p>
-        <p v-if="page.addressBerlin.fax">F: {{ page.addressBerlin.fax }}</p>
-      </div>
+      <div class="wrapper card-grid">
+        <div class="card" v-if="page.addressBerlin">
+          <h3>{{ page.addressBerlin.company }}</h3>
+          <p>{{ page.addressBerlin.street }}</p>
+          <p>{{ page.addressBerlin.zip }}</p>
+          <p v-if="page.addressBerlin.phone">
+            T: {{ page.addressBerlin.phone }}
+          </p>
+          <p v-if="page.addressBerlin.fax">F: {{ page.addressBerlin.fax }}</p>
+        </div>
 
-      <div class="card" v-if="page.addressZDF">
-        <h3>{{ page.addressZDF.company }}</h3>
-        <p>{{ page.addressZDF.street }}</p>
-        <p>{{ page.addressZDF.zip }}</p>
-        <p v-if="page.addressZDF.phone">T: {{ page.addressZDF.phone }}</p>
-        <p v-if="page.addressZDF.fax">F: {{ page.addressZDF.fax }}</p>
+        <div class="card" v-if="page.addressZDF">
+          <h3>{{ page.addressZDF.company }}</h3>
+          <p>{{ page.addressZDF.street }}</p>
+          <p>{{ page.addressZDF.zip }}</p>
+          <p v-if="page.addressZDF.phone">T: {{ page.addressZDF.phone }}</p>
+          <p v-if="page.addressZDF.fax">F: {{ page.addressZDF.fax }}</p>
+        </div>
       </div>
     </section>
 
     <!-- Amtsgericht Section -->
     <section id="card-section-long">
-      <div class="card">
-        <p>
-          {{ page.courtInfo?.text }} <br />
-          {{ page.courtInfo?.hrb }}
-        </p>
+      <div class="wrapper">
+        <div class="card">
+          <p>
+            {{ page.courtInfo?.text }} <br />
+            {{ page.courtInfo?.hrb }}
+          </p>
+        </div>
       </div>
     </section>
   </div>
@@ -54,14 +62,14 @@ const props = defineProps<{
 #hero {
   position: relative;
   overflow-x: hidden;
-  min-height: max-content;
+  min-height: clamp(500px, 90vw, 2500px);
 }
 
 #hero #headline {
   position: relative;
   max-width: 100%;
-  padding: clamp(10rem, 12vw, 13.75rem) clamp(2rem, 20vw, 19.125rem)
-    clamp(2rem, 5vw, 4rem) clamp(0rem, 5vw, 5.625rem);
+  padding: clamp(10rem, 12vw, 13.75rem) clamp(1rem, 10vw, 19.125rem)
+    clamp(2rem, 5vw, 4rem) 0;
 }
 
 .img,
@@ -120,11 +128,14 @@ p {
 }
 
 #card-section {
+  padding-top: clamp(10rem, 12vw, 13.75rem);
+  padding-bottom: 2rem;
+}
+
+.card-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  padding: clamp(10rem, 12vw, 13.75rem) clamp(2rem, 0vw, 19.125rem) 2rem
-    clamp(0rem, 5vw, 5.625rem);
 }
 
 .card {
@@ -136,9 +147,11 @@ p {
 }
 
 #card-section-long {
-  display: flex;
-  padding: 0 clamp(2rem, 0vw, 19.125rem) clamp(2rem, 4vw, 4rem)
-    clamp(0rem, 5vw, 5.625rem);
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+}
+
+#card-section-long .card {
+  flex: 1;
 }
 
 #card-section-long p {
