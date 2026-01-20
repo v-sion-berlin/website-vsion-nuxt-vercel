@@ -1,8 +1,8 @@
 <template>
   <section>
-    <div id="headline">
+    <div id="headline" class="wrapper">
       <h1>
-        <div>
+        <div style="display: flex">
           <slot mdc-unwrap="p" />
           <div class="project-name">
             <slot name="project-name" mdc-unwrap="p" />
@@ -12,11 +12,11 @@
             class="img"
             v-if="props.imageSrc"
           />
-          <img
+          <!-- <img
             :src="useImagePath(imageSrc?.src)"
             class="blur-img"
             v-if="props.imageSrc"
-          />
+          /> -->
         </div>
       </h1>
       <div id="text-container-big">
@@ -28,7 +28,7 @@
     </div>
   </section>
 
-  <section id="table">
+  <section id="table" class="wrapper">
     <div class="table-col" v-if="tableDetails?.tasks?.length">
       <div class="table-header">{{ tableDetails.header.firstCol }}</div>
       <ul class="table-list">
@@ -46,7 +46,7 @@
     </div>
   </section>
 
-  <section id="projects" v-if="sliderImages?.length">
+  <section id="projects" v-if="sliderImages?.length" class="wrapper">
     <div class="header">{{ sliderHeader }}</div>
 
     <div class="scroll-wrapper">
@@ -79,7 +79,7 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="wrapper">
     <div class="header">{{ projectsHeader }}</div>
 
     <div class="scroll-wrapper">
@@ -242,8 +242,7 @@ const {
 
 #headline {
   position: relative;
-  max-width: 100%;
-  padding: clamp(10rem, 12vw, 13.75rem) clamp(2rem, 20vw, 19.125rem)
+  padding: clamp(10rem, 12vw, 13.75rem) clamp(0rem, 5vw, 3rem)
     clamp(2rem, 5vw, 4rem) clamp(0rem, 5vw, 5.625rem);
   overflow-x: clip;
 }
@@ -324,9 +323,7 @@ const {
 }
 
 .img {
-  z-index: -100;
-  position: absolute;
-  left: 100%;
   width: clamp(80px, 10vw, 137px);
+  margin-left: auto;
 }
 </style>
