@@ -25,7 +25,14 @@
           v-show="showLeftProjectArrow"
           @click="scrollLeftGrid()"
         >
-          <div class="arrow"><</div>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
         </button>
 
         <div class="grid" ref="gridRef">
@@ -50,7 +57,14 @@
           v-show="showRightProjectArrow"
           @click="scrollRightGrid()"
         >
-          <div class="arrow">></div>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </button>
       </div>
     </section>
