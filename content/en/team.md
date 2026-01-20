@@ -7,7 +7,7 @@ headerLine2: in business
 images:
   - src: /images/bg_team_card_1.png
     alt: Hero image showing Berlin skyline
-    text: "V/SION is not just a service provider, but a partner: we think along with our clients, put ourselves in their world, and set new standards with our solutions."
+    text: "v-sion is not just a service provider, but a partner: we think along with our clients, put ourselves in their world, and set new standards with our solutions."
     alignment: left
   - src: /images/bg_team_card_1.png
     alt: Hero image showing Berlin skyline

@@ -19,7 +19,7 @@ _path: /services
 ---
 
 ::title-block{:image-pos="tr" :image-src="heroImage"}
-We analyze, advise, plan, design, conceptualize, optimize, and deliver
+We analyze, advise, plan, design, conceptualize, optimize and deliver
 ::
 
 ::indented-text-block
