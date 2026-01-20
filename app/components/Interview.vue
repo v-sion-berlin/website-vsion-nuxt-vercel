@@ -21,14 +21,18 @@
         <transition name="video-fade">
           <div class="video-container" v-if="isVideoOpen">
             <button class="close-btn" @click.stop="collapseVideo">✕</button>
-            <iframe
-              src="https://player.vimeo.com/video/1058566689?loop=false&autoplay=true&muted=false&gesture=media&playsinline=false&byline=false&portrait=false&title=false&speed=true&transparent=false&dnt=true&h=fefa83d4e9"
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-            ></iframe>
+            <div class="plyr__video-embed" ref="playerContainer">
+              <iframe
+                src="https://player.vimeo.com/video/1058566689?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media"
+                allowfullscreen
+                allowtransparency
+                allow="autoplay"
+              ></iframe>
+            </div>
           </div>
         </transition>
       </div>
+
       <div class="video-source" v-if="isVideoOpen">
         {{ page.interview_source_text }}
         <a
@@ -47,14 +51,23 @@
 import { ref } from "vue";
 
 const isVideoOpen = ref(false);
+let player: any = null;
+const playerContainer = ref<HTMLElement | null>(null);
 
 function toggleVideo() {
-  isVideoOpen.value = !isVideoOpen.value;
+  if (!isVideoOpen.value) {
+    isVideoOpen.value = true;
+  }
 }
 
 function collapseVideo() {
+  if (player) {
+    player.destroy();
+    player = null;
+  }
   isVideoOpen.value = false;
 }
+
 interface Interview {
   interview_header: string;
   interview_body: string;
@@ -65,6 +78,46 @@ interface Interview {
 const props = defineProps<{
   page: Interview;
 }>();
+
+watch(isVideoOpen, async (newVal) => {
+  if (newVal) {
+    await nextTick();
+
+    const Plyr = (await import("plyr")).default;
+
+    if (playerContainer.value) {
+      player = new Plyr(playerContainer.value, {
+        controls: [
+          "play-large",
+          "play",
+          "progress",
+          "current-time",
+          "mute",
+          "volume",
+          "captions",
+          "settings",
+          "pip",
+          "airplay",
+          "fullscreen",
+        ],
+        settings: ["captions", "quality", "speed"],
+        vimeo: {
+          byline: false,
+          portrait: false,
+          title: false,
+          speed: true,
+          transparent: false,
+        },
+      });
+    }
+  }
+});
+
+onBeforeUnmount(() => {
+  if (player) {
+    player.destroy();
+  }
+});
 </script>
 
 <style scoped>
@@ -104,9 +157,9 @@ const props = defineProps<{
 .video-container {
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
   border-radius: 16px;
   overflow: hidden;
   z-index: 1;
