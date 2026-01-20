@@ -1,7 +1,7 @@
 <template>
   <section>
     <div
-      class="card"
+      class="card wrapper"
       :class="getAlignmentClass(image)"
       v-for="image in imagesArray"
     >
@@ -35,7 +35,8 @@ section {
   align-items: center;
   justify-content: center;
   gap: clamp(1rem, 5vw, 6rem);
-  padding: 4rem clamp(0rem, 5vw, 5.625rem);
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 10vw, 19.125rem)
+    clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
 }
 
 .alignment-right {
