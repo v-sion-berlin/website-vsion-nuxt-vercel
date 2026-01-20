@@ -1,5 +1,5 @@
 <template>
-  <section id="menu">
+  <section id="menu" class="wrapper">
     <div v-if="menu?.items?.length" class="scroll-wrapper">
       <button
         class="scroll-arrow left"
