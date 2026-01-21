@@ -7,6 +7,7 @@ interface SliderOptions {
   continuous?: boolean;
   speed?: number;
   showCustomCursor?: boolean;
+  onClone?: (clone: HTMLElement, original: HTMLElement, index: number) => void;
 }
 
 export const useHorizontalSlider = (options: SliderOptions = {}) => {
@@ -17,6 +18,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     continuous = false,
     speed = 1,
     showCustomCursor = true,
+    onClone,
   } = options;
 
   const sliderRef = ref<HTMLElement | null>(null);
@@ -109,10 +111,15 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     const clonesNeeded = Math.ceil((viewportWidth * 2) / originalWidth) + 1;
 
     for (let i = 0; i < clonesNeeded; i++) {
-      children.forEach((child) => {
+      children.forEach((child, index) => {
         const clone = child.cloneNode(true) as HTMLElement;
         clone.setAttribute("data-clone", "true");
+        clone.setAttribute("data-clone-index", String(index));
         slider.appendChild(clone);
+
+        if (onClone) {
+          onClone(clone, child, index);
+        }
       });
     }
 
@@ -120,7 +127,12 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
       for (let j = children.length - 1; j >= 0; j--) {
         const clone = children[j]?.cloneNode(true) as HTMLElement;
         clone.setAttribute("data-clone", "true");
+        clone.setAttribute("data-clone-index", String(j));
         slider.insertBefore(clone, slider.firstChild);
+
+        if (onClone) {
+          onClone(clone, children[j]!, j);
+        }
       }
     }
 
@@ -461,9 +473,9 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     sliderRef,
     showLeftSliderArrow,
     showRightSliderArrow,
-    scrollLeft: (amount = 300) =>
+    scrollLeft: (amount = 500) =>
       sliderRef.value?.scrollBy({ left: -amount, behavior: "smooth" }),
-    scrollRight: (amount = 300) =>
+    scrollRight: (amount = 500) =>
       sliderRef.value?.scrollBy({ left: amount, behavior: "smooth" }),
     startAutoPlay,
     stopAutoPlay,

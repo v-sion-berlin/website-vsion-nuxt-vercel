@@ -363,8 +363,8 @@ const {
   scrollRight,
 } = useHorizontalSlider({
   autoPlay: true,
-  continuous: true,
-  speed: 1.5,
+  autoPlayInterval: 3000,
+  continuous: false,
   pauseOnHover: true,
 });
 
@@ -375,9 +375,9 @@ const {
   scrollLeft: scrollLeftGrid,
   scrollRight: scrollRightGrid,
 } = useHorizontalSlider({
-  autoPlay: false,
+  autoPlay: true,
   continuous: true,
-  speed: 1.5,
+  speed: 0.8,
   pauseOnHover: true,
 });
 </script>
