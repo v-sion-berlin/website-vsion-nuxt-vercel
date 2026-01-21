@@ -82,6 +82,7 @@ const projectSchema = z.object({
   header: z.string().optional(),
   slug: z.string().optional(),
   projectsHeader: z.string().optional(),
+  sliderHeader: z.string().optional(),
   coverImage: z
     .object({
       src: property(z.string()).editor({ input: "media" }),
