@@ -8,6 +8,7 @@ detailImage:
   alt: 3SAT
 header: 3SAT
 projectsHeader: Unsere Projekte
+sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
     src: /images/projects/test.jpg
@@ -46,6 +47,7 @@ seo:
 ---
 :image-src: detailImage
 :projects-header: projectsHeader
+:slider-header: sliderHeader
 :slider-items: sliderItems
 :table-details: table
 ---

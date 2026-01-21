@@ -8,6 +8,7 @@ detailImage:
   alt: Another
 header: Another
 projectsHeader: Our Projects
+sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
     src: /images/projects/test.jpg
@@ -43,6 +44,7 @@ type: project
 ---
 :image-src: detailImage
 :projects-header: projectsHeader
+:slider-header: sliderHeader
 :slider-items: sliderItems
 :table-details: table
 ---

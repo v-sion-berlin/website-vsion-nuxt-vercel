@@ -8,6 +8,7 @@ detailImage:
   alt: ARD Logo
 header: ARD Mima
 projectsHeader: Unsere Projekte
+sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
     src: /images/projects/test.jpg
@@ -44,6 +45,7 @@ navigation:
 ---
 :image-src: detailImage
 :projects-header: projectsHeader
+:slider-header: sliderHeader
 :slider-items: sliderItems
 :table-details: table
 ---
