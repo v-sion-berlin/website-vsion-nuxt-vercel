@@ -361,7 +361,12 @@ const {
   showRightSliderArrow,
   scrollLeft,
   scrollRight,
-} = useHorizontalSlider();
+} = useHorizontalSlider({
+  autoPlay: true,
+  continuous: true,
+  speed: 1.5,
+  pauseOnHover: true,
+});
 
 const {
   sliderRef: gridRef,
@@ -369,24 +374,25 @@ const {
   showRightSliderArrow: showRightProjectArrow,
   scrollLeft: scrollLeftGrid,
   scrollRight: scrollRightGrid,
-} = useHorizontalSlider();
+} = useHorizontalSlider({
+  autoPlay: false,
+  continuous: true,
+  speed: 1.5,
+  pauseOnHover: true,
+});
 </script>
 
 <style scoped>
 .grid {
   margin-bottom: 5rem;
   margin-top: 5rem;
-
   display: flex;
   gap: 1rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: none;
-
   user-select: none;
 }
 
@@ -414,7 +420,6 @@ const {
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
-  scroll-snap-align: start;
   cursor: none;
   transition: transform 0.3s ease;
 }
@@ -442,7 +447,7 @@ const {
   cursor: none;
   border-radius: 16px;
   color: var(--color-text);
-  font-size: clamp(16px, 2vw, 24px);
+  font-size: clamp(8px, 2vw, 24px);
   width: max-content;
   margin: 0;
 }
