@@ -20,7 +20,7 @@ const props = defineProps<{
     <section>
       <img :src="useImagePath(page.heroImage?.src)" class="blur-img" />
       <img :src="useImagePath(page.heroImage?.src)" class="img" />
-      <div class="wrapper">
+      <div>
         <h1>{{ page.hero }}</h1>
       </div>
     </section>
@@ -36,9 +36,8 @@ const props = defineProps<{
 
 #hero section {
   position: relative;
-  max-width: 100%;
   padding: clamp(10rem, 12vw, 13.75rem) clamp(1rem, 10vw, 19.125rem)
-    clamp(2rem, 5vw, 4rem) 0;
+    clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
 }
 
 .img,
