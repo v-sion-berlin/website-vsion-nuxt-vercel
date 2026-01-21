@@ -123,6 +123,7 @@ provide("team", teamTransformed);
 
 <style>
 .about {
-  padding: unset !important;
+  padding: clamp(2rem, 5vw, 4rem) 0 clamp(2rem, 5vw, 4rem) 0 !important;
+  padding-inline: clamp(1rem, 5vw, 5.625rem) !important;
 }
 </style>
