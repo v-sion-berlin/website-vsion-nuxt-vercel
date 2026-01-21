@@ -10,10 +10,10 @@ const route = useRoute();
 
 const slug = computed(() => String(route.params.slug ?? ""));
 
-function localizedPath(subTitle: string) {
+const localizedPath = (subTitle: string) => {
   const isGerman = locale.value === "de";
   return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
-}
+};
 
 const { data: overview } = await useAsyncData(
   `projects-overview-${locale.value}`,
