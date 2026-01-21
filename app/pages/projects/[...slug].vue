@@ -18,16 +18,16 @@ const { data: project } = await useAsyncData(
   () => {
     return queryCollection(`projects_${locale.value}`).path(route.path).first();
   },
-  { watch: [locale, slug] }
+  { watch: [locale, slug] },
 );
 
 const { data: contactDataRaw } = await useAsyncData(
   `contact-data`,
   () =>
     queryCollection(
-      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections
+      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections,
     ).first(),
-  { watch: [locale] }
+  { watch: [locale] },
 );
 
 const contactData = computed<ContactData | null>(() => {
@@ -40,9 +40,9 @@ const contactData = computed<ContactData | null>(() => {
 </script>
 
 <template>
-  <article v-if="project">
+  <section v-if="project">
     <ContentRenderer :value="project" />
-  </article>
+  </section>
 
   <div v-else>
     <h1>Project not found</h1>
