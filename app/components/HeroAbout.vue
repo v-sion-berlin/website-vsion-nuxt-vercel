@@ -1,12 +1,13 @@
 <template>
   <div id="hero" v-if="page">
     <!-- Hero Section -->
-    <section id="headline">
+    <section id="headline" class="wrapper">
       <img :src="useImagePath(page.heroImage?.src)" class="blur-img" />
       <img :src="useImagePath(page.heroImage?.src)" class="img" />
-      <div class="wrapper">
+      <div>
         <h1>{{ page?.header }}</h1>
-        <h2>{{ page.subTitle }}</h2>
+        <h2>{{ page.subTitlePhone }}</h2>
+        <h2>{{ page.subTitleMail }}</h2>
       </div>
     </section>
 
@@ -70,8 +71,8 @@ const props = defineProps<{
 #hero #headline {
   position: relative;
   max-width: 100%;
-  padding-top: clamp(10rem, 12vw, 13.75rem);
-  padding-bottom: clamp(2rem, 5vw, 4rem);
+  padding: clamp(10rem, 12vw, 13.75rem) clamp(1rem, 10vw, 19.125rem)
+    clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
 }
 
 .img,
@@ -158,5 +159,13 @@ p {
 
 #card-section-long p {
   margin: 0;
+}
+
+h2:first-of-type {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+h2 {
+  margin-top: 0;
 }
 </style>
