@@ -46,7 +46,7 @@
     </div>
   </section>
 
-  <section v-if="sliderItems?.length" class="wrapper">
+  <section v-if="sliderItems?.length" id="projects" class="wrapper">
     <div class="header">{{ sliderHeader }}</div>
 
     <div class="scroll-wrapper">
@@ -449,13 +449,14 @@ const {
 
 #headline {
   position: relative;
-  padding: clamp(10rem, 12vw, 13.75rem) clamp(0rem, 5vw, 3rem)
-    clamp(2rem, 5vw, 4rem) clamp(0rem, 5vw, 5.625rem);
+  padding: clamp(10rem, 12vw, 13.75rem) clamp(1rem, 10vw, 19.125rem)
+    clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
   overflow-x: clip;
 }
 
 #table {
-  padding: 4rem clamp(0rem, 5vw, 5.625rem) 0 clamp(0rem, 5vw, 5.625rem);
+  padding: 4rem clamp(1rem, 10vw, 19.125rem) clamp(2rem, 5vw, 4rem)
+    clamp(1rem, 5vw, 5.625rem);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(288px, 100%), 1fr));
   gap: 7rem;
@@ -498,6 +499,7 @@ const {
   padding-left: clamp(1rem, 2vw, 5rem);
   display: inline-flex;
 }
+
 .project-name * {
   font-weight: inherit;
   font-style: inherit;
