@@ -151,7 +151,8 @@ h1 {
 /* Projects slider */
 
 #projects {
-  padding: 0 clamp(0rem, 5vw, 5.625rem) 0 clamp(0rem, 5vw, 5.625rem);
+  padding: 0 clamp(1rem, 10vw, 19.125rem)
+    clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
 }
 
 .grid {
@@ -192,6 +193,13 @@ h1 {
 }
 
 #projects .header {
+  font-size: clamp(2rem, 5vw, 50px);
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.header {
   font-size: clamp(2rem, 5vw, 50px);
   font-weight: 500;
   margin-top: 0;
