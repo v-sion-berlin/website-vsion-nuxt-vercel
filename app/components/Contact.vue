@@ -97,6 +97,8 @@ function copyEmail(source: "button" | "email") {
   background-color: #000;
   color: #fff;
   position: relative;
+  max-width: 1440px;
+  margin-inline: auto;
 }
 
 .contact-left,
