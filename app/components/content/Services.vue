@@ -66,7 +66,13 @@ const {
   showRightSliderArrow,
   scrollLeft,
   scrollRight,
-} = useHorizontalSlider();
+} = useHorizontalSlider({
+  autoPlay: false,
+  continuous: false,
+  speed: 1.5,
+  pauseOnHover: true,
+  showCustomCursor: false,
+});
 </script>
 
 <style scoped>
