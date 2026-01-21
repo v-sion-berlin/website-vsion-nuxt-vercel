@@ -151,7 +151,8 @@ const teamPageSchema = z.object({
 const aboutPageSchema = z.object({
   type: z.literal("about"),
   header: z.string().optional(),
-  subTitle: z.string().optional(),
+  subTitlePhone: z.string().optional(),
+  subTitleMail: z.string().optional(),
   heroImage: z
     .object({
       src: property(z.string()).editor({ input: "media" }),
