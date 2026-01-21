@@ -11,39 +11,41 @@
     </section>
 
     <!-- Address Cards Section -->
-    <section id="card-section">
-      <div class="wrapper card-grid">
-        <div class="card" v-if="page.addressBerlin">
-          <h3>{{ page.addressBerlin.company }}</h3>
-          <p>{{ page.addressBerlin.street }}</p>
-          <p>{{ page.addressBerlin.zip }}</p>
-          <p v-if="page.addressBerlin.phone">
-            T: {{ page.addressBerlin.phone }}
-          </p>
-          <p v-if="page.addressBerlin.fax">F: {{ page.addressBerlin.fax }}</p>
-        </div>
+    <div class="wrapper">
+      <section id="card-section">
+        <div class="card-grid">
+          <div class="card" v-if="page.addressBerlin">
+            <h3>{{ page.addressBerlin.company }}</h3>
+            <p>{{ page.addressBerlin.street }}</p>
+            <p>{{ page.addressBerlin.zip }}</p>
+            <p v-if="page.addressBerlin.phone">
+              T: {{ page.addressBerlin.phone }}
+            </p>
+            <p v-if="page.addressBerlin.fax">F: {{ page.addressBerlin.fax }}</p>
+          </div>
 
-        <div class="card" v-if="page.addressZDF">
-          <h3>{{ page.addressZDF.company }}</h3>
-          <p>{{ page.addressZDF.street }}</p>
-          <p>{{ page.addressZDF.zip }}</p>
-          <p v-if="page.addressZDF.phone">T: {{ page.addressZDF.phone }}</p>
-          <p v-if="page.addressZDF.fax">F: {{ page.addressZDF.fax }}</p>
+          <div class="card" v-if="page.addressZDF">
+            <h3>{{ page.addressZDF.company }}</h3>
+            <p>{{ page.addressZDF.street }}</p>
+            <p>{{ page.addressZDF.zip }}</p>
+            <p v-if="page.addressZDF.phone">T: {{ page.addressZDF.phone }}</p>
+            <p v-if="page.addressZDF.fax">F: {{ page.addressZDF.fax }}</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Amtsgericht Section -->
-    <section id="card-section-long">
-      <div class="wrapper">
-        <div class="card">
-          <p>
-            {{ page.courtInfo?.text }} <br />
-            {{ page.courtInfo?.hrb }}
-          </p>
+      <!-- Amtsgericht Section -->
+      <section id="card-section-long">
+        <div>
+          <div class="card">
+            <p>
+              {{ page.courtInfo?.text }} <br />
+              {{ page.courtInfo?.hrb }}
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 
   <div v-else>Loading...</div>
@@ -68,8 +70,8 @@ const props = defineProps<{
 #hero #headline {
   position: relative;
   max-width: 100%;
-  padding: clamp(10rem, 12vw, 13.75rem) clamp(1rem, 10vw, 19.125rem)
-    clamp(2rem, 5vw, 4rem) 0;
+  padding-top: clamp(10rem, 12vw, 13.75rem);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
 }
 
 .img,
