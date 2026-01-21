@@ -6,6 +6,7 @@ interface SliderOptions {
   pauseOnHover?: boolean;
   continuous?: boolean;
   speed?: number;
+  showCustomCursor?: boolean;
 }
 
 export const useHorizontalSlider = (options: SliderOptions = {}) => {
@@ -15,6 +16,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     pauseOnHover = true,
     continuous = false,
     speed = 1,
+    showCustomCursor = true,
   } = options;
 
   const sliderRef = ref<HTMLElement | null>(null);
@@ -85,7 +87,6 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
 
     await nextTick();
 
-    // Remove any previously cloned items
     const existingClones = slider.querySelectorAll("[data-clone]");
     existingClones.forEach((clone) => clone.remove());
 
@@ -95,19 +96,15 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
 
     if (children.length === 0) return;
 
-    // Get gap from CSS
     const style = window.getComputedStyle(slider);
     gap = parseFloat(style.gap) || 0;
 
-    // Calculate total width of original content including gaps
     originalWidth = children.reduce((total, child, index) => {
       return (
         total + child.offsetWidth + (index < children.length - 1 ? gap : 0)
       );
     }, 0);
 
-    // Clone items multiple times to ensure smooth looping
-    // We need enough clones to fill the viewport plus some buffer
     const viewportWidth = slider.clientWidth;
     const clonesNeeded = Math.ceil((viewportWidth * 2) / originalWidth) + 1;
 
@@ -234,14 +231,16 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   const handleMouseEnter = () => {
     if (!window.matchMedia("(hover: hover)").matches) return;
 
-    createCursorIndicator();
-    if (cursorIndicator) {
-      cursorIndicator.style.opacity = "1";
-    }
+    if (showCustomCursor) {
+      createCursorIndicator();
+      if (cursorIndicator) {
+        cursorIndicator.style.opacity = "1";
+      }
 
-    const slider = sliderRef.value;
-    if (slider) {
-      slider.style.cursor = "none";
+      const slider = sliderRef.value;
+      if (slider) {
+        slider.style.cursor = "none";
+      }
     }
 
     if (pauseOnHover) {
@@ -250,7 +249,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   };
 
   const handleMouseLeaveSlider = () => {
-    if (cursorIndicator) {
+    if (showCustomCursor && cursorIndicator) {
       cursorIndicator.style.opacity = "0";
     }
 
@@ -264,7 +263,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   };
 
   const handleMouseMoveForCursor = (e: MouseEvent) => {
-    if (cursorIndicator) {
+    if (showCustomCursor && cursorIndicator) {
       cursorIndicator.style.left = `${e.clientX}px`;
       cursorIndicator.style.top = `${e.clientY}px`;
     }
@@ -284,7 +283,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     startX = e.pageX;
     scrollLeftPos = slider.scrollLeft;
 
-    if (cursorIndicator) {
+    if (showCustomCursor && cursorIndicator) {
       cursorIndicator.classList.add("grabbing");
     }
   };
@@ -299,7 +298,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
       slider.style.scrollSnapType = "x mandatory";
     }
 
-    if (cursorIndicator) {
+    if (showCustomCursor && cursorIndicator) {
       cursorIndicator.classList.remove("grabbing");
     }
 
@@ -337,7 +336,6 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     }
   };
 
-  // Touch handlers
   let touchStartX = 0;
   let touchScrollLeft = 0;
 
