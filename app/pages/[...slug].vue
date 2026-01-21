@@ -27,21 +27,21 @@ const { data: rawPage } = await useAsyncData(
   async () => {
     if (collectionName.value !== null) {
       return queryCollection(
-        withoutTrailingSlash(collectionName.value) as keyof Collections
+        withoutTrailingSlash(collectionName.value) as keyof Collections,
       ).first();
     }
     return null;
   },
-  { watch: [locale] }
+  { watch: [locale] },
 );
 
 const { data: contactDataRaw } = await useAsyncData(
   `contact-data`,
   () =>
     queryCollection(
-      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections
+      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections,
     ).first(),
-  { watch: [locale] }
+  { watch: [locale] },
 );
 
 const page = computed<HomePage | AboutPage | ServicesPage | null>(() => {
@@ -54,7 +54,7 @@ const { data: services } = await useAsyncData(
   () => {
     return queryCollection(`services_${locale.value}`).first();
   },
-  { watch: [locale, slug] }
+  { watch: [locale, slug] },
 );
 
 const { data: career } = await useAsyncData(
@@ -62,7 +62,7 @@ const { data: career } = await useAsyncData(
   () => {
     return queryCollection(`career_${locale.value}`).first();
   },
-  { watch: [locale, slug] }
+  { watch: [locale, slug] },
 );
 
 const careerTransformed = computed<any>(() => {
@@ -75,7 +75,7 @@ const { data: team } = await useAsyncData(
   () => {
     return queryCollection(`team_${locale.value}`).first();
   },
-  { watch: [locale, slug] }
+  { watch: [locale, slug] },
 );
 
 const teamTransformed = computed<any>(() => {
@@ -114,5 +114,15 @@ provide("team", teamTransformed);
     <h1>Page not found</h1>
     <p>This page doesn't exist in {{ locale }} language.</p>
   </div>
-  <Contact v-if="contactData" :page="contactData as ContactData" />
+  <Contact
+    v-if="contactData"
+    :page="contactData as ContactData"
+    :class="{ about: page?.type === 'about' }"
+  />
 </template>
+
+<style>
+.about {
+  padding: unset !important;
+}
+</style>
