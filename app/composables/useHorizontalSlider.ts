@@ -1,6 +1,6 @@
 import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
 
-interface SliderOptions {
+type SliderOptions = {
   autoPlay?: boolean;
   autoPlayInterval?: number;
   pauseOnHover?: boolean;
@@ -8,7 +8,7 @@ interface SliderOptions {
   speed?: number;
   showCustomCursor?: boolean;
   onClone?: (clone: HTMLElement, original: HTMLElement, index: number) => void;
-}
+};
 
 export const useHorizontalSlider = (options: SliderOptions = {}) => {
   const {
@@ -39,6 +39,11 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   let gap = 0;
 
   let cursorIndicator: HTMLElement | null = null;
+
+  let velocityX = 0;
+  let lastMoveTime = 0;
+  let lastMoveX = 0;
+  let momentumAnimationId: number | null = null;
 
   const handleScroll = () => {
     if (continuous) {
@@ -167,6 +172,41 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     }
   };
 
+  const stopMomentum = () => {
+    if (momentumAnimationId) {
+      cancelAnimationFrame(momentumAnimationId);
+      momentumAnimationId = null;
+    }
+    velocityX = 0;
+  };
+
+  const applyMomentum = () => {
+    const slider = sliderRef.value;
+    if (!slider || continuous) return;
+
+    const friction = 0.95;
+    const minVelocity = 0.5;
+
+    if (Math.abs(velocityX) < minVelocity) {
+      stopMomentum();
+      return;
+    }
+
+    slider.scrollLeft -= velocityX;
+    velocityX *= friction;
+
+    const maxScroll = slider.scrollWidth - slider.clientWidth;
+    if (slider.scrollLeft <= 0 || slider.scrollLeft >= maxScroll) {
+      velocityX *= 0.5;
+      if (Math.abs(velocityX) < minVelocity) {
+        stopMomentum();
+        return;
+      }
+    }
+
+    momentumAnimationId = requestAnimationFrame(applyMomentum);
+  };
+
   const getSlideWidth = () => {
     const slider = sliderRef.value;
     if (!slider) return 0;
@@ -285,15 +325,20 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     const slider = sliderRef.value;
     if (!slider) return;
 
+    stopMomentum();
+
     isDown = true;
     isDragging = false;
 
-    if (!continuous) {
-      slider.style.scrollSnapType = "none";
-    }
+    slider.style.scrollSnapType = "none";
+    slider.style.scrollBehavior = "auto";
 
     startX = e.pageX;
     scrollLeftPos = slider.scrollLeft;
+
+    lastMoveTime = Date.now();
+    lastMoveX = e.pageX;
+    velocityX = 0;
 
     if (showCustomCursor && cursorIndicator) {
       cursorIndicator.classList.add("grabbing");
@@ -304,14 +349,31 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     const slider = sliderRef.value;
     if (!slider) return;
 
+    const wasDown = isDown;
     isDown = false;
-
-    if (!continuous) {
-      slider.style.scrollSnapType = "x mandatory";
-    }
 
     if (showCustomCursor && cursorIndicator) {
       cursorIndicator.classList.remove("grabbing");
+    }
+
+    if (!continuous && wasDown && isDragging) {
+      if (Math.abs(velocityX) > 2) {
+        applyMomentum();
+      }
+
+      const reEnableSnap = () => {
+        if (!momentumAnimationId && slider) {
+          slider.style.scrollSnapType = "x mandatory";
+          slider.style.scrollBehavior = "smooth";
+        } else {
+          requestAnimationFrame(reEnableSnap);
+        }
+      };
+
+      setTimeout(reEnableSnap, 50);
+    } else if (!continuous) {
+      slider.style.scrollSnapType = "x mandatory";
+      slider.style.scrollBehavior = "smooth";
     }
 
     if (isDragging) {
@@ -332,10 +394,22 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     e.preventDefault();
 
     const x = e.pageX;
-    const walk = (x - startX) * (continuous ? 1.5 : 3.0);
+    const dragMultiplier = 1.5;
+    const walk = (x - startX) * dragMultiplier;
 
     if (Math.abs(walk) > 5) {
       isDragging = true;
+    }
+
+    if (!continuous) {
+      const now = Date.now();
+      const dt = now - lastMoveTime;
+      if (dt > 0) {
+        const dx = x - lastMoveX;
+        velocityX = velocityX * 0.4 + (dx / dt) * 16 * 0.6;
+      }
+      lastMoveTime = now;
+      lastMoveX = x;
     }
 
     slider.scrollLeft = scrollLeftPos - walk;
@@ -355,11 +429,22 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     const slider = sliderRef.value;
     if (!slider) return;
 
+    stopMomentum();
+
     isDown = true;
     if (!e.touches[0]) return;
 
     touchStartX = e.touches[0].pageX;
     touchScrollLeft = slider.scrollLeft;
+
+    if (!continuous) {
+      slider.style.scrollSnapType = "none";
+      slider.style.scrollBehavior = "auto";
+    }
+
+    lastMoveTime = Date.now();
+    lastMoveX = e.touches[0].pageX;
+    velocityX = 0;
 
     pauseAutoPlay();
   };
@@ -372,17 +457,52 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     if (!e.touches[0]) return;
 
     const x = e.touches[0].pageX;
-    const walk = (x - touchStartX) * (continuous ? 1.5 : 1);
+    const dragMultiplier = 1.5;
+    const walk = (x - touchStartX) * dragMultiplier;
 
     if (Math.abs(walk) > 5) {
       isDragging = true;
+    }
+
+    if (!continuous) {
+      const now = Date.now();
+      const dt = now - lastMoveTime;
+      if (dt > 0) {
+        const dx = x - lastMoveX;
+        velocityX = velocityX * 0.4 + (dx / dt) * 16 * 0.6;
+      }
+      lastMoveTime = now;
+      lastMoveX = x;
     }
 
     slider.scrollLeft = touchScrollLeft - walk;
   };
 
   const handleTouchEnd = () => {
+    const slider = sliderRef.value;
     isDown = false;
+
+    if (!continuous && slider && isDragging) {
+      // Apply momentum for non-continuous mode
+      if (Math.abs(velocityX) > 2) {
+        applyMomentum();
+      }
+
+      // Delay re-enabling scroll snap until momentum settles
+      const reEnableSnap = () => {
+        if (!momentumAnimationId && slider) {
+          slider.style.scrollSnapType = "x mandatory";
+          slider.style.scrollBehavior = "smooth";
+        } else {
+          requestAnimationFrame(reEnableSnap);
+        }
+      };
+
+      setTimeout(reEnableSnap, 50);
+    } else if (!continuous && slider) {
+      slider.style.scrollSnapType = "x mandatory";
+      slider.style.scrollBehavior = "smooth";
+    }
 
     if (isDragging) {
       setTimeout(() => {
@@ -447,6 +567,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   onBeforeUnmount(() => {
     stopAutoPlay();
     stopContinuousLoop();
+    stopMomentum();
 
     const slider = sliderRef.value;
     if (slider) {
