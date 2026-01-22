@@ -39,43 +39,67 @@
       </div>
 
       <!-- burger button -->
-      <div class="burger-btn mobile-only menu-item" @click="toggleDrawer">
-        <img :src="Menu" alt="Menu" />
+      <div
+        class="burger-btn mobile-only menu-item"
+        :class="{ active: drawerOpen }"
+        @click="toggleDrawer"
+      >
+        <div class="burger-icon" :class="{ open: drawerOpen }">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </header>
 
     <!-- mobile overlay -->
-    <div
-      class="mobile-overlay"
-      :class="{ active: drawerOpen, closed: !drawerOpen }"
-      @click="toggleDrawer"
-    ></div>
+    <Transition name="overlay">
+      <div v-if="drawerOpen" class="mobile-overlay" @click="toggleDrawer"></div>
+    </Transition>
 
-    <div
-      class="mobile-drawer"
-      :class="{ open: drawerOpen, closed: !drawerOpen }"
-    >
-      <div class="drawer-header">
-        <div class="close-btn" @click="toggleDrawer">X</div>
+    <!-- mobile drawer -->
+    <Transition name="drawer" @after-enter="onDrawerOpen">
+      <div v-if="drawerOpen" class="mobile-drawer">
+        <div class="drawer-header">
+          <div class="close-btn" @click="toggleDrawer">✕</div>
+        </div>
+
+        <div class="drawer-content">
+          <div
+            class="drawer-item"
+            :class="{ visible: itemsVisible }"
+            :style="{ '--i': 0 }"
+          >
+            <ClientOnly>
+              <PageMenu mobile />
+            </ClientOnly>
+          </div>
+          <div
+            class="drawer-item"
+            :class="{ visible: itemsVisible }"
+            :style="{ '--i': 1 }"
+          >
+            <ClientOnly>
+              <LanguageSwitcher mobile />
+            </ClientOnly>
+          </div>
+          <div
+            class="drawer-item drawer-contact-btn"
+            :class="{ visible: itemsVisible }"
+            :style="{ '--i': 2 }"
+            @click="
+              () => {
+                scrollToBottom();
+                toggleDrawer();
+              }
+            "
+          >
+            <span class="glow-white">Contact</span>
+            <img :src="Cursor" alt="Cursor Icon" class="cursor" />
+          </div>
+        </div>
       </div>
-      <ClientOnly>
-        <PageMenu mobile />
-        <LanguageSwitcher mobile />
-      </ClientOnly>
-      <div
-        id="contact-btn-mobile"
-        class="menu-item"
-        @click="
-          () => {
-            scrollToBottom();
-            toggleDrawer();
-          }
-        "
-      >
-        <span class="glow-white">Contact</span>
-        <img :src="Cursor" alt="Cursor Icon" class="cursor" />
-      </div>
-    </div>
+    </Transition>
   </div>
 </template>
 
@@ -85,32 +109,43 @@ import { ref } from "vue";
 import LanguageSwitcher from "./LanguageSwitcher.vue";
 import Cursor from "~/assets/Cursor.svg";
 import PageMenu from "./PageMenu.vue";
-import Menu from "~/assets/Menu.svg";
 
 const router = useRouter();
 const route = useRoute();
 const { locale } = useI18n();
 const drawerOpen = ref(false);
+const itemsVisible = ref(false);
 
-function localizedPath() {
+const localizedPath = () => {
   const isGerman = locale.value === "de";
   return isGerman ? `/de/` : `/`;
-}
+};
 
-function toggleDrawer() {
-  drawerOpen.value = !drawerOpen.value;
-}
+const toggleDrawer = () => {
+  if (drawerOpen.value) {
+    itemsVisible.value = false;
+    setTimeout(() => {
+      drawerOpen.value = false;
+    }, 150);
+  } else {
+    drawerOpen.value = true;
+  }
+};
 
-function scrollToBottom() {
+const onDrawerOpen = () => {
+  itemsVisible.value = true;
+};
+
+const scrollToBottom = () => {
   window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-}
+};
 
-function scrollToTop() {
+const scrollToTop = () => {
   if (route.path === "/" || route.path === "/de") {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
   router.push(localizedPath());
-}
+};
 </script>
 
 <style>
@@ -159,6 +194,7 @@ function scrollToTop() {
   font-size: clamp(0.85rem, 1.5vw, 1rem);
   cursor: pointer;
   border-radius: 16px;
+  transition: background-color 0.2s ease;
 }
 
 #contact-btn {
@@ -169,15 +205,6 @@ function scrollToTop() {
 .menu-item:hover {
   background-color: var(--color-grey-menu-item-hover);
 }
-
-/* .menu-item:hover .glow-white {
-  filter: drop-shadow(0 0 8px white);
-  z-index: 50;
-}
-
-.menu-item:hover .glow-red {
-  filter: drop-shadow(0 0 8px var(--color-primary));
-} */
 
 #logo-vsion {
   gap: 2px;
@@ -190,30 +217,73 @@ function scrollToTop() {
   margin-right: -2px;
 }
 
+/* Burger button */
 .burger-btn {
   display: none;
   cursor: pointer;
-  z-index: 201; /* above drawer */
+  z-index: 1001;
+  padding: 19px 24px;
 }
 
-.burger-btn img {
-  filter: drop-shadow(0 0 8px white);
+.burger-btn.active {
+  background-color: var(--color-grey-menu-item-hover);
 }
 
-/* overlay */
+.burger-icon {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.burger-icon span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.burger-icon.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger-icon.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.burger-icon.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Overlay */
 .mobile-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
+  background: rgba(0, 0, 0, 0.6);
   z-index: 900;
-  transition: opacity 0.3s;
-}
-.mobile-overlay.active {
-  display: block;
+  backdrop-filter: blur(2px);
 }
 
-/* drawer */
+.overlay-enter-active {
+  transition: opacity 0.3s ease;
+}
+
+.overlay-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.overlay-enter-from,
+.overlay-leave-to {
+  opacity: 0;
+}
+
+/* Drawer */
 .drawer-header {
   display: flex;
   justify-content: flex-end;
@@ -224,29 +294,93 @@ function scrollToTop() {
   cursor: pointer;
   width: 28px;
   height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
   filter: drop-shadow(0 0 8px white);
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
 }
 
 .mobile-drawer {
   position: fixed;
   top: 0;
   right: 0;
-  width: 250px;
+  width: 280px;
   height: 100vh;
-  background: #1a1a1ac3;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: #1a1a1ae6;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  padding: 32px 16px;
+  z-index: 1000;
+  box-shadow: -4px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.drawer-content {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 32px 16px;
-  transition: all 0.3s ease-in-out;
-  z-index: 1000;
-  transform: translateX(100%);
 }
 
-.mobile-drawer.open {
+.drawer-item {
+  opacity: 0;
+  transform: translateX(30px);
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i) * 0.1s);
+}
+
+.drawer-item.visible {
+  opacity: 1;
   transform: translateX(0);
+}
+
+.drawer-contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 19px 32px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  cursor: pointer;
+  border-radius: 16px;
+  background: transparent;
+  background-color: var(--color-grey-card);
+
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.2s ease;
+}
+
+.drawer-contact-btn:hover {
+  background-color: var(--color-grey-menu-item-hover);
+}
+
+.drawer-contact-btn .cursor {
+  margin-left: auto;
+}
+
+/* Drawer slide animation */
+.drawer-enter-active {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-leave-active {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.drawer-enter-from,
+.drawer-leave-to {
+  transform: translateX(100%);
 }
 
 .desktop-nav {
@@ -257,16 +391,40 @@ function scrollToTop() {
   display: none;
 }
 
-.closed {
-  display: none;
-}
-
 @media (max-width: 700px) {
   .desktop-nav {
     display: none;
   }
   .mobile-only {
-    display: block;
+    display: flex;
+  }
+  .burger-btn {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-drawer,
+  .mobile-overlay,
+  .drawer-item,
+  .burger-icon span,
+  .close-btn {
+    transition: opacity 0.2s ease;
+  }
+
+  .drawer-enter-from,
+  .drawer-leave-to {
+    transform: none;
+    opacity: 0;
+  }
+
+  .drawer-item {
+    transform: none;
+  }
+
+  .burger-icon.open span:nth-child(1),
+  .burger-icon.open span:nth-child(3) {
+    transition: opacity 0.2s ease;
   }
 }
 </style>

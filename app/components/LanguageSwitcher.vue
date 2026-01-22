@@ -11,9 +11,9 @@ const menuRef = ref<HTMLElement | null>(null);
 const showDropdown = ref(false);
 const currentLang = ref(locale.value.toUpperCase());
 
-function toggleDropdown() {
+const toggleDropdown = () => {
   showDropdown.value = !showDropdown.value;
-}
+};
 
 onClickOutside(menuRef, () => {
   showDropdown.value = false;
@@ -30,23 +30,32 @@ watch(locale, (val) => {
     class="language-switcher"
     :class="{ mobile: props.mobile }"
   >
-    <div class="menu-item" @click="toggleDropdown">
+    <div
+      class="menu-item"
+      :class="{ active: showDropdown }"
+      @click="toggleDropdown"
+    >
       <span>{{ currentLang }}</span>
-      <span v-if="props.mobile" class="arrow">{{
-        showDropdown ? "▲" : "▼"
-      }}</span>
+      <span v-if="props.mobile" class="arrow" :class="{ rotated: showDropdown }"
+        >▼</span
+      >
     </div>
 
-    <div v-if="showDropdown" class="dropdown">
-      <div
-        v-for="_locale of locales"
-        :key="_locale.code"
-        class="dropdown-item"
-        @click="setLocale(_locale.code)"
-      >
-        <span>{{ _locale.code?.toUpperCase() }}</span>
+    <Transition name="dropdown">
+      <div v-if="showDropdown" class="dropdown">
+        <TransitionGroup name="item" tag="div" class="dropdown-items">
+          <div
+            v-for="(_locale, index) of locales"
+            :key="_locale.code"
+            class="dropdown-item"
+            :style="{ '--i': index }"
+            @click="setLocale(_locale.code)"
+          >
+            <span>{{ _locale.code?.toUpperCase() }}</span>
+          </div>
+        </TransitionGroup>
       </div>
-    </div>
+    </Transition>
   </div>
 </template>
 
@@ -58,14 +67,22 @@ watch(locale, (val) => {
   backdrop-filter: none;
   border-radius: 0;
 }
+
 .arrow {
   margin-left: auto;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.arrow.rotated {
+  transform: rotate(180deg);
 }
 
 .language-switcher {
   position: relative;
   display: inline-block;
   font-family: "Montserrat", sans-serif;
+  width: 100%;
 }
 
 .menu-item {
@@ -82,9 +99,14 @@ watch(locale, (val) => {
   user-select: none;
   min-width: 20px;
   width: auto;
+  transition: background-color 0.2s ease;
 }
 
 .menu-item:hover {
+  background-color: var(--color-grey-menu-item-hover);
+}
+
+.menu-item.active {
   background-color: var(--color-grey-menu-item-hover);
 }
 
@@ -99,6 +121,12 @@ watch(locale, (val) => {
   overflow: hidden;
   z-index: 50;
   min-width: 100%;
+  transform-origin: top center;
+}
+
+.dropdown-items {
+  display: flex;
+  flex-direction: column;
 }
 
 .dropdown-item {
@@ -106,9 +134,95 @@ watch(locale, (val) => {
   cursor: pointer;
   white-space: nowrap;
   font-size: clamp(0.85rem, 1.5vw, 1rem);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .dropdown-item:hover {
   background-color: var(--color-grey-menu-item-hover);
+  transform: translateX(4px);
+}
+
+.dropdown-enter-active {
+  animation: dropdownIn 0.25s ease-out forwards;
+}
+
+.dropdown-leave-active {
+  animation: dropdownOut 0.2s ease-in forwards;
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: scaleY(0.8) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
+}
+
+@keyframes dropdownOut {
+  from {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scaleY(0.8) translateY(-8px);
+  }
+}
+
+.item-enter-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  transition-delay: calc(var(--i) * 0.05s);
+}
+
+.item-leave-active {
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+  transition-delay: calc((5 - var(--i)) * 0.02s);
+}
+
+.item-enter-from {
+  opacity: 0;
+  transform: translateX(-12px);
+}
+
+.item-leave-to {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropdown-enter-active,
+  .dropdown-leave-active {
+    animation: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .dropdown-enter-from,
+  .dropdown-leave-to {
+    opacity: 0;
+  }
+
+  .item-enter-active,
+  .item-leave-active {
+    transition: opacity 0.2s ease;
+    transition-delay: 0s;
+  }
+
+  .item-enter-from,
+  .item-leave-to {
+    transform: none;
+  }
+
+  .arrow {
+    transition: none;
+  }
 }
 </style>
