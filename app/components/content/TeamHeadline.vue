@@ -58,7 +58,6 @@ onBeforeUnmount(() => {
 section {
   padding: clamp(10rem, 12vw, 13.75rem) 0 clamp(2rem, 5vw, 4rem)
     clamp(0rem, 5vw, 5.625rem);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,25 +91,10 @@ h1.visible {
   word-break: break-all;
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 768px) {
   h1 {
-    transform: none;
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  h1.from-left,
-  h1.from-right {
-    transform: none;
-  }
-}
-
-@media (max-width: 575px) {
-  h1 {
-    white-space: unset;
-  }
-
-  h1.from-right {
-    display: none;
+    white-space: normal;
+    text-align: center;
   }
 }
 </style>
