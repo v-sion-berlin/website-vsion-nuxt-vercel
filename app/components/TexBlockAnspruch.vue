@@ -3,13 +3,13 @@
     <main>
       <section>
         <div>
-          <h2>
+          <h2 data-reveal>
             {{ page.textblock_anspruch_header }}
           </h2>
-          <p>
+          <p data-reveal>
             {{ page.textblock_anspruch_body }}
           </p>
-          <NuxtLink :to="localizedPath()">
+          <NuxtLink :to="localizedPath()" data-reveal>
             <div id="contact-btn-copy">
               <p>{{ page.textblock_anspruch_button }}</p>
             </div>
@@ -23,20 +23,28 @@
 <script setup lang="ts">
 const { locale } = useI18n();
 
-interface Anspruch {
+type Anspruch = {
   textblock_anspruch_header: string;
   textblock_anspruch_body: string;
   textblock_anspruch_button: string;
   textblock_anspruch_button_soon: string;
-}
+};
 const props = defineProps<{
   page: Anspruch;
 }>();
 
-function localizedPath() {
+const localizedPath = () => {
   const isGerman = locale.value === "de";
   return isGerman ? `/de/team/` : `/team/`;
-}
+};
+
+useScrollReveal({
+  threshold: 0.01,
+  duration: 100,
+  distance: "30px",
+  stagger: 20,
+  once: true,
+});
 </script>
 
 <style scoped>

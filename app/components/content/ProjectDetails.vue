@@ -539,6 +539,7 @@ const {
 .img {
   width: clamp(80px, 10vw, 137px);
   margin-left: auto;
+  object-fit: contain;
 }
 
 /* video slide */

@@ -4,13 +4,13 @@
       <div id="text-container" class="wrapper">
         <main>
           <section>
-            <h2 id="text-container-big">
+            <h2 id="text-container-big" v-reveal>
               <slot name="header" mdc-unwrap="p" />
             </h2>
-            <div id="text-container-big">
+            <div id="text-container-big" v-reveal="100">
               <slot name="subHeader" />
             </div>
-            <div id="text-container-small">
+            <div id="text-container-small" v-reveal="200">
               <slot name="body" mdc-unwrap="p" />
             </div>
           </section>
@@ -18,7 +18,7 @@
       </div>
     </section>
 
-    <section id="projects" v-if="showProjects" class="wrapper">
+    <section id="projects" v-if="showProjects" class="wrapper" v-reveal>
       <div class="scroll-wrapper">
         <button
           class="scroll-arrow left"

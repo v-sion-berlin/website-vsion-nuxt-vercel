@@ -1,10 +1,10 @@
 <template>
   <section class="cards-benefits wrapper">
     <div class="cards-grid">
-      <h1>
+      <h1 data-reveal>
         <slot name="cardHeader" mdc-unwrap="p" />
       </h1>
-      <div v-for="(card, i) in cards" :key="i" class="card">
+      <div v-for="(card, i) in cards" :key="i" class="card" data-reveal>
         <h2>{{ card.header }}</h2>
         <p>{{ card.text }}</p>
       </div>

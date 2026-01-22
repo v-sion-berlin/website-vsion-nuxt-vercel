@@ -8,6 +8,7 @@
         :class="{ active: activeItem === item.key }"
         v-on="!canHover ? { click: () => toggleItem(item.key) } : {}"
         :style="`--bg-color: ${item.color}`"
+        data-reveal
       >
         <NuxtLink
           :to="localizedPath()"

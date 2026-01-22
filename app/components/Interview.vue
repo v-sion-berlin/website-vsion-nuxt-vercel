@@ -2,8 +2,8 @@
   <div id="text-container" class="wrapper">
     <main>
       <section>
-        <h2>{{ page.interview_header }}</h2>
-        <p style="display: inline">
+        <h2 data-reveal>{{ page.interview_header }}</h2>
+        <p style="display: inline" data-reveal>
           {{ page.interview_body }}
           <a href="https://www.vizrt.com" target="_blank" rel="noopener">
             Vizrt</a
@@ -16,7 +16,9 @@
         :class="{ expanded: isVideoOpen }"
         @click.stop="toggleVideo"
       >
-        <p :class="{ hidden: isVideoOpen }">{{ page.interview_watch_text }}</p>
+        <p :class="{ hidden: isVideoOpen }">
+          {{ page.interview_watch_text }}
+        </p>
 
         <transition name="video-fade">
           <div class="video-container" v-if="isVideoOpen">
@@ -54,19 +56,19 @@ const isVideoOpen = ref(false);
 let player: any = null;
 const playerContainer = ref<HTMLElement | null>(null);
 
-function toggleVideo() {
+const toggleVideo = () => {
   if (!isVideoOpen.value) {
     isVideoOpen.value = true;
   }
-}
+};
 
-function collapseVideo() {
+const collapseVideo = () => {
   if (player) {
     player.destroy();
     player = null;
   }
   isVideoOpen.value = false;
-}
+};
 
 interface Interview {
   interview_header: string;

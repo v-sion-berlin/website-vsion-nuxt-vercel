@@ -5,8 +5,8 @@
       :class="getAlignmentClass(image)"
       v-for="image in imagesArray"
     >
-      <img :src="useImagePath(image.src)" />
-      <p>{{ image.text }}</p>
+      <img :src="useImagePath(image.src)" data-reveal />
+      <p data-reveal>{{ image.text }}</p>
     </div>
   </section>
 </template>
@@ -18,9 +18,17 @@ const props = defineProps<{
   imagesArray?: { src: string; alt: string; text: string; alignment: string }[];
 }>();
 
-function getAlignmentClass(image: { alignment: string }) {
+const getAlignmentClass = (image: { alignment: string }) => {
   return image.alignment === "right" ? "alignment-right" : "";
-}
+};
+
+useScrollReveal({
+  threshold: 0.1,
+  duration: 800,
+  distance: "30px",
+  stagger: 150,
+  once: true,
+});
 </script>
 
 <style scoped>

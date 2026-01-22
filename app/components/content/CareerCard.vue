@@ -4,14 +4,14 @@
       <section>
         <div class="card">
           <div>
-            <h2>
+            <h2 data-reveal>
               <slot mdc-unwrap="p" />
             </h2>
-            <div class="body">
+            <div class="body" data-reveal>
               <slot name="body" />
             </div>
           </div>
-          <img :src="Arrow" v-if="Arrow" />
+          <img :src="Arrow" v-if="Arrow" data-reveal />
         </div>
       </section>
     </main>
@@ -20,6 +20,14 @@
 
 <script setup lang="ts">
 import Arrow from "~/assets/ArrowCareer.svg";
+
+useScrollReveal({
+  threshold: 0.1,
+  duration: 800,
+  distance: "30px",
+  stagger: 50,
+  once: true,
+});
 </script>
 
 <style scoped>

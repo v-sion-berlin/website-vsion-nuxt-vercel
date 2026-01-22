@@ -2,10 +2,10 @@
   <div id="text-container" class="wrapper">
     <main>
       <section>
-        <h2>
+        <h2 data-reveal>
           <slot mdc-unwrap="p" />
         </h2>
-        <div class="body">
+        <div class="body" data-reveal>
           <slot name="body" />
         </div>
       </section>

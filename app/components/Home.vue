@@ -4,6 +4,14 @@ import type { HomePage } from "~/types/content";
 const props = defineProps<{
   page: HomePage;
 }>();
+
+useScrollReveal({
+  threshold: 0.01,
+  duration: 600,
+  distance: "30px",
+  stagger: 50,
+  once: true,
+});
 </script>
 
 <template>

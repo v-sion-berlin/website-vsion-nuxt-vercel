@@ -2,10 +2,10 @@
   <div id="text-container" class="wrapper">
     <main>
       <section>
-        <h2>
+        <h2 data-reveal>
           {{ page.textblock_leistungen_header }}
         </h2>
-        <p>
+        <p data-reveal>
           {{ page.textblock_leistungen_body }}
         </p>
       </section>

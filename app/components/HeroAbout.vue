@@ -5,9 +5,9 @@
       <img :src="useImagePath(page.heroImage?.src)" class="blur-img" />
       <img :src="useImagePath(page.heroImage?.src)" class="img" />
       <div>
-        <h1>{{ page?.header }}</h1>
-        <h2>{{ page.subTitlePhone }}</h2>
-        <h2>{{ page.subTitleMail }}</h2>
+        <h1 data-reveal>{{ page?.header }}</h1>
+        <h2 data-reveal>{{ page.subTitlePhone }}</h2>
+        <h2 data-reveal>{{ page.subTitleMail }}</h2>
       </div>
     </section>
 
@@ -16,21 +16,27 @@
       <section id="card-section">
         <div class="card-grid">
           <div class="card" v-if="page.addressBerlin">
-            <h3>{{ page.addressBerlin.company }}</h3>
-            <p>{{ page.addressBerlin.street }}</p>
-            <p>{{ page.addressBerlin.zip }}</p>
-            <p v-if="page.addressBerlin.phone">
+            <h3 data-reveal>{{ page.addressBerlin.company }}</h3>
+            <p data-reveal>{{ page.addressBerlin.street }}</p>
+            <p data-reveal>{{ page.addressBerlin.zip }}</p>
+            <p data-reveal v-if="page.addressBerlin.phone">
               T: {{ page.addressBerlin.phone }}
             </p>
-            <p v-if="page.addressBerlin.fax">F: {{ page.addressBerlin.fax }}</p>
+            <p data-reveal v-if="page.addressBerlin.fax">
+              F: {{ page.addressBerlin.fax }}
+            </p>
           </div>
 
           <div class="card" v-if="page.addressZDF">
-            <h3>{{ page.addressZDF.company }}</h3>
-            <p>{{ page.addressZDF.street }}</p>
-            <p>{{ page.addressZDF.zip }}</p>
-            <p v-if="page.addressZDF.phone">T: {{ page.addressZDF.phone }}</p>
-            <p v-if="page.addressZDF.fax">F: {{ page.addressZDF.fax }}</p>
+            <h3 data-reveal>{{ page.addressZDF.company }}</h3>
+            <p data-reveal>{{ page.addressZDF.street }}</p>
+            <p data-reveal>{{ page.addressZDF.zip }}</p>
+            <p data-reveal v-if="page.addressZDF.phone">
+              T: {{ page.addressZDF.phone }}
+            </p>
+            <p data-reveal v-if="page.addressZDF.fax">
+              F: {{ page.addressZDF.fax }}
+            </p>
           </div>
         </div>
       </section>
@@ -39,7 +45,7 @@
       <section id="card-section-long">
         <div>
           <div class="card">
-            <p>
+            <p data-reveal>
               {{ page.courtInfo?.text }} <br />
               {{ page.courtInfo?.hrb }}
             </p>
@@ -59,6 +65,14 @@ import type { AboutPage } from "~/types/content";
 const props = defineProps<{
   page: AboutPage;
 }>();
+
+useScrollReveal({
+  threshold: 0.1,
+  duration: 800,
+  distance: "10px",
+  stagger: 40,
+  once: true,
+});
 </script>
 
 <style scoped>

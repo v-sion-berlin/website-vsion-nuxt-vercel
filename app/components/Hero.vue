@@ -13,6 +13,12 @@ interface Page {
 const props = defineProps<{
   page: Page;
 }>();
+
+useScrollReveal({
+  duration: 1600,
+  distance: "60px",
+  once: true,
+});
 </script>
 
 <template>
@@ -21,7 +27,7 @@ const props = defineProps<{
       <img :src="useImagePath(page.heroImage?.src)" class="blur-img" />
       <img :src="useImagePath(page.heroImage?.src)" class="img" />
       <div>
-        <h1>{{ page.hero }}</h1>
+        <h1 data-reveal>{{ page.hero }}</h1>
       </div>
     </section>
   </div>

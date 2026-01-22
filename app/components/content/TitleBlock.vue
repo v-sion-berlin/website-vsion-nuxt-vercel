@@ -1,7 +1,7 @@
 <template>
   <section id="hero">
     <div id="headline">
-      <div class="headline-content">
+      <div class="headline-content" data-reveal>
         <h1 :class="{ 'text-right': textPos === 'r' }">
           <slot v-if="$slots.default" mdc-unwrap="p" />
         </h1>
@@ -31,6 +31,14 @@ defineProps<{
   imagePos?: string;
   textPos?: string;
 }>();
+
+useScrollReveal({
+  threshold: 0.1,
+  duration: 600,
+  distance: "80px",
+  stagger: 250,
+  once: true,
+});
 </script>
 
 <style scoped>

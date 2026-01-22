@@ -66,10 +66,18 @@ const projectsFull = computed(
         : undefined,
     })) || [],
 );
+
+useScrollReveal({
+  threshold: 0.001,
+  duration: 600,
+  distance: "60px",
+  stagger: 100,
+  once: true,
+});
 </script>
 
 <template>
-  <div v-if="overview">
+  <div v-if="overview" data-reveal>
     <ContentRenderer :value="overview" />
   </div>
 
@@ -79,6 +87,7 @@ const projectsFull = computed(
         v-for="project in projectsFull"
         :key="project.slug"
         class="project-card"
+        data-reveal
       >
         <NuxtLink :to="localizedPath(project.slug!)">
           <img

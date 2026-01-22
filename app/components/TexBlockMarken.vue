@@ -2,53 +2,53 @@
   <div id="text-container" class="wrapper">
     <main>
       <section>
-        <h2>{{ page.textblock_marken_header }}</h2>
-        <p>
+        <h2 data-reveal>{{ page.textblock_marken_header }}</h2>
+        <p data-reveal>
           {{ page.textblock_marken_body }}
         </p>
       </section>
 
       <section id="logo-grid">
-        <div>
+        <div data-reveal>
           <img :src="DW" alt="DW" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="ARD" alt="ARD" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="ZDF" alt="ZDF" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="DreiSAT" alt="3SAT" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="SWR" alt="SWR" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="RBB" alt="RBB" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="RTL" alt="RTL" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="NTV" alt="NTV" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="Welt" alt="Welt" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="PRO7" alt="PRO7" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="SAT1" alt="SAT.1" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="KABEL1" alt="Kabel1" />
         </div>
-        <div>
+        <div data-reveal>
           <img :src="SVT" alt="SVT" />
         </div>
-        <NuxtLink :to="localizedPath()" class="menu-link">
+        <NuxtLink :to="localizedPath()" class="menu-link" data-reveal>
           <div>
             <p>{{ page.textblock_marken_button }}</p>
           </div>
