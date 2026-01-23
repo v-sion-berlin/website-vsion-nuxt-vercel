@@ -6,11 +6,7 @@ const props = defineProps<{
 }>();
 
 useScrollReveal({
-  threshold: 0.01,
-  duration: 600,
-  distance: "30px",
-  stagger: 50,
-  once: true,
+  threshold: 0.001,
 });
 </script>
 
