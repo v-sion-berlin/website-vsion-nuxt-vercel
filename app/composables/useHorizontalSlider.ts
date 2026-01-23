@@ -483,12 +483,10 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     isDown = false;
 
     if (!continuous && slider && isDragging) {
-      // Apply momentum for non-continuous mode
       if (Math.abs(velocityX) > 2) {
         applyMomentum();
       }
 
-      // Delay re-enabling scroll snap until momentum settles
       const reEnableSnap = () => {
         if (!momentumAnimationId && slider) {
           slider.style.scrollSnapType = "x mandatory";

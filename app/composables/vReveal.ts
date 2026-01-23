@@ -26,6 +26,7 @@ const defaultOptions: RevealOptions = {
 };
 
 let stylesInjected = false;
+
 const injectGlobalStyles = () => {
   if (stylesInjected) return;
 
