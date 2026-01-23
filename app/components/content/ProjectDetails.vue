@@ -22,6 +22,7 @@
       <div id="text-container-big">
         <slot name="body" />
       </div>
+      <br />
       <div id="text-container">
         <slot name="sub" />
       </div>
