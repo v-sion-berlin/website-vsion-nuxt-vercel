@@ -90,7 +90,8 @@ useScrollReveal({
         data-reveal
       >
         <NuxtLink :to="localizedPath(project.slug!)">
-          <img
+          <NuxtPicture
+            format="webp"
             v-if="project.coverImage"
             :src="project.coverImage.src"
             :alt="project.coverImage.alt"
