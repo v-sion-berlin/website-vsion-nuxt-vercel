@@ -22,13 +22,7 @@ const getAlignmentClass = (image: { alignment: string }) => {
   return image.alignment === "right" ? "alignment-right" : "";
 };
 
-useScrollReveal({
-  threshold: 0.1,
-  duration: 800,
-  distance: "30px",
-  stagger: 150,
-  once: true,
-});
+useScrollReveal();
 </script>
 
 <style scoped>
