@@ -19,7 +19,7 @@ export const useScrollReveal = (options: ScrollRevealOptions = {}) => {
     rootMargin = "0px 0px -50px 0px",
     duration = 600,
     delay = 0,
-    stagger = 100,
+    stagger = 30,
     distance = "30px",
     easing = "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
     once = true,
