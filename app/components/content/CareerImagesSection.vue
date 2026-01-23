@@ -3,10 +3,18 @@
     <main>
       <section class="image-wrapper wrapper">
         <div class="first-image" data-reveal>
-          <img :src="useImagePath(careerImage1?.src)" v-if="careerImage1" />
+          <NuxtPicture
+            format="webp"
+            :src="useImagePath(careerImage1?.src)"
+            v-if="careerImage1"
+          />
         </div>
         <div data-reveal>
-          <img :src="useImagePath(careerImage2?.src)" v-if="careerImage2" />
+          <NuxtPicture
+            format="webp"
+            :src="useImagePath(careerImage2?.src)"
+            v-if="careerImage2"
+          />
         </div>
       </section>
     </main>
@@ -42,13 +50,13 @@ useScrollReveal({
   position: relative;
 }
 
-img {
+picture {
   display: block;
   width: auto;
   max-height: clamp(200px, 40vw, 600px);
 }
 
-.first-image img {
+.first-image * {
   transform: translateY(30%);
 }
 </style>
