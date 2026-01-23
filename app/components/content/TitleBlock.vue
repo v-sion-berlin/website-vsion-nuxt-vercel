@@ -17,8 +17,18 @@
         'image-left': imagePos !== 'tr',
       }"
     >
-      <img :src="useImagePath(imageSrc.src)" v-if="imageSrc" class="main-img" />
-      <img :src="useImagePath(imageSrc.src)" v-if="imageSrc" class="blur-img" />
+      <NuxtPicture
+        format="webp"
+        :src="useImagePath(imageSrc.src)"
+        v-if="imageSrc"
+        class="main-img"
+      />
+      <NuxtPicture
+        format="webp"
+        :src="useImagePath(imageSrc.src)"
+        v-if="imageSrc"
+        class="blur-img"
+      />
     </div>
   </section>
 </template>
