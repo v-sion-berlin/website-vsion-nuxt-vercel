@@ -3,24 +3,12 @@
     <header class="sticky-header">
       <div class="menu-group">
         <div id="logo-vsion" class="menu-item" @click="scrollToTop">
-          <img
-            src="/letters/Letter_V.svg"
-            alt="Logo"
-            class="glow-white letter-v"
-          />
-          <img
-            src="/letters/Letter_I_Red.svg"
-            alt="Logo"
-            class="glow-red letter-i"
-          />
-          <img src="/letters/Letter_S.svg" alt="Logo" class="glow-white" />
-          <img
-            src="/letters/Letter_I_White.svg"
-            alt="Logo"
-            class="glow-white"
-          />
-          <img src="/letters/Letter_O.svg" alt="Logo" class="glow-red" />
-          <img src="/letters/Letter_N.svg" alt="Logo" class="glow-white" />
+          <img src="/letters/Letter_V.svg" alt="Logo" class="letter-v" />
+          <img src="/letters/Letter_I_Red.svg" alt="Logo" class="letter-i" />
+          <img src="/letters/Letter_S.svg" alt="Logo" />
+          <img src="/letters/Letter_I_White.svg" alt="Logo" />
+          <img src="/letters/Letter_O.svg" alt="Logo" />
+          <img src="/letters/Letter_N.svg" alt="Logo" />
         </div>
 
         <div class="desktop-nav">
@@ -33,7 +21,7 @@
       <div class="menu-right desktop-nav">
         <LanguageSwitcher />
         <div id="contact-btn" class="menu-item" @click="scrollToBottom">
-          <span class="glow-white">Contact</span>
+          <span>Contact</span>
           <img :src="Cursor" alt="Cursor Icon" class="cursor" />
         </div>
       </div>
@@ -94,7 +82,7 @@
               }
             "
           >
-            <span class="glow-white">Contact</span>
+            <span>Contact</span>
             <img :src="Cursor" alt="Cursor Icon" class="cursor" />
           </div>
         </div>
@@ -334,7 +322,6 @@ const scrollToTop = () => {
   transition:
     opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--i) * 0.1s);
 }
 
 .drawer-item.visible {
