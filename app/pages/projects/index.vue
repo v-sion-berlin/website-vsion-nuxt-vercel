@@ -69,10 +69,6 @@ const projectsFull = computed(
 
 useScrollReveal({
   threshold: 0.001,
-  duration: 600,
-  distance: "60px",
-  stagger: 100,
-  once: true,
 });
 </script>
 
