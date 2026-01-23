@@ -21,13 +21,7 @@
 <script setup lang="ts">
 import Arrow from "~/assets/ArrowCareer.svg";
 
-useScrollReveal({
-  threshold: 0.1,
-  duration: 800,
-  distance: "30px",
-  stagger: 50,
-  once: true,
-});
+useScrollReveal();
 </script>
 
 <style scoped>
