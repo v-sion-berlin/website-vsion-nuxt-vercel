@@ -5,7 +5,7 @@
       :class="getAlignmentClass(image)"
       v-for="image in imagesArray"
     >
-      <img :src="useImagePath(image.src)" data-reveal />
+      <NuxtPicture format="webp" :src="useImagePath(image.src)" data-reveal />
       <p data-reveal>{{ image.text }}</p>
     </div>
   </section>
