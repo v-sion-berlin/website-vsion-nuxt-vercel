@@ -74,7 +74,7 @@
         >
           <!-- image slide -->
           <template v-if="item.type === 'image'">
-            <img :src="item.src" :alt="item.alt" />
+            <NuxtImg format="webp" :src="item.src" :alt="item.alt" />
           </template>
 
           <!-- video slide -->
@@ -84,7 +84,8 @@
               v-if="!activeVideoIndex || activeVideoIndex !== index"
               @click="playVideo(index)"
             >
-              <img
+              <NuxtImg
+                format="webp"
                 :src="item.poster || '/images/projects/test.jpg'"
                 :alt="item.title"
               />
@@ -160,7 +161,8 @@
           class="project-card"
         >
           <NuxtLink :to="localizedPath(project.slug!)">
-            <img
+            <NuxtImg
+              format="webp"
               v-if="project.coverImage"
               :src="project.coverImage.src"
               :alt="project.coverImage.alt"
