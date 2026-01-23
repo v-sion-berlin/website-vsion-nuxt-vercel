@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useImagePath } from "~/composables/useImagePath";
 
-interface Media {
+type Media = {
   src: string;
   alt: string;
-}
-interface Page {
+};
+type Page = {
   heroImage?: Media;
   hero?: string;
-}
+};
 
 const props = defineProps<{
   page: Page;
@@ -24,8 +24,16 @@ useScrollReveal({
 <template>
   <div id="hero">
     <section>
-      <img :src="useImagePath(page.heroImage?.src)" class="blur-img" />
-      <img :src="useImagePath(page.heroImage?.src)" class="img" />
+      <NuxtPicture
+        :src="useImagePath(page.heroImage?.src)"
+        class="blur-img"
+        format="webp"
+      />
+      <NuxtPicture
+        :src="useImagePath(page.heroImage?.src)"
+        class="img"
+        format="webp"
+      />
       <div>
         <h1 data-reveal>{{ page.hero }}</h1>
       </div>
