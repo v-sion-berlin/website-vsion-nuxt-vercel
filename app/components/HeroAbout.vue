@@ -74,13 +74,7 @@ const props = defineProps<{
   page: AboutPage;
 }>();
 
-useScrollReveal({
-  threshold: 0.1,
-  duration: 800,
-  distance: "10px",
-  stagger: 40,
-  once: true,
-});
+useScrollReveal();
 </script>
 
 <style scoped>
