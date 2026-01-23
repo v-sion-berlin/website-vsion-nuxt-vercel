@@ -2,7 +2,6 @@
 import { ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { onClickOutside } from "@vueuse/core";
-import Menu from "~/assets/Menu.svg";
 
 const { locale } = useI18n();
 const route = useRoute();
@@ -38,17 +37,17 @@ const pagesByLang: Record<"en" | "de", { name: string; path: string }[]> = {
 
 const pages = ref(pagesByLang[currentLang.value]);
 
-function toggleDropdown() {
+const toggleDropdown = () => {
   showDropdown.value = !showDropdown.value;
-}
+};
 
-function navigate(path: string) {
+const navigate = (path: string) => {
   const page = pages.value.find((p) => p.path === path);
   if (page) currentPage.value = page.name;
 
   router.push(path);
   showDropdown.value = false;
-}
+};
 
 watch(
   [() => route.path, locale],
@@ -81,13 +80,38 @@ onClickOutside(menuRef, () => {
       :class="{ active: showDropdown }"
       @click="toggleDropdown"
     >
-      <span class="glow-white">{{ currentPage }}</span>
-      <img
+      <span>{{ currentPage }}</span>
+      <svg
         v-if="!props.mobile"
-        :src="Menu"
         class="menu-icon"
-        :class="{ rotated: showDropdown }"
-      />
+        :class="{ open: showDropdown }"
+        width="21"
+        height="14"
+        viewBox="0 0 21 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- rotates to become left side of V -->
+        <rect
+          class="line line-top"
+          x="0"
+          y="0"
+          width="20"
+          height="1.5"
+          rx="0.75"
+          fill="currentColor"
+        />
+        <!-- grows and rotates to become right side of V -->
+        <rect
+          class="line line-bottom"
+          x="10"
+          y="8"
+          width="10"
+          height="1.5"
+          rx="0.75"
+          fill="currentColor"
+        />
+      </svg>
       <span v-else class="arrow" :class="{ rotated: showDropdown }">▼</span>
     </div>
 
@@ -158,11 +182,37 @@ onClickOutside(menuRef, () => {
 }
 
 .menu-icon {
-  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  overflow: visible;
 }
 
-.menu-icon.rotated {
-  transform: rotate(180deg);
+.menu-icon .line {
+  transform-origin: center center;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    x 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    y 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-icon .line-top {
+  transform-origin: 10px 0.75px;
+}
+
+.menu-icon .line-bottom {
+  transform-origin: 15px 8.75px;
+}
+
+.menu-icon.open .line-top {
+  transform: translate(0px, 5px) rotate(50deg);
+  width: 12px;
+  x: 1;
+}
+
+.menu-icon.open .line-bottom {
+  transform: translate(0px, -5px) rotate(-50deg);
+  width: 12px;
+  x: 9;
 }
 
 .dropdown {
@@ -196,15 +246,14 @@ onClickOutside(menuRef, () => {
 
 .dropdown-item:hover {
   background-color: var(--color-grey-menu-item-hover);
-  transform: translateX(4px);
 }
 
 .dropdown-enter-active {
-  animation: dropdownIn 0.25s ease-out forwards;
+  animation: dropdownIn 0.35s ease-in-out forwards;
 }
 
 .dropdown-leave-active {
-  animation: dropdownOut 0.2s ease-in forwards;
+  animation: dropdownOut 0.35s ease-in-out forwards;
 }
 
 @keyframes dropdownIn {
@@ -277,7 +326,7 @@ onClickOutside(menuRef, () => {
   }
 
   .arrow,
-  .menu-icon {
+  .menu-icon .line {
     transition: none;
   }
 }
