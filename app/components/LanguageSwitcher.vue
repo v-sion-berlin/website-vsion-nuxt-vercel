@@ -141,15 +141,14 @@ watch(locale, (val) => {
 
 .dropdown-item:hover {
   background-color: var(--color-grey-menu-item-hover);
-  transform: translateX(4px);
 }
 
 .dropdown-enter-active {
-  animation: dropdownIn 0.25s ease-out forwards;
+  animation: dropdownIn 0.35s ease-in-out forwards;
 }
 
 .dropdown-leave-active {
-  animation: dropdownOut 0.2s ease-in forwards;
+  animation: dropdownOut 0.35s ease-in-out forwards;
 }
 
 @keyframes dropdownIn {
