@@ -2,8 +2,16 @@
   <div id="hero" v-if="page">
     <!-- Hero Section -->
     <section id="headline" class="wrapper">
-      <img :src="useImagePath(page.heroImage?.src)" class="blur-img" />
-      <img :src="useImagePath(page.heroImage?.src)" class="img" />
+      <NuxtPicture
+        format="webp"
+        :src="useImagePath(page.heroImage?.src)"
+        class="blur-img"
+      />
+      <NuxtPicture
+        format="webp"
+        :src="useImagePath(page.heroImage?.src)"
+        class="img"
+      />
       <div>
         <h1 data-reveal>{{ page?.header }}</h1>
         <h2 data-reveal>{{ page.subTitlePhone }}</h2>
