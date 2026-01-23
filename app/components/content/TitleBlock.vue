@@ -42,13 +42,7 @@ defineProps<{
   textPos?: string;
 }>();
 
-useScrollReveal({
-  threshold: 0.1,
-  duration: 600,
-  distance: "80px",
-  stagger: 250,
-  once: true,
-});
+useScrollReveal();
 </script>
 
 <style scoped>

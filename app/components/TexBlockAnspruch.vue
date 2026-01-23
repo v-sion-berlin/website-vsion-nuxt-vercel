@@ -40,10 +40,6 @@ const localizedPath = () => {
 
 useScrollReveal({
   threshold: 0.01,
-  duration: 100,
-  distance: "30px",
-  stagger: 20,
-  once: true,
 });
 </script>
 
