@@ -14,11 +14,7 @@ const props = defineProps<{
   page: Page;
 }>();
 
-useScrollReveal({
-  duration: 1600,
-  distance: "60px",
-  once: true,
-});
+useScrollReveal();
 </script>
 
 <template>
