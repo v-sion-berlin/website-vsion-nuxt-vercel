@@ -47,8 +47,8 @@
     </div>
   </section>
 
-  <section v-if="sliderItems?.length" id="projects" class="wrapper">
-    <div class="header">{{ sliderHeader }}</div>
+  <section v-if="sliderItems?.length" id="projects">
+    <div class="header wrapper">{{ sliderHeader }}</div>
 
     <div class="scroll-wrapper">
       <button
@@ -136,8 +136,8 @@
     </div>
   </section>
 
-  <section id="projects" class="wrapper">
-    <div class="header">{{ projectsHeader }}</div>
+  <section id="projects">
+    <div class="header wrapper">{{ projectsHeader }}</div>
 
     <div class="scroll-wrapper">
       <button
@@ -439,8 +439,8 @@ const {
 .slide-card h2 {
   display: flex;
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: clamp(10px, 3vw, 20px);
+  left: clamp(10px, 3vw, 20px);
   background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -448,7 +448,7 @@ const {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   cursor: none;
-  border-radius: 16px;
+  border-radius: clamp(8px, 2.5vw, 16px);
   color: var(--color-text);
   font-size: clamp(8px, 2vw, 24px);
   width: max-content;
