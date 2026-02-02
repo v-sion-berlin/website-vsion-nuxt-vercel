@@ -17,13 +17,13 @@
         'image-left': imagePos !== 'tr',
       }"
     >
-      <NuxtPicture
+      <NuxtImg
         format="webp"
         :src="useImagePath(imageSrc.src)"
         v-if="imageSrc"
         class="main-img"
       />
-      <NuxtPicture
+      <NuxtImg
         format="webp"
         :src="useImagePath(imageSrc.src)"
         v-if="imageSrc"
