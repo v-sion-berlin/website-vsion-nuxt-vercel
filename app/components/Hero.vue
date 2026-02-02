@@ -20,12 +20,12 @@ useScrollReveal();
 <template>
   <div id="hero">
     <section>
-      <NuxtPicture
+      <NuxtImg
         :src="useImagePath(page.heroImage?.src)"
         class="blur-img"
         format="webp"
       />
-      <NuxtPicture
+      <NuxtImg
         :src="useImagePath(page.heroImage?.src)"
         class="img"
         format="webp"
