@@ -231,7 +231,6 @@ h1 {
 }
 
 .project-card .pointer a {
-
   cursor: drag;
 }
 
@@ -248,19 +247,20 @@ h1 {
 
 .project-card h2 {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: clamp(10px, 3vw, 20px);
+  left: clamp(10px, 3vw, 20px);
   background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  padding: 19px 32px;
+  padding: clamp(12px, 3vw, 19px) clamp(16px, 5vw, 32px);
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  border-radius: 16px;
+  cursor: none;
+  border-radius: clamp(8px, 2.5vw, 16px);
   color: var(--color-text);
-  font-size: clamp(16px, 2vw, 24px);
+  font-size: clamp(8px, 2vw, 24px);
+  width: max-content;
   margin: 0;
-  pointer-events: none;
 }
 
 /* Nuxt studio side menu override */
