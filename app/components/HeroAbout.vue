@@ -2,12 +2,12 @@
   <div id="hero" v-if="page">
     <!-- Hero Section -->
     <section id="headline" class="wrapper">
-      <NuxtPicture
+      <NuxtImg
         format="webp"
         :src="useImagePath(page.heroImage?.src)"
         class="blur-img"
       />
-      <NuxtPicture
+      <NuxtImg
         format="webp"
         :src="useImagePath(page.heroImage?.src)"
         class="img"
