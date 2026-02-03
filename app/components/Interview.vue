@@ -85,7 +85,10 @@ watch(isVideoOpen, async (newVal) => {
   if (newVal) {
     await nextTick();
 
-    const Plyr = (await import("plyr")).default;
+    const [{ default: Plyr }] = await Promise.all([
+      import("plyr"),
+      import("plyr/dist/plyr.css"),
+    ]);
 
     if (playerContainer.value) {
       player = new Plyr(playerContainer.value, {
