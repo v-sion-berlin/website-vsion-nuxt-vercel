@@ -19,21 +19,10 @@ npm run dev
 
 ## Content Studio
 
-1. Login with GitHub Account into https://nuxt.studio/
+1. Login with GitHub Account or Google Account via `/admin`
 2. Make changes in the content editor
 3. Review changes
 4. Publish changes
-
-## Content Studio - Development (Debugging ONLY)
-
-Start the development with cloudfare tunnel:
-
-```bash
-# npm
-npx nuxt dev --tunnel
-
-```
-Add cloudfare url in Nuxt Studio under 'Delpoy/Selfhosting'
 
 ## Production
 
