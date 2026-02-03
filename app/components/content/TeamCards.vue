@@ -5,7 +5,14 @@
       :class="getAlignmentClass(image)"
       v-for="image in imagesArray"
     >
-      <NuxtPicture format="webp" :src="useImagePath(image.src)" data-reveal />
+      <NuxtPicture
+        format="webp"
+        :src="useImagePath(image.src)"
+        data-reveal
+        loading="lazy"
+        sizes="(max-width: 768px) 80vw, 40vw"
+        :alt="image.alt || 'Team member'"
+      />
       <p data-reveal>{{ image.text }}</p>
     </div>
   </section>
