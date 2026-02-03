@@ -263,6 +263,15 @@ h1 {
   margin: 0;
 }
 
+/* content-visibility for below-fold sections */
+#projects,
+#table,
+#card-section,
+.grid-overview {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
 /* Nuxt studio side menu override */
 .sticky-header,
 .mobile-drawer,
