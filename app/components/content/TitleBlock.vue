@@ -22,12 +22,20 @@
         :src="useImagePath(imageSrc.src)"
         v-if="imageSrc"
         class="main-img"
+        loading="eager"
+        fetchpriority="high"
+        sizes="(max-width: 768px) 50vw, 800px"
+        :alt="imageSrc.alt || 'Section image'"
       />
       <NuxtImg
         format="webp"
         :src="useImagePath(imageSrc.src)"
         v-if="imageSrc"
         class="blur-img"
+        loading="eager"
+        sizes="(max-width: 768px) 50vw, 800px"
+        aria-hidden="true"
+        alt=""
       />
     </div>
   </section>
