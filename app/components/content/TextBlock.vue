@@ -47,6 +47,7 @@
                 v-if="project.coverImage"
                 :src="project.coverImage.src"
                 :alt="project.coverImage.alt"
+                loading="lazy"
               />
               <h2>{{ project.header }}</h2>
             </NuxtLink>
