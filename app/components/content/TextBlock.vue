@@ -48,6 +48,7 @@
                 :src="project.coverImage.src"
                 :alt="project.coverImage.alt"
                 loading="lazy"
+                sizes="(max-width: 768px) 60vw, 800px"
               />
               <h2>{{ project.header }}</h2>
             </NuxtLink>
