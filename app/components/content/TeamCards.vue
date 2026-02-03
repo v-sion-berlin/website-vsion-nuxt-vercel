@@ -10,7 +10,7 @@
         :src="useImagePath(image.src)"
         data-reveal
         loading="lazy"
-        sizes="(max-width: 768px) 80vw, 40vw"
+        sizes="(max-width: 768px) 60vw, 800px"
         :alt="image.alt || 'Team member'"
       />
       <p data-reveal>{{ image.text }}</p>
