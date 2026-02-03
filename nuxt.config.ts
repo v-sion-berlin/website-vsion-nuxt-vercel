@@ -36,9 +36,26 @@ export default defineNuxtConfig({
       private: false,
     },
   },
+  fonts: {
+    families: [
+      {
+        name: "Montserrat",
+        provider: "google",
+        weights: [400, 500, 700],
+        display: "swap",
+      },
+    ],
+  },
   routeRules: {
     "/": { prerender: true },
     "/about": { prerender: true },
+    "/services": { prerender: true },
+    "/team": { prerender: true },
+    "/career": { prerender: true },
+    "/projects": { prerender: true },
+    "/projects/**": { prerender: true },
+    "/de": { prerender: true },
+    "/de/**": { prerender: true },
   },
   nitro: {
     // preset: "github_pages",
@@ -49,7 +66,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["plyr/dist/plyr.css"],
+  css: [],
 
   app: {
     // baseURL: process.env.NUXT_APP_BASE_URL || "/",
