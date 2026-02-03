@@ -7,6 +7,8 @@
             format="webp"
             :src="useImagePath(careerImage1?.src)"
             v-if="careerImage1"
+            loading="lazy"
+            :alt="careerImage1.alt || 'Career image'"
           />
         </div>
         <div data-reveal>
@@ -14,6 +16,8 @@
             format="webp"
             :src="useImagePath(careerImage2?.src)"
             v-if="careerImage2"
+            loading="lazy"
+            :alt="careerImage2.alt || 'Career image'"
           />
         </div>
       </section>
