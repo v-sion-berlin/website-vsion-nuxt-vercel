@@ -6,11 +6,19 @@
         format="webp"
         :src="useImagePath(page.heroImage?.src)"
         class="blur-img"
+        loading="eager"
+        sizes="(max-width: 768px) 60vw, 800px"
+        aria-hidden="true"
+        alt=""
       />
       <NuxtImg
         format="webp"
         :src="useImagePath(page.heroImage?.src)"
         class="img"
+        loading="eager"
+        fetchpriority="high"
+        sizes="(max-width: 768px) 60vw, 800px"
+        :alt="page.heroImage?.alt || 'About hero image'"
       />
       <div>
         <h1 data-reveal>{{ page?.header }}</h1>
