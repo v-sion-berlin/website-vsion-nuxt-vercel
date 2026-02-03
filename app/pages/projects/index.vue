@@ -92,9 +92,7 @@ useScrollReveal({
             :src="project.coverImage.src"
             :alt="project.coverImage.alt"
             loading="lazy"
-            width="400"
-            height="300"
-            sizes="400px"
+            sizes="(max-width: 768px) 60vw, 800px"
           />
           <h2>{{ project.header }}</h2>
         </NuxtLink>
