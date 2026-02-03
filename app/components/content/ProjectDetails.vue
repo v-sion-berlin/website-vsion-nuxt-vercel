@@ -80,6 +80,7 @@
               :src="item.src"
               :alt="item.alt"
               loading="lazy"
+              sizes="(max-width: 768px) 60vw, 800px"
             />
           </template>
 
@@ -95,6 +96,7 @@
                 :src="item.poster || '/images/projects/test.jpg'"
                 :alt="item.title"
                 loading="lazy"
+                sizes="(max-width: 768px) 60vw, 800px"
               />
               <button class="play-button" aria-label="Play video">
                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -174,7 +176,7 @@
               :src="project.coverImage.src"
               :alt="project.coverImage.alt"
               loading="lazy"
-              sizes="30vw"
+              sizes="(max-width: 768px) 60vw, 800px"
             />
             <h2>{{ project.header }}</h2>
           </NuxtLink>
