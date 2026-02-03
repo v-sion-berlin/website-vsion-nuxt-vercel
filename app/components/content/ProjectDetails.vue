@@ -75,7 +75,12 @@
         >
           <!-- image slide -->
           <template v-if="item.type === 'image'">
-            <NuxtImg format="webp" :src="item.src" :alt="item.alt" />
+            <NuxtImg
+              format="webp"
+              :src="item.src"
+              :alt="item.alt"
+              loading="lazy"
+            />
           </template>
 
           <!-- video slide -->
@@ -89,6 +94,7 @@
                 format="webp"
                 :src="item.poster || '/images/projects/test.jpg'"
                 :alt="item.title"
+                loading="lazy"
               />
               <button class="play-button" aria-label="Play video">
                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -167,6 +173,8 @@
               v-if="project.coverImage"
               :src="project.coverImage.src"
               :alt="project.coverImage.alt"
+              loading="lazy"
+              sizes="30vw"
             />
             <h2>{{ project.header }}</h2>
           </NuxtLink>
@@ -291,7 +299,10 @@ const playVideo = async (index: number) => {
 
   const container = videoRefs.value.get(index);
   if (container) {
-    const Plyr = (await import("plyr")).default;
+    const [{ default: Plyr }] = await Promise.all([
+      import("plyr"),
+      import("plyr/dist/plyr.css"),
+    ]);
     const playerElement = container.querySelector(".plyr__video-embed");
 
     if (playerElement) {
