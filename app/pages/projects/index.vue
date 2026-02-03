@@ -91,6 +91,10 @@ useScrollReveal({
             v-if="project.coverImage"
             :src="project.coverImage.src"
             :alt="project.coverImage.alt"
+            loading="lazy"
+            width="400"
+            height="300"
+            sizes="400px"
           />
           <h2>{{ project.header }}</h2>
         </NuxtLink>
