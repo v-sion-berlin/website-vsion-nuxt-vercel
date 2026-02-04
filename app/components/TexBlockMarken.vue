@@ -83,10 +83,10 @@ const props = defineProps<{
   page: Marken;
 }>();
 
-function localizedPath() {
+const localizedPath = () => {
   const isGerman = locale.value === "de";
   return isGerman ? `/de/projects/` : `/projects/`;
-}
+};
 </script>
 
 <style scoped>
