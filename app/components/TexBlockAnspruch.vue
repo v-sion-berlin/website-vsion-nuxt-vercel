@@ -37,10 +37,6 @@ const localizedPath = () => {
   const isGerman = locale.value === "de";
   return isGerman ? `/de/team/` : `/team/`;
 };
-
-useScrollReveal({
-  threshold: 0.01,
-});
 </script>
 
 <style scoped>
