@@ -154,22 +154,22 @@ watch(locale, (val) => {
 @keyframes dropdownIn {
   from {
     opacity: 0;
-    transform: scaleY(0.8) translateY(-8px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
-    transform: scaleY(1) translateY(0);
+    transform: translateY(0);
   }
 }
 
 @keyframes dropdownOut {
   from {
     opacity: 1;
-    transform: scaleY(1) translateY(0);
+    transform: translateY(0);
   }
   to {
     opacity: 0;
-    transform: scaleY(0.8) translateY(-8px);
+    transform: translateY(-8px);
   }
 }
 
