@@ -2,14 +2,17 @@
   <div>
     <header class="sticky-header">
       <div class="menu-group">
-        <Lottie
-          :name="logoName"
-          class="menu-item logo-lottie"
-          @click="scrollToTop"
-          :autoplay="true"
-          :loop="false"
-          :width="100"
-        />
+        <div @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+          <Lottie
+            ref="logoLottie"
+            :name="logoName"
+            class="menu-item logo-lottie"
+            @click="scrollToTop"
+            :width="100"
+            :loop="shouldLoop"
+            @on-loop-complete="handleLoopComplete"
+          />
+        </div>
 
         <div class="desktop-nav">
           <ClientOnly>
@@ -105,6 +108,32 @@ const route = useRoute();
 const { locale } = useI18n();
 const drawerOpen = ref(false);
 const itemsVisible = ref(false);
+
+const logoLottie = ref<any>(null);
+const isHovering = ref(false);
+const shouldLoop = ref<boolean | number>(false);
+const isPlaying = ref(false);
+
+const handleMouseEnter = () => {
+  isHovering.value = true;
+  shouldLoop.value = true;
+
+  if (logoLottie.value?.play) {
+    logoLottie.value.play();
+    isPlaying.value = true;
+  }
+};
+
+const handleMouseLeave = () => {
+  isHovering.value = false;
+};
+
+const handleLoopComplete = () => {
+  if (!isHovering.value && isPlaying.value) {
+    isPlaying.value = false;
+    logoLottie.value.stop();
+  }
+};
 
 const localizedPath = () => {
   const isGerman = locale.value === "de";
