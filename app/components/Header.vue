@@ -2,14 +2,14 @@
   <div>
     <header class="sticky-header">
       <div class="menu-group">
-        <div id="logo-vsion" class="menu-item" @click="scrollToTop">
-          <img src="/letters/Letter_V.svg" alt="Logo" class="letter-v" />
-          <img src="/letters/Letter_I_Red.svg" alt="Logo" class="letter-i" />
-          <img src="/letters/Letter_S.svg" alt="Logo" />
-          <img src="/letters/Letter_I_White.svg" alt="Logo" />
-          <img src="/letters/Letter_O.svg" alt="Logo" />
-          <img src="/letters/Letter_N.svg" alt="Logo" />
-        </div>
+        <Lottie
+          :name="logoName"
+          class="menu-item logo-lottie"
+          @click="scrollToTop"
+          :autoplay="true"
+          :loop="false"
+          :width="100"
+        />
 
         <div class="desktop-nav">
           <ClientOnly>
@@ -98,6 +98,8 @@ import LanguageSwitcher from "./LanguageSwitcher.vue";
 import Cursor from "~/assets/Cursor.svg";
 import PageMenu from "./PageMenu.vue";
 
+const { logoName } = useLogoTheme();
+
 const router = useRouter();
 const route = useRoute();
 const { locale } = useI18n();
@@ -185,6 +187,14 @@ const scrollToTop = () => {
   transition: background-color 0.2s ease;
 }
 
+.logo-lottie {
+  padding: 15.87px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 #contact-btn {
   display: flex;
   align-items: center;
@@ -192,17 +202,6 @@ const scrollToTop = () => {
 
 .menu-item:hover {
   background-color: var(--color-grey-menu-item-hover);
-}
-
-#logo-vsion {
-  gap: 2px;
-}
-
-.letter-v {
-  margin-right: -4px;
-}
-.letter-i {
-  margin-right: -2px;
 }
 
 /* Burger button */
