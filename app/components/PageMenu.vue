@@ -1,3 +1,63 @@
+<template>
+  <div ref="menuRef" class="page-menu" :class="{ mobile: props.mobile }">
+    <div
+      class="menu-item"
+      :class="{ active: showDropdown }"
+      @click="toggleDropdown"
+    >
+      <span>{{ currentPage }}</span>
+      <svg
+        v-if="!props.mobile"
+        class="menu-icon"
+        :class="{ open: showDropdown }"
+        width="21"
+        height="14"
+        viewBox="0 0 21 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- rotates to become left side of V -->
+        <rect
+          class="line line-top"
+          x="0"
+          y="0"
+          width="20"
+          height="1.5"
+          rx="0.75"
+          fill="currentColor"
+        />
+        <!-- grows and rotates to become right side of V -->
+        <rect
+          class="line line-bottom"
+          x="10"
+          y="8"
+          width="10"
+          height="1.5"
+          rx="0.75"
+          fill="currentColor"
+        />
+      </svg>
+      <span v-else class="arrow" :class="{ rotated: showDropdown }">▼</span>
+    </div>
+
+    <Transition name="dropdown">
+      <div v-if="showDropdown" class="dropdown">
+        <TransitionGroup name="item" tag="div" class="dropdown-items">
+          <div
+            v-for="(page, index) in pages"
+            :key="page.path"
+            class="dropdown-item"
+            :style="{ '--i': index }"
+            @click="navigate(page.path)"
+          >
+            <span>{{ page.name }}</span>
+          </div>
+        </TransitionGroup>
+      </div>
+    </Transition>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -72,66 +132,6 @@ onClickOutside(menuRef, () => {
   showDropdown.value = false;
 });
 </script>
-
-<template>
-  <div ref="menuRef" class="page-menu" :class="{ mobile: props.mobile }">
-    <div
-      class="menu-item"
-      :class="{ active: showDropdown }"
-      @click="toggleDropdown"
-    >
-      <span>{{ currentPage }}</span>
-      <svg
-        v-if="!props.mobile"
-        class="menu-icon"
-        :class="{ open: showDropdown }"
-        width="21"
-        height="14"
-        viewBox="0 0 21 14"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <!-- rotates to become left side of V -->
-        <rect
-          class="line line-top"
-          x="0"
-          y="0"
-          width="20"
-          height="1.5"
-          rx="0.75"
-          fill="currentColor"
-        />
-        <!-- grows and rotates to become right side of V -->
-        <rect
-          class="line line-bottom"
-          x="10"
-          y="8"
-          width="10"
-          height="1.5"
-          rx="0.75"
-          fill="currentColor"
-        />
-      </svg>
-      <span v-else class="arrow" :class="{ rotated: showDropdown }">▼</span>
-    </div>
-
-    <Transition name="dropdown">
-      <div v-if="showDropdown" class="dropdown">
-        <TransitionGroup name="item" tag="div" class="dropdown-items">
-          <div
-            v-for="(page, index) in pages"
-            :key="page.path"
-            class="dropdown-item"
-            :style="{ '--i': index }"
-            @click="navigate(page.path)"
-          >
-            <span>{{ page.name }}</span>
-          </div>
-        </TransitionGroup>
-      </div>
-    </Transition>
-  </div>
-</template>
 
 <style scoped>
 .page-menu.mobile .dropdown {
@@ -259,22 +259,22 @@ onClickOutside(menuRef, () => {
 @keyframes dropdownIn {
   from {
     opacity: 0;
-    transform: scaleY(0.8) translateY(-8px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
-    transform: scaleY(1) translateY(0);
+    transform: translateY(0);
   }
 }
 
 @keyframes dropdownOut {
   from {
     opacity: 1;
-    transform: scaleY(1) translateY(0);
+    transform: translateY(0);
   }
   to {
     opacity: 0;
-    transform: scaleY(0.8) translateY(-8px);
+    transform: translateY(-8px);
   }
 }
 
