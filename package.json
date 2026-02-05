@@ -3,8 +3,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
+    "dev": "cross-env NODE_OPTIONS=--max-old-space-size=4096 nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -21,6 +21,7 @@
     "dompurify": "^3.2.6",
     "eslint": "^9.36.0",
     "nuxt": "^4.1.2",
+    "nuxt-lottie": "^1.0.8",
     "nuxt-studio": "^1.0.0",
     "plyr": "^3.8.4",
     "ufo": "^1.6.1",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.5.2",
+    "cross-env": "^10.1.0",
     "zod": "^3.25.76",
     "zod-to-json-schema": "^3.24.6"
   }
