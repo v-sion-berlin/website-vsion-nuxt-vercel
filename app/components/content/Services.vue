@@ -117,7 +117,7 @@ li {
 }
 
 .active {
-  background-color: #ff153e26;
+  background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
   border: 2px solid var(--color-primary);
 }
 </style>
