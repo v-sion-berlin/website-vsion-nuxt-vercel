@@ -2,15 +2,15 @@
   <div>
     <header class="sticky-header">
       <div class="menu-group">
-        <div @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+        <div @mouseenter="handleMouseEnter">
           <Lottie
             ref="logoLottie"
             :name="logoName"
             class="menu-item logo-lottie"
             @click="scrollToTop"
             :width="100"
-            :loop="shouldLoop"
-            @on-loop-complete="handleLoopComplete"
+            :loop="1"
+            :autoplay="false"
           />
         </div>
 
@@ -100,6 +100,7 @@ import { ref } from "vue";
 import LanguageSwitcher from "./LanguageSwitcher.vue";
 import Cursor from "~/assets/Cursor.svg";
 import PageMenu from "./PageMenu.vue";
+import type { Lottie } from "nuxt-lottie";
 
 const { logoName } = useLogoTheme();
 
@@ -109,29 +110,11 @@ const { locale } = useI18n();
 const drawerOpen = ref(false);
 const itemsVisible = ref(false);
 
-const logoLottie = ref<any>(null);
-const isHovering = ref(false);
-const shouldLoop = ref<boolean | number>(false);
-const isPlaying = ref(false);
+const logoLottie = ref<Lottie>();
 
 const handleMouseEnter = () => {
-  isHovering.value = true;
-  shouldLoop.value = true;
-
-  if (logoLottie.value?.play) {
-    logoLottie.value.play();
-    isPlaying.value = true;
-  }
-};
-
-const handleMouseLeave = () => {
-  isHovering.value = false;
-};
-
-const handleLoopComplete = () => {
-  if (!isHovering.value && isPlaying.value) {
-    isPlaying.value = false;
-    logoLottie.value.stop();
+  if (logoLottie.value) {
+    logoLottie.value.goToAndPlay(0);
   }
 };
 
