@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxtjs/i18n",
     "nuxt-studio",
+    "nuxt-lottie",
   ],
   i18n: {
     defaultLocale: "en",
