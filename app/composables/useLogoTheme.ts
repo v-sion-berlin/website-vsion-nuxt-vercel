@@ -24,7 +24,7 @@ const themes: Record<LogoTheme, ThemeConfig> = {
   },
 };
 
-const themeKeys: LogoTheme[] = ["red", "green", "violet", "yellow"];
+const themeKeys: LogoTheme[] = ["red", "red", "red", "red"];
 
 export const useLogoTheme = () => {
   const currentTheme = useState<LogoTheme | undefined>("logoTheme", () => {
