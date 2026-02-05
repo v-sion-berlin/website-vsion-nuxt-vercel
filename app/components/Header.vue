@@ -175,7 +175,7 @@ const scrollToTop = () => {
 
 .menu-item {
   display: flex;
-  background-color: var(--color-grey-card);
+  background-color: var(--color-grey-card) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 19px 32px;
