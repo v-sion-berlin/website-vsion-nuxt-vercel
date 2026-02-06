@@ -11,9 +11,10 @@
         </p>
       </section>
 
-      <div
+      <button
         class="watch"
         :class="{ expanded: isVideoOpen }"
+        :aria-label="page.interview_watch_text"
         @click.stop="toggleVideo"
       >
         <p :class="{ hidden: isVideoOpen }">
@@ -22,10 +23,17 @@
 
         <transition name="video-fade">
           <div class="video-container" v-if="isVideoOpen">
-            <button class="close-btn" @click.stop="collapseVideo">✕</button>
+            <button
+              class="close-btn"
+              aria-label="Close video"
+              @click.stop="collapseVideo"
+            >
+              ✕
+            </button>
             <div class="plyr__video-embed" ref="playerContainer">
               <iframe
                 src="https://player.vimeo.com/video/1058566689?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media"
+                title="Interview video"
                 allowfullscreen
                 allowtransparency
                 allow="autoplay"
@@ -33,7 +41,7 @@
             </div>
           </div>
         </transition>
-      </div>
+      </button>
 
       <div class="video-source" v-if="isVideoOpen">
         {{ page.interview_source_text }}
@@ -134,6 +142,7 @@ onBeforeUnmount(() => {
   cursor: pointer;
   border-radius: 16px;
   outline: 2px solid var(--color-primary);
+  border: none;
   width: 150px;
   height: 50px;
   transition:
@@ -145,6 +154,9 @@ onBeforeUnmount(() => {
   position: relative;
   overflow: hidden;
   margin-top: 32px;
+  padding: 0;
+  color: var(--color-text);
+  font-family: "Montserrat", sans-serif;
 }
 
 .watch:hover {
