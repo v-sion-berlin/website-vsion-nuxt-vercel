@@ -12,7 +12,7 @@
             class="button-container"
             style="gap: 4px; text-align: center"
           >
-            <img :src="WhiteCheck" class="check" />
+            <img :src="WhiteCheck" class="check" alt="" aria-hidden="true" />
             <span class="copied-msg">{{ page.button_copied }}</span>
           </div>
         </div>
@@ -24,20 +24,20 @@
           <p class="light">©2025, v-sion GmbH.<br />All rights reserved.</p>
         </div>
 
-        <a class="info-box" href="tel:+491234567890">
-          <img class="icon" :src="Phone" alt="phone" />
+        <a class="info-box" href="tel:+493029381928">
+          <img class="icon" :src="Phone" alt="" aria-hidden="true" />
           <div>+49 (0)30 29 38 19 28</div>
         </a>
 
-        <a class="info-box" @click="copyEmail('email')">
-          <img class="icon" :src="Email" alt="email" />
+        <button class="info-box" @click="copyEmail('email')">
+          <img class="icon" :src="Email" alt="" aria-hidden="true" />
           <div ref="emailEl">
             <span v-if="copiedEmail" class="email-copied">{{
               page.button_copied
             }}</span>
             <span v-else>contact@v-sion.de</span>
           </div>
-        </a>
+        </button>
 
         <a
           href="https://www.linkedin.com/feed/update/urn:li:activity:7313186482737897472/"
@@ -45,7 +45,12 @@
           rel="noopener noreferrer"
           class="info-box"
         >
-          <img class="icon-linkedin" :src="LinkedIn" alt="linkedin" />
+          <img
+            class="icon-linkedin"
+            :src="LinkedIn"
+            alt=""
+            aria-hidden="true"
+          />
           <span>LinkedIn</span>
         </a>
       </div>
@@ -186,6 +191,9 @@ function copyEmail(source: "button" | "email") {
   font-size: 18px;
   background-color: var(--color-grey-card);
   cursor: pointer;
+  color: var(--color-text);
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
 }
 
 .icon {
