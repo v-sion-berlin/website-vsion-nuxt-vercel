@@ -116,6 +116,7 @@ useScrollReveal({
 .project-card img {
   width: 400px;
   height: 300px;
+  object-fit: cover;
 }
 
 .project-card a {
