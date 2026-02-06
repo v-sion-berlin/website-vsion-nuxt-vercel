@@ -23,16 +23,18 @@
 
       <div class="menu-right desktop-nav">
         <LanguageSwitcher />
-        <div id="contact-btn" class="menu-item" @click="scrollToBottom">
+        <button id="contact-btn" class="menu-item" @click="scrollToBottom">
           <span>Contact</span>
-          <img :src="Cursor" alt="Cursor Icon" class="cursor" />
-        </div>
+          <img :src="Cursor" alt="" aria-hidden="true" class="cursor" />
+        </button>
       </div>
 
       <!-- burger button -->
-      <div
+      <button
         class="burger-btn mobile-only menu-item"
         :class="{ active: drawerOpen }"
+        :aria-expanded="drawerOpen"
+        aria-label="Open navigation menu"
         @click="toggleDrawer"
       >
         <div class="burger-icon" :class="{ open: drawerOpen }">
@@ -40,7 +42,7 @@
           <span></span>
           <span></span>
         </div>
-      </div>
+      </button>
     </header>
 
     <!-- mobile overlay -->
@@ -52,7 +54,13 @@
     <Transition name="drawer" @after-enter="onDrawerOpen">
       <div v-if="drawerOpen" class="mobile-drawer">
         <div class="drawer-header">
-          <div class="close-btn" @click="toggleDrawer">✕</div>
+          <button
+            class="close-btn"
+            aria-label="Close navigation menu"
+            @click="toggleDrawer"
+          >
+            ✕
+          </button>
         </div>
 
         <div class="drawer-content">
@@ -74,7 +82,7 @@
               <LanguageSwitcher mobile />
             </ClientOnly>
           </div>
-          <div
+          <button
             class="drawer-item drawer-contact-btn"
             :class="{ visible: itemsVisible }"
             :style="{ '--i': 2 }"
@@ -86,8 +94,8 @@
             "
           >
             <span>Contact</span>
-            <img :src="Cursor" alt="Cursor Icon" class="cursor" />
-          </div>
+            <img :src="Cursor" alt="" aria-hidden="true" class="cursor" />
+          </button>
         </div>
       </div>
     </Transition>
@@ -197,6 +205,8 @@ const scrollToTop = () => {
   cursor: pointer;
   border-radius: 16px;
   transition: background-color 0.2s ease;
+  border: none;
+  color: var(--color-text);
 }
 
 .logo-lottie {
@@ -299,6 +309,10 @@ const scrollToTop = () => {
   font-size: 20px;
   filter: drop-shadow(0 0 8px white);
   transition: transform 0.2s ease;
+  border: none;
+  background: none;
+  color: var(--color-text);
+  padding: 0;
 }
 
 .close-btn:hover {
@@ -352,6 +366,9 @@ const scrollToTop = () => {
   border-radius: 16px;
   background: transparent;
   background-color: var(--color-grey-card);
+  border: none;
+  color: var(--color-text);
+  width: 100%;
 
   transition:
     opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
