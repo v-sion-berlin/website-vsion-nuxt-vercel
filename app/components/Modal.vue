@@ -20,7 +20,7 @@
               class="close"
               type="button"
               @click="close"
-              aria-label="Modal schließen"
+              aria-label="Close"
             >
               ×
             </button>
@@ -51,7 +51,7 @@ const emit = defineEmits<{
 
 const panel = ref<HTMLElement | null>(null);
 const titleId = computed(
-  () => `modal-${Math.random().toString(36).slice(2, 9)}-title`
+  () => `modal-${Math.random().toString(36).slice(2, 9)}-title`,
 );
 
 function close() {
@@ -73,7 +73,7 @@ watch(
       }
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 onBeforeUnmount(() => {
