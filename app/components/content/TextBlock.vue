@@ -23,6 +23,7 @@
         <button
           class="scroll-arrow left"
           v-show="showLeftProjectArrow"
+          aria-label="Scroll left"
           @click="scrollLeftGrid()"
         >
           <svg
@@ -30,6 +31,7 @@
             fill="none"
             stroke="currentColor"
             stroke-width="2"
+            aria-hidden="true"
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
@@ -58,6 +60,7 @@
         <button
           class="scroll-arrow right"
           v-show="showRightProjectArrow"
+          aria-label="Scroll right"
           @click="scrollRightGrid()"
         >
           <svg
@@ -65,6 +68,7 @@
             fill="none"
             stroke="currentColor"
             stroke-width="2"
+            aria-hidden="true"
           >
             <path d="M9 18l6-6-6-6" />
           </svg>
