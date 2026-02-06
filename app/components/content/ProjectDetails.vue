@@ -11,6 +11,8 @@
             :src="useImagePath(imageSrc?.src)"
             class="img"
             v-if="props.imageSrc"
+            alt=""
+            aria-hidden="true"
           />
           <!-- <img
             :src="useImagePath(imageSrc?.src)"
@@ -54,6 +56,7 @@
       <button
         class="scroll-arrow left"
         v-show="showLeftSliderArrow"
+        aria-label="Scroll left"
         @click="scrollLeft()"
       >
         <svg
@@ -61,6 +64,7 @@
           fill="none"
           stroke="currentColor"
           stroke-width="2"
+          aria-hidden="true"
         >
           <path d="M15 18l-6-6 6-6" />
         </svg>
@@ -99,7 +103,7 @@
                 sizes="(max-width: 768px) 60vw, 800px"
               />
               <button class="play-button" aria-label="Play video">
-                <svg viewBox="0 0 24 24" fill="currentColor">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </button>
@@ -113,6 +117,7 @@
               <div class="plyr__video-embed">
                 <iframe
                   :src="getVideoEmbedUrl(item)"
+                  :title="item.title || 'Project video'"
                   allowfullscreen
                   allowtransparency
                   allow="autoplay"
@@ -130,6 +135,7 @@
       <button
         class="scroll-arrow right"
         v-show="showRightSliderArrow"
+        aria-label="Scroll right"
         @click="scrollRight()"
       >
         <svg
@@ -137,6 +143,7 @@
           fill="none"
           stroke="currentColor"
           stroke-width="2"
+          aria-hidden="true"
         >
           <path d="M9 18l6-6-6-6" />
         </svg>
@@ -151,6 +158,7 @@
       <button
         class="scroll-arrow left"
         v-show="showLeftProjectArrow"
+        aria-label="Scroll left"
         @click="scrollLeftGrid()"
       >
         <svg
@@ -158,6 +166,7 @@
           fill="none"
           stroke="currentColor"
           stroke-width="2"
+          aria-hidden="true"
         >
           <path d="M15 18l-6-6 6-6" />
         </svg>
@@ -186,6 +195,7 @@
       <button
         class="scroll-arrow right"
         v-show="showRightProjectArrow"
+        aria-label="Scroll right"
         @click="scrollRightGrid()"
       >
         <svg
@@ -193,6 +203,7 @@
           fill="none"
           stroke="currentColor"
           stroke-width="2"
+          aria-hidden="true"
         >
           <path d="M9 18l6-6-6-6" />
         </svg>
