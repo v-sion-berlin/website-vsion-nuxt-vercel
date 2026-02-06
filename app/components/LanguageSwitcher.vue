@@ -30,21 +30,24 @@ watch(locale, (val) => {
     class="language-switcher"
     :class="{ mobile: props.mobile }"
   >
-    <div
+    <button
       class="menu-item"
       :class="{ active: showDropdown }"
+      :aria-expanded="showDropdown"
+      aria-haspopup="true"
+      aria-label="Select language"
       @click="toggleDropdown"
     >
       <span>{{ currentLang }}</span>
       <span v-if="props.mobile" class="arrow" :class="{ rotated: showDropdown }"
         >▼</span
       >
-    </div>
+    </button>
 
     <Transition name="dropdown">
       <div v-if="showDropdown" class="dropdown">
         <TransitionGroup name="item" tag="div" class="dropdown-items">
-          <div
+          <button
             v-for="(_locale, index) of locales"
             :key="_locale.code"
             class="dropdown-item"
@@ -52,7 +55,7 @@ watch(locale, (val) => {
             @click="setLocale(_locale.code)"
           >
             <span>{{ _locale.code?.toUpperCase() }}</span>
-          </div>
+          </button>
         </TransitionGroup>
       </div>
     </Transition>
@@ -100,6 +103,11 @@ watch(locale, (val) => {
   min-width: 20px;
   width: auto;
   transition: background-color 0.2s ease;
+  border: none;
+  color: var(--color-text);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  width: 100%;
 }
 
 .menu-item:hover {
@@ -137,6 +145,12 @@ watch(locale, (val) => {
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;
+  border: none;
+  background: none;
+  color: var(--color-text);
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  text-align: left;
 }
 
 .dropdown-item:hover {
