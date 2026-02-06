@@ -90,6 +90,11 @@ export default defineNuxtConfig({
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          name: "description",
+          content:
+            "Excellent design and pioneering technology powering today's live content delivery",
+        },
 
         // Open Graph
         { property: "og:title", content: "v-sion" },
