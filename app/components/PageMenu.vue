@@ -1,8 +1,10 @@
 <template>
   <div ref="menuRef" class="page-menu" :class="{ mobile: props.mobile }">
-    <div
+    <button
       class="menu-item"
       :class="{ active: showDropdown }"
+      :aria-expanded="showDropdown"
+      aria-haspopup="true"
       @click="toggleDropdown"
     >
       <span>{{ currentPage }}</span>
@@ -15,8 +17,8 @@
         viewBox="0 0 21 14"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
       >
-        <!-- rotates to become left side of V -->
         <rect
           class="line line-top"
           x="0"
@@ -26,7 +28,6 @@
           rx="0.75"
           fill="currentColor"
         />
-        <!-- grows and rotates to become right side of V -->
         <rect
           class="line line-bottom"
           x="10"
@@ -38,12 +39,12 @@
         />
       </svg>
       <span v-else class="arrow" :class="{ rotated: showDropdown }">▼</span>
-    </div>
+    </button>
 
     <Transition name="dropdown">
       <div v-if="showDropdown" class="dropdown">
         <TransitionGroup name="item" tag="div" class="dropdown-items">
-          <div
+          <button
             v-for="(page, index) in pages"
             :key="page.path"
             class="dropdown-item"
@@ -51,7 +52,7 @@
             @click="navigate(page.path)"
           >
             <span>{{ page.name }}</span>
-          </div>
+          </button>
         </TransitionGroup>
       </div>
     </Transition>
@@ -175,6 +176,11 @@ onClickOutside(menuRef, () => {
   min-width: 160px;
   width: auto;
   transition: background-color 0.2s ease;
+  border: none;
+  color: var(--color-text);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  width: 100%;
 }
 
 .menu-item.active {
@@ -242,6 +248,12 @@ onClickOutside(menuRef, () => {
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;
+  border: none;
+  background: none;
+  color: var(--color-text);
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  text-align: left;
 }
 
 .dropdown-item:hover {
