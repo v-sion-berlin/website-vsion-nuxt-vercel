@@ -1,3 +1,2 @@
 User-Agent: *
 Disallow:
-Sitemap: https://www.v-sion.de/sitemap.xml
