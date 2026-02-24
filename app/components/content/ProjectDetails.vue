@@ -526,7 +526,7 @@ const {
 }
 
 .project-name {
-  font-weight: 300;
+  font-weight: 200;
   font-style: italic;
   padding-left: clamp(1rem, 2vw, 5rem);
   display: inline-flex;
