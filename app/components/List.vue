@@ -54,24 +54,24 @@ const repeatCount = 10;
 const canHover = ref(false);
 const { activeIndex } = useServicesMenu();
 
-function setActive(index: number) {
+const setActive = (index: number) => {
   activeIndex.value = index;
-}
+};
 
-function localizedPath() {
+const localizedPath = () => {
   return locale.value === "de" ? "/de/services" : "/services";
-}
+};
 
-function toggleItem(key: string) {
+const toggleItem = (key: string) => {
   if (canHover) return;
   activeItem.value = activeItem.value === key ? null : key;
-}
+};
 
-function handleClickOutside(e: MouseEvent) {
+const handleClickOutside = (e: MouseEvent) => {
   if (!(e.target as HTMLElement).closest(".vertical-menu")) {
     activeItem.value = null;
   }
-}
+};
 
 onMounted(() => {
   canHover.value = window.matchMedia("(hover: hover)").matches;
