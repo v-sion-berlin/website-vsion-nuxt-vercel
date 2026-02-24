@@ -122,4 +122,8 @@ useScrollReveal({
 .project-card a {
   cursor: pointer !important;
 }
+
+.project-card a h2 {
+  cursor: pointer !important;
+}
 </style>
