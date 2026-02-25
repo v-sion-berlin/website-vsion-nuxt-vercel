@@ -8,6 +8,9 @@ detailImage:
   alt: 3SAT
 header: 3SAT
 projectsHeader: Our Projekte
+seo:
+  title: 3sat
+  description: ""
 sliderHeader: Project Images
 sliderItems:
   - type: image
@@ -37,9 +40,6 @@ table:
     - Open Media
     - Vidiwall
 type: project
-seo:
-  title: 3sat
-  description: ""
 ---
 
 ::project-details
