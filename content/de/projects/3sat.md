@@ -8,6 +8,9 @@ detailImage:
   alt: 3SAT
 header: 3SAT
 projectsHeader: Unsere Projekte
+seo:
+  title: 3sat
+  description: ""
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
@@ -38,9 +41,6 @@ table:
     - Viz Pilot
     - Adobe CC
 type: project
-seo:
-  title: 3sat
-  description: ""
 ---
 
 ::project-details
