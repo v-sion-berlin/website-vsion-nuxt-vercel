@@ -1,7 +1,7 @@
 ---
 title: 3sat Redesign
 coverImage:
-  src: /images/projects/3sat_cover.png
+  src: /images/projects/3sat/3sat-bunt.jpg
   alt: 3SAT
 detailImage:
   src: /images/projects/3sat_detail.svg
@@ -14,31 +14,38 @@ seo:
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
-    src: /images/projects/test.jpg
-    alt: Studio View 1
-    title: Studio View from 3SAT Studio
+    src: /images/projects/3sat/3sat-anders-menschen.jpg
+    alt: Screenshot
+    title: Trailer
   - type: video
     provider: vimeo
-    videoId: "1058566689"
-    title: Behind the Scenes
+    videoId: "313115516"
+    title: BDA Trailer
     poster: /images/projects/idlePlay.jpg
   - type: image
-    src: /images/projects/test.jpg
-    alt: Studio View 2
-    title: Wettervorschau Animation
+    src: /images/projects/3sat/3sat-wilde-schweiz.jpg
+    alt: Wilde Schweiz
+    title: Programmhinweis
+  - type: image
+    src: /images/projects/3sat/3sat-winter.jpg
+    alt: Winterlandschaft
+    title: Trailer
+  - type: image
+    src: /images/projects/3sat/3sat-wildes-europa.jpg
+    alt: "Wildes Europa "
+    title: Sendehinweis
+  - type: image
+    src: /images/projects/3sat/3sat-theatertreffen.jpg
 slug: 3sat
 table:
   header:
     firstCol: Unsere Aufgaben
     secondCol: Technologien
   tasks:
-    - Design Implementierung
-    - Technische Konzeption
-    - Grafik Szenen
-    - Templates
+    - Design Integration, Technisches Konzept
+    - Grafik Szenen, Templates
   technologies:
-    - Viz Artist
-    - Viz Pilot
+    - Viz Artist, Viz Pilot
     - Adobe CC
 type: project
 ---
@@ -57,7 +64,7 @@ type: project
 Redesign
 
 #body
-Das neue 3sat Design hält Einzug in die Sendeabwicklung beim ZDF in Mainz. In enger Abstimmung entstehen moderne, automatisierte Branding-Grafiken, die flexibel und in Echtzeit On Air gehen.
+Das neue 3sat Design hält Einzug in die Sendeabwicklung beim ZDF in Mainz. In enger Abstimmung entstehen moderne, automatisierte Branding-Grafiken, die flexibel und automatisiert On Air gehen.
 
 #sub
 Das visuelle Erscheinungsbild wurde von der Münchner Agentur [BDA Creative](https://www.bdacreative.com/project/3sat) entwickelt. Die Entstehung des neuen Designs wurde beim ZDF vom 3sat-Team im Marketing betreut.

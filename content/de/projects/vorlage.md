@@ -1,5 +1,5 @@
 ---
-title: ARD mima
+title: Vorlage
 coverImage:
   src: /images/projects/ARDMittagsmagazin/010-ard-mima-abmoderation.webp
   alt: ARD
@@ -16,26 +16,15 @@ sliderItems:
     src: /images/projects/ARDMittagsmagazin/001-ard-mima-studio-dunkel.webp
     alt: Studio View 1
     title: Studio
+  - type: video
+    provider: vimeo
+    videoId: "1058566689"
+    title: Behind the Scenes
+    poster: /images/projects/idlePlay.jpg
   - type: image
-    src: /images/projects/ARDMittagsmagazin/003-ard-mima-schalte.webp
-    alt: Schaltenposition Studio
-    title: Schaltgast
-  - type: image
-    src: /images/projects/ARDMittagsmagazin/004-ard-mima-talk.webp
-    alt: Gespräch Talk Studio
-    title: Talk im Studio
-  - type: image
-    src: /images/projects/ARDMittagsmagazin/006-ard-mima-anmod-jessy.webp
-    alt: Moderation
-    title: Moderation
-  - type: image
-    src: /images/projects/ARDMittagsmagazin/007-ard-mima-news.webp
-    alt: News
-    title: News
-  - type: image
-    src: /images/projects/ARDMittagsmagazin/010-ard-mima-abmoderation.webp
-    alt: Verabschiedung
-    title: Closer
+    src: /images/projects/test.jpg
+    alt: Studio View 2
+    title: Wettervorschau Animation
 slug: ardmima
 table:
   header:
@@ -50,6 +39,9 @@ table:
     - Open Media
     - Vidiwall
 type: project
+seo:
+  title: ARD mima
+  description: ""
 ---
 
 ::project-details
