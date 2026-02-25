@@ -50,7 +50,6 @@ sliderItems:
   - type: image
     src: /images/projects/zdf-moma/11-zdf-moma-social-sofa.jpg
     title: Social Media
-  - {}
 slug: zdf-moma
 table:
   header:
