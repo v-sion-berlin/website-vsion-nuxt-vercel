@@ -123,6 +123,11 @@ useScrollReveal({
   cursor: pointer !important;
 }
 
+.project-card:hover {
+  transform: scale3d(0.95, 0.95, 1);
+  transition: all ease-in-out 0.3s;
+}
+
 .project-card a h2 {
   cursor: pointer !important;
 }
