@@ -13,7 +13,7 @@ projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
-    src: /images/projects/ARDMittagsmagazin/001-ard-mima-studio-dunkel.webp
+    src: /images/projects/ARDMittagsmagazin/011-ard-mima-bundestag-quadrat.webp
     alt: Studio View 1
     title: Studio
   - type: image
