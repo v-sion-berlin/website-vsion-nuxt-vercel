@@ -1,7 +1,7 @@
 <template>
   <section>
     <div id="headline" class="wrapper">
-      <h1>
+      <h1 v-reveal>
         <div style="display: flex">
           <slot mdc-unwrap="p" />
           <div class="project-name">
@@ -14,44 +14,19 @@
             alt=""
             aria-hidden="true"
           />
-          <!-- <img
-            :src="useImagePath(imageSrc?.src)"
-            class="blur-img"
-            v-if="props.imageSrc"
-          /> -->
         </div>
       </h1>
-      <div id="text-container-big">
+      <div id="text-container-big" v-reveal="100">
         <slot name="body" />
       </div>
       <br />
-      <div id="text-container">
+      <div id="text-container" v-reveal="200">
         <slot name="sub" />
       </div>
     </div>
   </section>
 
-  <section id="table" class="wrapper">
-    <div class="table-col" v-if="tableDetails?.tasks?.length">
-      <div class="table-header">{{ tableDetails.header.firstCol }}</div>
-      <ul class="table-list">
-        <li v-for="(task, i) in tableDetails.tasks" :key="i">{{ task }}</li>
-      </ul>
-    </div>
-
-    <div class="table-col" v-if="tableDetails?.technologies?.length">
-      <div class="table-header">{{ tableDetails.header.secondCol }}</div>
-      <ul class="table-list">
-        <li v-for="(tech, i) in tableDetails.technologies" :key="i">
-          {{ tech }}
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section v-if="sliderItems?.length" id="projects">
-    <div class="header wrapper">{{ sliderHeader }}</div>
-
+  <section v-if="sliderItems?.length" id="projects" data-reveal>
     <div class="scroll-wrapper">
       <button
         class="scroll-arrow left"
@@ -75,7 +50,12 @@
           v-for="(item, index) in sliderItemsFull"
           :key="index"
           class="slide-card"
-          :class="{ 'is-video': item.type === 'video' }"
+          :class="{
+            'is-video': item.type === 'video',
+            'is-video-playing':
+              item.type === 'video' &&
+              (item.autoPlay || activeVideoIndex === index),
+          }"
         >
           <!-- image slide -->
           <template v-if="item.type === 'image'">
@@ -90,43 +70,66 @@
 
           <!-- video slide -->
           <template v-else-if="item.type === 'video'">
-            <div
-              class="video-poster"
-              v-if="!activeVideoIndex || activeVideoIndex !== index"
-              @click="playVideo(index)"
-            >
-              <NuxtImg
-                format="webp"
-                :src="item.poster || '/images/projects/test.jpg'"
-                :alt="item.title"
-                loading="lazy"
-                sizes="(max-width: 768px) 60vw, 800px"
-              />
-              <button class="play-button" aria-label="Play video">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </button>
-            </div>
-
-            <div
-              v-else
-              class="video-player"
-              :ref="(el) => setVideoRef(el, index)"
-            >
-              <div class="plyr__video-embed">
-                <iframe
-                  :src="getVideoEmbedUrl(item)"
-                  :title="item.title || 'Project video'"
-                  allowfullscreen
-                  allowtransparency
-                  allow="autoplay"
-                ></iframe>
+            <template v-if="item.autoPlay">
+              <div class="video-player" :ref="(el) => setVideoRef(el, index)">
+                <div class="plyr__video-embed">
+                  <iframe
+                    :src="getVideoEmbedUrl(item, true)"
+                    :title="item.title || 'Project video'"
+                    allowfullscreen
+                    allowtransparency
+                    allow="autoplay; encrypted-media"
+                  ></iframe>
+                </div>
               </div>
-            </div>
+            </template>
+
+            <!-- manual play: poster → click → player -->
+            <template v-else>
+              <div
+                class="video-poster"
+                v-if="activeVideoIndex === null || activeVideoIndex !== index"
+                @click="playVideo(index)"
+              >
+                <NuxtImg
+                  format="webp"
+                  :alt="item.title"
+                  :src="item.poster || '/images/projects/test.jpg'"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 60vw, 800px"
+                />
+                <button class="play-button" aria-label="Play video">
+                  <svg viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+              </div>
+
+              <div
+                v-else
+                class="video-player"
+                :ref="(el) => setVideoRef(el, index)"
+              >
+                <div class="plyr__video-embed">
+                  <iframe
+                    :src="getVideoEmbedUrl(item, false)"
+                    :title="item.title || 'Project video'"
+                    allowfullscreen
+                    allowtransparency
+                    allow="autoplay"
+                  ></iframe>
+                </div>
+              </div>
+            </template>
           </template>
 
-          <h2 v-if="item.type === 'image' || activeVideoIndex !== index">
+          <h2
+            v-if="
+              item.title &&
+              (item.type === 'image' ||
+                (!item.autoPlay && activeVideoIndex !== index))
+            "
+          >
             {{ item.title }}
           </h2>
         </div>
@@ -151,7 +154,25 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="table" class="wrapper" data-reveal>
+    <div class="table-col" v-if="tableDetails?.tasks?.length">
+      <div class="table-header">{{ tableDetails.header.firstCol }}</div>
+      <ul class="table-list">
+        <li v-for="(task, i) in tableDetails.tasks" :key="i">{{ task }}</li>
+      </ul>
+    </div>
+
+    <div class="table-col" v-if="tableDetails?.technologies?.length">
+      <div class="table-header">{{ tableDetails.header.secondCol }}</div>
+      <ul class="table-list">
+        <li v-for="(tech, i) in tableDetails.technologies" :key="i">
+          {{ tech }}
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects" data-reveal>
     <div class="header wrapper">{{ projectsHeader }}</div>
 
     <div class="scroll-wrapper">
@@ -233,6 +254,7 @@ interface SliderVideo {
   videoId: string;
   title: string;
   poster?: string;
+  autoPlay?: boolean;
 }
 
 type SliderItem = SliderImage | SliderVideo;
@@ -291,13 +313,21 @@ const localizedPath = (subTitle: string) => {
   return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
 };
 
-const getVideoEmbedUrl = (item: SliderVideo): string => {
+const getVideoEmbedUrl = (item: SliderVideo, muted: boolean): string => {
   if (item.provider === "vimeo") {
+    if (muted) {
+      return `https://player.vimeo.com/video/${item.videoId}?autoplay=1&muted=1&loop=1&byline=false&portrait=false&title=false&speed=true&transparent=0`;
+    }
     return `https://player.vimeo.com/video/${item.videoId}?autoplay=1&loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media`;
   }
+
   if (item.provider === "youtube") {
-    return `https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`;
+    if (muted) {
+      return `https://www.youtube.com/embed/${item.videoId}?autoplay=1&mute=1&loop=1&playlist=${item.videoId}&rel=0&modestbranding=1&playsinline=1`;
+    }
+    return `https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
   }
+
   return "";
 };
 
@@ -327,8 +357,6 @@ const playVideo = async (index: number) => {
           "current-time",
           "mute",
           "volume",
-          "settings",
-          "pip",
           "fullscreen",
         ],
         vimeo: {
@@ -370,6 +398,62 @@ onBeforeUnmount(() => {
   playerInstances.clear();
 });
 
+/** Initialize Plyr on autoplay video slides once the DOM is ready */
+onMounted(async () => {
+  const items = props.sliderItems || [];
+  const autoplayIndices = items
+    .map((item, i) =>
+      item.type === "video" && (item as SliderVideo).autoPlay ? i : -1,
+    )
+    .filter((i) => i !== -1);
+
+  if (autoplayIndices.length === 0) return;
+
+  await nextTick();
+
+  const [{ default: Plyr }] = await Promise.all([
+    import("plyr"),
+    import("plyr/dist/plyr.css"),
+  ]);
+
+  for (const index of autoplayIndices) {
+    const container = videoRefs.value.get(index);
+    if (!container) continue;
+
+    const playerElement = container.querySelector(".plyr__video-embed");
+    if (!playerElement) continue;
+
+    const player = new Plyr(playerElement as HTMLElement, {
+      controls: [
+        "play-large",
+        "play",
+        "progress",
+        "current-time",
+        "mute",
+        "volume",
+        "fullscreen",
+      ],
+      autoplay: true,
+      muted: true,
+      vimeo: {
+        byline: false,
+        portrait: false,
+        title: false,
+        speed: true,
+        transparent: false,
+      },
+      youtube: {
+        noCookie: true,
+        rel: 0,
+        showinfo: 0,
+        modestbranding: 1,
+      },
+    });
+
+    playerInstances.set(index, player);
+  }
+});
+
 const { data: projects } = await useAsyncData(
   () => `projects-${locale.value}-${slug.value}`,
   () => {
@@ -389,10 +473,11 @@ const {
   scrollLeft,
   scrollRight,
 } = useHorizontalSlider({
-  autoPlay: true,
+  autoPlay: false,
   autoPlayInterval: 3000,
   continuous: false,
   pauseOnHover: true,
+  videoPlayingSelector: ".slide-card.is-video-playing",
 });
 
 const {
@@ -407,6 +492,8 @@ const {
   speed: 0.8,
   pauseOnHover: true,
 });
+
+useScrollReveal();
 </script>
 
 <style scoped>
@@ -442,22 +529,25 @@ const {
 }
 
 .slide-card {
-  flex: 0 0 60vw;
-  aspect-ratio: 16/9;
+  flex: 0 0 auto;
+  height: clamp(300px, 45vw, 550px);
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
-  cursor: none;
   transition: transform 0.3s ease;
 }
 
 .slide-card img {
-  width: 100%;
   height: 100%;
+  width: auto;
   object-fit: cover;
   display: block;
   transition: filter 0.3s ease;
-  cursor: none;
+}
+
+.slide-card.is-video {
+  aspect-ratio: 16 / 9;
+  background: #000;
 }
 
 .slide-card h2 {
@@ -471,7 +561,6 @@ const {
   padding: 19px 32px;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  cursor: none;
   border-radius: clamp(8px, 2.5vw, 16px);
   color: var(--color-text);
   font-size: clamp(8px, 2vw, 24px);
@@ -487,7 +576,7 @@ const {
 }
 
 #table {
-  padding: 4rem clamp(1rem, 10vw, 19.125rem) clamp(2rem, 5vw, 4rem)
+  padding: 0 clamp(1rem, 10vw, 19.125rem) clamp(2rem, 5vw, 4rem)
     clamp(1rem, 5vw, 5.625rem);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(288px, 100%), 1fr));
@@ -570,15 +659,10 @@ const {
 }
 
 /* video slide */
-.slide-card.is-video {
-  background: #000;
-}
-
 .video-poster {
   position: relative;
   width: 100%;
   height: 100%;
-  cursor: none;
 }
 
 .video-poster img {
