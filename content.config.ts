@@ -121,6 +121,7 @@ const projectSchema = z.object({
           provider: z.enum(["vimeo", "youtube"]),
           videoId: z.string(),
           title: z.string(),
+          autoPlay: z.boolean().optional(),
           poster: property(z.string()).editor({ input: "media" }).optional(),
         }),
       ]),
