@@ -18,7 +18,7 @@
       </div>
     </section>
 
-    <section id="projects" v-if="showProjects" class="wrapper" v-reveal>
+    <section id="projects" v-if="showProjects" v-reveal>
       <div class="scroll-wrapper">
         <button
           class="scroll-arrow left"
