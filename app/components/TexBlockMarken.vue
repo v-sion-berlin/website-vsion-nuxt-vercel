@@ -49,9 +49,7 @@
           <img :src="SVT" alt="SVT" />
         </div>
         <NuxtLink :to="localizedPath()" class="menu-link" data-reveal>
-          <div>
-            <p>{{ page.textblock_marken_button }}</p>
-          </div>
+          <p>{{ page.textblock_marken_button }}</p>
         </NuxtLink>
       </section>
     </main>
@@ -125,7 +123,6 @@ section {
   background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px); /* Safari support */
-  cursor: pointer;
   border-radius: 16px;
   width: 100%;
   height: clamp(100px, 12vw, 120px);
@@ -150,7 +147,6 @@ section {
 
 #logo-grid div:hover img {
   opacity: 1;
-  transform: scale(1.2);
 }
 
 #logo-grid div:hover,
