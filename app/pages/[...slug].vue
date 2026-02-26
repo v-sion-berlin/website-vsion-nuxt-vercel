@@ -36,7 +36,7 @@ const { data: rawPage } = await useAsyncData(
 );
 
 const { data: contactDataRaw } = await useAsyncData(
-  `contact-data` + locale,
+  `contact-data-${locale.value}`,
   () =>
     queryCollection(
       withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections,
