@@ -20,6 +20,7 @@ sliderItems:
     provider: vimeo
     videoId: "1058566689"
     title: Behind the Scenes
+    autoPlay: true
     poster: /images/projects/idlePlay.jpg
   - type: image
     src: /images/projects/test.jpg
