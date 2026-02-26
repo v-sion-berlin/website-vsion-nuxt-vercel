@@ -7,6 +7,7 @@ type SliderOptions = {
   continuous?: boolean;
   speed?: number;
   showCustomCursor?: boolean;
+  videoPlayingSelector?: string;
   onClone?: (clone: HTMLElement, original: HTMLElement, index: number) => void;
 };
 
@@ -18,6 +19,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     continuous = false,
     speed = 1,
     showCustomCursor = true,
+    videoPlayingSelector,
     onClone,
   } = options;
 
@@ -39,28 +41,11 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   let gap = 0;
 
   let cursorIndicator: HTMLElement | null = null;
+  let isInsideSlider = false;
+  /** True when the cursor is in the bottom 1/3 of a playing-video card (controls zone) */
+  let isInControlsZone = false;
 
-  let velocityX = 0;
-  let lastMoveTime = 0;
-  let lastMoveX = 0;
-  let momentumAnimationId: number | null = null;
-
-  const handleScroll = () => {
-    if (continuous) {
-      handleInfiniteScroll();
-    } else {
-      updateArrowVisibility();
-    }
-  };
-
-  const handleResize = () => {
-    if (continuous) {
-      isSetup = false;
-      setupContinuousLoop();
-    } else {
-      updateArrowVisibility();
-    }
-  };
+  // ── Arrow visibility ──────────────────────────────────────────────────
 
   const updateArrowVisibility = () => {
     const slider = sliderRef.value;
@@ -77,14 +62,16 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
       slider.scrollLeft + slider.clientWidth < slider.scrollWidth - 10;
   };
 
+  // ── Infinite / continuous scroll ──────────────────────────────────────
+
   const handleInfiniteScroll = () => {
     const slider = sliderRef.value;
     if (!slider || originalWidth === 0) return;
 
     if (slider.scrollLeft >= originalWidth + gap) {
-      slider.scrollLeft = slider.scrollLeft - originalWidth - gap;
+      slider.scrollLeft -= originalWidth + gap;
     } else if (slider.scrollLeft <= 0) {
-      slider.scrollLeft = slider.scrollLeft + originalWidth + gap;
+      slider.scrollLeft += originalWidth + gap;
     }
   };
 
@@ -94,8 +81,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
 
     await nextTick();
 
-    const existingClones = slider.querySelectorAll("[data-clone]");
-    existingClones.forEach((clone) => clone.remove());
+    slider.querySelectorAll("[data-clone]").forEach((c) => c.remove());
 
     const children = Array.from(slider.children).filter(
       (child) => !child.hasAttribute("data-clone"),
@@ -106,11 +92,11 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     const style = window.getComputedStyle(slider);
     gap = parseFloat(style.gap) || 0;
 
-    originalWidth = children.reduce((total, child, index) => {
-      return (
-        total + child.offsetWidth + (index < children.length - 1 ? gap : 0)
-      );
-    }, 0);
+    originalWidth = children.reduce(
+      (total, child, i) =>
+        total + child.offsetWidth + (i < children.length - 1 ? gap : 0),
+      0,
+    );
 
     const viewportWidth = slider.clientWidth;
     const clonesNeeded = Math.ceil((viewportWidth * 2) / originalWidth) + 1;
@@ -121,42 +107,29 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
         clone.setAttribute("data-clone", "true");
         clone.setAttribute("data-clone-index", String(index));
         slider.appendChild(clone);
-
-        if (onClone) {
-          onClone(clone, child, index);
-        }
+        onClone?.(clone, child, index);
       });
     }
 
     for (let i = 0; i < clonesNeeded; i++) {
       for (let j = children.length - 1; j >= 0; j--) {
-        const clone = children[j]?.cloneNode(true) as HTMLElement;
+        const clone = children[j]!.cloneNode(true) as HTMLElement;
         clone.setAttribute("data-clone", "true");
         clone.setAttribute("data-clone-index", String(j));
         slider.insertBefore(clone, slider.firstChild);
-
-        if (onClone) {
-          onClone(clone, children[j]!, j);
-        }
+        onClone?.(clone, children[j]!, j);
       }
     }
 
     slider.scrollLeft = (originalWidth + gap) * clonesNeeded;
-
     isSetup = true;
   };
 
   const continuousScroll = () => {
     const slider = sliderRef.value;
-    if (!slider) {
-      animationId = requestAnimationFrame(continuousScroll);
-      return;
-    }
-
-    if (!isPaused && !isDown) {
+    if (slider && !isPaused && !isDown) {
       slider.scrollLeft += speed;
     }
-
     animationId = requestAnimationFrame(continuousScroll);
   };
 
@@ -172,52 +145,30 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     }
   };
 
-  const stopMomentum = () => {
-    if (momentumAnimationId) {
-      cancelAnimationFrame(momentumAnimationId);
-      momentumAnimationId = null;
-    }
-    velocityX = 0;
+  // ── Scroll helpers ────────────────────────────────────────────────────
+
+  const handleScroll = () => {
+    continuous ? handleInfiniteScroll() : updateArrowVisibility();
   };
 
-  const applyMomentum = () => {
-    const slider = sliderRef.value;
-    if (!slider || continuous) return;
-
-    const friction = 0.95;
-    const minVelocity = 0.5;
-
-    if (Math.abs(velocityX) < minVelocity) {
-      stopMomentum();
-      return;
+  const handleResize = () => {
+    if (continuous) {
+      isSetup = false;
+      setupContinuousLoop();
+    } else {
+      updateArrowVisibility();
     }
-
-    slider.scrollLeft -= velocityX;
-    velocityX *= friction;
-
-    const maxScroll = slider.scrollWidth - slider.clientWidth;
-    if (slider.scrollLeft <= 0 || slider.scrollLeft >= maxScroll) {
-      velocityX *= 0.5;
-      if (Math.abs(velocityX) < minVelocity) {
-        stopMomentum();
-        return;
-      }
-    }
-
-    momentumAnimationId = requestAnimationFrame(applyMomentum);
   };
+
+  // ── Auto-play (non-continuous) ────────────────────────────────────────
 
   const getSlideWidth = () => {
     const slider = sliderRef.value;
     if (!slider) return 0;
-
     const firstChild = slider.firstElementChild as HTMLElement;
     if (!firstChild) return 0;
-
-    const style = window.getComputedStyle(slider);
-    const gapValue = parseFloat(style.gap) || 0;
-
-    return firstChild.offsetWidth + gapValue;
+    const g = parseFloat(window.getComputedStyle(slider).gap) || 0;
+    return firstChild.offsetWidth + g;
   };
 
   const scrollToNextSlide = () => {
@@ -226,9 +177,8 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
 
     const slideWidth = getSlideWidth();
     const maxScroll = slider.scrollWidth - slider.clientWidth;
-    const currentScroll = slider.scrollLeft;
 
-    if (currentScroll >= maxScroll - 10) {
+    if (slider.scrollLeft >= maxScroll - 10) {
       slider.scrollTo({ left: 0, behavior: "smooth" });
     } else {
       slider.scrollBy({ left: slideWidth, behavior: "smooth" });
@@ -240,7 +190,6 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
       startContinuousLoop();
       return;
     }
-
     if (!autoPlay || autoPlayTimer) return;
     autoPlayTimer = setInterval(scrollToNextSlide, autoPlayInterval);
   };
@@ -250,7 +199,6 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
       stopContinuousLoop();
       return;
     }
-
     if (autoPlayTimer) {
       clearInterval(autoPlayTimer);
       autoPlayTimer = null;
@@ -260,10 +208,11 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   const pauseAutoPlay = () => {
     isPaused = true;
   };
-
   const resumeAutoPlay = () => {
     isPaused = false;
   };
+
+  // ── Custom cursor ─────────────────────────────────────────────────────
 
   const createCursorIndicator = () => {
     if (cursorIndicator) return;
@@ -277,47 +226,133 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
         <line x1="2" y1="12" x2="22" y2="12"/>
       </svg>
     `;
+
+    if (!document.getElementById("drag-cursor-styles")) {
+      const styleEl = document.createElement("style");
+      styleEl.id = "drag-cursor-styles";
+      styleEl.textContent = `
+        .drag-cursor-indicator {
+          position: fixed;
+          pointer-events: none;
+          z-index: 9999;
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: translate(-50%, -50%);
+          opacity: 0;
+          transition: opacity 0.2s ease, transform 0.15s ease;
+          background-color: var(--color-grey-card, rgba(128,128,128,0.35));
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+        }
+        .drag-cursor-indicator.grabbing {
+          transform: translate(-50%, -50%) scale(0.85);
+        }
+      `;
+      document.head.appendChild(styleEl);
+    }
+
     document.body.appendChild(cursorIndicator);
   };
 
-  const handleMouseEnter = () => {
-    if (!window.matchMedia("(hover: hover)").matches) return;
+  /**
+   * Check if the mouse is in the bottom 1/3 of a playing-video card.
+   * That zone is where Plyr controls live — default cursor, no drag.
+   * The upper 2/3 behaves like an image slide (drag cursor + dragging).
+   */
+  const checkIfInVideoControlsZone = (
+    target: EventTarget | null,
+    clientY: number,
+  ): boolean => {
+    if (!videoPlayingSelector || !target) return false;
+    const el = target as HTMLElement;
+    const card = el.closest?.(videoPlayingSelector) as HTMLElement | null;
+    if (!card) return false;
 
-    if (showCustomCursor) {
-      createCursorIndicator();
-      if (cursorIndicator) {
-        cursorIndicator.style.opacity = "1";
-      }
+    const rect = card.getBoundingClientRect();
+    const controlsThreshold = rect.top + rect.height * (2 / 3);
+    return clientY >= controlsThreshold;
+  };
 
-      const slider = sliderRef.value;
-      if (slider) {
-        slider.style.cursor = "none";
-      }
+  const applyCursorState = (inControlsZone: boolean) => {
+    if (!showCustomCursor) return;
+    const slider = sliderRef.value;
+
+    if (!isInsideSlider) {
+      if (cursorIndicator) cursorIndicator.style.opacity = "0";
+      if (slider) slider.style.cursor = "none";
+      return;
     }
 
-    if (pauseOnHover) {
-      pauseAutoPlay();
+    if (inControlsZone) {
+      if (cursorIndicator) cursorIndicator.style.opacity = "0";
+      if (slider) slider.style.cursor = "default";
+    } else {
+      if (cursorIndicator) cursorIndicator.style.opacity = "1";
+      if (slider) slider.style.cursor = "none";
     }
   };
 
+  // ── Mouse events ──────────────────────────────────────────────────────
+
+  const handleMouseEnter = () => {
+    if (!window.matchMedia("(hover: hover)").matches) return;
+    isInsideSlider = true;
+
+    if (showCustomCursor) {
+      createCursorIndicator();
+      applyCursorState(false);
+    }
+
+    if (pauseOnHover) pauseAutoPlay();
+  };
+
   const handleMouseLeaveSlider = () => {
+    isInsideSlider = false;
+    isInControlsZone = false;
+
     if (showCustomCursor && cursorIndicator) {
       cursorIndicator.style.opacity = "0";
     }
 
-    if (isDown) {
-      isDown = false;
+    if (isDown) isDown = false;
+    if (pauseOnHover) resumeAutoPlay();
+  };
+
+  const cancelDrag = () => {
+    const slider = sliderRef.value;
+    isDown = false;
+    isDragging = false;
+
+    if (showCustomCursor && cursorIndicator) {
+      cursorIndicator.classList.remove("grabbing");
     }
 
-    if (pauseOnHover) {
-      resumeAutoPlay();
+    if (!continuous && slider) {
+      slider.style.scrollSnapType = "x mandatory";
+      slider.style.scrollBehavior = "smooth";
     }
   };
 
   const handleMouseMoveForCursor = (e: MouseEvent) => {
-    if (showCustomCursor && cursorIndicator) {
-      cursorIndicator.style.left = `${e.clientX}px`;
-      cursorIndicator.style.top = `${e.clientY}px`;
+    if (!showCustomCursor || !cursorIndicator) return;
+
+    cursorIndicator.style.left = `${e.clientX}px`;
+    cursorIndicator.style.top = `${e.clientY}px`;
+
+    const nowInControlsZone = checkIfInVideoControlsZone(e.target, e.clientY);
+    if (nowInControlsZone !== isInControlsZone) {
+      isInControlsZone = nowInControlsZone;
+      applyCursorState(nowInControlsZone);
+
+      // If we entered the controls zone while mid-drag, cancel the drag
+      // so the video player controls can receive pointer events normally.
+      if (nowInControlsZone && isDown) {
+        cancelDrag();
+      }
     }
   };
 
@@ -325,20 +360,19 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     const slider = sliderRef.value;
     if (!slider) return;
 
-    stopMomentum();
+    // Don't start a drag when clicking in the video controls zone (bottom 1/3)
+    if (isInControlsZone) return;
 
     isDown = true;
     isDragging = false;
 
-    slider.style.scrollSnapType = "none";
-    slider.style.scrollBehavior = "auto";
+    if (!continuous) {
+      slider.style.scrollSnapType = "none";
+      slider.style.scrollBehavior = "auto";
+    }
 
     startX = e.pageX;
     scrollLeftPos = slider.scrollLeft;
-
-    lastMoveTime = Date.now();
-    lastMoveX = e.pageX;
-    velocityX = 0;
 
     if (showCustomCursor && cursorIndicator) {
       cursorIndicator.classList.add("grabbing");
@@ -349,29 +383,13 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     const slider = sliderRef.value;
     if (!slider) return;
 
-    const wasDown = isDown;
     isDown = false;
 
     if (showCustomCursor && cursorIndicator) {
       cursorIndicator.classList.remove("grabbing");
     }
 
-    if (!continuous && wasDown && isDragging) {
-      if (Math.abs(velocityX) > 2) {
-        applyMomentum();
-      }
-
-      const reEnableSnap = () => {
-        if (!momentumAnimationId && slider) {
-          slider.style.scrollSnapType = "x mandatory";
-          slider.style.scrollBehavior = "smooth";
-        } else {
-          requestAnimationFrame(reEnableSnap);
-        }
-      };
-
-      setTimeout(reEnableSnap, 50);
-    } else if (!continuous) {
+    if (!continuous) {
       slider.style.scrollSnapType = "x mandatory";
       slider.style.scrollBehavior = "smooth";
     }
@@ -385,55 +403,43 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
 
   const handleMouseMove = (e: MouseEvent) => {
     handleMouseMoveForCursor(e);
-
     if (!isDown) return;
+
+    // Don't drag while in the controls zone — let the player handle events
+    if (isInControlsZone) return;
 
     const slider = sliderRef.value;
     if (!slider) return;
 
     e.preventDefault();
 
-    const x = e.pageX;
-    const dragMultiplier = 1.5;
-    const walk = (x - startX) * dragMultiplier;
-
-    if (Math.abs(walk) > 5) {
-      isDragging = true;
-    }
-
-    if (!continuous) {
-      const now = Date.now();
-      const dt = now - lastMoveTime;
-      if (dt > 0) {
-        const dx = x - lastMoveX;
-        velocityX = velocityX * 0.4 + (dx / dt) * 16 * 0.6;
-      }
-      lastMoveTime = now;
-      lastMoveX = x;
-    }
+    const walk = (e.pageX - startX) * 1.5;
+    if (Math.abs(walk) > 5) isDragging = true;
 
     slider.scrollLeft = scrollLeftPos - walk;
   };
 
   const handleClick = (e: MouseEvent) => {
+    // Don't block clicks in the video controls zone
+    if (checkIfInVideoControlsZone(e.target, e.clientY)) return;
+
     if (isDragging) {
       e.preventDefault();
       e.stopPropagation();
     }
   };
 
+  // ── Touch events ──────────────────────────────────────────────────────
+
   let touchStartX = 0;
   let touchScrollLeft = 0;
 
   const handleTouchStart = (e: TouchEvent) => {
     const slider = sliderRef.value;
-    if (!slider) return;
-
-    stopMomentum();
+    if (!slider || !e.touches[0]) return;
 
     isDown = true;
-    if (!e.touches[0]) return;
-
+    isDragging = false;
     touchStartX = e.touches[0].pageX;
     touchScrollLeft = slider.scrollLeft;
 
@@ -442,38 +448,16 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
       slider.style.scrollBehavior = "auto";
     }
 
-    lastMoveTime = Date.now();
-    lastMoveX = e.touches[0].pageX;
-    velocityX = 0;
-
     pauseAutoPlay();
   };
 
   const handleTouchMove = (e: TouchEvent) => {
     if (!isDown) return;
-
     const slider = sliderRef.value;
-    if (!slider) return;
-    if (!e.touches[0]) return;
+    if (!slider || !e.touches[0]) return;
 
-    const x = e.touches[0].pageX;
-    const dragMultiplier = 1.5;
-    const walk = (x - touchStartX) * dragMultiplier;
-
-    if (Math.abs(walk) > 5) {
-      isDragging = true;
-    }
-
-    if (!continuous) {
-      const now = Date.now();
-      const dt = now - lastMoveTime;
-      if (dt > 0) {
-        const dx = x - lastMoveX;
-        velocityX = velocityX * 0.4 + (dx / dt) * 16 * 0.6;
-      }
-      lastMoveTime = now;
-      lastMoveX = x;
-    }
+    const walk = (e.touches[0].pageX - touchStartX) * 1.5;
+    if (Math.abs(walk) > 5) isDragging = true;
 
     slider.scrollLeft = touchScrollLeft - walk;
   };
@@ -482,22 +466,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     const slider = sliderRef.value;
     isDown = false;
 
-    if (!continuous && slider && isDragging) {
-      if (Math.abs(velocityX) > 2) {
-        applyMomentum();
-      }
-
-      const reEnableSnap = () => {
-        if (!momentumAnimationId && slider) {
-          slider.style.scrollSnapType = "x mandatory";
-          slider.style.scrollBehavior = "smooth";
-        } else {
-          requestAnimationFrame(reEnableSnap);
-        }
-      };
-
-      setTimeout(reEnableSnap, 50);
-    } else if (!continuous && slider) {
+    if (!continuous && slider) {
       slider.style.scrollSnapType = "x mandatory";
       slider.style.scrollBehavior = "smooth";
     }
@@ -511,11 +480,12 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     setTimeout(resumeAutoPlay, 500);
   };
 
+  // ── Init / cleanup ────────────────────────────────────────────────────
+
   const init = async () => {
     const slider = sliderRef.value;
     if (!slider) return;
 
-    // Remove existing listeners
     slider.removeEventListener("scroll", handleScroll);
     slider.removeEventListener("mouseenter", handleMouseEnter);
     slider.removeEventListener("mouseleave", handleMouseLeaveSlider);
@@ -528,12 +498,10 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     slider.removeEventListener("touchend", handleTouchEnd);
     window.removeEventListener("resize", handleResize);
 
-    // Add listeners
     slider.addEventListener("scroll", handleScroll);
     slider.addEventListener("mouseenter", handleMouseEnter);
     slider.addEventListener("mouseleave", handleMouseLeaveSlider);
     slider.addEventListener("mousedown", handleMouseDown);
-
     document.addEventListener("mouseup", handleMouseUp);
     document.addEventListener("mousemove", handleMouseMove);
     slider.addEventListener("click", handleClick, true);
@@ -545,27 +513,19 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     if (continuous) {
       slider.style.scrollSnapType = "none";
       slider.style.scrollBehavior = "auto";
-
       await setupContinuousLoop();
-      if (autoPlay) {
-        startContinuousLoop();
-      }
+      if (autoPlay) startContinuousLoop();
     } else {
       updateArrowVisibility();
-      if (autoPlay) {
-        startAutoPlay();
-      }
+      if (autoPlay) startAutoPlay();
     }
   };
 
-  onMounted(() => {
-    init();
-  });
+  onMounted(() => init());
 
   onBeforeUnmount(() => {
     stopAutoPlay();
     stopContinuousLoop();
-    stopMomentum();
 
     const slider = sliderRef.value;
     if (slider) {
@@ -592,9 +552,9 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     sliderRef,
     showLeftSliderArrow,
     showRightSliderArrow,
-    scrollLeft: (amount = 500) =>
+    scrollLeft: (amount = 750) =>
       sliderRef.value?.scrollBy({ left: -amount, behavior: "smooth" }),
-    scrollRight: (amount = 500) =>
+    scrollRight: (amount = 750) =>
       sliderRef.value?.scrollBy({ left: amount, behavior: "smooth" }),
     startAutoPlay,
     stopAutoPlay,
