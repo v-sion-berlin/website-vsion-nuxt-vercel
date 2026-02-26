@@ -18,6 +18,7 @@ sliderItems:
     provider: vimeo
     videoId: "465154031"
     title: CapeRock Trailer
+    autoPlay: true
     poster: /images/projects/idlePlay.jpg
   - type: image
     src: /images/projects/zdf-moma/02-zdf-moma-studio.jpg
