@@ -6,6 +6,7 @@
   --color-grey-card: #31313180;
   --color-grey: #444;
   --color-grey-menu-item-hover: #5552527b;
+  --plyr-color-main: #ff0751;
 }
 
 body {
@@ -151,8 +152,7 @@ h1 {
 /* Projects slider */
 
 #projects {
-  padding: 0 clamp(1rem, 10vw, 19.125rem)
-    clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
+  padding: 0 0 clamp(2rem, 5vw, 4rem) 0;
 }
 
 .grid {
@@ -197,7 +197,6 @@ h1 {
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 3rem;
-  padding: 0 !important;
 }
 
 .header {
