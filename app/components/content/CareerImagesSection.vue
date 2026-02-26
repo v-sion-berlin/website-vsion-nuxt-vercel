@@ -45,18 +45,22 @@ useScrollReveal();
   gap: 2rem;
   padding: clamp(2rem, 5vw, 4rem) 0 clamp(2rem, 5vw, 4rem)
     clamp(1rem, 5vw, 5.625rem);
-  margin-top: clamp(-10rem, -15vw, -6rem);
+  margin-top: clamp(-12rem, -15vw, -6rem);
   height: clamp(20rem, 55vw, 50rem);
   position: relative;
 }
 
 picture {
   display: block;
+  height: clamp(200px, 50vw, 800px);
   width: auto;
-  max-height: clamp(200px, 40vw, 600px);
+}
+
+picture :deep(img) {
+  height: 100%;
 }
 
 .first-image * {
-  transform: translateY(30%);
+  transform: translateY(20%);
 }
 </style>
