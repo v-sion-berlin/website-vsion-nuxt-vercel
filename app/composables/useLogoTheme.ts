@@ -24,7 +24,7 @@ const themes: Record<LogoTheme, ThemeConfig> = {
   },
 };
 
-const themeKeys: LogoTheme[] = ["red", "red", "red", "red"];
+const themeKeys: LogoTheme[] = ["red", "red", "red"];
 
 export const useLogoTheme = () => {
   const currentTheme = useState<LogoTheme | undefined>("logoTheme", () => {
@@ -38,6 +38,10 @@ export const useLogoTheme = () => {
     if (import.meta.client) {
       document.documentElement.style.setProperty(
         "--color-primary",
+        themeConfig.value.color,
+      );
+      document.documentElement.style.setProperty(
+        "--plyr-color-main",
         themeConfig.value.color,
       );
     }
