@@ -21,6 +21,7 @@ sliderItems:
     provider: vimeo
     videoId: "313115516"
     title: BDA Trailer
+    autoPlay: true
     poster: /images/projects/idlePlay.jpg
   - type: image
     src: /images/projects/3sat/3sat-wilde-schweiz.jpg
