@@ -41,7 +41,7 @@ const contactData = computed<ContactData | null>(() => {
 
 <template>
   <section v-if="project">
-    <ContentRenderer :value="project" />
+    <ContentRenderer :value="project" v-reveal />
   </section>
 
   <div v-else>
