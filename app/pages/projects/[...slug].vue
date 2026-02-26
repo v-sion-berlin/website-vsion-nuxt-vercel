@@ -22,7 +22,7 @@ const { data: project } = await useAsyncData(
 );
 
 const { data: contactDataRaw } = await useAsyncData(
-  `contact-data`,
+  `contact-data` + locale,
   () =>
     queryCollection(
       withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections,
