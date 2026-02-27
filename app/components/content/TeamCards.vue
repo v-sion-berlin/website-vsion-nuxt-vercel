@@ -43,6 +43,10 @@ section {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
   gap: clamp(1rem, 5vw, 6rem);
   padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 10vw, 19.125rem)
     clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
@@ -52,11 +56,11 @@ section {
   flex-direction: row-reverse;
 }
 
-.card img {
-  border-radius: 16px;
-  width: clamp(20rem, 40vw, 50rem);
-  height: auto;
-  min-width: 250px;
+picture:deep(img) {
+  height: clamp(150px, 30vw, 420px);
+  object-fit: contain;
+  display: block;
+  width: clamp(150px, 30vw, 630px);
 }
 
 p {
