@@ -36,12 +36,12 @@ const { data: rawPage } = await useAsyncData(
 );
 
 const { data: contactDataRaw } = await useAsyncData(
-  `contact-data-${locale.value}`,
+  `contact-data-${locale.value}-${slug.value}`,
   () =>
     queryCollection(
       withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections,
     ).first(),
-  { watch: [locale] },
+  { watch: [locale, slug] },
 );
 
 const page = computed<HomePage | AboutPage | ServicesPage | null>(() => {
