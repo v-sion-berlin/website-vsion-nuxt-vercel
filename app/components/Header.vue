@@ -190,7 +190,6 @@ const scrollToTop = () => {
   width: 14px;
   height: 14px;
   margin-left: 16px;
-  filter: drop-shadow(0 0 8px var(--color-text));
 }
 
 .menu-item {
@@ -215,6 +214,10 @@ const scrollToTop = () => {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.logo-lottie svg {
+  transform: translate3d(0px, 1px, 0px) !important;
 }
 
 #contact-btn {
