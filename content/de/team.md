@@ -9,7 +9,7 @@ images:
     alt: Hero image showing Berlin skyline
     text: "V/SION ist nicht nur Dienstleister, sondern Partner: Wir denken mit, denken uns in die Welt unserer Kundschaft hinein und setzen mit unseren Lösungen neue Maßstäbe."
     alignment: left
-  - src: /images/bg_team_card_1.png
+  - src: /images/bg_team_card_2.png
     alt: Hero image showing Berlin skyline
     text: "Was uns besonders macht: Wir stehen für technologische Exzellenz und Kreativität. Unsere Kunden können sich darauf verlassen, dass wir ihre Sendung technisch einwandfrei über die Bühne bringen, den Ton treffen und stets nach neuen Wegen Ausschau halten, die das Ergebnis noch besser machen."
     alignment: right

@@ -9,7 +9,7 @@ images:
     alt: Hero image showing Berlin skyline
     text: "v-sion is not just a service provider, but a partner: we think along with our clients, put ourselves in their world, and set new standards with our solutions."
     alignment: left
-  - src: /images/bg_team_card_1.png
+  - src: /images/bg_team_card_2.png
     alt: Hero image showing Berlin skyline
     text: "What sets us apart: we stand for technological excellence and creativity. Our clients can trust that we deliver their productions flawlessly, hit the right tone, and are always looking for new ways to make the outcome even better."
     alignment: right
