@@ -530,7 +530,7 @@ useScrollReveal();
 
 .slide-card {
   flex: 0 0 auto;
-  height: clamp(300px, 45vw, 550px);
+  height: clamp(150px, 45vw, 550px);
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
