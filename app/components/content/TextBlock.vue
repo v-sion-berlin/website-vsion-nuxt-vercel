@@ -1,5 +1,5 @@
 <template>
-  <section v-if="activeIndex === blockIndex || activeIndex === -1">
+  <section v-show="activeIndex === blockIndex || activeIndex === -1">
     <section>
       <div id="text-container" class="wrapper">
         <main>
