@@ -1,5 +1,12 @@
 ---
 title: 3sat Redesign
+category:
+  - studio
+  - storytelling
+  - wall
+  - sport
+  - code
+  - infographics
 coverImage:
   src: /images/projects/3sat_cover.png
   alt: 3SAT

@@ -1,5 +1,10 @@
 ---
 title: ARD mima
+category:
+  - news
+  - studio
+  - interaction
+  - operations
 coverImage:
   src: /images/projects/ARDMittagsmagazin/010-ard-mima-abmoderation.webp
   alt: ARD

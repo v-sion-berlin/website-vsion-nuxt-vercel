@@ -34,6 +34,7 @@ As a design studio and technical developer, we realize live broadcasts based on 
 ---
 block-index: 0
 :show-projects: ""
+category: code
 ---
 #header
 Code & Control
@@ -49,6 +50,7 @@ Our custom control systems ensure smooth workflows and enable precise control of
 ---
 block-index: 1
 :show-projects: ""
+category: interaction
 ---
 #header
 Interaction
@@ -64,6 +66,7 @@ We provide intuitive solutions that give on-air talent the greatest possible cre
 ---
 block-index: 2
 :show-projects: ""
+category: operations
 ---
 #header
 Operations
@@ -79,6 +82,7 @@ We take responsibility - from setup all the way to the livestream - and ensure e
 ---
 block-index: 3
 :show-projects: ""
+category: sport
 ---
 #header
 Sport
@@ -94,6 +98,7 @@ We design clear, structured graphics that present complex news content in a way 
 ---
 block-index: 4
 :show-projects: ""
+category: news
 ---
 #header
 News
@@ -109,6 +114,7 @@ We design clear, structured graphics that present complex news content in a way 
 ---
 block-index: 5
 :show-projects: ""
+category: studio
 ---
 #header
 Studio & Videowalls
@@ -124,6 +130,7 @@ From international broadcasters to local stations: our clients are as diverse as
 ---
 block-index: 6
 :show-projects: ""
+category: infographics
 ---
 #header
 Infographics
@@ -139,6 +146,7 @@ Where information meets design: data becomes a story that you can understand at 
 ---
 block-index: 7
 :show-projects: ""
+category: storytelling
 ---
 #header
 Storytelling
