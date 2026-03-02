@@ -81,6 +81,7 @@ const projectSchema = z.object({
   type: z.literal("project"),
   header: z.string().optional(),
   slug: z.string().optional(),
+  category: z.array(z.string()).optional(),
   projectsHeader: z.string().optional(),
   sliderHeader: z.string().optional(),
   coverImage: z
