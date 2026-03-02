@@ -1,7 +1,7 @@
 <template>
   <div id="hero" v-if="page">
     <!-- Hero Section -->
-    <section id="headline" class="wrapper">
+    <section id="headline">
       <NuxtImg
         format="webp"
         :src="useImagePath(page.heroImage?.src)"
@@ -20,7 +20,7 @@
         sizes="(max-width: 768px) 60vw, 800px"
         :alt="page.heroImage?.alt || 'About hero image'"
       />
-      <div>
+      <div class="wrapper">
         <h1 data-reveal>{{ page?.header }}</h1>
         <h2 data-reveal>{{ page.subTitlePhone }}</h2>
         <h2 data-reveal>{{ page.subTitleMail }}</h2>
@@ -94,7 +94,6 @@ useScrollReveal();
 
 #hero #headline {
   position: relative;
-  max-width: 100%;
   padding: clamp(10rem, 12vw, 13.75rem) clamp(1rem, 10vw, 19.125rem)
     clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
 }
