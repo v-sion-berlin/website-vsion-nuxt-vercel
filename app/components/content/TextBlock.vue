@@ -104,7 +104,7 @@ const { data: projects } = await useAsyncData(
       .all();
   },
   {
-    watch: [locale, slug],
+    watch: [locale, slug, activeIndex],
   },
 );
 
