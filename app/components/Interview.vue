@@ -17,7 +17,7 @@
         :aria-label="page.interview_watch_text"
         @click.stop="toggleVideo"
       >
-        <p :class="{ hidden: isVideoOpen }">
+        <p :class="{ hidden: isVideoOpen }" id="watch-text">
           {{ page.interview_watch_text }}
         </p>
 
@@ -154,29 +154,32 @@ onBeforeUnmount(() => {
   position: relative;
   overflow: hidden;
   margin-top: 32px;
-  padding: 0;
+  padding: 32px 16px;
   color: var(--color-text);
   font-family: "Montserrat", sans-serif;
 }
 
-.watch:hover {
+.watch:not(.expanded):hover {
   background-color: var(--color-primary);
 }
 
 .watch.expanded {
-  width: clamp(320px, 90vw, 1000px);
-  height: clamp(200px, 50vh, 60vh);
+  width: 100%;
+  height: 100%;
   border-radius: 16px;
   background-color: var(--color-background);
   outline: none;
+  transition:
+    background-color 0s,
+    width 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+    height 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+    outline 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+    border-radius 0.5s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .video-container {
   width: 100%;
   height: 100%;
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 0; */
   border-radius: 16px;
   overflow: hidden;
   z-index: 1;
@@ -188,9 +191,9 @@ onBeforeUnmount(() => {
   border: 0;
 }
 
-.watch p {
+.watch #watch-text {
   color: var(--color-text);
-  font-weight: bold;
+  font-weight: 400 !important;
   font-size: clamp(16px, 2vw, 24px);
   transition:
     opacity 0.3s ease,
