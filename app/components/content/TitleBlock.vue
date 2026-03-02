@@ -1,7 +1,7 @@
 <template>
   <section id="hero">
     <div id="headline">
-      <div class="headline-content" data-reveal>
+      <div class="headline-content wrapper" data-reveal>
         <h1 :class="{ 'text-right': textPos === 'r' }">
           <slot v-if="$slots.default" mdc-unwrap="p" />
         </h1>
