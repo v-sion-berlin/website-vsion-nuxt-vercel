@@ -83,9 +83,10 @@ const { locale } = useI18n();
 const route = useRoute();
 const { activeIndex } = useServicesMenu();
 
-defineProps<{
+const props = defineProps<{
   showProjects?: boolean;
   blockIndex: number;
+  category?: string;
 }>();
 
 const slug = computed(() => String(route.params.slug ?? ""));
@@ -109,18 +110,21 @@ const { data: projects } = await useAsyncData(
 
 const appBaseURL = useNuxtApp().$config.app.baseURL;
 
-const projectsFull = computed(
-  () =>
-    projects.value?.map((p) => ({
-      ...p,
-      coverImage: p.coverImage
-        ? {
-            ...p.coverImage,
-            src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
-          }
-        : undefined,
-    })) || [],
-);
+const projectsFull = computed(() => {
+  const all = projects.value ?? [];
+  const filtered = props.category
+    ? all.filter((p) => p.category?.includes(props.category!))
+    : all;
+  return filtered.map((p) => ({
+    ...p,
+    coverImage: p.coverImage
+      ? {
+          ...p.coverImage,
+          src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
+        }
+      : undefined,
+  }));
+});
 
 const {
   sliderRef: gridRef,
@@ -129,9 +133,9 @@ const {
   scrollLeft: scrollLeftGrid,
   scrollRight: scrollRightGrid,
 } = useHorizontalSlider({
-  autoPlay: false,
+  autoPlay: true,
   continuous: true,
-  speed: 1.5,
+  speed: 0.8,
   pauseOnHover: true,
 });
 </script>
