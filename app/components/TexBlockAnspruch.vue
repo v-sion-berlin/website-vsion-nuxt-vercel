@@ -10,9 +10,9 @@
             {{ page.textblock_anspruch_body }}
           </p>
           <NuxtLink :to="localizedPath()" data-reveal>
-            <div id="contact-btn-copy">
-              <p>{{ page.textblock_anspruch_button }}</p>
-            </div>
+            <button id="contact-btn-copy">
+              {{ page.textblock_anspruch_button }}
+            </button>
           </NuxtLink>
         </div>
       </section>
@@ -86,7 +86,7 @@ section div:last-child {
   border: 2px solid var(--color-primary);
   border-radius: 16px;
   background: transparent;
-  color: white;
+  color: var(--color-text);
   padding: clamp(12px, 2vw, 16px) clamp(24px, 3vw, 32px);
   cursor: pointer;
   transition:
