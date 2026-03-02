@@ -1,5 +1,5 @@
 <template>
-  <section class="cards-benefits wrapper">
+  <section class="cards-benefits">
     <div class="cards-grid">
       <h1 data-reveal>
         <slot name="cardHeader" mdc-unwrap="p" />
