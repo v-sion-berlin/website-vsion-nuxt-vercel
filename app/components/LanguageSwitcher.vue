@@ -52,7 +52,12 @@ watch(locale, (val) => {
             :key="_locale.code"
             class="dropdown-item"
             :style="{ '--i': index }"
-            @click="setLocale(_locale.code)"
+            @click="
+              () => {
+                setLocale(_locale.code);
+                toggleDropdown();
+              }
+            "
           >
             <span>{{ _locale.code?.toUpperCase() }}</span>
           </button>
