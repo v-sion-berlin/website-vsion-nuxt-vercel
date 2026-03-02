@@ -95,7 +95,7 @@ useScrollReveal();
 #hero #headline {
   position: relative;
   padding: clamp(10rem, 12vw, 13.75rem) clamp(1rem, 10vw, 19.125rem)
-    clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
+    clamp(2rem, 5vw, 4rem) 0;
 }
 
 .img,
