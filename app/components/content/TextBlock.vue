@@ -98,23 +98,21 @@ const localizedPath = (subTitle: string) => {
 
 const { data: projects } = await useAsyncData(
   () => `projects-${locale.value}-${slug.value}`,
-  () => {
-    return queryCollection(`projects_${locale.value}`)
+  () =>
+    queryCollection(`projects_${locale.value}`)
       .where("slug", "<>", "projects")
-      .all();
-  },
-  {
-    watch: [locale, slug, activeIndex],
-  },
+      .all(),
 );
 
 const appBaseURL = useNuxtApp().$config.app.baseURL;
 
 const projectsFull = computed(() => {
   const all = projects.value ?? [];
+
   const filtered = props.category
     ? all.filter((p) => p.category?.includes(props.category!))
     : all;
+
   return filtered.map((p) => ({
     ...p,
     coverImage: p.coverImage
