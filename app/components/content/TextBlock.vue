@@ -80,7 +80,6 @@
 
 <script setup lang="ts">
 const { locale } = useI18n();
-const route = useRoute();
 const { activeIndex } = useServicesMenu();
 
 const props = defineProps<{
@@ -89,31 +88,31 @@ const props = defineProps<{
   category?: string;
 }>();
 
-const slug = computed(() => String(route.params.slug ?? ""));
-
 const localizedPath = (subTitle: string) => {
   const isGerman = locale.value === "de";
   return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
 };
 
-const { data: projects } = await useAsyncData(
-  () => `projects-${locale.value}-${slug.value}`,
-  () =>
-    queryCollection(`projects_${locale.value}`)
-      .where("slug", "<>", "projects")
-      .all(),
-);
+const projects = inject<Ref<any[] | null>>("projects", ref(null));
 
 const appBaseURL = useNuxtApp().$config.app.baseURL;
+const category = toRef(props, "category");
 
-const projectsFull = computed(() => {
+const projectsFull = shallowRef<any[]>([]);
+
+watchEffect(() => {
   const all = projects.value ?? [];
+  const cat = category.value;
 
-  const filtered = props.category
-    ? all.filter((p) => p.category?.includes(props.category!))
-    : all;
+  if (import.meta.dev) {
+    console.log(
+      `[TextBlock #${props.blockIndex}] category="${cat}", projects=${all.length}, showProjects=${props.showProjects}`,
+    );
+  }
 
-  return filtered.map((p) => ({
+  const filtered = cat ? all.filter((p) => p.category?.includes(cat)) : all;
+
+  projectsFull.value = filtered.map((p) => ({
     ...p,
     coverImage: p.coverImage
       ? {
