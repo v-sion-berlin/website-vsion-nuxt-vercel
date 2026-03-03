@@ -72,7 +72,6 @@ export default defineNuxtConfig({
     "/de/**": { prerender: true },
   },
   nitro: {
-    // preset: "github_pages",
     preset: "vercel",
     prerender: {
       routes: ["/"],
