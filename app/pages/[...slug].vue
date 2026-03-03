@@ -36,12 +36,12 @@ const { data: rawPage } = await useAsyncData(
 );
 
 const { data: contactDataRaw } = await useAsyncData(
-  `contact-data-${locale.value}-${slug.value}`,
+  `contact-data-${locale.value}`,
   () =>
     queryCollection(
       withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections,
     ).first(),
-  { watch: [locale, slug] },
+  { watch: [locale] },
 );
 
 const page = computed<HomePage | AboutPage | ServicesPage | null>(() => {
@@ -54,7 +54,7 @@ const { data: services } = await useAsyncData(
   () => {
     return queryCollection(`services_${locale.value}`).first();
   },
-  { watch: [locale, slug] },
+  { watch: [locale] },
 );
 
 const { data: career } = await useAsyncData(
@@ -62,7 +62,7 @@ const { data: career } = await useAsyncData(
   () => {
     return queryCollection(`career_${locale.value}`).first();
   },
-  { watch: [locale, slug] },
+  { watch: [locale] },
 );
 
 const careerTransformed = computed<any>(() => {
@@ -75,13 +75,24 @@ const { data: team } = await useAsyncData(
   () => {
     return queryCollection(`team_${locale.value}`).first();
   },
-  { watch: [locale, slug] },
+  { watch: [locale] },
 );
 
 const teamTransformed = computed<any>(() => {
   if (!team.value) return null;
   return { ...(team.value.meta ?? {}), ...(team.value as any) };
 });
+
+const { data: projects } = await useAsyncData(
+  `all-projects-${locale.value}`,
+  () =>
+    queryCollection(`projects_${locale.value}`)
+      .where("slug", "<>", "projects")
+      .all(),
+  { watch: [locale] },
+);
+
+provide("projects", projects);
 
 const contactData = computed<ContactData | null>(() => {
   if (!contactDataRaw.value) return null;
@@ -99,7 +110,7 @@ provide("team", teamTransformed);
   <Home v-else-if="page?.type === 'home'" :page="page as HomePage" />
 
   <article v-else-if="services && route.path.includes('services')">
-    <ContentRenderer :value="services" />
+    <ContentRenderer :value="services" :key="locale" />
   </article>
 
   <article v-else-if="career && route.path.includes('career')">
