@@ -1,11 +1,5 @@
 ---
 title: 3sat Redesign
-category:
-  - studio
-  - storytelling
-  - wall
-  - sport
-  - code
 coverImage:
   src: /images/projects/3sat/3sat-bunt.jpg
   alt: 3SAT
@@ -27,7 +21,6 @@ sliderItems:
     provider: vimeo
     videoId: "313115516"
     title: BDA Trailer
-    autoPlay: true
     poster: /images/projects/idlePlay.jpg
   - type: image
     src: /images/projects/3sat/3sat-wilde-schweiz.jpg

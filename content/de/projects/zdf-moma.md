@@ -38,22 +38,22 @@ sliderItems:
   - type: image
     src: /images/projects/zdf-moma/05-zdf-moma-gaesteliste.jpg
     alt: Gästeliste
-    title: Gäste
+    title: ""
   - type: image
     src: /images/projects/zdf-moma/06-zdf-moma-wetter.jpg
     alt: Wetter
-    title: Wetter
+    title: ""
   - type: image
     src: /images/projects/zdf-moma/07-zdf-moma-tisch-total.jpg
     alt: Studio Total
-    title: Studio
+    title: ""
   - type: image
     src: /images/projects/zdf-moma/08-zdf-moma-social.jpg
     alt: Studio Social
-    title: Studio Social Media
+    title: ""
   - type: image
     src: /images/projects/zdf-moma/11-zdf-moma-social-sofa.jpg
-    title: Social Media
+    title: ""
 slug: zdf-moma
 table:
   header:
