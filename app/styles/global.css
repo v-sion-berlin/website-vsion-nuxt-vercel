@@ -282,5 +282,5 @@ h1 {
 
 /* Lottie Background override */
 .lottie-animation-container {
-  background-color: unset;
+  background-color: var(--color-grey-card) !important;
 }
