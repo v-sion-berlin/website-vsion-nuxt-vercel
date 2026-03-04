@@ -113,19 +113,23 @@ useScrollReveal({
   justify-items: center;
 }
 
-.project-card img {
+.project-card {
+  overflow: hidden;
+}
+
+.project-card :deep(img) {
   width: 400px;
   height: 300px;
   object-fit: cover;
+  transition: transform 0.3s ease-in-out;
 }
 
 .project-card a {
   cursor: pointer !important;
 }
 
-.project-card:hover {
-  transform: scale3d(0.95, 0.95, 1);
-  transition: all ease-in-out 0.3s;
+.project-card:hover :deep(img) {
+  transform: scale(0.95);
 }
 
 .project-card a h2 {
