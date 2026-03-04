@@ -279,3 +279,8 @@ h1 {
   right: 0 !important;
   left: auto;
 }
+
+/* Lottie Background override */
+.lottie-animation-container {
+  background-color: unset;
+}
