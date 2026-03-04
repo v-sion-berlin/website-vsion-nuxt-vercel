@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="sticky-header">
+    <header class="sticky-header" :class="{ 'header-hidden': isOverlapping }">
       <div class="menu-group">
         <div @mouseenter="handleMouseEnter">
           <Lottie
@@ -111,6 +111,7 @@ import PageMenu from "./PageMenu.vue";
 import type { Lottie } from "nuxt-lottie";
 
 const { logoName } = useLogoTheme();
+const { isOverlapping } = useHeaderOverlap("#menu");
 
 const router = useRouter();
 const route = useRoute();
@@ -173,6 +174,15 @@ const scrollToTop = () => {
   max-height: 140px;
   z-index: 999;
   gap: clamp(8px, 2vw, 24px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.header-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
 }
 
 .menu-right {
