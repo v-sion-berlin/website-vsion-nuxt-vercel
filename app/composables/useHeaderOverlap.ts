@@ -51,7 +51,7 @@ export const useHeaderOverlap = (targetSelector: string) => {
   watch([() => route.fullPath, locale], () => {
     observer?.disconnect();
     isOverlapping.value = false;
-    waitAndObserve();
+    setTimeout(() => waitAndObserve(), 150);
   });
 
   onUnmounted(() => {
