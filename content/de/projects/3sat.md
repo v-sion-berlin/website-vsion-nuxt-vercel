@@ -1,10 +1,6 @@
 ---
 title: 3sat Redesign
 category:
-  - studio
-  - storytelling
-  - wall
-  - sport
   - code
 coverImage:
   src: /images/projects/3sat/3sat-bunt.jpg
