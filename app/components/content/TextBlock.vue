@@ -104,12 +104,6 @@ watchEffect(() => {
   const all = projects.value ?? [];
   const cat = category.value;
 
-  if (import.meta.dev) {
-    console.log(
-      `[TextBlock #${props.blockIndex}] category="${cat}", projects=${all.length}, showProjects=${props.showProjects}`,
-    );
-  }
-
   const filtered = cat ? all.filter((p) => p.category?.includes(cat)) : all;
 
   projectsFull.value = filtered.map((p) => ({
