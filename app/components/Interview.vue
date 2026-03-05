@@ -92,7 +92,8 @@ const props = defineProps<{
 watch(isVideoOpen, async (newVal) => {
   if (newVal) {
     await nextTick();
-
+    // This needs to be imported like this so its dynamically only loaded on the client
+    // and wont cause SSR errors
     const [{ default: Plyr }] = await Promise.all([
       import("plyr"),
       import("plyr/dist/plyr.css"),
