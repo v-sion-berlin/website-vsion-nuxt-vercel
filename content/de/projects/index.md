@@ -1,11 +1,6 @@
 ---
-category: []
 header: Projects Overview
-sliderItems: []
 slug: projects
-table:
-  technologies: []
-  tasks: []
 type: projects
 ---
 
