@@ -6,14 +6,7 @@
         v-show="showLeftSliderArrow"
         @click="scrollLeft()"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
+        <img :src="SliderArrowLeft" alt="" aria-hidden="true" />
       </button>
 
       <ul ref="sliderRef" class="slider">
@@ -33,20 +26,16 @@
         v-show="showRightSliderArrow"
         @click="scrollRight()"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M9 18l6-6-6-6" />
-        </svg>
+        <img :src="SliderArrowRight" alt="" aria-hidden="true" />
       </button>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import SliderArrowLeft from "~/assets/SliderArrowLeft.svg";
+import SliderArrowRight from "~/assets/SliderArrowRight.svg";
+
 const { activeIndex } = useServicesMenu();
 
 const onClick = (i: number) => {
