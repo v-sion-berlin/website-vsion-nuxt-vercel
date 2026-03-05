@@ -26,15 +26,7 @@
           aria-label="Scroll left"
           @click="scrollLeftGrid()"
         >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            aria-hidden="true"
-          >
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
+          <img :src="SliderArrowLeft" alt="" aria-hidden="true" />
         </button>
 
         <div class="grid" ref="gridRef">
@@ -63,15 +55,7 @@
           aria-label="Scroll right"
           @click="scrollRightGrid()"
         >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            aria-hidden="true"
-          >
-            <path d="M9 18l6-6-6-6" />
-          </svg>
+          <img :src="SliderArrowRight" alt="" aria-hidden="true" />
         </button>
       </div>
     </section>
@@ -79,6 +63,9 @@
 </template>
 
 <script setup lang="ts">
+import SliderArrowLeft from "~/assets/SliderArrowLeft.svg";
+import SliderArrowRight from "~/assets/SliderArrowRight.svg";
+
 const { locale } = useI18n();
 const { activeIndex } = useServicesMenu();
 
