@@ -34,15 +34,7 @@
         aria-label="Scroll left"
         @click="scrollLeft()"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
+        <img :src="SliderArrowLeft" alt="" aria-hidden="true" />
       </button>
 
       <div class="grid" ref="sliderRef">
@@ -54,7 +46,7 @@
             'is-video': item.type === 'video',
             'is-video-playing':
               item.type === 'video' &&
-              (item.autoPlay || activeVideoIndex === index),
+              (item.autoPlay || activeVideoIndices.has(index)),
           }"
         >
           <!-- image slide -->
@@ -72,15 +64,10 @@
           <template v-else-if="item.type === 'video'">
             <template v-if="item.autoPlay">
               <div class="video-player" :ref="(el) => setVideoRef(el, index)">
-                <div class="plyr__video-embed">
-                  <iframe
-                    :src="getVideoEmbedUrl(item, true)"
-                    :title="item.title || 'Project video'"
-                    allowfullscreen
-                    allowtransparency
-                    allow="autoplay; encrypted-media"
-                  ></iframe>
-                </div>
+                <div
+                  :data-plyr-provider="(item as any).provider"
+                  :data-plyr-embed-id="(item as any).videoId"
+                ></div>
               </div>
             </template>
 
@@ -88,7 +75,7 @@
             <template v-else>
               <div
                 class="video-poster"
-                v-if="activeVideoIndex === null || activeVideoIndex !== index"
+                v-if="!activeVideoIndices.has(index)"
                 @click="playVideo(index)"
               >
                 <NuxtImg
@@ -99,9 +86,7 @@
                   sizes="(max-width: 768px) 60vw, 800px"
                 />
                 <button class="play-button" aria-label="Play video">
-                  <svg viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
+                  <img :src="PlayButton" alt="" aria-hidden="true" />
                 </button>
               </div>
 
@@ -110,15 +95,10 @@
                 class="video-player"
                 :ref="(el) => setVideoRef(el, index)"
               >
-                <div class="plyr__video-embed">
-                  <iframe
-                    :src="getVideoEmbedUrl(item, false)"
-                    :title="item.title || 'Project video'"
-                    allowfullscreen
-                    allowtransparency
-                    allow="autoplay"
-                  ></iframe>
-                </div>
+                <div
+                  :data-plyr-provider="(item as any).provider"
+                  :data-plyr-embed-id="(item as any).videoId"
+                ></div>
               </div>
             </template>
           </template>
@@ -127,7 +107,7 @@
             v-if="
               item.title &&
               (item.type === 'image' ||
-                (!item.autoPlay && activeVideoIndex !== index))
+                (!item.autoPlay && !activeVideoIndices.has(index)))
             "
           >
             {{ item.title }}
@@ -141,15 +121,7 @@
         aria-label="Scroll right"
         @click="scrollRight()"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <path d="M9 18l6-6-6-6" />
-        </svg>
+        <img :src="SliderArrowRight" alt="" aria-hidden="true" />
       </button>
     </div>
   </section>
@@ -182,15 +154,7 @@
         aria-label="Scroll left"
         @click="scrollLeftGrid()"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
+        <img :src="SliderArrowLeft" alt="" aria-hidden="true" />
       </button>
 
       <div class="grid" ref="gridRef">
@@ -219,15 +183,7 @@
         aria-label="Scroll right"
         @click="scrollRightGrid()"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <path d="M9 18l6-6-6-6" />
-        </svg>
+        <img :src="SliderArrowRight" alt="" aria-hidden="true" />
       </button>
     </div>
   </section>
@@ -235,27 +191,30 @@
 
 <script setup lang="ts">
 import { useImagePath } from "~/composables/useImagePath";
+import SliderArrowLeft from "~/assets/SliderArrowLeft.svg";
+import SliderArrowRight from "~/assets/SliderArrowRight.svg";
+import PlayButton from "~/assets/PlayButton.svg";
 
 const { locale } = useI18n();
 const route = useRoute();
 const slug = computed(() => String(route.params.slug ?? ""));
 const appBaseURL = useNuxtApp().$config.app.baseURL;
 
-interface SliderImage {
+type SliderImage = {
   type: "image";
   src: string;
   alt: string;
   title: string;
-}
+};
 
-interface SliderVideo {
+type SliderVideo = {
   type: "video";
   provider: "vimeo" | "youtube";
   videoId: string;
   title: string;
   poster?: string;
   autoPlay?: boolean;
-}
+};
 
 type SliderItem = SliderImage | SliderVideo;
 
@@ -271,7 +230,7 @@ const props = defineProps<{
   sliderItems?: SliderItem[];
 }>();
 
-const activeVideoIndex = ref<number | null>(null);
+const activeVideoIndices = reactive<Set<number>>(new Set());
 const videoRefs = ref<Map<number, HTMLElement>>(new Map());
 let playerInstances = new Map<number, any>();
 
@@ -313,42 +272,24 @@ const localizedPath = (subTitle: string) => {
   return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
 };
 
-const getVideoEmbedUrl = (item: SliderVideo, muted: boolean): string => {
-  if (item.provider === "vimeo") {
-    if (muted) {
-      return `https://player.vimeo.com/video/${item.videoId}?autoplay=1&muted=1&loop=1&byline=false&portrait=false&title=false&speed=true&transparent=0`;
-    }
-    return `https://player.vimeo.com/video/${item.videoId}?autoplay=1&loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media`;
-  }
-
-  if (item.provider === "youtube") {
-    if (muted) {
-      return `https://www.youtube.com/embed/${item.videoId}?autoplay=1&mute=1&loop=1&playlist=${item.videoId}&rel=0&modestbranding=1&playsinline=1`;
-    }
-    return `https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
-  }
-
-  return "";
-};
-
 const playVideo = async (index: number) => {
-  if (activeVideoIndex.value !== null && activeVideoIndex.value !== index) {
-    destroyPlayer(activeVideoIndex.value);
-  }
+  if (playerInstances.has(index)) return;
 
-  activeVideoIndex.value = index;
+  activeVideoIndices.add(index);
 
   await nextTick();
 
   const container = videoRefs.value.get(index);
   if (container) {
+    // This needs to be imported like this so its dynamically only loaded on the client
+    // and wont cause SSR errors
     const [{ default: Plyr }] = await Promise.all([
       import("plyr"),
       import("plyr/dist/plyr.css"),
     ]);
-    const playerElement = container.querySelector(".plyr__video-embed");
+    const playerElement = container.querySelector("[data-plyr-provider]");
 
-    if (playerElement) {
+    if (playerElement && !playerInstances.has(index)) {
       const player = new Plyr(playerElement as HTMLElement, {
         controls: [
           "play-large",
@@ -359,7 +300,10 @@ const playVideo = async (index: number) => {
           "volume",
           "fullscreen",
         ],
+        autoplay: true,
+        autopause: false,
         vimeo: {
+          autopause: false,
           byline: false,
           portrait: false,
           title: false,
@@ -379,14 +323,6 @@ const playVideo = async (index: number) => {
   }
 };
 
-const destroyPlayer = (index: number) => {
-  const player = playerInstances.get(index);
-  if (player) {
-    player.destroy();
-    playerInstances.delete(index);
-  }
-};
-
 const setVideoRef = (el: any, index: number) => {
   if (el) {
     videoRefs.value.set(index, el);
@@ -398,7 +334,6 @@ onBeforeUnmount(() => {
   playerInstances.clear();
 });
 
-/** Initialize Plyr on autoplay video slides once the DOM is ready */
 onMounted(async () => {
   const items = props.sliderItems || [];
   const autoplayIndices = items
@@ -410,7 +345,8 @@ onMounted(async () => {
   if (autoplayIndices.length === 0) return;
 
   await nextTick();
-
+  // This needs to be imported like this so its dynamically only loaded on the client
+  // and wont cause SSR errors
   const [{ default: Plyr }] = await Promise.all([
     import("plyr"),
     import("plyr/dist/plyr.css"),
@@ -420,7 +356,7 @@ onMounted(async () => {
     const container = videoRefs.value.get(index);
     if (!container) continue;
 
-    const playerElement = container.querySelector(".plyr__video-embed");
+    const playerElement = container.querySelector("[data-plyr-provider]");
     if (!playerElement) continue;
 
     const player = new Plyr(playerElement as HTMLElement, {
@@ -434,8 +370,10 @@ onMounted(async () => {
         "fullscreen",
       ],
       autoplay: true,
+      autopause: false,
       muted: true,
       vimeo: {
+        autopause: false,
         byline: false,
         portrait: false,
         title: false,
