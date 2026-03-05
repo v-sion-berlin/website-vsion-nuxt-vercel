@@ -230,6 +230,34 @@ const props = defineProps<{
   sliderItems?: SliderItem[];
 }>();
 
+const plyrControls = {
+  controls: [
+    "play-large",
+    "play",
+    "progress",
+    "current-time",
+    "mute",
+    "volume",
+    "fullscreen",
+  ],
+  autoplay: true,
+  autopause: false,
+  vimeo: {
+    autopause: false,
+    byline: false,
+    portrait: false,
+    title: false,
+    speed: true,
+    transparent: false,
+  },
+  youtube: {
+    noCookie: true,
+    rel: 0,
+    showinfo: 0,
+    modestbranding: 1,
+  },
+};
+
 const activeVideoIndices = reactive<Set<number>>(new Set());
 const videoRefs = ref<Map<number, HTMLElement>>(new Map());
 let playerInstances = new Map<number, any>();
@@ -290,33 +318,7 @@ const playVideo = async (index: number) => {
     const playerElement = container.querySelector("[data-plyr-provider]");
 
     if (playerElement && !playerInstances.has(index)) {
-      const player = new Plyr(playerElement as HTMLElement, {
-        controls: [
-          "play-large",
-          "play",
-          "progress",
-          "current-time",
-          "mute",
-          "volume",
-          "fullscreen",
-        ],
-        autoplay: true,
-        autopause: false,
-        vimeo: {
-          autopause: false,
-          byline: false,
-          portrait: false,
-          title: false,
-          speed: true,
-          transparent: false,
-        },
-        youtube: {
-          noCookie: true,
-          rel: 0,
-          showinfo: 0,
-          modestbranding: 1,
-        },
-      });
+      const player = new Plyr(playerElement as HTMLElement, plyrControls);
 
       playerInstances.set(index, player);
     }
@@ -359,34 +361,7 @@ onMounted(async () => {
     const playerElement = container.querySelector("[data-plyr-provider]");
     if (!playerElement) continue;
 
-    const player = new Plyr(playerElement as HTMLElement, {
-      controls: [
-        "play-large",
-        "play",
-        "progress",
-        "current-time",
-        "mute",
-        "volume",
-        "fullscreen",
-      ],
-      autoplay: true,
-      autopause: false,
-      muted: true,
-      vimeo: {
-        autopause: false,
-        byline: false,
-        portrait: false,
-        title: false,
-        speed: true,
-        transparent: false,
-      },
-      youtube: {
-        noCookie: true,
-        rel: 0,
-        showinfo: 0,
-        modestbranding: 1,
-      },
-    });
+    const player = new Plyr(playerElement as HTMLElement, plyrControls);
 
     playerInstances.set(index, player);
   }
