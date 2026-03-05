@@ -24,6 +24,7 @@ sliderItems:
     videoId: "313115516"
     title: BDA Trailer
     poster: /images/projects/idlePlay.jpg
+    autoPlay: true
   - type: image
     src: /images/projects/3sat/3sat-wilde-schweiz.jpg
     alt: Wilde Schweiz
