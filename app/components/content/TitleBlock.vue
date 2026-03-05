@@ -78,7 +78,6 @@ useScrollReveal();
   display: flex;
   text-align: right;
   position: relative;
-  right: -10%;
   justify-content: end;
 }
 
@@ -96,8 +95,7 @@ useScrollReveal();
 #headline {
   position: relative;
   max-width: 100%;
-  padding: clamp(10rem, 12vw, 13.75rem) clamp(1rem, 10vw, 19.125rem)
-    clamp(2rem, 5vw, 4rem) clamp(1rem, 10vw, 19.125rem);
+  padding: clamp(10rem, 12vw, 13.75rem) 0 clamp(2rem, 5vw, 4rem) 0;
   overflow-x: clip;
 }
 
