@@ -1,7 +1,14 @@
 <template>
   <section id="hero">
     <div id="headline">
-      <div class="headline-content wrapper" data-reveal>
+      <div
+        class="headline-content"
+        :class="{
+          wrapper: imagePos === 'tr',
+          'wrapper-right': imagePos !== 'tr',
+        }"
+        data-reveal
+      >
         <h1 :class="{ 'text-right': textPos === 'r' }">
           <slot v-if="$slots.default" mdc-unwrap="p" />
         </h1>
@@ -90,8 +97,25 @@ useScrollReveal();
   position: relative;
   max-width: 100%;
   padding: clamp(10rem, 12vw, 13.75rem) clamp(1rem, 10vw, 19.125rem)
-    clamp(2rem, 5vw, 4rem) 0;
+    clamp(2rem, 5vw, 4rem) clamp(1rem, 10vw, 19.125rem);
   overflow-x: clip;
+}
+
+.wrapper {
+  margin-inline-end: auto;
+  margin-inline-start: auto;
+  max-width: 1920px;
+  padding-inline-start: clamp(1rem, 5vw, 5.625rem);
+  padding-inline-end: clamp(1rem, 5vw, 5.625rem);
+}
+
+.wrapper-right {
+  margin-inline-end: auto;
+  margin-inline-start: auto;
+  max-width: 1920px;
+  padding-inline-start: clamp(1rem, 5vw, 5.625rem);
+  padding-inline-end: clamp(1rem, 5vw, 5.625rem);
+  padding-right: clamp(1rem, 10vw, 19.125rem);
 }
 
 .headline-content {
