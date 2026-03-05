@@ -29,6 +29,7 @@ sliderItems:
     videoId: "1058566689"
     title: Behind the Scenes
     poster: /images/projects/idlePlay.jpg
+    autoPlay: true
   - type: image
     src: /images/projects/test.jpg
     alt: Studio View 2
