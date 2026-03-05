@@ -55,8 +55,15 @@ useScrollReveal();
 
 #hero section {
   position: relative;
-  padding: clamp(10rem, 12vw, 13.75rem) clamp(1rem, 10vw, 19.125rem)
-    clamp(2rem, 5vw, 4rem) 0;
+  padding: clamp(10rem, 12vw, 13.75rem) 0 clamp(2rem, 5vw, 4rem) 0;
+}
+
+.wrapper {
+  margin-inline-end: auto;
+  margin-inline-start: auto;
+  max-width: 1920px;
+  padding-inline-start: clamp(1rem, 5vw, 5.625rem);
+  padding-inline-end: clamp(1rem, 5vw, 5.625rem);
 }
 
 .img,
