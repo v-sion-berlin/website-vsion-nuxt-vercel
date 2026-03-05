@@ -118,10 +118,15 @@ useScrollReveal({
 }
 
 .project-card :deep(img) {
-  width: 400px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out;
+  display: block;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  scale: 1.15 !important;
 }
 
 .project-card a {
@@ -130,6 +135,7 @@ useScrollReveal({
 
 .project-card:hover :deep(img) {
   transform: scale(0.95);
+  transition: all ease-in-out 0.3s;
 }
 
 .project-card a h2 {
