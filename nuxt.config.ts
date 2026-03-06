@@ -39,10 +39,11 @@ export default defineNuxtConfig({
   },
   image: {
     provider: "vercel",
+    quality: 80,
     screens: {
       xs: 384,
       sm: 640,
-      md: 750,
+      md: 768,
       lg: 800,
       xl: 1080,
       xxl: 1200,
