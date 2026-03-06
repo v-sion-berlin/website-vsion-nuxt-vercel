@@ -1,5 +1,5 @@
 <template>
-  <div id="text-container" style="padding-top: 0" class="wrapper">
+  <div id="text-container" class="wrapper">
     <main>
       <section>
         <h2 data-reveal>
