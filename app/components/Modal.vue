@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onBeforeUnmount, computed } from "vue";
+import { ref, watch, onBeforeUnmount } from "vue";
 
 const props = defineProps<{
   modelValue: boolean;
@@ -50,9 +50,7 @@ const emit = defineEmits<{
 }>();
 
 const panel = ref<HTMLElement | null>(null);
-const titleId = computed(
-  () => `modal-${Math.random().toString(36).slice(2, 9)}-title`,
-);
+const titleId = `modal-${Math.random().toString(36).slice(2, 9)}-title`;
 
 function close() {
   emit("update:modelValue", false);
