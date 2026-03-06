@@ -5,7 +5,7 @@ category:
   - wall
   - news
 coverImage:
-  src: /images/projects/dw-cd24/DWCD24-News.jpg
+  src: /images/projects/dw-cd24/DWCD24-News-1.jpg
   alt: Deutsche Welle CD24
 detailImage:
   src: /images/Logos/DW.svg
