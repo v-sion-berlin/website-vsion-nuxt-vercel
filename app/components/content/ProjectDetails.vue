@@ -226,7 +226,6 @@ const props = defineProps<{
     technologies?: string[];
   };
   projectsHeader?: string;
-  sliderHeader?: string;
   sliderItems?: SliderItem[];
 }>();
 
@@ -425,13 +424,6 @@ useScrollReveal();
 
 .grid::-webkit-scrollbar {
   display: none;
-}
-
-.slide-card img,
-.project-card a img {
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-drag: none;
 }
 
 .slide-card img,
