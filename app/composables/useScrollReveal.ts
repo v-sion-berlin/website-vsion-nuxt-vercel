@@ -63,21 +63,19 @@ export const useScrollReveal = (options: ScrollRevealOptions = {}) => {
     document.head.appendChild(styleElement);
   };
 
+  const applyDelay = (el: HTMLElement, index: number) => {
+    const custom = el.dataset.revealDelay;
+    const ms = custom ? parseInt(custom, 10) : delay + index * stagger;
+    el.style.setProperty("--reveal-delay", `${ms}ms`);
+  };
+
   const init = () => {
     injectStyles();
 
     const elements = document.querySelectorAll(selector);
     if (elements.length === 0) return;
 
-    // Apply stagger delays
-    elements.forEach((el, index) => {
-      const htmlEl = el as HTMLElement;
-      const customDelay = htmlEl.dataset.revealDelay;
-      const calculatedDelay = customDelay
-        ? parseInt(customDelay, 10)
-        : delay + index * stagger;
-      htmlEl.style.setProperty("--reveal-delay", `${calculatedDelay}ms`);
-    });
+    elements.forEach((el, index) => applyDelay(el as HTMLElement, index));
 
     observer = new IntersectionObserver(
       (entries) => {
@@ -106,12 +104,7 @@ export const useScrollReveal = (options: ScrollRevealOptions = {}) => {
     const elements = document.querySelectorAll(selector);
     elements.forEach((el, index) => {
       if (!el.classList.contains("revealed")) {
-        const htmlEl = el as HTMLElement;
-        const customDelay = htmlEl.dataset.revealDelay;
-        const calculatedDelay = customDelay
-          ? parseInt(customDelay, 10)
-          : delay + index * stagger;
-        htmlEl.style.setProperty("--reveal-delay", `${calculatedDelay}ms`);
+        applyDelay(el as HTMLElement, index);
         observer?.observe(el);
       }
     });
