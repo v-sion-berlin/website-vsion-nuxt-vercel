@@ -35,7 +35,7 @@ useScrollReveal();
           format="avif,webp"
           loading="eager"
           fetchpriority="high"
-          sizes="60vw"
+          sizes="80vw"
           :alt="page.heroImage?.alt || 'Hero image'"
         />
       </div>
