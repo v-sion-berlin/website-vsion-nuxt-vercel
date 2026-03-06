@@ -63,7 +63,7 @@ const localizedPath = () => {
 };
 
 const toggleItem = (key: string) => {
-  if (canHover) return;
+  if (canHover.value) return;
   activeItem.value = activeItem.value === key ? null : key;
 };
 
