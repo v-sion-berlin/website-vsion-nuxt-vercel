@@ -7,19 +7,20 @@
         :src="useImagePath(page.heroImage?.src)"
         class="blur-img"
         loading="eager"
-        sizes="(max-width: 768px) 60vw, 800px"
+        sizes="200px"
         aria-hidden="true"
         alt=""
       />
-      <NuxtImg
-        format="webp"
-        :src="useImagePath(page.heroImage?.src)"
-        class="img"
-        loading="eager"
-        fetchpriority="high"
-        sizes="(max-width: 768px) 60vw, 800px"
-        :alt="page.heroImage?.alt || 'About hero image'"
-      />
+      <div class="img">
+        <NuxtPicture
+          format="avif,webp"
+          :src="useImagePath(page.heroImage?.src)"
+          loading="eager"
+          fetchpriority="high"
+          sizes="60vw"
+          :alt="page.heroImage?.alt || 'About hero image'"
+        />
+      </div>
       <div class="wrapper">
         <h1 data-reveal>{{ page?.header }}</h1>
         <h2 data-reveal>{{ page.subTitlePhone }}</h2>
@@ -109,6 +110,12 @@ useScrollReveal();
 .img {
   transform: translateX(15%);
   z-index: -100;
+}
+
+.img :deep(img) {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .blur-img {
