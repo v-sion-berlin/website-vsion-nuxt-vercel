@@ -39,11 +39,10 @@ import SliderArrowRight from "~/assets/SliderArrowRight.svg";
 const { activeIndex } = useServicesMenu();
 
 const onClick = (i: number) => {
-  activeIndex.value = i === activeIndex.value ? (activeIndex.value = -1) : i;
+  activeIndex.value = i === activeIndex.value ? -1 : i;
 };
 
 defineProps<{
-  imageSrc?: { src: string; alt: string };
   menu?: {
     items?: string[];
   };
@@ -58,7 +57,6 @@ const {
 } = useHorizontalSlider({
   autoPlay: false,
   continuous: false,
-  speed: 1.5,
   pauseOnHover: true,
   showCustomCursor: false,
 });
