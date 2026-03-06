@@ -24,23 +24,23 @@
         'image-left': imagePos !== 'tr',
       }"
     >
-      <NuxtImg
-        format="webp"
-        :src="useImagePath(imageSrc.src)"
-        v-if="imageSrc"
-        class="main-img"
-        loading="eager"
-        fetchpriority="high"
-        sizes="(max-width: 768px) 50vw, 800px"
-        :alt="imageSrc.alt || 'Section image'"
-      />
+      <div v-if="imageSrc" class="main-img">
+        <NuxtPicture
+          format="avif,webp"
+          :src="useImagePath(imageSrc.src)"
+          loading="eager"
+          fetchpriority="high"
+          sizes="50vw"
+          :alt="imageSrc.alt || 'Section image'"
+        />
+      </div>
       <NuxtImg
         format="webp"
         :src="useImagePath(imageSrc.src)"
         v-if="imageSrc"
         class="blur-img"
         loading="eager"
-        sizes="(max-width: 768px) 50vw, 800px"
+        sizes="200px"
         aria-hidden="true"
         alt=""
       />
@@ -68,9 +68,9 @@ useScrollReveal();
   overflow-x: clip;
 }
 
-.image-wrapper img {
+.image-wrapper :deep(img) {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
