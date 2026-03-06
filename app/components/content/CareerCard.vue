@@ -11,7 +11,7 @@
               <slot name="body" />
             </div>
           </div>
-          <img :src="Arrow" v-if="Arrow" data-reveal />
+          <img :src="Arrow" data-reveal />
         </div>
       </section>
     </main>
