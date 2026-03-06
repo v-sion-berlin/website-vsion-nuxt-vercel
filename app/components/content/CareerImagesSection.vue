@@ -4,21 +4,21 @@
       <section class="image-wrapper wrapper">
         <div class="first-image" data-reveal>
           <NuxtPicture
-            format="webp"
+            format="avif,webp"
             :src="useImagePath(careerImage1?.src)"
             v-if="careerImage1"
             loading="lazy"
-            sizes="(max-width: 768px) 60vw, 800px"
+            sizes="(max-width: 768px) 45vw, 400px"
             :alt="careerImage1.alt || 'Career image'"
           />
         </div>
         <div data-reveal>
           <NuxtPicture
-            format="webp"
+            format="avif,webp"
             :src="useImagePath(careerImage2?.src)"
             v-if="careerImage2"
             loading="lazy"
-            sizes="(max-width: 768px) 60vw, 800px"
+            sizes="(max-width: 768px) 45vw, 400px"
             :alt="careerImage2.alt || 'Career image'"
           />
         </div>
