@@ -87,12 +87,12 @@ useScrollReveal({
       >
         <NuxtLink :to="localizedPath(project.slug!)">
           <NuxtPicture
-            format="webp"
+            format="avif,webp"
             v-if="project.coverImage"
             :src="project.coverImage.src"
             :alt="project.coverImage.alt"
             loading="lazy"
-            sizes="(max-width: 768px) 60vw, 800px"
+            sizes="(max-width: 768px) 60vw, 400px"
           />
           <h2>{{ project.header }}</h2>
         </NuxtLink>
@@ -105,7 +105,7 @@ useScrollReveal({
 <style scoped>
 .grid-overview {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 400px);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 400px));
   gap: 2rem;
   padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 10vw, 19.125rem)
     clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
