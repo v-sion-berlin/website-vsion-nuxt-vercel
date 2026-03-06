@@ -1,0 +1,87 @@
+---
+title: DW Made
+description: "7"
+category:
+  - code
+  - news
+  - ""
+coverImage:
+  src: /images/projects/dw-made/Made00003.jpg
+  alt: Deutsche Welle Made
+detailImage:
+  src: /images/Logos/DW.svg
+  alt: DW
+header: DW
+projectsHeader: Unsere Projekte
+sliderHeader: Projekt Bilder
+sliderItems:
+  - type: video
+    provider: vimeo
+    videoId: "1171046537"
+    title: Cutdown
+    autoPlay: true
+    poster: /images/projects/idlePlay.jpg
+  - type: image
+    src: /images/projects/dw-made/Made00001.jpg
+    alt: ""
+    title: Trailer
+  - type: image
+    provider: vimeo
+    videoId: "1170388082"
+    title: ""
+    autoPlay: true
+    poster: /images/projects/idlePlay.jpg
+    src: /images/projects/dw-made/Made00007.jpg
+  - type: image
+    src: /images/projects/dw-made/Made00003.jpg
+    alt: ""
+    title: ""
+  - type: image
+    src: /images/projects/dw-made/Made00004.jpg
+    alt: Insert
+    title: ""
+  - type: image
+    src: /images/projects/dw-made/Made00005.jpg
+    alt: ""
+    title: ""
+  - type: image
+    src: /images/projects/dw-made/Made00006.jpg
+    title: ""
+  - type: image
+    src: /images/projects/dw-made/Made00003.jpg
+slug: dwmade
+table:
+  header:
+    firstCol: Unsere Aufgaben
+    secondCol: Technologien
+  tasks:
+    - Design Integration, Programmierung
+    - Grafik Szenen, Templates
+  technologies:
+    - Viz Artist, Viz Pilot
+    - Adobe CC
+type: project
+---
+
+7
+
+::project-details
+---
+:image-src: detailImage
+:projects-header: projectsHeader
+:slider-header: sliderHeader
+:slider-items: sliderItems
+:table-details: table
+---
+DW
+
+#project-name
+Made
+
+#body
+Neues Erscheinungsbild, neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisierung - und wir betreuen das Projekt.
+
+#sub
+Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür.
+[DW Made](https://www.dw.com/en/made-in-germany-your-business-magazine/program-220077)
+::
