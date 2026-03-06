@@ -7,10 +7,13 @@
           <div class="project-name">
             <slot name="project-name" mdc-unwrap="p" />
           </div>
-          <img
+          <NuxtImg
             :src="useImagePath(imageSrc?.src)"
             class="img"
             v-if="props.imageSrc"
+            format="webp"
+            loading="eager"
+            sizes="(max-width: 768px) 10vw, 137px"
             alt=""
             aria-hidden="true"
           />
@@ -51,12 +54,12 @@
         >
           <!-- image slide -->
           <template v-if="item.type === 'image'">
-            <NuxtImg
-              format="webp"
+            <NuxtPicture
+              format="avif,webp"
               :src="item.src"
               :alt="item.alt"
               loading="lazy"
-              sizes="(max-width: 768px) 60vw, 800px"
+              sizes="(max-width: 768px) 80vw, 900px"
             />
           </template>
 
@@ -78,12 +81,12 @@
                 v-if="!activeVideoIndices.has(index)"
                 @click="playVideo(index)"
               >
-                <NuxtImg
-                  format="webp"
+                <NuxtPicture
+                  format="avif,webp"
                   :alt="item.title"
                   :src="item.poster || '/images/projects/test.jpg'"
                   loading="lazy"
-                  sizes="(max-width: 768px) 60vw, 800px"
+                  sizes="(max-width: 768px) 80vw, 900px"
                 />
                 <button class="play-button" aria-label="Play video">
                   <img :src="PlayButton" alt="" aria-hidden="true" />
@@ -164,13 +167,13 @@
           class="project-card"
         >
           <NuxtLink :to="localizedPath(project.slug!)">
-            <NuxtImg
-              format="webp"
+            <NuxtPicture
+              format="avif,webp"
               v-if="project.coverImage"
               :src="project.coverImage.src"
               :alt="project.coverImage.alt"
               loading="lazy"
-              sizes="(max-width: 768px) 60vw, 800px"
+              sizes="(max-width: 768px) 60vw, 400px"
             />
             <h2>{{ project.header }}</h2>
           </NuxtLink>
@@ -426,8 +429,8 @@ useScrollReveal();
   display: none;
 }
 
-.slide-card img,
-.project-card img {
+.slide-card :deep(img),
+.project-card :deep(img) {
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
@@ -442,7 +445,7 @@ useScrollReveal();
   transition: transform 0.3s ease;
 }
 
-.slide-card img {
+.slide-card :deep(img) {
   height: 100%;
   width: auto;
   object-fit: cover;
@@ -570,7 +573,7 @@ useScrollReveal();
   height: 100%;
 }
 
-.video-poster img {
+.video-poster :deep(img) {
   width: 100%;
   height: 100%;
   object-fit: cover;
