@@ -36,13 +36,13 @@
             class="project-card"
           >
             <NuxtLink :to="localizedPath(project.slug!)">
-              <NuxtImg
-                format="webp"
+              <NuxtPicture
+                format="avif,webp"
                 v-if="project.coverImage"
                 :src="project.coverImage.src"
                 :alt="project.coverImage.alt"
                 loading="lazy"
-                sizes="(max-width: 768px) 60vw, 800px"
+                sizes="(max-width: 768px) 60vw, 400px"
               />
               <h2>{{ project.header }}</h2>
             </NuxtLink>
