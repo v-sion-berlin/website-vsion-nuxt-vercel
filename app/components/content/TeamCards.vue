@@ -6,11 +6,11 @@
       v-for="image in imagesArray"
     >
       <NuxtPicture
-        format="webp"
+        format="avif,webp"
         :src="useImagePath(image.src)"
         data-reveal
         loading="lazy"
-        sizes="(max-width: 768px) 60vw, 800px"
+        sizes="(max-width: 2100px) 30vw, 630px"
         :alt="image.alt || 'Team member'"
       />
       <p data-reveal>{{ image.text }}</p>
