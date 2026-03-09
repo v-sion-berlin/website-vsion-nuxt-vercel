@@ -1,10 +1,9 @@
 ---
 title: DW Made
-description: "7"
+description: ""
 category:
   - code
   - news
-  - ""
 coverImage:
   src: /images/projects/dw-made/Made00003.jpg
   alt: Deutsche Welle Made
@@ -24,7 +23,7 @@ sliderItems:
   - type: image
     src: /images/projects/dw-made/Made00001.jpg
     alt: ""
-    title: Trailer
+    title: Made
   - type: image
     provider: vimeo
     videoId: "1170388082"
@@ -49,7 +48,7 @@ sliderItems:
     title: ""
   - type: image
     src: /images/projects/dw-made/Made00003.jpg
-slug: dwmade
+slug: dw-made
 table:
   header:
     firstCol: Unsere Aufgaben
@@ -62,8 +61,6 @@ table:
     - Adobe CC
 type: project
 ---
-
-7
 
 ::project-details
 ---
