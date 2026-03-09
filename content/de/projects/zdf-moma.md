@@ -2,7 +2,9 @@
 title: ZDF moma
 category:
   - code
-  - operations
+  - studio
+  - news
+  - infographics
 coverImage:
   src: /images/projects/zdf-moma/ZDF-moma.jpg
   alt: ZDF moma
