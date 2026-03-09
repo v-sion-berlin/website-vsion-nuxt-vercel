@@ -17,7 +17,7 @@ projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: video
-  - provider: vimeo
+    provider: vimeo
     videoId: "1171751721"
     title: BDA Trailer
     poster: /images/projects/idlePlay.jpg
