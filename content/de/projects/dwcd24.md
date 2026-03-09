@@ -2,7 +2,6 @@
 title: DW CD24
 category:
   - code
-  - wall
   - news
 coverImage:
   src: /images/projects/dw-cd24/DWCD24-News-1.jpg
