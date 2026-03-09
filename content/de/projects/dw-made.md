@@ -45,8 +45,6 @@ sliderItems:
   - type: image
     src: /images/projects/dw-made/Made00006.jpg
     title: ""
-  - type: image
-    src: /images/projects/dw-made/Made00003.jpg
 slug: dw-made
 table:
   header:
