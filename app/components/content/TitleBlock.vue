@@ -40,7 +40,7 @@
         v-if="imageSrc"
         class="blur-img"
         loading="eager"
-        sizes="200px"
+        sizes="480px"
         aria-hidden="true"
         alt=""
       />
