@@ -25,7 +25,7 @@ useScrollReveal();
         class="blur-img"
         format="webp"
         loading="eager"
-        sizes="200px"
+        sizes="384px"
         aria-hidden="true"
         alt=""
       />
