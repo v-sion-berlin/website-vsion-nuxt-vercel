@@ -2,9 +2,8 @@
 title: ARD mima
 category:
   - news
-  - interaction
   - infographics
-  - sport
+  - studio
 coverImage:
   src: /images/projects/ARDMittagsmagazin/010-ard-mima-abmoderation.webp
   alt: ARD
