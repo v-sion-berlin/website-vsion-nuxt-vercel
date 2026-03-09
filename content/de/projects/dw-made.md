@@ -10,7 +10,7 @@ coverImage:
 detailImage:
   src: /images/Logos/DW.svg
   alt: DW
-header: DW
+header: DW Made
 projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
