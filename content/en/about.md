@@ -19,8 +19,8 @@ header: Live to the world from Berlin
 heroImage:
   src: /images/bg_about_top_full.png
   alt: Hero image showing Berlin skyline
-subTitlePhone: +49 30 29381928
 subTitleMail: contact@v-sion.de
+subTitlePhone: +49 30 29381928
 type: about
 _path: /about
 ---

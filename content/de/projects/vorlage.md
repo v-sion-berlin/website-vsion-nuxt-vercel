@@ -42,9 +42,6 @@ table:
     - Open Media
     - Vidiwall
 type: project
-seo:
-  title: ARD mima
-  description: ""
 ---
 
 ::project-details
