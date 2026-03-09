@@ -1,6 +1,5 @@
 ---
 title: DW Made
-description: ""
 category:
   - code
   - news
