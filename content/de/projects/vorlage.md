@@ -3,12 +3,12 @@ title: Vorlage
 category:
   - news
 coverImage:
-  src: /images/projects/ARDMittagsmagazin/010-ard-mima-abmoderation.webp
+  src: /images/projects/test.jpg
   alt: ARD
 detailImage:
   src: /images/Logos/ARD.svg
   alt: ARD Logo
-header: ARD Mima
+header: Vorlage
 navigation:
   icon: /images/Logos/ARD.svg
 projectsHeader: Unsere Projekte
@@ -28,7 +28,7 @@ sliderItems:
     src: /images/projects/test.jpg
     alt: Studio View 2
     title: Wettervorschau Animation
-slug: ardmima
+slug: vorlage
 table:
   header:
     firstCol: Unsere Aufgaben
@@ -52,14 +52,14 @@ type: project
 :slider-items: sliderItems
 :table-details: table
 ---
-ARD
+Vorlage
 
 #project-name
-MiMa
+Template
 
 #body
-Das ARD Mittagsmagazin ist nach 28 Jahren von München nach Berlin gezogen und sendet nun aus den ZDF Fernsehstudios Unter der Linden.
+Test Text für Body
 
 #sub
-Wir entwickeln für die 3 Vidiwalls im Fernsehstudio eine Bespiel- und Sendekonzept mit Preview-Funktionalitäten und leichtem Umgang für die Nachrichtenredaktion. In nur 3 Wochen war alles implementiert und wir freuen uns über einen gelungenen Sendestart mitten aus Berlin.
+Test Text für subtitle
 ::
