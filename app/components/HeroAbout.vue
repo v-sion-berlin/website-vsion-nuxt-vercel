@@ -7,7 +7,7 @@
         :src="useImagePath(page.heroImage?.src)"
         class="blur-img"
         loading="eager"
-        sizes="200px"
+        sizes="384px"
         aria-hidden="true"
         alt=""
       />
