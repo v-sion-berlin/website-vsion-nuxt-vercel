@@ -1,195 +1,197 @@
 <template>
-  <section>
-    <div id="headline" class="wrapper">
-      <h1 v-reveal>
-        <div style="display: flex">
-          <slot mdc-unwrap="p" />
-          <div class="project-name">
-            <slot name="project-name" mdc-unwrap="p" />
+  <div>
+    <section>
+      <div id="headline" class="wrapper">
+        <h1 v-reveal>
+          <div style="display: flex">
+            <slot mdc-unwrap="p" />
+            <div class="project-name">
+              <slot name="project-name" mdc-unwrap="p" />
+            </div>
+            <NuxtImg
+              :src="useImagePath(imageSrc?.src)"
+              class="img"
+              v-if="props.imageSrc"
+              format="webp"
+              loading="eager"
+              sizes="(max-width: 768px) 10vw, 137px"
+              alt=""
+              aria-hidden="true"
+            />
           </div>
-          <NuxtImg
-            :src="useImagePath(imageSrc?.src)"
-            class="img"
-            v-if="props.imageSrc"
-            format="webp"
-            loading="eager"
-            sizes="(max-width: 768px) 10vw, 137px"
-            alt=""
-            aria-hidden="true"
-          />
+        </h1>
+        <div id="text-container-big" v-reveal="100">
+          <slot name="body" />
         </div>
-      </h1>
-      <div id="text-container-big" v-reveal="100">
-        <slot name="body" />
+        <br />
+        <div id="text-container" v-reveal="200">
+          <slot name="sub" />
+        </div>
       </div>
-      <br />
-      <div id="text-container" v-reveal="200">
-        <slot name="sub" />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section v-if="sliderItems?.length" id="projects" data-reveal>
-    <div class="scroll-wrapper">
-      <button
-        class="scroll-arrow left"
-        v-show="showLeftSliderArrow"
-        aria-label="Scroll left"
-        @click="scrollLeft()"
-      >
-        <img :src="SliderArrowLeft" alt="" aria-hidden="true" />
-      </button>
-
-      <div class="grid" ref="sliderRef">
-        <div
-          v-for="(item, index) in sliderItemsFull"
-          :key="index"
-          class="slide-card"
-          :class="{
-            'is-video': item.type === 'video',
-            'is-video-playing':
-              item.type === 'video' &&
-              (item.autoPlay || activeVideoIndices.has(index)),
-          }"
+    <section v-if="sliderItems?.length" id="projects" data-reveal>
+      <div class="scroll-wrapper">
+        <button
+          class="scroll-arrow left"
+          v-show="showLeftSliderArrow"
+          aria-label="Scroll left"
+          @click="scrollLeft()"
         >
-          <!-- image slide -->
-          <template v-if="item.type === 'image'">
-            <NuxtPicture
-              format="avif,webp"
-              :src="item.src"
-              :alt="item.alt"
-              loading="lazy"
-              sizes="(max-width: 768px) 80vw, 900px"
-            />
-          </template>
+          <img :src="SliderArrowLeft" alt="" aria-hidden="true" />
+        </button>
 
-          <!-- video slide -->
-          <template v-else-if="item.type === 'video'">
-            <template v-if="item.autoPlay">
-              <div class="video-player" :ref="(el) => setVideoRef(el, index)">
-                <div
-                  :data-plyr-provider="(item as any).provider"
-                  :data-plyr-embed-id="(item as any).videoId"
-                ></div>
-              </div>
-            </template>
-
-            <!-- manual play: poster → click → player -->
-            <template v-else>
-              <div
-                class="video-poster"
-                v-if="!activeVideoIndices.has(index)"
-                @click="playVideo(index)"
-              >
-                <NuxtPicture
-                  format="avif,webp"
-                  :alt="item.title"
-                  :src="item.poster || '/images/projects/test.jpg'"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 80vw, 900px"
-                />
-                <button class="play-button" aria-label="Play video">
-                  <img :src="PlayButton" alt="" aria-hidden="true" />
-                </button>
-              </div>
-
-              <div
-                v-else
-                class="video-player"
-                :ref="(el) => setVideoRef(el, index)"
-              >
-                <div
-                  :data-plyr-provider="(item as any).provider"
-                  :data-plyr-embed-id="(item as any).videoId"
-                ></div>
-              </div>
-            </template>
-          </template>
-
-          <h2
-            v-if="
-              item.title &&
-              (item.type === 'image' ||
-                (!item.autoPlay && !activeVideoIndices.has(index)))
-            "
+        <div class="grid" ref="sliderRef">
+          <div
+            v-for="(item, index) in sliderItemsFull"
+            :key="item.title"
+            class="slide-card"
+            :class="{
+              'is-video': item.type === 'video',
+              'is-video-playing':
+                item.type === 'video' &&
+                (item.autoPlay || activeVideoIndices.has(index)),
+            }"
           >
-            {{ item.title }}
-          </h2>
+            <!-- image slide -->
+            <template v-if="item.type === 'image'">
+              <NuxtPicture
+                format="avif,webp"
+                :src="item.src"
+                :alt="item.alt"
+                loading="lazy"
+                sizes="(max-width: 768px) 80vw, 900px"
+              />
+            </template>
+
+            <!-- video slide -->
+            <template v-else-if="item.type === 'video'">
+              <template v-if="item.autoPlay">
+                <div class="video-player" :ref="(el) => setVideoRef(el, index)">
+                  <div
+                    :data-plyr-provider="(item as any).provider"
+                    :data-plyr-embed-id="(item as any).videoId"
+                  ></div>
+                </div>
+              </template>
+
+              <!-- manual play: poster → click → player -->
+              <template v-else>
+                <div
+                  class="video-poster"
+                  v-if="!activeVideoIndices.has(index)"
+                  @click="playVideo(index)"
+                >
+                  <NuxtPicture
+                    format="avif,webp"
+                    :alt="item.title"
+                    :src="item.poster || '/images/projects/test.jpg'"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 80vw, 900px"
+                  />
+                  <button class="play-button" aria-label="Play video">
+                    <img :src="PlayButton" alt="" aria-hidden="true" />
+                  </button>
+                </div>
+
+                <div
+                  v-else
+                  class="video-player"
+                  :ref="(el) => setVideoRef(el, index)"
+                >
+                  <div
+                    :data-plyr-provider="(item as any).provider"
+                    :data-plyr-embed-id="(item as any).videoId"
+                  ></div>
+                </div>
+              </template>
+            </template>
+
+            <h2
+              v-if="
+                item.title &&
+                (item.type === 'image' ||
+                  (!item.autoPlay && !activeVideoIndices.has(index)))
+              "
+            >
+              {{ item.title }}
+            </h2>
+          </div>
         </div>
-      </div>
 
-      <button
-        class="scroll-arrow right"
-        v-show="showRightSliderArrow"
-        aria-label="Scroll right"
-        @click="scrollRight()"
-      >
-        <img :src="SliderArrowRight" alt="" aria-hidden="true" />
-      </button>
-    </div>
-  </section>
-
-  <section id="table" class="wrapper" data-reveal>
-    <div class="table-col" v-if="tableDetails?.tasks?.length">
-      <div class="table-header">{{ tableDetails.header.firstCol }}</div>
-      <ul class="table-list">
-        <li v-for="(task, i) in tableDetails.tasks" :key="i">{{ task }}</li>
-      </ul>
-    </div>
-
-    <div class="table-col" v-if="tableDetails?.technologies?.length">
-      <div class="table-header">{{ tableDetails.header.secondCol }}</div>
-      <ul class="table-list">
-        <li v-for="(tech, i) in tableDetails.technologies" :key="i">
-          {{ tech }}
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="projects" data-reveal>
-    <div class="header wrapper">{{ projectsHeader }}</div>
-
-    <div class="scroll-wrapper">
-      <button
-        class="scroll-arrow left"
-        v-show="showLeftProjectArrow"
-        aria-label="Scroll left"
-        @click="scrollLeftGrid()"
-      >
-        <img :src="SliderArrowLeft" alt="" aria-hidden="true" />
-      </button>
-
-      <div class="grid" ref="gridRef">
-        <div
-          v-for="project in projectsFull"
-          :key="project.slug"
-          class="project-card"
+        <button
+          class="scroll-arrow right"
+          v-show="showRightSliderArrow"
+          aria-label="Scroll right"
+          @click="scrollRight()"
         >
-          <NuxtLink :to="localizedPath(project.slug!)">
-            <NuxtPicture
-              format="avif,webp"
-              v-if="project.coverImage"
-              :src="project.coverImage.src"
-              :alt="project.coverImage.alt"
-              loading="lazy"
-              sizes="(max-width: 768px) 60vw, 400px"
-            />
-            <h2>{{ project.header }}</h2>
-          </NuxtLink>
-        </div>
+          <img :src="SliderArrowRight" alt="" aria-hidden="true" />
+        </button>
+      </div>
+    </section>
+
+    <section id="table" class="wrapper" data-reveal>
+      <div class="table-col" v-if="tableDetails?.tasks?.length">
+        <div class="table-header">{{ tableDetails.header.firstCol }}</div>
+        <ul class="table-list">
+          <li v-for="(task, i) in tableDetails.tasks" :key="i">{{ task }}</li>
+        </ul>
       </div>
 
-      <button
-        class="scroll-arrow right"
-        v-show="showRightProjectArrow"
-        aria-label="Scroll right"
-        @click="scrollRightGrid()"
-      >
-        <img :src="SliderArrowRight" alt="" aria-hidden="true" />
-      </button>
-    </div>
-  </section>
+      <div class="table-col" v-if="tableDetails?.technologies?.length">
+        <div class="table-header">{{ tableDetails.header.secondCol }}</div>
+        <ul class="table-list">
+          <li v-for="(tech, i) in tableDetails.technologies" :key="i">
+            {{ tech }}
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" data-reveal>
+      <div class="header wrapper">{{ projectsHeader }}</div>
+
+      <div class="scroll-wrapper">
+        <button
+          class="scroll-arrow left"
+          v-show="showLeftProjectArrow"
+          aria-label="Scroll left"
+          @click="scrollLeftGrid()"
+        >
+          <img :src="SliderArrowLeft" alt="" aria-hidden="true" />
+        </button>
+
+        <div class="grid" ref="gridRef">
+          <div
+            v-for="project in projectsFull"
+            :key="project.slug"
+            class="project-card"
+          >
+            <NuxtLink :to="localizedPath(project.slug!)">
+              <NuxtPicture
+                format="avif,webp"
+                v-if="project.coverImage"
+                :src="project.coverImage.src"
+                :alt="project.coverImage.alt"
+                loading="lazy"
+                sizes="(max-width: 768px) 60vw, 640px"
+              />
+              <h2>{{ project.header }}</h2>
+            </NuxtLink>
+          </div>
+        </div>
+
+        <button
+          class="scroll-arrow right"
+          v-show="showRightProjectArrow"
+          aria-label="Scroll right"
+          @click="scrollRightGrid()"
+        >
+          <img :src="SliderArrowRight" alt="" aria-hidden="true" />
+        </button>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -244,6 +246,7 @@ const plyrControls = {
   ],
   autoplay: true,
   autopause: false,
+  loop: { active: true },
   vimeo: {
     autopause: false,
     byline: false,
