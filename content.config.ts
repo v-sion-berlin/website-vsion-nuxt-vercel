@@ -6,6 +6,17 @@ const listItemSchema = z.object({
   color: z.string(),
 });
 
+const projectCategoryEnum = z.enum([
+  "code",
+  "interaction",
+  "operations",
+  "sport",
+  "news",
+  "studio",
+  "infographics",
+  "storytelling",
+]);
+
 // --- Home Page ---
 const homePageSchema = z.object({
   // --- Hero Section ---
@@ -81,7 +92,7 @@ const projectSchema = z.object({
   type: z.literal("project"),
   header: z.string().optional(),
   slug: z.string().optional(),
-  category: z.array(z.string()).optional(),
+  category: z.array(projectCategoryEnum).optional(),
   projectsHeader: z.string().optional(),
   sliderHeader: z.string().optional(),
   coverImage: z
