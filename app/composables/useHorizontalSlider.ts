@@ -474,15 +474,31 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     document.addEventListener("mouseup", handleMouseUp, { signal });
     document.addEventListener("mousemove", handleMouseMove, { signal });
     slider.addEventListener("click", handleClick, { capture: true, signal });
-    slider.addEventListener("touchstart", handleTouchStart, {
-      passive: true,
-      signal,
-    });
-    slider.addEventListener("touchmove", handleTouchMove, {
-      passive: true,
-      signal,
-    });
-    slider.addEventListener("touchend", handleTouchEnd, { signal });
+
+    // On touch-primary devices, let the browser handle native scroll
+    const isTouchPrimary = window.matchMedia("(pointer: coarse)").matches;
+
+    if (isTouchPrimary) {
+      slider.addEventListener("touchstart", () => pauseAutoPlay(), {
+        passive: true,
+        signal,
+      });
+      slider.addEventListener(
+        "touchend",
+        () => setTimeout(resumeAutoPlay, 500),
+        { signal },
+      );
+    } else {
+      slider.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+        signal,
+      });
+      slider.addEventListener("touchmove", handleTouchMove, {
+        passive: true,
+        signal,
+      });
+      slider.addEventListener("touchend", handleTouchEnd, { signal });
+    }
     window.addEventListener("resize", handleResize, { signal });
 
     if (continuous) {
