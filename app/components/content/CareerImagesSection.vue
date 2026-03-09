@@ -8,7 +8,7 @@
             :src="useImagePath(careerImage1?.src)"
             v-if="careerImage1"
             loading="lazy"
-            sizes="(max-width: 768px) 45vw, 400px"
+            sizes="(max-width: 768px) 45vw, 640px"
             :alt="careerImage1.alt || 'Career image'"
           />
         </div>
@@ -18,7 +18,7 @@
             :src="useImagePath(careerImage2?.src)"
             v-if="careerImage2"
             loading="lazy"
-            sizes="(max-width: 768px) 45vw, 400px"
+            sizes="(max-width: 768px) 45vw, 640px"
             :alt="careerImage2.alt || 'Career image'"
           />
         </div>
