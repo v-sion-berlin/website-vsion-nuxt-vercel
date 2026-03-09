@@ -10,14 +10,14 @@ coverImage:
 detailImage:
   src: /images/Logos/DW.svg
   alt: DW
-header: DW
+header: DW CD24
 projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: video
     provider: vimeo
     videoId: "1170387543"
-    title: Cutdown News 3.3.2026
+    title: "Cutdown News 3.3.2026"
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
   - type: image
