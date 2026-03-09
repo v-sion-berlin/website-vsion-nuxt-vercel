@@ -16,10 +16,12 @@ navigation:
 projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
-  - type: image
-    src: /images/projects/ARDMittagsmagazin/011-ard-mima-bundestag-quadrat.webp
-    alt: Studio View 1
-    title: Studio
+  - type: video
+  - provider: vimeo
+    videoId: "1171751721"
+    title: BDA Trailer
+    poster: /images/projects/idlePlay.jpg
+    autoPlay: true
   - type: image
     src: /images/projects/ARDMittagsmagazin/003-ard-mima-schalte.webp
     alt: Schaltenposition Studio
