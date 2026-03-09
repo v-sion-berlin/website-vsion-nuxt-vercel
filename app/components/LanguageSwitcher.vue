@@ -49,7 +49,7 @@ watch(locale, (val) => {
         <TransitionGroup name="item" tag="div" class="dropdown-items">
           <button
             v-for="(_locale, index) of locales"
-            :key="_locale.code"
+            :key="_locale.code + index"
             class="dropdown-item"
             :style="{ '--i': index }"
             @click="
