@@ -63,5 +63,5 @@ Europa in seiner Vielfalt und Faszination - das zeigt die Sendung "Euromaxx". Da
 
 #sub
 Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür:
-[DW Euromaxx](https://www.dw.com/de/euromaxx/program-877837/)
+<a href="https://www.dw.com/de/euromaxx/program-877837" target="_blank">DW Euromaxx</a>
 ::

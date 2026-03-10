@@ -77,5 +77,5 @@ Neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisier
 
 #sub
 Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür.
-[DW Made](https://www.dw.com/en/made-in-germany-your-business-magazine/program-220077)
+<a href="https://www.dw.com/en/made-in-germany-your-business-magazine/program-220077" target="_blank">DW Made</a>
 ::

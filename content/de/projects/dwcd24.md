@@ -74,5 +74,5 @@ Neues Erscheinungsbild, neue Echtzeittechnologie: Die Deutsche Welle startet ein
 
 #sub
 Wir kümmern uns um Implementierung des Designs, sämtliche Logiken für Videowall und Lower Thirds, damit alles per Automation gesteiert werden kann. Das kann man täglich Live erleben:
-[DW Live TV](https://www.dw.com/en/live-tv/channel-english)
+<a href="https://www.dw.com/en/live-tv/channel-english" target="_blank">DW Live TV</a>
 ::
