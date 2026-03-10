@@ -14,7 +14,8 @@
               v-if="props.imageSrc"
               format="webp"
               loading="eager"
-              sizes="xs:384px sm:640px md:768px"
+              densities="1"
+              sizes="sm:640px md:768px"
               alt=""
               aria-hidden="true"
             />
@@ -60,7 +61,8 @@
                 :src="item.src"
                 :alt="item.alt"
                 loading="lazy"
-                sizes="xs:384px sm:640px md:768px lg:900px xl:1080px xxl:1200px xxxl:1440px xxxxl:1920px xxxxxl:2560px"
+                densities="1"
+                sizes="sm:640px md:768px lg:1024px xl:1280px 2xl:1536px"
               />
             </template>
 
@@ -87,7 +89,8 @@
                     :alt="item.title"
                     :src="item.poster || '/images/projects/test.jpg'"
                     loading="lazy"
-                    sizes="xs:384px sm:640px md:768px lg:900px xl:1080px xxl:1200px xxxl:1440px xxxxl:1920px xxxxxl:2560px"
+                    densities="1"
+                    sizes="sm:640px md:768px lg:1024px xl:1280px 2xl:1536px"
                   />
                   <button class="play-button" aria-label="Play video">
                     <img :src="PlayButton" alt="" aria-hidden="true" />
@@ -174,7 +177,8 @@
                 :src="project.coverImage.src"
                 :alt="project.coverImage.alt"
                 loading="lazy"
-                sizes="xs:384px sm:640px md:768px lg:900px xl:1080px xxl:1200px xxxl:1440px xxxxl:1920px xxxxxl:2560px"
+                densities="1"
+                sizes="sm:640px md:768px lg:1024px xl:1280px 2xl:1536px"
               />
               <h2>{{ project.header }}</h2>
             </NuxtLink>
@@ -245,6 +249,7 @@ const plyrControls = {
     "fullscreen",
   ],
   autoplay: true,
+  muted: true,
   autopause: false,
   loop: { active: true },
   vimeo: {
@@ -254,12 +259,14 @@ const plyrControls = {
     title: false,
     speed: true,
     transparent: false,
+    muted: true,
   },
   youtube: {
     noCookie: true,
     rel: 0,
     showinfo: 0,
     modestbranding: 1,
+    mute: 1,
   },
 };
 

@@ -25,7 +25,7 @@ useScrollReveal();
         class="blur-img"
         format="webp"
         loading="eager"
-        sizes="384px"
+        sizes="sm:640px"
         aria-hidden="true"
         alt=""
       />
@@ -35,7 +35,8 @@ useScrollReveal();
           format="avif,webp"
           loading="eager"
           fetchpriority="high"
-          sizes="xs:384px sm:640px md:768px lg:900px xl:1080px xxl:1200px xxxl:1440px xxxxl:1920px xxxxxl:2560px"
+          densities="1"
+          sizes="sm:640px md:768px lg:1024px xl:1280px 2xl:1536px"
           :alt="page.heroImage?.alt || 'Hero image'"
         />
       </div>
