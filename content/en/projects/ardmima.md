@@ -13,8 +13,6 @@ detailImage:
   src: /images/Logos/ARD.svg
   alt: ARD Logo
 header: ARD Mima
-navigation:
-  icon: /images/Logos/ARD.svg
 projectsHeader: Our Projekte
 sliderHeader: Project Images
 sliderItems:

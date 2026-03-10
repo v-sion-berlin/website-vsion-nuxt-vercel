@@ -10,13 +10,7 @@ detailImage:
   src: /images/Logos/DW.svg
   alt: DW Logo
 header: DW Euromaxx
-navigation:
-  icon: ""
-  title: ""
 projectsHeader: Unsere Projekte
-seo:
-  title: Vorlage
-  description: ""
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: video

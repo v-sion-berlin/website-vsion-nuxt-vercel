@@ -10,8 +10,6 @@ detailImage:
   src: /images/Logos/ARD.svg
   alt: ARD Logo
 header: Vorlage
-navigation:
-  icon: /images/Logos/ARD.svg
 projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:

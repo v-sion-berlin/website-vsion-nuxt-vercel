@@ -16,9 +16,6 @@ detailImage:
   alt: 3SAT
 header: 3SAT
 projectsHeader: Our Projekte
-seo:
-  title: 3sat
-  description: ""
 sliderHeader: Project Images
 sliderItems:
   - type: image
