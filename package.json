@@ -19,7 +19,7 @@
     "@vueuse/core": "^14.2.1",
     "better-sqlite3": "^12.6.2",
     "dompurify": "^3.3.2",
-    "eslint": "^10.0.3",
+    "eslint": "^9.36.0",
     "nuxt": "^4.3.1",
     "nuxt-lottie": "^1.0.8",
     "nuxt-studio": "^1.4.0",
