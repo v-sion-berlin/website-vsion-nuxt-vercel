@@ -17,7 +17,7 @@
           :src="useImagePath(page.heroImage?.src)"
           loading="eager"
           fetchpriority="high"
-          sizes="60vw"
+          sizes="xs:384px sm:640px md:768px lg:900px xl:1080px xxl:1200px xxxl:1440px xxxxl:1920px xxxxxl:2560px"
           :alt="page.heroImage?.alt || 'About hero image'"
         />
       </div>
