@@ -1,9 +1,9 @@
 ---
 title: DW Made
+active: true
 category:
   - code
   - news
-active: true
 coverImage:
   src: /images/projects/dw-made/Made00003.jpg
   alt: Deutsche Welle Made

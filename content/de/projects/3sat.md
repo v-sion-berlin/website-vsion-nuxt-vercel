@@ -1,9 +1,9 @@
 ---
 title: 3sat Redesign
+active: true
 category:
   - code
   - infographics
-active: true
 coverImage:
   src: /images/projects/3sat/3sat-bunt.jpg
   alt: 3SAT

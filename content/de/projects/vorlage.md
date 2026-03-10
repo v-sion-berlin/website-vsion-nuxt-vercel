@@ -1,8 +1,8 @@
 ---
 title: Vorlage
+active: false
 category:
   - news
-active: false
 coverImage:
   src: /images/projects/test.jpg
   alt: ARD
