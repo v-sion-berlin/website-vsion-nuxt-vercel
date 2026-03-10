@@ -7,6 +7,7 @@ category:
   - sport
   - code
   - infographics
+active: true
 coverImage:
   src: /images/projects/3sat_cover.png
   alt: 3SAT
