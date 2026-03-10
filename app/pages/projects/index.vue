@@ -83,6 +83,7 @@ useScrollReveal({
         v-for="project in projectsFull"
         :key="project.slug"
         class="project-card"
+        v-show="project.active"
         data-reveal
       >
         <NuxtLink :to="localizedPath(project.slug!)">
