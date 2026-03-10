@@ -30,7 +30,7 @@
           :src="useImagePath(imageSrc.src)"
           loading="eager"
           fetchpriority="high"
-          sizes="50vw"
+          sizes="100vw"
           :alt="imageSrc.alt || 'Section image'"
         />
       </div>
