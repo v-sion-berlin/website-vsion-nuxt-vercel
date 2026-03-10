@@ -8,9 +8,10 @@ coverImage:
 detailImage:
   src: /images/Logos/DW.svg
   alt: DW Logo
-header: ""
+header: DW Euromaxx
 navigation:
   icon: ""
+  title: ""
 projectsHeader: Unsere Projekte
 seo:
   title: Vorlage
