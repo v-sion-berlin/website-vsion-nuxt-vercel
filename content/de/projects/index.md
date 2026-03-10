@@ -1,17 +1,6 @@
 ---
-title: DW Euromaxx
-category:
-  - code
 header: Projects Overview
-navigation:
-  title: DW Euromaxx
-  icon: i-arcticons-dw
-projectsHeader: ""
-sliderItems: []
 slug: projects
-table:
-  technologies: []
-  tasks: []
 type: projects
 ---
 
