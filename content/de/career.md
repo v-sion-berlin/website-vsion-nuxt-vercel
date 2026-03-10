@@ -8,7 +8,7 @@ careerImage2:
   alt: Career image two
 header: Career
 heroImage:
-  src: /images/bg_main_top_full.png
+  src: /images/bg_main_top_full3.png
   alt: Hero image showing Berlin skyline
 smallCards:
   - header: Modernes Arbeitsumfeld
