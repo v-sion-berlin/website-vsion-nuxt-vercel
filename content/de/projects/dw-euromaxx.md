@@ -2,6 +2,7 @@
 title: DW Euromaxx
 category:
   - news
+active: true
 coverImage:
   src: /images/projects/dw-euromaxx/Euromaxx00001.jpg
   alt: DW

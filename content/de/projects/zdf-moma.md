@@ -5,6 +5,7 @@ category:
   - studio
   - news
   - infographics
+active: true
 coverImage:
   src: /images/projects/zdf-moma/ZDF-moma.jpg
   alt: ZDF moma
