@@ -14,7 +14,7 @@
               v-if="props.imageSrc"
               format="webp"
               loading="eager"
-              sizes="(max-width: 768px) 10vw, 137px"
+              sizes="xs:384px sm:640px md:768px"
               alt=""
               aria-hidden="true"
             />
@@ -60,7 +60,7 @@
                 :src="item.src"
                 :alt="item.alt"
                 loading="lazy"
-                sizes="(max-width: 768px) 80vw, 900px"
+                sizes="xs:384px sm:640px md:768px lg:900px xl:1080px xxl:1200px xxxl:1440px xxxxl:1920px xxxxxl:2560px"
               />
             </template>
 
@@ -87,7 +87,7 @@
                     :alt="item.title"
                     :src="item.poster || '/images/projects/test.jpg'"
                     loading="lazy"
-                    sizes="(max-width: 768px) 80vw, 900px"
+                    sizes="xs:384px sm:640px md:768px lg:900px xl:1080px xxl:1200px xxxl:1440px xxxxl:1920px xxxxxl:2560px"
                   />
                   <button class="play-button" aria-label="Play video">
                     <img :src="PlayButton" alt="" aria-hidden="true" />
@@ -174,7 +174,7 @@
                 :src="project.coverImage.src"
                 :alt="project.coverImage.alt"
                 loading="lazy"
-                sizes="(max-width: 768px) 60vw, 640px"
+                sizes="xs:384px sm:640px md:768px lg:900px xl:1080px xxl:1200px xxxl:1440px xxxxl:1920px xxxxxl:2560px"
               />
               <h2>{{ project.header }}</h2>
             </NuxtLink>
