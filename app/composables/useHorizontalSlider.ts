@@ -163,6 +163,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   let isSetup = false;
   let originalWidth = 0;
   let gap = 0;
+  let clonesNeeded = 0;
 
   // Cleanup
   let abortController: AbortController | null = null;
@@ -205,10 +206,13 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     const slider = sliderRef.value;
     if (!slider || originalWidth === 0) return;
 
-    if (slider.scrollLeft >= originalWidth + gap) {
-      slider.scrollLeft -= originalWidth + gap;
-    } else if (slider.scrollLeft <= 0) {
-      slider.scrollLeft += originalWidth + gap;
+    const cycle = originalWidth + gap;
+    const buffer = cycle * clonesNeeded;
+
+    if (slider.scrollLeft >= buffer + cycle) {
+      slider.scrollLeft -= cycle;
+    } else if (slider.scrollLeft <= buffer - cycle) {
+      slider.scrollLeft += cycle;
     }
   };
 
@@ -236,7 +240,7 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
     );
 
     const viewportWidth = slider.clientWidth;
-    const clonesNeeded = Math.ceil((viewportWidth * 2) / originalWidth) + 1;
+    clonesNeeded = Math.ceil((viewportWidth * 2) / originalWidth) + 1;
 
     // Append clones
     for (let i = 0; i < clonesNeeded; i++) {
