@@ -21,22 +21,15 @@ sliderItems:
   - type: video
     provider: vimeo
     videoId: "1171059228"
-    title: Behind the Scenes
+    title: ""
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
-  - type: image
+  - type: video
     provider: vimeo
-    videoId: "1058566689"
+    videoId: "1171059106"
     title: ""
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
-    src: /images/projects/dw-euromaxx/Euromaxx00002.jpg
-  - type: image
-    src: /images/projects/dw-euromaxx/Euromaxx00003.jpg
-    alt: Studio View 2
-    title: ""
-  - type: image
-    src: /images/projects/dw-euromaxx/Euromaxx00004.jpg
 slug: dw-euromaxx
 table:
   header:
@@ -69,6 +62,6 @@ Euromaxx
 Europa in seiner Vielfalt und Faszination - das zeigt die Sendung "Euromaxx". Das Lifestyle-Magazin bietet seinem internationalen Publikum aufregende Einblicke in die europäische Kultur und Lebensart.
 
 #sub
-Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür.
-[DW Euromaxx](https://www.dw.com/de/euromaxx/program-877837)
+Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür:
+[DW Euromaxx](https://www.dw.com/de/euromaxx/program-877837/)
 ::
