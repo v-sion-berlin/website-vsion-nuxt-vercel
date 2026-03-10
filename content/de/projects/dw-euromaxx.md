@@ -1,5 +1,5 @@
 ---
-title: Vorlage
+title: DW Euromaxx
 category:
   - news
 coverImage:
@@ -8,10 +8,13 @@ coverImage:
 detailImage:
   src: /images/Logos/DW.svg
   alt: ARD Logo
-header: Vorlage
+header: ""
 navigation:
   icon: ""
 projectsHeader: Unsere Projekte
+seo:
+  title: Vorlage
+  description: ""
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
@@ -28,7 +31,7 @@ sliderItems:
     src: /images/projects/test.jpg
     alt: Studio View 2
     title: Wettervorschau Animation
-slug: vorlage
+slug: dw-euromaxx
 table:
   header:
     firstCol: Unsere Aufgaben
