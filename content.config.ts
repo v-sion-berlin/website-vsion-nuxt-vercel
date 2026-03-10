@@ -78,6 +78,14 @@ const homePageSchema = z.object({
       infographics: listItemSchema,
     })
     .optional(),
+  navigation: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
+  description: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
 });
 
 // --- Projects Overview Page ---
@@ -85,6 +93,14 @@ const projectsOverviewSchema = z.object({
   type: z.literal("projects"),
   header: z.string().optional(),
   slug: z.string().optional(),
+  navigation: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
+  description: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
 });
 
 // --- Project schema ---
@@ -140,6 +156,14 @@ const projectSchema = z.object({
       ]),
     )
     .optional(),
+  navigation: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
+  description: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
 });
 
 // --- Team Page ---
@@ -159,6 +183,14 @@ const teamPageSchema = z.object({
       }),
     )
     .optional(),
+  navigation: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
+  description: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
 });
 
 // --- About Page ---
@@ -197,6 +229,14 @@ const aboutPageSchema = z.object({
       hrb: z.string(),
     })
     .optional(),
+  navigation: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
+  description: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
 });
 
 // --- Contact Component ---
@@ -241,6 +281,14 @@ const servicesPageSchema = z.object({
       items: z.array(z.string()).optional(),
     })
     .optional(),
+  navigation: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
+  description: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
 });
 
 // --- Career Page ---
@@ -273,6 +321,14 @@ const careerPageSchema = z.object({
       }),
     )
     .optional(),
+  navigation: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
+  description: property(z.object({})).editor({
+    input: "textarea",
+    hidden: true,
+  }),
 });
 
 export default defineContentConfig({
