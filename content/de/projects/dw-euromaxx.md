@@ -3,11 +3,11 @@ title: DW Euromaxx
 category:
   - news
 coverImage:
-  src: ""
+  src: /images/projects/dw-euromaxx/Euromaxx00001.jpg
   alt: DW
 detailImage:
   src: /images/Logos/DW.svg
-  alt: ARD Logo
+  alt: DW Logo
 header: ""
 navigation:
   icon: ""
@@ -17,20 +17,25 @@ seo:
   description: ""
 sliderHeader: Projekt Bilder
 sliderItems:
-  - type: image
-    src: /images/projects/ARDMittagsmagazin/001-ard-mima-studio-dunkel.webp
-    alt: Studio View 1
-    title: Studio
   - type: video
     provider: vimeo
-    videoId: "1058566689"
+    videoId: "1171059228"
     title: Behind the Scenes
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
   - type: image
-    src: /images/projects/test.jpg
+    provider: vimeo
+    videoId: "1058566689"
+    title: ""
+    autoPlay: true
+    poster: /images/projects/idlePlay.jpg
+    src: /images/projects/dw-euromaxx/Euromaxx00002.jpg
+  - type: image
+    src: /images/projects/dw-euromaxx/Euromaxx00003.jpg
     alt: Studio View 2
-    title: Wettervorschau Animation
+    title: ""
+  - type: image
+    src: /images/projects/dw-euromaxx/Euromaxx00004.jpg
 slug: dw-euromaxx
 table:
   header:
@@ -43,7 +48,6 @@ table:
   technologies:
     - Viz Artist, Viz Pilot, Viz MSE
     - Open Media
-    - Vidiwall
 type: project
 ---
 
@@ -55,14 +59,15 @@ type: project
 :slider-items: sliderItems
 :table-details: table
 ---
-Vorlage
+DW
 
 #project-name
-Template
+Euromaxx
 
 #body
-Test Text für Body
+Europa in seiner Vielfalt und Faszination - das zeigt die Sendung "Euromaxx". Das Lifestyle-Magazin bietet seinem internationalen Publikum aufregende Einblicke in die europäische Kultur und Lebensart.
 
 #sub
-Test Text für subtitle
+Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür.
+[DW Euromaxx](https://www.dw.com/de/euromaxx/program-877837)
 ::
