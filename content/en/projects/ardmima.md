@@ -1,11 +1,11 @@
 ---
 title: ARD mima
+active: true
 category:
   - news
   - studio
   - interaction
   - operations
-active: true
 coverImage:
   src: /images/projects/ARDMittagsmagazin/010-ard-mima-abmoderation.webp
   alt: ARD

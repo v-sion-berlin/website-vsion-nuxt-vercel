@@ -1,5 +1,6 @@
 ---
 title: 3sat Redesign
+active: true
 category:
   - studio
   - storytelling
@@ -7,7 +8,6 @@ category:
   - sport
   - code
   - infographics
-active: true
 coverImage:
   src: /images/projects/3sat_cover.png
   alt: 3SAT
