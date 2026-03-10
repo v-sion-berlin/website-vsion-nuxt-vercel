@@ -69,5 +69,6 @@ Redesign
 Das neue 3sat Design hält Einzug in die Sendeabwicklung beim ZDF in Mainz. In enger Abstimmung entstehen moderne, automatisierte Branding-Grafiken, die flexibel und automatisiert On Air gehen.
 
 #sub
-Das visuelle Erscheinungsbild wurde von der Münchner Agentur <a href="https://www.bdacreative.com/project/3sat" target="_blank">BDA Creative</a> entwickelt. Die Entstehung des neuen Designs wurde beim ZDF vom 3sat-Team im Marketing betreut.
+Das visuelle Erscheinungsbild wurde von der Münchner Agentur
+[BDA Creative](https://www.bdacreative.com/project/3sat){:target="_blank"} entwickelt. Die Entstehung des neuen Designs wurde beim ZDF vom 3sat-Team im Marketing betreut.
 ::

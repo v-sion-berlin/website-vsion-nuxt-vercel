@@ -88,5 +88,5 @@ moma
 So gut sieht das neue ZDF Morgenmagazin "moma" aus! Die Umgestaltung des Studios ist für das ZDF mehr als ein Redesign: Das Fernsehstudio wird zum Raum, in dem man die Arbeit der Journalisten-Teams mit erleben kann.
 
 #sub
-Das Design wurde von unserer befreundeten Agentur [CapeRock](https://www.caperock.tv/) (vielen Dank für das Video!) aus Amsterdam entwickelt. Wieder einmal haben wir in wunderbar kollegialer Weise mit dem ZDF zusammen gearbeitet.
+Das Design wurde von unserer befreundeten Agentur [CapeRock](https://www.caperock.tv){:target="_blank"} (vielen Dank für das Video!) aus Amsterdam entwickelt. Wieder einmal haben wir in wunderbar kollegialer Weise mit dem ZDF zusammen gearbeitet.
 ::

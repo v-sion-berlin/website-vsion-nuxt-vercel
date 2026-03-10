@@ -65,5 +65,5 @@ Redesign
 The new 3sat design is being implemented in the broadcast operations at ZDF in Mainz. Modern, automated branding graphics are being created in close coordination and will be flexibly deployed on air in real time.
 
 #sub
-The visual identity was developed by the Munich-based agency [BDA Creative](https://www.bdacreative.com/project/3sat). The development of the new design was overseen by the 3sat marketing team at ZDF.
+The visual identity was developed by the Munich-based agency [BDA Creative](https://www.bdacreative.com/project/3sat){:target="_blank"}. The development of the new design was overseen by the 3sat marketing team at ZDF.
 ::
