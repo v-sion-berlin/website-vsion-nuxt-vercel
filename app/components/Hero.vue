@@ -26,6 +26,7 @@ useScrollReveal();
         format="webp"
         loading="eager"
         sizes="sm:640px"
+        fetchpriority="high"
         aria-hidden="true"
         alt=""
       />
