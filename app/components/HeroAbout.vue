@@ -9,6 +9,7 @@
         loading="eager"
         sizes="sm:640px"
         aria-hidden="true"
+        fetchpriority="high"
         alt=""
       />
       <div class="img">
