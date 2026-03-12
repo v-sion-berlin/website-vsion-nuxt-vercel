@@ -71,7 +71,7 @@ type: project
 DW
 
 #project-name
-Jafaar Talk
+Made
 
 #body
 Neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisierung - und wir begleiten das Projekt.
