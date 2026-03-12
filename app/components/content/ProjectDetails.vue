@@ -21,10 +21,13 @@
             />
           </div>
         </h1>
+
         <div id="text-container-big" v-reveal="100">
           <slot name="body" />
         </div>
+
         <br />
+
         <div id="text-container" v-reveal="200">
           <slot name="sub" />
         </div>
