@@ -1,5 +1,5 @@
 ---
-title: DW Made
+title: DW Jafaar Talk
 active: true
 category:
   - code
@@ -10,7 +10,7 @@ coverImage:
 detailImage:
   src: /images/Logos/DW.svg
   alt: DW
-header: DW Made
+header: DW Jafaar
 projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
@@ -58,6 +58,9 @@ table:
     - Viz Artist, Viz Pilot
     - Adobe CC
 type: project
+seo:
+  title: DW Jafaar
+  description: ""
 ---
 
 ::project-details
@@ -78,5 +81,5 @@ Neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisier
 
 #sub
 Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür.
-[DW Made](https://www.dw.com/en/made-in-germany-your-business-magazine/program-220077){:target="_blank"}
+[DW Jafaar Talk](https://www.dw.com/ar/%D8%AC%D8%B9%D9%81%D8%B1-%D8%AA%D9%88%D9%83-%D8%A8%D8%B1%D8%A7%D9%85%D8%AC-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%AA%D8%B9%D9%83%D8%B3-%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9-%D8%A7%D9%84%D9%85%D8%AA%D8%BA%D9%8A%D8%B1/program-48385123)
 ::
