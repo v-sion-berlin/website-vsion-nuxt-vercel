@@ -1,29 +1,3 @@
-<script setup lang="ts">
-import { ref, watch } from "vue";
-import { onClickOutside } from "@vueuse/core";
-
-const { setLocale, locales, locale } = useI18n();
-const props = withDefaults(defineProps<{ mobile?: boolean }>(), {
-  mobile: false,
-});
-
-const menuRef = ref<HTMLElement | null>(null);
-const showDropdown = ref(false);
-const currentLang = ref(locale.value.toUpperCase());
-
-const toggleDropdown = () => {
-  showDropdown.value = !showDropdown.value;
-};
-
-onClickOutside(menuRef, () => {
-  showDropdown.value = false;
-});
-
-watch(locale, (val) => {
-  currentLang.value = val.toUpperCase();
-});
-</script>
-
 <template>
   <div
     ref="menuRef"
@@ -66,6 +40,32 @@ watch(locale, (val) => {
     </Transition>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref, watch } from "vue";
+import { onClickOutside } from "@vueuse/core";
+
+const { setLocale, locales, locale } = useI18n();
+const props = withDefaults(defineProps<{ mobile?: boolean }>(), {
+  mobile: false,
+});
+
+const menuRef = ref<HTMLElement | null>(null);
+const showDropdown = ref(false);
+const currentLang = ref(locale.value.toUpperCase());
+
+const toggleDropdown = () => {
+  showDropdown.value = !showDropdown.value;
+};
+
+onClickOutside(menuRef, () => {
+  showDropdown.value = false;
+});
+
+watch(locale, (val) => {
+  currentLang.value = val.toUpperCase();
+});
+</script>
 
 <style scoped>
 .language-switcher.mobile .dropdown {
