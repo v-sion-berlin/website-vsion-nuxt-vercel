@@ -4,10 +4,8 @@ active: true
 category:
   - code
   - news
-  - studio
-  - infographics
 coverImage:
-  src: /images/projects/zdf-spezial/zdfspezial00001.jpg
+  src: /images/projects/dw-made/Made00003.jpg
   alt: ZDF Spezial Logo
 detailImage:
   src: /images/Logos/ZDF.svg
@@ -23,30 +21,30 @@ sliderItems:
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
   - type: image
-    src: /images/projects/zdf-spezial/zdfspezial00003.jpg
+    src: /images/projects/dw-made/Made00001.jpg
     alt: ""
-    title: ""
-  - type: image
+    title: Made
+  - type: video
     provider: vimeo
     videoId: "1170388082"
-    title: ""
+    title: Cutdown
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
-    src: /images/projects/zdf-spezial/zdfspezial00009.jpg
   - type: image
-    src: /images/projects/zdf-spezial/zdfspezial00010.jpg
+    src: /images/projects/dw-made/Made00003.jpg
     alt: ""
     title: ""
   - type: image
-    src: /images/projects/zdf-spezial/zdfspezial00012.jpg
+    src: /images/projects/dw-made/Made00004.jpg
     alt: Insert
     title: ""
   - type: image
-    src: /images/projects/zdf-spezial/zdfspezial00013.jpg
+    src: /images/projects/dw-made/Made00005.jpg
     alt: ""
     title: ""
   - type: image
-    src: /images/projects/zdf-spezial/zdfspezial00007.jpg
+    src: /images/projects/dw-made/Made00006.jpg
+    title: ""
 slug: zdf-spezial
 table:
   header:
@@ -78,5 +76,5 @@ Spezial
 Die Sendungen werden [Live](https://www.zdf.de/magazine/zdfspezial-128) zu besonderen Ereignissen spontan produziert und gesendet. Die außergewöhnlichen Ereignisse werden durch das journalistische Netzwerk des ZDF eingeordnet.
 
 #sub
-Wir implentieren die Grafiken, bauen den Opener für das Echtzeitsystem, damit schnell produziert werden kann. Vielen Dank an [BDA Creative](https://www.bdacreative.com/) aus München für das Video!
+Wir implentieren die Grafiken, bauen den Opener für das Echtzeitsystem, damit schnell produziert werden kann. Vielen Dank an [BDA Creative](https://www.bdacreative.com/) für das tolle Design und für das Video!
 ::
