@@ -24,13 +24,12 @@ sliderItems:
     src: /images/projects/dw-made/Made00001.jpg
     alt: ""
     title: Made
-  - type: image
+  - type: video
     provider: vimeo
     videoId: "1170388082"
-    title: ""
+    title: "Cutdown"
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
-    src: /images/projects/dw-made/Made00007.jpg
   - type: image
     src: /images/projects/dw-made/Made00003.jpg
     alt: ""
