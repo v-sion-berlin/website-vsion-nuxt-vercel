@@ -19,7 +19,7 @@ sliderHeader: Projekt Bilder
 sliderItems:
   - type: video
     provider: vimeo
-    videoId: "1170388082"
+    videoId: "1171046141"
     title: Cutdown
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
