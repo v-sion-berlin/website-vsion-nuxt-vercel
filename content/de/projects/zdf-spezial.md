@@ -4,8 +4,10 @@ active: true
 category:
   - code
   - news
+  - studio
+  - infographics
 coverImage:
-  src: /images/projects/dw-made/Made00003.jpg
+  src: /apple-touch-icon.png
   alt: ZDF Spezial Logo
 detailImage:
   src: /images/Logos/ZDF.svg
@@ -21,29 +23,27 @@ sliderItems:
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
   - type: image
-    src: /images/projects/dw-made/Made00001.jpg
-    alt: ""
-    title: Made
-  - type: video
-    provider: vimeo
-    videoId: "1170388082"
-    title: Cutdown
-    autoPlay: true
-    poster: /images/projects/idlePlay.jpg
-  - type: image
-    src: /images/projects/dw-made/Made00003.jpg
+    src: /images/projects/zdf-spezial/zdfspezial00003.jpg
     alt: ""
     title: ""
   - type: image
-    src: /images/projects/dw-made/Made00004.jpg
+    provider: vimeo
+    videoId: "1170388082"
+    title: ""
+    autoPlay: true
+    poster: /images/projects/idlePlay.jpg
+    src: /images/projects/zdf-spezial/zdfspezial00009.jpg
+  - type: image
+    src: /images/projects/zdf-spezial/zdfspezial00012.jpg
+    alt: ""
+    title: ""
+  - type: image
+    src: /images/projects/zdf-spezial/zdfspezial00013.jpg
     alt: Insert
     title: ""
   - type: image
-    src: /images/projects/dw-made/Made00005.jpg
+    src: /images/projects/zdf-spezial/zdfspezial00007.jpg
     alt: ""
-    title: ""
-  - type: image
-    src: /images/projects/dw-made/Made00006.jpg
     title: ""
 slug: zdf-spezial
 table:
