@@ -1,4 +1,5 @@
 ---
+active: false
 header: Projects Overview
 slug: projects
 type: projects
