@@ -12,6 +12,8 @@ detailImage:
   alt: ZDF
 header: ZDF Spezial
 projectsHeader: Unsere Projekte
+seo:
+  title: ZDF Spezial
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: video
@@ -58,8 +60,6 @@ table:
     - Viz Artist, Viz Pilot
     - Adobe CC
 type: project
-seo:
-  title: DW Made
 ---
 
 ::project-details
@@ -70,15 +70,15 @@ seo:
 :slider-items: sliderItems
 :table-details: table
 ---
-DW
+ZDF
 
 #project-name
-Made
+Spezial
 
 #body
 Neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisierung - und wir begleiten das Projekt.
 
 #sub
 Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür.
-[DW Made](https://www.dw.com/en/made-in-germany-your-business-magazine/program-220077)
+[ZDF Spezial](https://www.dw.com/en/made-in-germany-your-business-magazine/program-220077){:target="_blank"}
 ::
