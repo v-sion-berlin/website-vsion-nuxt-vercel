@@ -27,7 +27,7 @@ sliderItems:
   - type: video
     provider: vimeo
     videoId: "1170388082"
-    title: "Cutdown"
+    title: Cutdown
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
   - type: image
