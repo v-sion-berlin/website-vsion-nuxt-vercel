@@ -12,8 +12,6 @@ detailImage:
   alt: ZDF
 header: ZDF Spezial
 projectsHeader: Unsere Projekte
-seo:
-  title: ZDF Spezial
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: video
