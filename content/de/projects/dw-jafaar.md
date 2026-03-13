@@ -12,6 +12,9 @@ detailImage:
   alt: DW
 header: DW Jafaar
 projectsHeader: Unsere Projekte
+seo:
+  title: DW Jafaar
+  description: ""
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: video
@@ -51,9 +54,6 @@ table:
     - Viz Artist, Viz Pilot
     - Adobe CC
 type: project
-seo:
-  title: DW Jafaar
-  description: ""
 ---
 
 ::project-details
