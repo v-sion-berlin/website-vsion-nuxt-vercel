@@ -16,7 +16,7 @@ sliderHeader: Projekt Bilder
 sliderItems:
   - type: video
     provider: vimeo
-    videoId: "1171046537"
+    videoId: "1173055030"
     title: Cutdown
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
@@ -73,9 +73,8 @@ ZDF
 Spezial
 
 #body
-Neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisierung - und wir begleiten das Projekt.
+Die Sendungen werden [Live](https://www.zdf.de/magazine/zdfspezial-128) zu besonderen Ereignissen spontan produziert und gesendet. Die außergewöhnlichen Ereignisse werden durch das journalistische Netzwerk des ZDF eingeordnet.
 
 #sub
-Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür.
-[ZDF Spezial](https://www.dw.com/en/made-in-germany-your-business-magazine/program-220077){:target="_blank"}
+Wir implentieren die Grafiken, bauen den Opener für das Echtzeitsystem, damit schnell produziert werden kann. Vielen Dank an [BDA Creative](https://www.bdacreative.com/) aus München für das Video!
 ::
