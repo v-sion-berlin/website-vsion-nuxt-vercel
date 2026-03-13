@@ -54,9 +54,8 @@ DW
 Euromaxx
 
 #body
-Europa in seiner Vielfalt und Faszination - das zeigt die Sendung "Euromaxx". Das Lifestyle-Magazin bietet seinem internationalen Publikum aufregende Einblicke in die europäische Kultur und Lebensart.
+Europa in seiner Vielfalt und Faszination - das zeigt die Sendung [Euromaxx](https://www.dw.com/de/euromaxx/program-877837?target=_blank){:target="_blank"}. Das Lifestyle-Magazin bietet seinem internationalen Publikum aufregende Einblicke in die europäische Kultur und Lebensart.
 
 #sub
-Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür:
-[DW Euromaxx](https://www.dw.com/de/euromaxx/program-877837?target=_blank){:target="_blank"}
+Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür.
 ::
