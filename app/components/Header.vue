@@ -2,12 +2,11 @@
   <div>
     <header class="sticky-header" :class="{ 'header-hidden': isOverlapping }">
       <div class="menu-group">
-        <div @mouseenter="handleMouseEnter">
+        <div @mouseenter="handleMouseEnter" @click="scrollToTop">
           <Lottie
             ref="logoLottie"
             :name="logoName"
             class="menu-item logo-lottie"
-            @click="scrollToTop"
             :width="100"
             :loop="1"
             :autoplay="false"
@@ -148,14 +147,21 @@ const onDrawerOpen = () => {
 };
 
 const scrollToBottom = () => {
-  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  document.documentElement.scrollTo({
+    top: document.documentElement.scrollHeight,
+    behavior: "smooth",
+  });
 };
 
 const scrollToTop = () => {
-  if (route.path === "/" || route.path === "/de") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  if (route.path === "/" || route.path === "/de/") {
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  } else {
+    router.push(localizedPath());
   }
-  router.push(localizedPath());
 };
 </script>
 
