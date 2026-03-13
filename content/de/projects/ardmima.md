@@ -71,7 +71,7 @@ ARD
 MiMa
 
 #body
-Das ARD Mittagsmagazin ist nach 28 Jahren von München nach Berlin gezogen und sendet nun aus den ZDF Fernsehstudios Unter der Linden.
+Das [ARD Mittagsmagazin](https://www.ardmediathek.de/sendung/ard-mittagsmagazin/Y3JpZDovL2Rhc2Vyc3RlLmRlL2FyZC1taXR0YWdzbWFnYXppbg){:target="_blank"} ist nach 28 Jahren von München nach Berlin gezogen und sendet nun aus den ZDF Fernsehstudios Unter der Linden.
 
 #sub
 Wir entwickeln für die 3 Vidiwalls im Fernsehstudio eine Bespiel- und Sendekonzept mit Preview-Funktionalitäten und leichtem Umgang für die Nachrichtenredaktion. In nur 3 Wochen war alles implementiert und wir freuen uns über einen gelungenen Sendestart mitten aus Berlin.

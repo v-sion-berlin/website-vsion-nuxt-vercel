@@ -74,7 +74,7 @@ DW
 Made
 
 #body
-Neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisierung - und wir begleiten das Projekt.
+Neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisierung - und wir begleiten das Projekt bei vielen Magazinen der DW.
 
 #sub
 Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür.
