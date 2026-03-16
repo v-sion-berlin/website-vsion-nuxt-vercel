@@ -3,6 +3,13 @@ title: Vorlage
 active: false
 category:
   - news
+  - code
+  - interaction
+  - sport
+  - news
+  - studio
+  - infographics
+  - storytelling
 coverImage:
   src: /images/projects/test.jpg
   alt: ARD
