@@ -1,5 +1,5 @@
 ---
-title: ZDF Spezial
+title: ZDF
 active: true
 category:
   - code
@@ -12,8 +12,10 @@ coverImage:
 detailImage:
   src: /images/Logos/ZDF.svg
   alt: ZDF
-header: ZDF Spezial
+header: ZDF
 projectsHeader: Unsere Projekte
+seo:
+  title: ZDF Spezial
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
