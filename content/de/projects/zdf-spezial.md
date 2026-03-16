@@ -16,6 +16,10 @@ header: ZDF Spezial
 projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
+  - type: image
+    src: /images/projects/zdf-spezial/zdfspezial00007.jpg
+    alt: ""
+    title: ""
   - type: video
     provider: vimeo
     videoId: "1173055030"
@@ -38,10 +42,6 @@ sliderItems:
     src: /images/projects/zdf-spezial/zdfspezial00013.jpg
     alt: ""
     title: ""
-  - type: image
-    alt: ""
-    title: ""
-    src: /images/projects/zdf-spezial/zdfspezial00007.jpg
   - type: image
     alt: ""
     title: ""
@@ -77,5 +77,5 @@ Spezial
 Die Sendungen werden [Live](https://www.zdf.de/magazine/zdfspezial-128) zu besonderen Ereignissen spontan produziert und gesendet. Die außergewöhnlichen Ereignisse werden durch das journalistische Netzwerk des ZDF eingeordnet.
 
 #sub
-Wir implentieren die Grafiken, bauen den Opener für das Echtzeitsystem, damit schnell produziert werden kann. Vielen Dank an [BDA Creative](https://www.bdacreative.com/) aus München für das Video!
+Wir implentieren die Grafiken, bauen den Opener für das Echtzeitsystem, damit schnell produziert werden kann. Vielen Dank an [BDA Creative](https://www.bdacreative.com/) aus München für das Design und das Video!
 ::
