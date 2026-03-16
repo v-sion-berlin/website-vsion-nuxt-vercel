@@ -3,6 +3,13 @@ title: Vorlage
 active: false
 category:
   - news
+  - code
+  - interaction
+  - sport
+  - news
+  - studio
+  - infographics
+  - storytelling
 coverImage:
   src: /images/projects/test.jpg
   alt: ARD
@@ -61,5 +68,5 @@ Test Text für Body
 
 #sub
 Test Text für subtitle
-[Test Link for copy](https://www.google.com){:target="_blank"}
+[Test Link for copy](https://www.google.com)
 ::
