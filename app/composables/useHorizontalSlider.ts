@@ -239,6 +239,8 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
       0,
     );
 
+    if (originalWidth === 0) return;
+
     const viewportWidth = slider.clientWidth;
     clonesNeeded = Math.ceil((viewportWidth * 2) / originalWidth) + 1;
 
