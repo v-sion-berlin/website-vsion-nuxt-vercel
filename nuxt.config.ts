@@ -76,8 +76,10 @@ export default defineNuxtConfig({
       routes: ["/"],
       crawlLinks: true,
     },
+    devStorage: {
+      cache: { driver: "memory" },
+    },
   },
-
   css: [],
 
   app: {
