@@ -16,6 +16,7 @@ header: ZDF
 projectsHeader: Unsere Projekte
 seo:
   title: ZDF Spezial
+  description: ""
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
