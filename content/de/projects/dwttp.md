@@ -1,6 +1,6 @@
 ---
-title: Vorlage
-active: false
+title: DW TTP
+active: true
 category:
   - news
   - code
@@ -16,7 +16,7 @@ coverImage:
 detailImage:
   src: /images/Logos/ARD.svg
   alt: ARD Logo
-header: Vorlage
+header: DW TTP
 projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
@@ -34,7 +34,7 @@ sliderItems:
     src: /images/projects/test.jpg
     alt: Studio View 2
     title: Wettervorschau Animation
-slug: vorlage
+slug: dwttp
 table:
   header:
     firstCol: Unsere Aufgaben
@@ -58,15 +58,15 @@ type: project
 :slider-items: sliderItems
 :table-details: table
 ---
-Vorlage
+DW
 
 #project-name
-Template
+TTP
 
 #body
-Test Text für Body
+DW TTP Body
 
 #sub
-Test Text für subtitle
+DW TTP subtitle
 [Test Link for copy](https://www.google.com)
 ::
