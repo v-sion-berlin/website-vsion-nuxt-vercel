@@ -30,10 +30,6 @@ sliderItems:
     title: Behind the Scenes
     autoPlay: true
     poster: /images/projects/idlePlay.jpg
-  - type: image
-    src: /images/projects/test.jpg
-    alt: Studio View 2
-    title: Wettervorschau Animation
 slug: dwttp
 table:
   header:
