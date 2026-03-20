@@ -9,7 +9,7 @@ category:
   - infographics
   - storytelling
 coverImage:
-  src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-01.01.57.png
+  src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-Home.jpg
   alt: Welt
 detailImage:
   src: /images/Logos/Welt.svg
