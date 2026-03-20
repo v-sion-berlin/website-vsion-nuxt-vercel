@@ -8,7 +8,7 @@ category:
   - studio
   - infographics
 coverImage:
-  src: /images/projects/dw-ttp/dwttp00004.jpg
+  src: /images/projects/dw-ttp/dwttp00004a.jpg
   alt: DW To The Point
 detailImage:
   src: /images/Logos/DW.svg
@@ -61,7 +61,7 @@ DW
 To the point
 
 #body
-Neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisierung. Auch beim Magazin [To the point](https://www.dw.com/en/to-the-point-international-debate-from-berlin/program-49962094){:target="_blank"} bgeleiten wir das.
+Neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisierung. Auch beim Magazin [To the point](https://www.dw.com/en/to-the-point-international-debate-from-berlin/program-49962094) bgeleiten wir das.
 
 #sub
 To the point ist ein internationales Politikformat der Deutschen Welle, das aktuelle Themen kompakt und fundiert auf den Punkt bringt. Expert\:innen ordnen globale Entwicklungen verständlich ein.
