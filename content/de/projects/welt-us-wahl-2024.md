@@ -9,12 +9,12 @@ category:
   - infographics
   - storytelling
 coverImage:
-  src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-Home.jpg
+  src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-01.01.57.png
   alt: Welt
 detailImage:
   src: /images/Logos/Welt.svg
   alt: Welt Logo
-header: Welt
+header: Welt US-Wahl
 projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
@@ -79,7 +79,7 @@ type: project
 Welt
 
 #project-name
-US Wahl 2024
+US-Wahl 2024
 
 #body
 Wenn Millionen zusehen, muss alles funktionieren. Und das tat es: über zehn Stunden live - mit Echtzeitdaten, interaktiv und immersiv.
