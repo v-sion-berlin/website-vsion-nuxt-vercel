@@ -9,7 +9,7 @@ category:
   - infographics
   - storytelling
 coverImage:
-  src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-Home.jpg
+  src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-01.01.57.png
   alt: Welt
 detailImage:
   src: /images/Logos/Welt.svg
@@ -37,21 +37,15 @@ sliderItems:
   - type: image
     src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-13.06.13.png
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-13.06.41.png
+    src: /images/projects/welt-us-wahl-2024/vlcsnap-2024-11-11-19h50m03s917.png
   - type: image
     src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-13.09.29.png
   - type: image
     src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-13.19.05.png
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-13.20.26.png
-  - type: image
     src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-13.38.32.png
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-14.01.23.png
-  - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-14.01.25.png
-  - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-14.01.35.png
+    src: /images/projects/welt-us-wahl-2024/US-Wahl-202400004.jpg
 slug: welt-us-wahl-2024
 table:
   header:
