@@ -9,7 +9,7 @@ category:
   - infographics
   - storytelling
 coverImage:
-  src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-01.01.57.png
+  src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-Home.jpg
   alt: Welt
 detailImage:
   src: /images/Logos/Welt.svg
@@ -90,5 +90,5 @@ Für die Live-Berichterstattung haben wir die Wahlsendung auf ein neues Level ge
 Interaktive Wahldaten bis auf County-Ebene - direkt steuerbar per Touch; Automatisierte Grafiken auf Vidiwalls in Echtzeit; Dynamisches Studio-Licht in Rot oder Blau je nach Wahlergebnis; Nahtlose Social-Media-Integration; Augmented Graphics für das „Presidential Race“.
 
 Die Ergebnisdaten bekommen wir von AP und binden die an alle Systeme an.
-Hier gehts zum [Linkedin](https://www.linkedin.com/feed/update/urn\:li\:activity:7260284176409448449/){:target="_blank"} Post.
+Hier gehts zum [Linkedin](https://www.linkedin.com/feed/update/urn\:li\:activity:7260284176409448449/) Post.
 ::
