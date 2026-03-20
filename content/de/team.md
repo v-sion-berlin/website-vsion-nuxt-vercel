@@ -7,7 +7,7 @@ headerLine2: im Geschäft
 images:
   - src: /images/bg_team_card_1.png
     alt: Hero image showing Berlin skyline
-    text: "V/SION ist nicht nur Dienstleister, sondern Partner: Wir denken mit, denken uns in die Welt unserer Kundschaft hinein und setzen mit unseren Lösungen neue Maßstäbe."
+    text: "v-sion ist nicht nur Dienstleister, sondern Partner: Wir denken mit, denken uns in die Welt unserer Kundschaft hinein und setzen mit unseren Lösungen neue Maßstäbe."
     alignment: left
   - src: /images/bg_team_card_1.png
     alt: Hero image showing Berlin skyline
