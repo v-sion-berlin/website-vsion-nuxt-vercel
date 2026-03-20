@@ -14,7 +14,6 @@ header: DW Jafaar
 projectsHeader: Unsere Projekte
 seo:
   title: DW Jafaar
-  description: ""
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: video
@@ -26,7 +25,7 @@ sliderItems:
   - type: image
     src: /images/projects/dw-jafaar/Jafaar00001.jpg
     alt: ""
-    title: Made
+    title: ""
   - type: image
     src: /images/projects/dw-jafaar/Jafaar00002.jpg
     alt: ""
@@ -74,5 +73,5 @@ Neue Echtzeittechnologie: Die Deutsche Welle startet eine umfassende Modernisier
 
 #sub
 Wir implentieren die Grafiken für Automation und erstellen sämtliche Templates dafür.
-[DW Jafaar Talk](https://www.dw.com/ar/%D8%AC%D8%B9%D9%81%D8%B1-%D8%AA%D9%88%D9%83-%D8%A8%D8%B1%D8%A7%D9%85%D8%AC-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%AA%D8%B9%D9%83%D8%B3-%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9-%D8%A7%D9%84%D9%85%D8%AA%D8%BA%D9%8A%D8%B1/program-48385123){:target="_blank"}
+[DW Jafaar Talk](https://www.dw.com/ar/%D8%AC%D8%B9%D9%81%D8%B1-%D8%AA%D9%88%D9%83-%D8%A8%D8%B1%D8%A7%D9%85%D8%AC-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%AA%D8%B9%D9%83%D8%B3-%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9-%D8%A7%D9%84%D9%85%D8%AA%D8%BA%D9%8A%D8%B1/program-48385123)
 ::
