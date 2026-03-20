@@ -5,6 +5,7 @@ category:
   - code
   - news
   - studio
+  - interaction
 coverImage:
   src: /images/projects/dw-cd24/DWCD24-News-1.jpg
   alt: Deutsche Welle CD24
