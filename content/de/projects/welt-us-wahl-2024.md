@@ -1,6 +1,6 @@
 ---
 title: Welt US Wahl 2024
-active: false
+active: true
 category:
   - news
   - code
