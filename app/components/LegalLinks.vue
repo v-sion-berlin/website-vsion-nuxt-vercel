@@ -92,6 +92,15 @@
           >Unsplash</a
         >
       </p>
+      <p>
+        Voyage Pro via
+        <a
+          href="https://unsplash.com/@voyagepro"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Unsplash</a
+        >
+      </p>
     </Modal>
 
     <Modal
