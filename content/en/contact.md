@@ -12,8 +12,8 @@ legal:
       for the content of external links. The content of linked sites is the sole
       responsibility of their operators.
     legal_liability_image_header: Image Credits
-    legal_liability_image_hero: "Hero image: Photo by Joshua Hanson via"
-    legal_liability_image_claim: "Claim image: Photo by Dillon Shook via"
+    legal_liability_image_hero: "Joshua Hanson via"
+    legal_liability_image_claim: "Dillon Shook via"
     legal_liability_adress:
       company: v-sion GmbH
       street: Warschauer Straße 59a
