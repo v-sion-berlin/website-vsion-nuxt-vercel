@@ -2,7 +2,7 @@
   <div id="text-container" class="career-container wrapper">
     <main>
       <section>
-        <div class="card">
+        <div class="card" @click="copyEmail()">
           <div>
             <h2 data-reveal>
               <slot mdc-unwrap="p" />
@@ -11,7 +11,8 @@
               <slot name="body" />
             </div>
           </div>
-          <img :src="Arrow" data-reveal />
+          <img v-show="!copiedEmail" :src="Arrow" data-reveal />
+          <span v-show="copiedEmail" class="copied-msg">Email copied!</span>
         </div>
       </section>
     </main>
@@ -20,6 +21,17 @@
 
 <script setup lang="ts">
 import Arrow from "~/assets/ArrowCareer.svg";
+
+const copiedEmail = ref(false);
+
+const copyEmail = () => {
+  const emailText = "contact@v-sion.de";
+
+  navigator.clipboard.writeText(emailText).then(() => {
+    copiedEmail.value = true;
+    setTimeout(() => (copiedEmail.value = false), 2000);
+  });
+};
 
 useScrollReveal();
 </script>
@@ -57,8 +69,15 @@ section {
   flex: 1 1 300px;
 }
 
-.card img {
+.card img,
+.card span {
   flex: 0 1 5vw;
   width: clamp(1rem, 10vw, 5rem);
+}
+
+.copied-msg {
+  color: var(--color-primary);
+  font-size: clamp(16px, 1.5vw, 20px);
+  white-space: pre;
 }
 </style>
