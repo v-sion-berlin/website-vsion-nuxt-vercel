@@ -47,6 +47,16 @@ sliderItems:
     src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0007.png
   - type: image
     src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0008.png
+  - type: image
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0009.png
+  - type: image
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0010.png
+  - type: image
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0011.png
+  - type: image
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0012.png
+  - type: image
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0013.png
 slug: welt-us-wahl-2024
 table:
   header:
