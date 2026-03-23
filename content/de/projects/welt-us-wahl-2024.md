@@ -46,10 +46,6 @@ sliderItems:
   - type: image
     src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-13.38.32.png
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-14.01.23.png
-  - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-14.01.25.png
-  - type: image
     src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-2024-11-06-um-14.01.35.png
 slug: welt-us-wahl-2024
 table:
