@@ -17,7 +17,7 @@ courtInfo:
   hrb: HRB 119 647
 header: Live to the world from Berlin
 heroImage:
-  src: /images/bg_about_top_full.png
+  src: /images/about/bg_about_voyage-pro-unsplash.png
   alt: Hero image showing Berlin skyline
 subTitleMail: contact@v-sion.de
 subTitlePhone: +49 30 29381928

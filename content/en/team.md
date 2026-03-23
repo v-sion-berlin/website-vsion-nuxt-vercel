@@ -5,19 +5,19 @@ cursivWord2: professional
 headerLine1: to work with and
 headerLine2: in business
 images:
-  - src: /images/team_ervin-lukacs-unsplash.jpg
+  - src: /images/team/team_ervin-lukacs-unsplash.jpg
     alt: Hero image showing Berlin skyline
     text: "v-sion is not just a service provider, but a partner: we think along with our clients, put ourselves in their world, and set new standards with our solutions."
     alignment: left
-  - src: /images/team_jehyun-sung-unsplash.jpg
+  - src: /images/team/team_jehyun-sung-unsplash.jpg
     alt: Hero image showing Berlin skyline
     text: "What sets us apart: we stand for technological excellence and creativity. Our clients can trust that we deliver their productions flawlessly, hit the right tone, and are always looking for new ways to make the outcome even better."
     alignment: right
-  - src: /images/team_tobias-mrzyk-unsplash.jpg
+  - src: /images/team/team_tobias-mrzyk-unsplash.jpg
     alt: Hero image showing Berlin skyline
     text: Reliability and speed are the foundation of good collaboration. Whether a graphic needs tweaking or the entire production needs managing, we’ve got it covered - thanks to our flexible setup, we're ready whenever you need us.
     alignment: left
-  - src: /images/team_samrat-khadka-unsplash.jpg
+  - src: /images/team/team_samrat-khadka-unsplash.jpg
     alt: Hero image showing Berlin skyline
     text: "Our goal: to make productions as innovative and unique as possible - highly complex behind the scenes, yet easy to work with."
     alignment: right
