@@ -37,24 +37,6 @@ For over 15 years, we've been combining design, technology, and innovation to br
 ::
 
 ::career-card
-Junior Senior m/f/d
-
-#body
-We're looking for someone to support us with a variety of tasks.
-Young, experienced, or somewhere in between? Get in touch and join our
-team to work on exciting projects together.
-::
-
-::career-card
-Senior Junior m/f/d
-
-#body
-We're looking for someone to support us with a variety of tasks.
-Whether you're just starting out or have years of experience - contact us and
-become part of our team working on diverse projects.
-::
-
-::career-card
 Unsolicited application m/f/d
 
 #body

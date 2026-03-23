@@ -36,24 +36,6 @@ Seit über 15 Jahren kombinieren wir Design, Technik und Innovation, um das Best
 ::
 
 ::career-card
-Junior Senior m/w/d
-
-#body
-Wir suchen jemanden, der uns bei verschiedenen Dingen unterstützt.
-Du bist jung, alt oder mittel? Dann melde dich und arbeite in unserem
-Team an unterschiedlichen Sachen.
-::
-
-::career-card
-Senior Junior m/w/d
-
-#body
-Wir suchen jemanden, der uns bei verschiedenen Dingen unterstützt.
-Du bist jung, alt oder mittel? Dann melde dich und arbeite in
-unserem Team an unterschiedlichen Sachen.
-::
-
-::career-card
 Initiativbewerbung m/w/d
 
 #body
