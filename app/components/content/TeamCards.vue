@@ -57,11 +57,19 @@ section {
   flex-direction: row-reverse;
 }
 
-picture:deep(img) {
-  height: clamp(150px, 30vw, 420px);
-  object-fit: contain;
+picture {
   display: block;
-  width: clamp(150px, 30vw, 630px);
+  width: clamp(150px, 30vw, 830px);
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+picture:deep(img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 p {
