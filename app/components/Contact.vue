@@ -99,7 +99,6 @@ const copyEmail = (source: "button" | "email") => {
   gap: clamp(2rem, 5vw, 6rem);
   padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 10vw, 19.125rem)
     clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
-  background-color: #000;
   color: #fff;
   position: relative;
   max-width: 1440px;
@@ -174,7 +173,7 @@ const copyEmail = (source: "button" | "email") => {
 .info-box-first {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--color-grey);
+  border: none;
   border-radius: 16px;
   padding: 24px 32px;
   font-size: 18px;
@@ -185,7 +184,7 @@ const copyEmail = (source: "button" | "email") => {
 .info-box {
   display: flex;
   align-items: center;
-  border: 1px solid var(--color-grey);
+  border: none;
   border-radius: 16px;
   padding: 19px 24px;
   font-size: 18px;
