@@ -56,6 +56,42 @@
           >Unsplash</a
         >
       </p>
+      <p>
+        Jehyun Sung via
+        <a
+          href="https://unsplash.com/@jaysung"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Unsplash</a
+        >
+      </p>
+      <p>
+        Samrat Khadka via
+        <a
+          href="https://unsplash.com/@samrat_khadka"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Unsplash</a
+        >
+      </p>
+      <p>
+        Ervin Lukacs via
+        <a
+          href="https://unsplash.com/@lukerv4"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Unsplash</a
+        >
+      </p>
+      <p>
+        Tobias Mrzyk via
+        <a
+          href="https://unsplash.com/@tobiasmrzyk"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Unsplash</a
+        >
+      </p>
     </Modal>
 
     <Modal
