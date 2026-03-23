@@ -76,7 +76,7 @@ const props = defineProps<{
 const copiedButton = ref(false);
 const copiedEmail = ref(false);
 
-function copyEmail(source: "button" | "email") {
+const copyEmail = (source: "button" | "email") => {
   const emailText = emailEl.value?.textContent ?? "contact@v-sion.de";
 
   navigator.clipboard.writeText(emailText).then(() => {
@@ -88,7 +88,7 @@ function copyEmail(source: "button" | "email") {
       setTimeout(() => (copiedEmail.value = false), 2000);
     }
   });
-}
+};
 </script>
 
 <style scoped>
