@@ -90,6 +90,14 @@ h1 {
 }
 
 
+/* Card blur utility */
+.card-blur {
+  background-color: var(--color-grey-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+}
+
 /* Horizontal Slider */
 .slider {
   display: flex;
