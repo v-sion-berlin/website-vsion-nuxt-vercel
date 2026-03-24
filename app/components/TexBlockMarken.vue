@@ -9,46 +9,46 @@
       </section>
 
       <section id="logo-grid">
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="DW" alt="DW" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="ARD" alt="ARD" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="ZDF" alt="ZDF" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="DreiSAT" alt="3SAT" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="SWR" alt="SWR" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="RBB" alt="RBB" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="RTL" alt="RTL" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="NTV" alt="NTV" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="Welt" alt="Welt" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="PRO7" alt="PRO7" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="SAT1" alt="SAT.1" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="KABEL1" alt="Kabel1" />
         </div>
-        <div data-reveal>
+        <div class="card-blur" data-reveal>
           <img :src="SVT" alt="SVT" />
         </div>
-        <NuxtLink :to="localizedPath()" class="menu-link" data-reveal>
+        <NuxtLink :to="localePath('/projects/')" class="menu-link" data-reveal>
           <p>{{ page.textblock_marken_button }}</p>
         </NuxtLink>
       </section>
@@ -70,7 +70,7 @@ import KABEL1 from "~/assets/KABEL1.svg";
 import NTV from "~/assets/NTV.svg";
 import PRO7 from "~/assets/PRO7.svg";
 import RTL from "~/assets/RTL.svg";
-const { locale } = useI18n();
+const localePath = useLocalizedPath();
 
 interface Marken {
   textblock_marken_header: string;
@@ -80,11 +80,6 @@ interface Marken {
 const props = defineProps<{
   page: Marken;
 }>();
-
-const localizedPath = () => {
-  const isGerman = locale.value === "de";
-  return isGerman ? `/de/projects/` : `/projects/`;
-};
 </script>
 
 <style scoped>
@@ -120,10 +115,6 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-grey-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
-  border-radius: 16px;
   width: 100%;
   height: clamp(100px, 12vw, 120px);
   transition:
