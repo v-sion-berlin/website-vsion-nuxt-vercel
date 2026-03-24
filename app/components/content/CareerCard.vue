@@ -2,7 +2,7 @@
   <div id="text-container" class="career-container wrapper">
     <main>
       <section>
-        <div class="card" @click="copyEmail()">
+        <div class="card card-blur" @click="copyEmail()">
           <div>
             <h2 data-reveal>
               <slot mdc-unwrap="p" />
@@ -47,10 +47,6 @@ section {
 }
 
 .card {
-  background-color: var(--color-grey-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 16px;
   padding: clamp(2rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem) clamp(2rem, 4vw, 3rem)
     clamp(2.5rem, 5vw, 3.5rem);
   display: flex;
