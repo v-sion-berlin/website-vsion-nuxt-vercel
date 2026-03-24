@@ -10,10 +10,7 @@ const route = useRoute();
 
 const slug = computed(() => String(route.params.slug ?? ""));
 
-const localizedPath = (subTitle: string) => {
-  const isGerman = locale.value === "de";
-  return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
-};
+const localePath = useLocalizedPath();
 
 const { data: overview } = await useAsyncData(
   `projects-overview-${locale.value}`,
@@ -44,13 +41,9 @@ const { data: contactDataRaw } = await useAsyncData(
   { watch: [locale, slug] },
 );
 
-const contactData = computed<ContactData | null>(() => {
-  if (!contactDataRaw.value) return null;
-  return {
-    ...(contactDataRaw.value.meta ?? {}),
-    ...(contactDataRaw.value as any),
-  };
-});
+const contactData = computed<ContactData | null>(() =>
+  mergeContent(contactDataRaw.value),
+);
 
 const appBaseURL = useNuxtApp().$config.app.baseURL;
 
@@ -61,7 +54,7 @@ const projectsFull = computed(
       coverImage: p.coverImage
         ? {
             ...p.coverImage,
-            src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
+            src: prefixImagePath(p.coverImage.src, appBaseURL),
           }
         : undefined,
     })) || [],
@@ -86,7 +79,7 @@ useScrollReveal({
         v-show="project.active"
         data-reveal
       >
-        <NuxtLink :to="localizedPath(project.slug!)">
+        <NuxtLink :to="localePath(`/projects/${project.slug!}`)">
           <NuxtPicture
             format="avif,webp"
             v-if="project.coverImage"
