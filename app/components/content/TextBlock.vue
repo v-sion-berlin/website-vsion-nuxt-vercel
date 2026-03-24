@@ -36,7 +36,7 @@
             class="project-card"
             v-show="project.active"
           >
-            <NuxtLink :to="localizedPath(project.slug!)">
+            <NuxtLink :to="localePath(`/projects/${project.slug!}`)">
               <NuxtPicture
                 format="avif,webp"
                 v-if="project.coverImage"
@@ -68,7 +68,7 @@
 import SliderArrowLeft from "~/assets/SliderArrowLeft.svg";
 import SliderArrowRight from "~/assets/SliderArrowRight.svg";
 
-const { locale } = useI18n();
+const localePath = useLocalizedPath();
 const { activeIndex } = useServicesMenu();
 
 const props = defineProps<{
@@ -76,11 +76,6 @@ const props = defineProps<{
   blockIndex: number;
   category?: string;
 }>();
-
-const localizedPath = (subTitle: string) => {
-  const isGerman = locale.value === "de";
-  return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
-};
 
 const projects = inject<Ref<any[] | null>>("projects", ref(null));
 
@@ -100,7 +95,7 @@ watchEffect(() => {
     coverImage: p.coverImage
       ? {
           ...p.coverImage,
-          src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
+          src: prefixImagePath(p.coverImage.src, appBaseURL),
         }
       : undefined,
   }));
