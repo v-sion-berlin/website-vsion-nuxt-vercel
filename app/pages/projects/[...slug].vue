@@ -28,13 +28,9 @@ const { data: contactDataRaw } = await useAsyncData(
   { watch: [locale, slug] },
 );
 
-const contactData = computed<ContactData | null>(() => {
-  if (!contactDataRaw.value) return null;
-  return {
-    ...(contactDataRaw.value.meta ?? {}),
-    ...(contactDataRaw.value as any),
-  };
-});
+const contactData = computed<ContactData | null>(() =>
+  mergeContent(contactDataRaw.value),
+);
 </script>
 
 <template>
