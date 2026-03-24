@@ -22,11 +22,6 @@ const collectionName = computed<keyof Collections | null>(() => {
   return null;
 });
 
-const mergeContent = (raw: any) => {
-  if (!raw) return null;
-  return { ...(raw.meta ?? {}), ...raw };
-};
-
 const { data: rawPage } = await useAsyncData(
   route.path,
   async () => {
