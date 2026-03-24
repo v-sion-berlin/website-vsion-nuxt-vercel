@@ -9,7 +9,7 @@
           <p data-reveal>
             {{ page.textblock_anspruch_body }}
           </p>
-          <NuxtLink :to="localizedPath()" data-reveal>
+          <NuxtLink :to="localePath('/team/')" data-reveal>
             <button id="contact-btn-copy">
               {{ page.textblock_anspruch_button }}
             </button>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-const { locale } = useI18n();
+const localePath = useLocalizedPath();
 
 type Anspruch = {
   textblock_anspruch_header: string;
@@ -32,11 +32,6 @@ type Anspruch = {
 const props = defineProps<{
   page: Anspruch;
 }>();
-
-const localizedPath = () => {
-  const isGerman = locale.value === "de";
-  return isGerman ? `/de/team/` : `/team/`;
-};
 </script>
 
 <style scoped>
