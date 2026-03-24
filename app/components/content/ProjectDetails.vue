@@ -173,7 +173,7 @@
             :key="project.slug"
             class="project-card"
           >
-            <NuxtLink :to="localizedPath(project.slug!)">
+            <NuxtLink :to="localePath(`/projects/${project.slug!}`)">
               <NuxtPicture
                 format="avif,webp"
                 v-if="project.coverImage"
@@ -273,9 +273,9 @@ const plyrControls = {
   },
 };
 
+const { createPlayer, destroyAll } = usePlyrPlayer();
 const activeVideoIndices = reactive<Set<number>>(new Set());
 const videoRefs = ref<Map<number, HTMLElement>>(new Map());
-let playerInstances = new Map<number, any>();
 
 const sliderItemsFull = computed(() => {
   const items = props.sliderItems || [];
@@ -285,13 +285,13 @@ const sliderItemsFull = computed(() => {
       return {
         ...item,
         type: "image" as const,
-        src: `${appBaseURL}${(item as SliderImage).src.replace(/^\/+/, "")}`,
+        src: prefixImagePath((item as SliderImage).src, appBaseURL),
       };
     }
     return {
       ...item,
       poster: (item as SliderVideo).poster
-        ? `${appBaseURL}${(item as SliderVideo).poster!.replace(/^\/+/, "")}`
+        ? prefixImagePath((item as SliderVideo).poster!, appBaseURL)
         : undefined,
     };
   });
@@ -304,38 +304,24 @@ const projectsFull = computed(
       coverImage: p.coverImage
         ? {
             ...p.coverImage,
-            src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
+            src: prefixImagePath(p.coverImage.src, appBaseURL),
           }
         : undefined,
     })) || [],
 );
 
-const localizedPath = (subTitle: string) => {
-  const isGerman = locale.value === "de";
-  return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
-};
+const localePath = useLocalizedPath();
 
 const playVideo = async (index: number) => {
-  if (playerInstances.has(index)) return;
-
   activeVideoIndices.add(index);
 
   await nextTick();
 
   const container = videoRefs.value.get(index);
   if (container) {
-    // This needs to be imported like this so its dynamically only loaded on the client
-    // and wont cause SSR errors
-    const [{ default: Plyr }] = await Promise.all([
-      import("plyr"),
-      import("plyr/dist/plyr.css"),
-    ]);
     const playerElement = container.querySelector("[data-plyr-provider]");
-
-    if (playerElement && !playerInstances.has(index)) {
-      const player = new Plyr(playerElement as HTMLElement, plyrControls);
-
-      playerInstances.set(index, player);
+    if (playerElement) {
+      await createPlayer(playerElement as HTMLElement, plyrControls, index);
     }
   }
 };
@@ -345,11 +331,6 @@ const setVideoRef = (el: any, index: number) => {
     videoRefs.value.set(index, el);
   }
 };
-
-onBeforeUnmount(() => {
-  playerInstances.forEach((player) => player.destroy());
-  playerInstances.clear();
-});
 
 onMounted(async () => {
   const items = props.sliderItems || [];
@@ -362,12 +343,6 @@ onMounted(async () => {
   if (autoplayIndices.length === 0) return;
 
   await nextTick();
-  // This needs to be imported like this so its dynamically only loaded on the client
-  // and wont cause SSR errors
-  const [{ default: Plyr }] = await Promise.all([
-    import("plyr"),
-    import("plyr/dist/plyr.css"),
-  ]);
 
   for (const index of autoplayIndices) {
     const container = videoRefs.value.get(index);
@@ -376,9 +351,7 @@ onMounted(async () => {
     const playerElement = container.querySelector("[data-plyr-provider]");
     if (!playerElement) continue;
 
-    const player = new Plyr(playerElement as HTMLElement, plyrControls);
-
-    playerInstances.set(index, player);
+    await createPlayer(playerElement as HTMLElement, plyrControls, index);
   }
 });
 
