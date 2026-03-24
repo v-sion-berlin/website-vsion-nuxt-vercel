@@ -60,8 +60,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+const { createPlayer, destroyPlayer } = usePlyrPlayer();
 const isVideoOpen = ref(false);
-let player: any = null;
 const playerContainer = ref<HTMLElement | null>(null);
 
 const toggleVideo = () => {
@@ -71,10 +71,7 @@ const toggleVideo = () => {
 };
 
 const collapseVideo = () => {
-  if (player) {
-    player.destroy();
-    player = null;
-  }
+  destroyPlayer();
   isVideoOpen.value = false;
 };
 
@@ -92,15 +89,8 @@ const props = defineProps<{
 watch(isVideoOpen, async (newVal) => {
   if (newVal) {
     await nextTick();
-    // This needs to be imported like this so its dynamically only loaded on the client
-    // and wont cause SSR errors
-    const [{ default: Plyr }] = await Promise.all([
-      import("plyr"),
-      import("plyr/dist/plyr.css"),
-    ]);
-
     if (playerContainer.value) {
-      player = new Plyr(playerContainer.value, {
+      await createPlayer(playerContainer.value, {
         controls: [
           "play-large",
           "play",
@@ -124,12 +114,6 @@ watch(isVideoOpen, async (newVal) => {
         },
       });
     }
-  }
-});
-
-onBeforeUnmount(() => {
-  if (player) {
-    player.destroy();
   }
 });
 </script>
