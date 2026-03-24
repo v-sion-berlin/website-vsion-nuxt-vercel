@@ -4,7 +4,12 @@
       <h1 data-reveal>
         <slot name="cardHeader" mdc-unwrap="p" />
       </h1>
-      <div v-for="(card, i) in cards" :key="i" class="card" data-reveal>
+      <div
+        v-for="(card, i) in cards"
+        :key="i"
+        class="card card-blur"
+        data-reveal
+      >
         <h2>{{ card.header }}</h2>
         <p>{{ card.text }}</p>
       </div>
@@ -50,12 +55,7 @@ const props = defineProps<{
 }
 
 .card {
-  background-color: var(--color-grey-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 16px;
-  padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem)
-    clamp(2rem, 4vw, 3rem);
+  padding: clamp(2rem, 4vw, 3rem);
 }
 
 .cards-benefits {
