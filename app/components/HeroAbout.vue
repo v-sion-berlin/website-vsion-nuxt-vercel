@@ -34,7 +34,7 @@
     <div class="wrapper">
       <section id="card-section">
         <div class="card-grid">
-          <div class="card" v-if="page.addressBerlin">
+          <div class="card card-blur" v-if="page.addressBerlin">
             <h3 data-reveal>{{ page.addressBerlin.company }}</h3>
             <p data-reveal>{{ page.addressBerlin.street }}</p>
             <p data-reveal>{{ page.addressBerlin.zip }}</p>
@@ -46,7 +46,7 @@
             </p>
           </div>
 
-          <div class="card" v-if="page.addressZDF">
+          <div class="card card-blur" v-if="page.addressZDF">
             <h3 data-reveal>{{ page.addressZDF.company }}</h3>
             <p data-reveal>{{ page.addressZDF.street }}</p>
             <p data-reveal>{{ page.addressZDF.zip }}</p>
@@ -63,7 +63,7 @@
       <!-- Amtsgericht Section -->
       <section id="card-section-long">
         <div>
-          <div class="card">
+          <div class="card card-blur">
             <p data-reveal>
               {{ page.courtInfo?.text }} <br />
               {{ page.courtInfo?.hrb }}
@@ -174,9 +174,6 @@ p {
 }
 
 .card {
-  background-color: var(--color-grey-card);
-  backdrop-filter: blur(8px);
-  border-radius: 16px;
   padding: 48px;
   flex: 1 1 200px;
 }
