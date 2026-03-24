@@ -11,7 +11,7 @@
         data-reveal
       >
         <NuxtLink
-          :to="localizedPath()"
+          :to="localePath('/services')"
           class="menu-link"
           @click.prevent="setActive(i)"
         >
@@ -38,7 +38,7 @@
 <script setup lang="ts">
 import Arrow from "~/assets/Arrow.svg";
 import { onBeforeUnmount, onMounted, ref } from "vue";
-const { locale } = useI18n();
+const localePath = useLocalizedPath();
 
 interface ListItem {
   title: string;
@@ -56,10 +56,6 @@ const { activeIndex } = useServicesMenu();
 
 const setActive = (index: number) => {
   activeIndex.value = index;
-};
-
-const localizedPath = () => {
-  return locale.value === "de" ? "/de/services" : "/services";
 };
 
 const toggleItem = (key: string) => {
