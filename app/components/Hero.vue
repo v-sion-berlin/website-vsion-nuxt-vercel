@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useImagePath } from "~/composables/useImagePath";
-
 type Media = {
   src: string;
   alt: string;
