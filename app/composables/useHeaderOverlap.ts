@@ -1,4 +1,4 @@
-import { ref, watch, onMounted, onUnmounted } from "vue";
+import { ref, watch, onMounted, onUnmounted, nextTick } from "vue";
 
 export const useHeaderOverlap = (targetSelector: string) => {
   const isOverlapping = ref(false);
@@ -6,7 +6,7 @@ export const useHeaderOverlap = (targetSelector: string) => {
   const { locale } = useI18n();
 
   let observer: IntersectionObserver | null = null;
-  let retryTimer: ReturnType<typeof setTimeout> | null = null;
+  let mutationObserver: MutationObserver | null = null;
 
   const observe = () => {
     observer?.disconnect();
@@ -30,32 +30,44 @@ export const useHeaderOverlap = (targetSelector: string) => {
     observer.observe(target);
   };
 
-  const waitAndObserve = (retries = 10) => {
-    if (retryTimer) clearTimeout(retryTimer);
-
+  const waitAndObserve = () => {
     const target = document.querySelector(targetSelector);
     if (target) {
       observe();
       return;
     }
 
-    if (retries > 0) {
-      retryTimer = setTimeout(() => waitAndObserve(retries - 1), 100);
-    }
+    // Use MutationObserver to watch for the target element appearing in the DOM
+    mutationObserver?.disconnect();
+    mutationObserver = new MutationObserver(() => {
+      const el = document.querySelector(targetSelector);
+      if (el) {
+        mutationObserver?.disconnect();
+        mutationObserver = null;
+        observe();
+      }
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
   };
 
   onMounted(() => {
     waitAndObserve();
   });
 
-  watch([() => route.fullPath, locale], () => {
+  watch([() => route.fullPath, locale], async () => {
     observer?.disconnect();
+    mutationObserver?.disconnect();
     isOverlapping.value = false;
-    setTimeout(() => waitAndObserve(), 150);
+    await nextTick();
+    waitAndObserve();
   });
 
   onUnmounted(() => {
-    if (retryTimer) clearTimeout(retryTimer);
+    mutationObserver?.disconnect();
     observer?.disconnect();
   });
 
