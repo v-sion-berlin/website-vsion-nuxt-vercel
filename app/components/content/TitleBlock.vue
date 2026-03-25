@@ -51,8 +51,6 @@
 </template>
 
 <script setup lang="ts">
-import { useImagePath } from "~/composables/useImagePath";
-
 defineProps<{
   imageSrc?: { src: string; alt: string };
   imagePos?: string;
