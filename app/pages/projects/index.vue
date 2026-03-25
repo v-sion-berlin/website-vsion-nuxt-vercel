@@ -1,14 +1,8 @@
 <script setup lang="ts">
 import { queryCollection } from "#imports";
 import { useI18n } from "vue-i18n";
-import { withoutTrailingSlash } from "ufo";
-import type { Collections } from "@nuxt/content";
-import type { ContactData } from "~/types/content";
 
 const { locale } = useI18n();
-const route = useRoute();
-
-const slug = computed(() => String(route.params.slug ?? ""));
 
 const localePath = useLocalizedPath();
 
@@ -17,35 +11,18 @@ const { data: overview } = await useAsyncData(
   () => {
     return queryCollection(`projects_overview_${locale.value}`).first();
   },
-  { watch: [locale, slug] },
+  { watch: [locale] },
 );
 
 const { data: projects } = await useAsyncData(
-  () => `projects-${locale.value}-${slug.value}`,
+  `projects-${locale.value}`,
   () => {
     return queryCollection(`projects_${locale.value}`)
       .where("slug", "<>", "projects")
       .all();
   },
-  {
-    watch: [locale, slug],
-  },
+  { watch: [locale] },
 );
-
-const { data: contactDataRaw } = await useAsyncData(
-  `contact-data-${locale.value}-${slug.value}`,
-  () =>
-    queryCollection(
-      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections,
-    ).first(),
-  { watch: [locale, slug] },
-);
-
-const contactData = computed<ContactData | null>(() =>
-  mergeContent(contactDataRaw.value),
-);
-
-const appBaseURL = useNuxtApp().$config.app.baseURL;
 
 const projectsFull = computed(
   () =>
@@ -54,7 +31,7 @@ const projectsFull = computed(
       coverImage: p.coverImage
         ? {
             ...p.coverImage,
-            src: prefixImagePath(p.coverImage.src, appBaseURL),
+            src: useImagePath(p.coverImage.src) ?? "",
           }
         : undefined,
     })) || [],
@@ -63,6 +40,8 @@ const projectsFull = computed(
 useScrollReveal({
   threshold: 0.001,
 });
+
+usePageSeo({ title: locale.value === "de" ? "Projekte" : "Projects" });
 </script>
 
 <template>
@@ -94,7 +73,6 @@ useScrollReveal({
       </div>
     </div>
   </section>
-  <Contact v-if="contactData" :page="contactData as ContactData" />
 </template>
 
 <style scoped>
