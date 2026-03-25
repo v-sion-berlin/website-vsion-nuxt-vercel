@@ -30,8 +30,6 @@
 </template>
 
 <script setup lang="ts">
-import { useImagePath } from "~/composables/useImagePath";
-
 const props = defineProps<{
   careerImage1?: { src: string; alt: string };
   careerImage2?: { src: string; alt: string };
