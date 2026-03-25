@@ -28,6 +28,6 @@ const dropdownItems = computed<DropdownItem[]>(() =>
 );
 
 const handleSelect = (item: DropdownItem) => {
-  setLocale(item.value);
+  setLocale(item.value as "en" | "de");
 };
 </script>
