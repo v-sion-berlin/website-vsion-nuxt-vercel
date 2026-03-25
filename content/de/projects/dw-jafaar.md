@@ -14,6 +14,7 @@ header: DW Jafaar
 projectsHeader: Unsere Projekte
 seo:
   title: DW Jafaar
+  description: ""
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: video
