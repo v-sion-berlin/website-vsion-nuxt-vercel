@@ -2,9 +2,6 @@
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { queryCollection } from "#imports";
-import { withoutTrailingSlash } from "ufo";
-import type { Collections } from "@nuxt/content";
-import type { ContactData } from "~/types/content";
 
 const route = useRoute();
 const { locale } = useI18n();
@@ -19,18 +16,9 @@ const { data: project } = await useAsyncData(
   { watch: [locale, slug] },
 );
 
-const { data: contactDataRaw } = await useAsyncData(
-  `contact-data-${locale.value}-${slug.value}`,
-  () =>
-    queryCollection(
-      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections,
-    ).first(),
-  { watch: [locale, slug] },
-);
-
-const contactData = computed<ContactData | null>(() =>
-  mergeContent(contactDataRaw.value),
-);
+usePageSeo({
+  title: computed(() => (project.value as any)?.header ?? "Project").value,
+});
 </script>
 
 <template>
@@ -41,6 +29,4 @@ const contactData = computed<ContactData | null>(() =>
   <div v-else>
     <h1>Project not found</h1>
   </div>
-
-  <Contact v-if="contactData" :page="contactData as ContactData" />
 </template>
