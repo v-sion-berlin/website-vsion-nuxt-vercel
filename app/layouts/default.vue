@@ -20,7 +20,7 @@ const { locale } = useI18n();
 const route = useRoute();
 
 const { data: contactDataRaw } = await useAsyncData(
-  `contact-data-${locale.value}`,
+  () => `contact-data-${locale.value}`,
   () =>
     queryCollection(
       withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections,
@@ -33,7 +33,7 @@ const contactData = computed<ContactData | null>(() =>
 );
 
 const { data: projects } = await useAsyncData(
-  `all-projects-${locale.value}`,
+  () => `all-projects-${locale.value}`,
   () =>
     queryCollection(`projects_${locale.value}`)
       .where("slug", "<>", "projects")
