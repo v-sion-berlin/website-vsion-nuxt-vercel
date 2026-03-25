@@ -78,7 +78,6 @@
 </template>
 
 <script setup lang="ts">
-import { useImagePath } from "~/composables/useImagePath";
 import type { AboutPage } from "~/types/content";
 
 const props = defineProps<{
