@@ -21,27 +21,27 @@ useScrollReveal({
       interview_watch_text: page.interview.watch_text,
     }"
   />
-  <TexBlockLive
+  <TextBlockLive
     :page="{
       textblock_live_header: page.textblocks.live.header,
       textblock_live_body: page.textblocks.live.body_text,
     }"
   />
-  <TexBlockLeistungen
+  <TextBlockLeistungen
     :page="{
       textblock_leistungen_header: page.textblocks.leistungen.header,
       textblock_leistungen_body: page.textblocks.leistungen.body_text,
     }"
   />
   <List :page="page.lists" />
-  <TexBlockMarken
+  <TextBlockMarken
     :page="{
       textblock_marken_header: page.textblocks.marken.header,
       textblock_marken_body: page.textblocks.marken.body_text,
       textblock_marken_button: page.textblocks.marken.button,
     }"
   />
-  <TexBlockAnspruch
+  <TextBlockAnspruch
     :page="{
       textblock_anspruch_header: page.textblocks.anspruch.header,
       textblock_anspruch_body: page.textblocks.anspruch.body_text,
