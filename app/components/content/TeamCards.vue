@@ -20,8 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import { useImagePath } from "~/composables/useImagePath";
-
 const props = defineProps<{
   imagesArray?: { src: string; alt: string; text: string; alignment: string }[];
 }>();
