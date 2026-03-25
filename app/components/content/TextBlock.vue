@@ -79,7 +79,6 @@ const props = defineProps<{
 
 const projects = inject<Ref<any[] | null>>("projects", ref(null));
 
-const appBaseURL = useNuxtApp().$config.app.baseURL;
 const category = toRef(props, "category");
 
 const projectsFull = shallowRef<any[]>([]);
@@ -95,7 +94,7 @@ watchEffect(() => {
     coverImage: p.coverImage
       ? {
           ...p.coverImage,
-          src: prefixImagePath(p.coverImage.src, appBaseURL),
+          src: useImagePath(p.coverImage.src) ?? "",
         }
       : undefined,
   }));
