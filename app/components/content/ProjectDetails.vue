@@ -202,7 +202,6 @@
 </template>
 
 <script setup lang="ts">
-import { useImagePath } from "~/composables/useImagePath";
 import SliderArrowLeft from "~/assets/SliderArrowLeft.svg";
 import SliderArrowRight from "~/assets/SliderArrowRight.svg";
 import PlayButton from "~/assets/PlayButton.svg";
@@ -210,7 +209,6 @@ import PlayButton from "~/assets/PlayButton.svg";
 const { locale } = useI18n();
 const route = useRoute();
 const slug = computed(() => String(route.params.slug ?? ""));
-const appBaseURL = useNuxtApp().$config.app.baseURL;
 
 type SliderImage = {
   type: "image";
@@ -285,13 +283,13 @@ const sliderItemsFull = computed(() => {
       return {
         ...item,
         type: "image" as const,
-        src: prefixImagePath((item as SliderImage).src, appBaseURL),
+        src: useImagePath((item as SliderImage).src) ?? "",
       };
     }
     return {
       ...item,
       poster: (item as SliderVideo).poster
-        ? prefixImagePath((item as SliderVideo).poster!, appBaseURL)
+        ? useImagePath((item as SliderVideo).poster!)
         : undefined,
     };
   });
@@ -304,7 +302,7 @@ const projectsFull = computed(
       coverImage: p.coverImage
         ? {
             ...p.coverImage,
-            src: prefixImagePath(p.coverImage.src, appBaseURL),
+            src: useImagePath(p.coverImage.src) ?? "",
           }
         : undefined,
     })) || [],
