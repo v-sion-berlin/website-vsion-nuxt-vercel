@@ -13,8 +13,6 @@ legal:
       keine Haftung für die Inhalte externer Links. Für den Inhalt der
       verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
     legal_liability_image_header: Bildnachweise
-    legal_liability_image_hero: "Joshua Hanson via"
-    legal_liability_image_claim: "Dillon Shook via"
     legal_liability_adress:
       company: v-sion GmbH
       street: Warschauer Straße 59a
