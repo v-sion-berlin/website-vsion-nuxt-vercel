@@ -252,8 +252,6 @@ const contactSchema = z.object({
       legal_liability_header: z.string(),
       legal_liability_body: z.string(),
       legal_liability_image_header: z.string(),
-      legal_liability_image_hero: z.string(),
-      legal_liability_image_claim: z.string(),
       legal_liability_adress: z.object({
         company: z.string(),
         street: z.string(),
