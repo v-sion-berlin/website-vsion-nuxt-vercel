@@ -39,7 +39,7 @@
       </p>
       <h3>{{ page.legal.liability.legal_liability_image_header }}</h3>
       <p>
-        {{ page.legal.liability.legal_liability_image_hero }}
+        {{ locale === "en" ? "Image from" : "Bild von" }} Joshua Hanson via
         <a
           href="https://unsplash.com/de/@joshuahanson43"
           target="_blank"
@@ -48,16 +48,7 @@
         >
       </p>
       <p>
-        {{ page.legal.liability.legal_liability_image_claim }}
-        <a
-          href="https://unsplash.com/de/@dillonjshook"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Unsplash</a
-        >
-      </p>
-      <p>
-        Jehyun Sung via
+        {{ locale === "en" ? "Image from" : "Bild von" }} Jehyun Sung via
         <a
           href="https://unsplash.com/@jaysung"
           target="_blank"
@@ -66,7 +57,7 @@
         >
       </p>
       <p>
-        Samrat Khadka via
+        {{ locale === "en" ? "Image from" : "Bild von" }} Samrat Khadka via
         <a
           href="https://unsplash.com/@samrat_khadka"
           target="_blank"
@@ -75,7 +66,7 @@
         >
       </p>
       <p>
-        Ervin Lukacs via
+        {{ locale === "en" ? "Image from" : "Bild von" }} Ervin Lukacs via
         <a
           href="https://unsplash.com/@lukerv4"
           target="_blank"
@@ -84,7 +75,7 @@
         >
       </p>
       <p>
-        Tobias Mrzyk via
+        {{ locale === "en" ? "Image from" : "Bild von" }} Tobias Mrzyk via
         <a
           href="https://unsplash.com/@tobiasmrzyk"
           target="_blank"
@@ -93,7 +84,7 @@
         >
       </p>
       <p>
-        Voyage Pro via
+        {{ locale === "en" ? "Image from" : "Bild von" }} Voyage Pro via
         <a
           href="https://unsplash.com/@voyagepro"
           target="_blank"
@@ -242,6 +233,7 @@ import type { ContactData } from "~/types/content";
 
 const impressumOpen = ref(false);
 const datenschutzOpen = ref(false);
+const { locale } = useI18n();
 
 const props = defineProps<{
   page: ContactData;
