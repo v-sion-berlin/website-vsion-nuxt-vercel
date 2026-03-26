@@ -1,23 +1,23 @@
 // types/content.ts
 
-export interface Media {
+export type Media = {
   src: string;
   alt: string;
-}
+};
 
-export interface ListItem {
+export type ListItem = {
   title: string;
   color?: string;
-}
+};
 
-export interface Project {
+export type Project = {
   type: "project";
   header?: string;
   slug?: string;
   coverImage?: { src: string; alt: string };
-}
+};
 
-export interface HomePage {
+export type HomePage = {
   type: "home";
   hero: string;
   heroImage?: {
@@ -65,9 +65,9 @@ export interface HomePage {
       body_text: string;
     };
   };
-}
+};
 
-export interface ContactData {
+export type ContactData = {
   header: string;
   button: string;
   button_copied: string;
@@ -78,8 +78,6 @@ export interface ContactData {
       legal_liability_header: string;
       legal_liability_body: string;
       legal_liability_image_header: string;
-      legal_liability_image_hero: string;
-      legal_liability_image_claim: string;
       legal_liability_adress: Address;
     };
     dataprot: {
@@ -153,23 +151,23 @@ export interface ContactData {
       legal_dataprot_generator_footer: string;
     };
   };
-}
+};
 
-export interface Address {
+export type Address = {
   company: string;
   street: string;
   zip: string;
   phone?: string;
   fax?: string;
   email?: string;
-}
+};
 
-export interface CourtInfo {
+export type CourtInfo = {
   text: string;
   hrb: string;
-}
+};
 
-export interface AboutPage {
+export type AboutPage = {
   type: "about";
   header?: string;
   subTitlePhone?: string;
@@ -178,10 +176,10 @@ export interface AboutPage {
   addressBerlin?: Address;
   addressZDF?: Address;
   courtInfo?: CourtInfo;
-}
+};
 
-export interface ServicesPage {
+export type ServicesPage = {
   type: "services";
   header?: string;
   heroImage?: Media;
-}
+};
