@@ -14,7 +14,6 @@
               v-if="props.imageSrc"
               format="webp"
               loading="eager"
-              densities="1"
               sizes="sm:640px md:768px"
               alt=""
               aria-hidden="true"
@@ -64,7 +63,6 @@
                 :src="item.src"
                 :alt="item.alt"
                 loading="lazy"
-                densities="1"
                 sizes="sm:640px md:768px lg:1024px xl:1280px 2xl:1536px"
               />
             </template>
@@ -74,8 +72,8 @@
               <template v-if="item.autoPlay">
                 <div class="video-player" :ref="(el) => setVideoRef(el, index)">
                   <div
-                    :data-plyr-provider="(item as any).provider"
-                    :data-plyr-embed-id="(item as any).videoId"
+                    :data-plyr-provider="(item as SliderVideo).provider"
+                    :data-plyr-embed-id="(item as SliderVideo).videoId"
                   ></div>
                 </div>
               </template>
@@ -90,9 +88,8 @@
                   <NuxtPicture
                     format="avif,webp"
                     :alt="item.title"
-                    :src="item.poster || '/images/projects/test.jpg'"
+                    :src="item.poster || '/images/projects/test.webp'"
                     loading="lazy"
-                    densities="1"
                     sizes="sm:640px md:768px lg:1024px xl:1280px 2xl:1536px"
                   />
                   <button class="play-button" aria-label="Play video">
@@ -106,8 +103,8 @@
                   :ref="(el) => setVideoRef(el, index)"
                 >
                   <div
-                    :data-plyr-provider="(item as any).provider"
-                    :data-plyr-embed-id="(item as any).videoId"
+                    :data-plyr-provider="(item as SliderVideo).provider"
+                    :data-plyr-embed-id="(item as SliderVideo).videoId"
                   ></div>
                 </div>
               </template>
@@ -180,7 +177,6 @@
                 :src="project.coverImage.src"
                 :alt="project.coverImage.alt"
                 loading="lazy"
-                densities="1"
                 sizes="sm:640px md:768px lg:1024px xl:1280px 2xl:1536px"
               />
               <h2>{{ project.header }}</h2>
@@ -205,28 +201,11 @@
 import SliderArrowLeft from "~/assets/SliderArrowLeft.svg";
 import SliderArrowRight from "~/assets/SliderArrowRight.svg";
 import PlayButton from "~/assets/PlayButton.svg";
+import type { SliderImage, SliderItem, SliderVideo } from "~/types/project";
 
 const { locale } = useI18n();
 const route = useRoute();
 const slug = computed(() => String(route.params.slug ?? ""));
-
-type SliderImage = {
-  type: "image";
-  src: string;
-  alt: string;
-  title: string;
-};
-
-type SliderVideo = {
-  type: "video";
-  provider: "vimeo" | "youtube";
-  videoId: string;
-  title: string;
-  poster?: string;
-  autoPlay?: boolean;
-};
-
-type SliderItem = SliderImage | SliderVideo;
 
 const props = defineProps<{
   imageSrc?: { src: string; alt: string };
