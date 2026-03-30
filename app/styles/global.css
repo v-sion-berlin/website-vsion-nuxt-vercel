@@ -7,6 +7,14 @@
   --color-grey: #444;
   --color-grey-menu-item-hover: #5552527b;
   --plyr-color-main: #ff0751;
+
+  --radius-card: 16px;
+  --radius-card-sm: clamp(8px, 2.5vw, 16px);
+  --padding-card: 19px 32px;
+  --blur-card: blur(8px);
+  --color-scrollbar-track: #111;
+  --color-scrollbar-thumb: #444;
+  --color-border-subtle: #222;
 }
 
 body {
@@ -93,9 +101,9 @@ h1 {
 /* Card blur utility */
 .card-blur {
   background-color: var(--color-grey-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 16px;
+  backdrop-filter: var(--blur-card);
+  -webkit-backdrop-filter: var(--blur-card);
+  border-radius: var(--radius-card);
 }
 
 /* Horizontal Slider */
@@ -128,8 +136,8 @@ h1 {
   height: 48px;
   border-radius: 50%;
   background: var(--color-grey-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: var(--blur-card);
+  -webkit-backdrop-filter: var(--blur-card);
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
   display: flex;
