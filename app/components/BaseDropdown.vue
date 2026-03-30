@@ -3,6 +3,7 @@
     ref="menuRef"
     class="base-dropdown"
     :class="{ mobile: props.mobile }"
+    @keydown="handleKeydown"
   >
     <button
       class="menu-item"
@@ -45,16 +46,19 @@
           fill="currentColor"
         />
       </svg>
-      <span v-if="props.mobile" class="arrow" :class="{ rotated: showDropdown }">▼</span>
+      <span v-if="props.mobile" class="arrow" :class="{ rotated: showDropdown }"
+        >▼</span
+      >
     </button>
 
     <Transition name="dropdown">
-      <div v-if="showDropdown" class="dropdown">
+      <div v-if="showDropdown" class="dropdown" role="menu">
         <TransitionGroup name="item" tag="div" class="dropdown-items">
           <button
             v-for="(item, index) in items"
             :key="item.key"
             class="dropdown-item"
+            role="menuitem"
             :style="{ '--i': index }"
             @click="handleSelect(item)"
           >
@@ -67,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, nextTick } from "vue";
 import { onClickOutside } from "@vueuse/core";
 
 export interface DropdownItem {
@@ -98,13 +102,62 @@ const emit = defineEmits<{
 const menuRef = ref<HTMLElement | null>(null);
 const showDropdown = ref(false);
 
+const focusedIndex = ref(-1);
+
 const toggleDropdown = () => {
   showDropdown.value = !showDropdown.value;
+  if (showDropdown.value) {
+    focusedIndex.value = -1;
+  }
 };
 
 const handleSelect = (item: DropdownItem) => {
   emit("select", item);
   showDropdown.value = false;
+};
+
+const handleKeydown = (e: KeyboardEvent) => {
+  if (!showDropdown.value) {
+    if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      showDropdown.value = true;
+      focusedIndex.value = 0;
+      nextTick(() => focusItem(0));
+    }
+    return;
+  }
+
+  switch (e.key) {
+    case "ArrowDown":
+      e.preventDefault();
+      focusedIndex.value = Math.min(
+        focusedIndex.value + 1,
+        props.items.length - 1,
+      );
+      focusItem(focusedIndex.value);
+      break;
+    case "ArrowUp":
+      e.preventDefault();
+      focusedIndex.value = Math.max(focusedIndex.value - 1, 0);
+      focusItem(focusedIndex.value);
+      break;
+    case "Escape":
+      e.preventDefault();
+      showDropdown.value = false;
+      break;
+    case "Enter":
+    case " ":
+      if (focusedIndex.value >= 0) {
+        e.preventDefault();
+        handleSelect(props.items[focusedIndex.value]!);
+      }
+      break;
+  }
+};
+
+const focusItem = (index: number) => {
+  const items = menuRef.value?.querySelectorAll<HTMLElement>(".dropdown-item");
+  items?.[index]?.focus();
 };
 
 onClickOutside(menuRef, () => {
