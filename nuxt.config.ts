@@ -47,6 +47,9 @@ export default defineNuxtConfig({
       lg: 1024,
       xl: 1280,
       "2xl": 1536,
+      "3xl": 2048,
+      "4xl": 2560,
+      "5xl": 3072,
     },
   },
   fonts: {
