@@ -1,4 +1,3 @@
-const siteUrl = "https://www.v-sion.de";
 const defaultDescription =
   "Excellent design and pioneering technology powering today's live content delivery";
 
@@ -9,6 +8,7 @@ export const usePageSeo = (options: {
 }) => {
   const { locale } = useI18n();
   const route = useRoute();
+  const siteUrl = useRuntimeConfig().public.siteUrl as string;
 
   const currentPath = computed(() => options.path ?? route.path);
 
