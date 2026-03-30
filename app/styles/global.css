@@ -8,6 +8,7 @@
   --color-grey-menu-item-hover: #5552527b;
   --plyr-color-main: #ff0751;
 
+  /* TODO */
   --radius-card: 16px;
   --radius-card-sm: clamp(8px, 2.5vw, 16px);
   --padding-card: 19px 32px;
