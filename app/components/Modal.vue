@@ -5,6 +5,7 @@
         v-if="modelValue"
         class="backdrop"
         @click.self="close"
+        @keydown.escape="close"
         role="presentation"
       >
         <transition name="scale">
@@ -15,6 +16,8 @@
             :aria-labelledby="title ? titleId : undefined"
             tabindex="-1"
             ref="panel"
+            @keydown="trapFocus"
+            @keydown.escape="close"
           >
             <button
               class="close"
@@ -54,6 +57,23 @@ const titleId = `modal-${Math.random().toString(36).slice(2, 9)}-title`;
 
 function close() {
   emit("update:modelValue", false);
+}
+
+function trapFocus(e: KeyboardEvent) {
+  if (e.key !== "Tab" || !panel.value) return;
+  const focusable = panel.value.querySelectorAll<HTMLElement>(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+  );
+  if (focusable.length === 0) return;
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    if (last) last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    if (first) first.focus();
+  }
 }
 
 let prevOverflow = "";
