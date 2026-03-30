@@ -51,7 +51,11 @@
 
     <!-- mobile drawer -->
     <Transition name="drawer" @after-enter="onDrawerOpen">
-      <div v-if="drawerOpen" class="mobile-drawer">
+      <div
+        v-if="drawerOpen"
+        class="mobile-drawer"
+        @keydown.escape="toggleDrawer"
+      >
         <div class="drawer-header">
           <button
             class="close-btn"
@@ -131,14 +135,20 @@ const localizedPath = () => {
   return isGerman ? `/de/` : `/`;
 };
 
+const onEscape = (e: KeyboardEvent) => {
+  if (e.key === "Escape" && drawerOpen.value) toggleDrawer();
+};
+
 const toggleDrawer = () => {
   if (drawerOpen.value) {
     itemsVisible.value = false;
     setTimeout(() => {
       drawerOpen.value = false;
     }, 150);
+    document.removeEventListener("keydown", onEscape);
   } else {
     drawerOpen.value = true;
+    document.addEventListener("keydown", onEscape);
   }
 };
 
