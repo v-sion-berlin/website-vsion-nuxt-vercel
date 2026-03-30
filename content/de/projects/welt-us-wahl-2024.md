@@ -10,7 +10,7 @@ category:
   - infographics
   - storytelling
 coverImage:
-  src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-Home.jpg
+  src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-Home.webp
   alt: Welt US-Wahl
 detailImage:
   src: /images/Logos/Welt.svg
@@ -24,39 +24,39 @@ sliderItems:
     videoId: "1175479701"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: video
     provider: vimeo
     videoId: "1175479415"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0001.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0001.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0002.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0002.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0003.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0003.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0004.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0004.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0005.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0005.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0006.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0006.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0007.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0007.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0008.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0008.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0009.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0009.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0010.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0010.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0011.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0011.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0012.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0012.webp
   - type: image
-    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0013.png
+    src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-0013.webp
 slug: welt-us-wahl-2024
 table:
   header:

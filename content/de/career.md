@@ -1,14 +1,14 @@
 ---
 title: Career
 careerImage1:
-  src: /images/career/bg_career_1.png
+  src: /images/career/bg_career_1.webp
   alt: Career image one
 careerImage2:
-  src: /images/career/bg_career_2.png
+  src: /images/career/bg_career_2.webp
   alt: Career image two
 header: Career
 heroImage:
-  src: /images/home/bg_main_top_full.png
+  src: /images/home/bg_main_top_full.webp
   alt: Hero image showing Berlin skyline
 smallCards:
   - header: Modernes Arbeitsumfeld

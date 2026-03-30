@@ -1,7 +1,7 @@
 ---
 hero: Exzellentes Design und wegweisende Technologie für moderne Medienproduktionen!
 heroImage:
-  src: /images/home/bg_main_top_full.png
+  src: /images/home/bg_main_top_full.webp
   alt: Hero image showing Berlin skyline
 interview:
   header: Erleben Sie uns in Aktion

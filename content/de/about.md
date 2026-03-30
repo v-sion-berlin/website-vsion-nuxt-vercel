@@ -17,7 +17,7 @@ courtInfo:
   hrb: HRB 119 647
 header: Von Berlin aus live in die Welt
 heroImage:
-  src: /images/about/bg_about_voyage-pro-unsplash.png
+  src: /images/about/bg_about_voyage-pro-unsplash.webp
   alt: Hero image showing Berlin skyline
 subTitlePhone: +49 30 29381928
 subTitleMail: contact@v-sion.de

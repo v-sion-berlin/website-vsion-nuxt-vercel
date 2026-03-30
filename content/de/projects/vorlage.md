@@ -11,7 +11,7 @@ category:
   - infographics
   - storytelling
 coverImage:
-  src: /images/projects/test.jpg
+  src: /images/projects/test.webp
   alt: ARD
 detailImage:
   src: /images/Logos/ARD.svg
@@ -29,9 +29,9 @@ sliderItems:
     videoId: "1058566689"
     title: Behind the Scenes
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: image
-    src: /images/projects/test.jpg
+    src: /images/projects/test.webp
     alt: Studio View 2
     title: Wettervorschau Animation
 slug: vorlage

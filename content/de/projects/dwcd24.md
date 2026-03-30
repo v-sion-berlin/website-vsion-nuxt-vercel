@@ -7,7 +7,7 @@ category:
   - studio
   - interaction
 coverImage:
-  src: /images/projects/dw-cd24/DWCD24-News-1.jpg
+  src: /images/projects/dw-cd24/DWCD24-News-1.webp
   alt: Deutsche Welle CD24
 detailImage:
   src: /images/Logos/DW.svg
@@ -21,9 +21,9 @@ sliderItems:
     videoId: "1170387543"
     title: Cutdown News 3.3.2026
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: image
-    src: /images/projects/dw-cd24/DWCD24-Studio.jpg
+    src: /images/projects/dw-cd24/DWCD24-Studio.webp
     alt: Studio Tisch
     title: Studio
   - type: video
@@ -31,17 +31,17 @@ sliderItems:
     videoId: "1170388082"
     title: Made for Minds
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: image
-    src: /images/projects/dw-cd24/DWCD24-Wall-02.jpg
+    src: /images/projects/dw-cd24/DWCD24-Wall-02.webp
     alt: Studio Tisch
     title: ""
   - type: image
-    src: /images/projects/dw-cd24/DWCD24-Split.jpg
+    src: /images/projects/dw-cd24/DWCD24-Split.webp
     alt: Studio
     title: ""
   - type: image
-    src: /images/projects/dw-cd24/DWCD24-Wall-03.jpg
+    src: /images/projects/dw-cd24/DWCD24-Wall-03.webp
     alt: ""
     title: ""
 slug: dwcd24

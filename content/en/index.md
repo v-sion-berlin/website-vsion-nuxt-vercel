@@ -1,7 +1,7 @@
 ---
 hero: Excellent design and pioneering technology powering today's live content delivery
 heroImage:
-  src: /images/home/bg_main_top_full.png
+  src: /images/home/bg_main_top_full.webp
   alt: Hero image showing Berlin skyline
 interview:
   header: See us in action

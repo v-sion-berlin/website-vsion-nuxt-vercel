@@ -2,7 +2,7 @@
 title: Services
 header: Services
 heroImage:
-  src: /images/services/bg_services_top_full.png
+  src: /images/services/bg_services_top_full.webp
   alt: Hero image showing Berlin skyline
 menu:
   items:

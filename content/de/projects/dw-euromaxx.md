@@ -4,7 +4,7 @@ active: true
 category:
   - news
 coverImage:
-  src: /images/projects/dw-euromaxx/Euromaxx00001.jpg
+  src: /images/projects/dw-euromaxx/Euromaxx00001.webp
   alt: DW
 detailImage:
   src: /images/Logos/DW.svg
@@ -18,13 +18,13 @@ sliderItems:
     videoId: "1171059228"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: video
     provider: vimeo
     videoId: "1171059106"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
 slug: dw-euromaxx
 table:
   header:

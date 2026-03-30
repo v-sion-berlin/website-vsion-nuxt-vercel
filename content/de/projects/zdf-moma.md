@@ -7,7 +7,7 @@ category:
   - news
   - infographics
 coverImage:
-  src: /images/projects/zdf-moma/ZDF-moma.jpg
+  src: /images/projects/zdf-moma/ZDF-moma.webp
   alt: ZDF moma
 detailImage:
   src: /images/Logos/ZDF.svg
@@ -17,7 +17,7 @@ projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
-    src: /images/projects/zdf-moma/01-zdf-moma-studio.jpg
+    src: /images/projects/zdf-moma/01-zdf-moma-studio.webp
     alt: ZDF moma Studio
     title: Studio
   - type: video
@@ -25,37 +25,37 @@ sliderItems:
     videoId: "465154031"
     title: CapeRock Trailer
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: image
-    src: /images/projects/zdf-moma/02-zdf-moma-studio.jpg
+    src: /images/projects/zdf-moma/02-zdf-moma-studio.webp
     alt: Studio
     title: ""
   - type: image
-    src: /images/projects/zdf-moma/03-zdf-moma-tisch-mod.jpg
+    src: /images/projects/zdf-moma/03-zdf-moma-tisch-mod.webp
     alt: Studio Tisch
     title: ""
   - type: image
-    src: /images/projects/zdf-moma/04-zdf-moma-studio.jpg
+    src: /images/projects/zdf-moma/04-zdf-moma-studio.webp
     alt: Studio
     title: ""
   - type: image
-    src: /images/projects/zdf-moma/05-zdf-moma-gaesteliste.jpg
+    src: /images/projects/zdf-moma/05-zdf-moma-gaesteliste.webp
     alt: Gästeliste
     title: ""
   - type: image
-    src: /images/projects/zdf-moma/06-zdf-moma-wetter.jpg
+    src: /images/projects/zdf-moma/06-zdf-moma-wetter.webp
     alt: Wetter
     title: ""
   - type: image
-    src: /images/projects/zdf-moma/07-zdf-moma-tisch-total.jpg
+    src: /images/projects/zdf-moma/07-zdf-moma-tisch-total.webp
     alt: Studio Total
     title: ""
   - type: image
-    src: /images/projects/zdf-moma/08-zdf-moma-social.jpg
+    src: /images/projects/zdf-moma/08-zdf-moma-social.webp
     alt: Studio Social
     title: ""
   - type: image
-    src: /images/projects/zdf-moma/11-zdf-moma-social-sofa.jpg
+    src: /images/projects/zdf-moma/11-zdf-moma-social-sofa.webp
     title: ""
 slug: zdf-moma
 table:

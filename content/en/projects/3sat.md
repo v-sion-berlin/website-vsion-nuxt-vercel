@@ -9,7 +9,7 @@ category:
   - code
   - infographics
 coverImage:
-  src: /images/projects/3sat_cover.png
+  src: /images/projects/3sat_cover.webp
   alt: 3SAT
 detailImage:
   src: /images/projects/3sat_detail.svg
@@ -19,17 +19,17 @@ projectsHeader: Our Projekte
 sliderHeader: Project Images
 sliderItems:
   - type: image
-    src: /images/projects/test.jpg
+    src: /images/projects/test.webp
     alt: Studio View 1
     title: Studio View from 3SAT Studio
   - type: video
     provider: vimeo
     videoId: "1058566689"
     title: Behind the Scenes
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     autoPlay: true
   - type: image
-    src: /images/projects/test.jpg
+    src: /images/projects/test.webp
     alt: Studio View 2
     title: Wettervorschau Animation
 slug: 3sat

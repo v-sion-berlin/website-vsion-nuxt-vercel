@@ -5,7 +5,7 @@ category:
   - code
   - infographics
 coverImage:
-  src: /images/projects/3sat/3sat-bunt.jpg
+  src: /images/projects/3sat/3sat-bunt.webp
   alt: 3SAT
 detailImage:
   src: /images/projects/3sat_detail.svg
@@ -15,29 +15,29 @@ projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
-    src: /images/projects/3sat/3sat-anders-menschen.jpg
+    src: /images/projects/3sat/3sat-anders-menschen.webp
     alt: Screenshot
     title: Trailer
   - type: video
     provider: vimeo
     videoId: "313115516"
     title: BDA Trailer
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     autoPlay: true
   - type: image
-    src: /images/projects/3sat/3sat-wilde-schweiz.jpg
+    src: /images/projects/3sat/3sat-wilde-schweiz.webp
     alt: Wilde Schweiz
     title: Programmhinweis
   - type: image
-    src: /images/projects/3sat/3sat-winter.jpg
+    src: /images/projects/3sat/3sat-winter.webp
     alt: Winterlandschaft
     title: Trailer
   - type: image
-    src: /images/projects/3sat/3sat-wildes-europa.jpg
+    src: /images/projects/3sat/3sat-wildes-europa.webp
     alt: "Wildes Europa "
     title: Sendehinweis
   - type: image
-    src: /images/projects/3sat/3sat-theatertreffen.jpg
+    src: /images/projects/3sat/3sat-theatertreffen.webp
 slug: 3sat
 table:
   header:

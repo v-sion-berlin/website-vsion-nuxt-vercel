@@ -19,7 +19,7 @@ sliderItems:
     provider: vimeo
     videoId: "1171751721"
     title: BDA Trailer
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     autoPlay: true
   - type: image
     src: /images/projects/ARDMittagsmagazin/003-ard-mima-schalte.webp

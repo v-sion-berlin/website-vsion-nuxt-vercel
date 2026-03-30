@@ -5,7 +5,7 @@ category:
   - code
   - news
 coverImage:
-  src: /images/projects/dw-made/Made00003.jpg
+  src: /images/projects/dw-made/Made00003.webp
   alt: Deutsche Welle Made
 detailImage:
   src: /images/Logos/DW.svg
@@ -19,9 +19,9 @@ sliderItems:
     videoId: "1171046537"
     title: Cutdown
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: image
-    src: /images/projects/dw-made/Made00001.jpg
+    src: /images/projects/dw-made/Made00001.webp
     alt: ""
     title: Made
   - type: image
@@ -29,22 +29,22 @@ sliderItems:
     videoId: "1170388082"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
-    src: /images/projects/dw-made/Made00007.jpg
+    poster: /images/projects/idlePlay.webp
+    src: /images/projects/dw-made/Made00007.webp
   - type: image
-    src: /images/projects/dw-made/Made00003.jpg
+    src: /images/projects/dw-made/Made00003.webp
     alt: ""
     title: ""
   - type: image
-    src: /images/projects/dw-made/Made00004.jpg
+    src: /images/projects/dw-made/Made00004.webp
     alt: Insert
     title: ""
   - type: image
-    src: /images/projects/dw-made/Made00005.jpg
+    src: /images/projects/dw-made/Made00005.webp
     alt: ""
     title: ""
   - type: image
-    src: /images/projects/dw-made/Made00006.jpg
+    src: /images/projects/dw-made/Made00006.webp
     title: ""
 slug: dw-made
 table:

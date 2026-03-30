@@ -7,7 +7,7 @@ category:
   - studio
   - infographics
 coverImage:
-  src: /images/projects/zdf-spezial/zdfspezial00001.jpg
+  src: /images/projects/zdf-spezial/zdfspezial00001.webp
   alt: ZDF Spezial Logo
 detailImage:
   src: /images/Logos/ZDF.svg
@@ -20,7 +20,7 @@ seo:
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
-    src: /images/projects/zdf-spezial/zdfspezial00007.jpg
+    src: /images/projects/zdf-spezial/zdfspezial00007.webp
     alt: ""
     title: ""
   - type: video
@@ -28,27 +28,27 @@ sliderItems:
     videoId: "1173055030"
     title: Cutdown
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: image
-    src: /images/projects/zdf-spezial/zdfspezial00003.jpg
+    src: /images/projects/zdf-spezial/zdfspezial00003.webp
     alt: ""
     title: ""
   - type: image
-    src: /images/projects/zdf-spezial/zdfspezial00009.jpg
+    src: /images/projects/zdf-spezial/zdfspezial00009.webp
     alt: ""
     title: ""
   - type: image
-    src: /images/projects/zdf-spezial/zdfspezial00012.jpg
+    src: /images/projects/zdf-spezial/zdfspezial00012.webp
     alt: Insert
     title: ""
   - type: image
-    src: /images/projects/zdf-spezial/zdfspezial00013.jpg
+    src: /images/projects/zdf-spezial/zdfspezial00013.webp
     alt: ""
     title: ""
   - type: image
     alt: ""
     title: ""
-    src: /images/projects/zdf-spezial/zdfspezial00010.jpg
+    src: /images/projects/zdf-spezial/zdfspezial00010.webp
 slug: zdf-spezial
 table:
   header:

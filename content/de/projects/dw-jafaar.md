@@ -5,7 +5,7 @@ category:
   - code
   - news
 coverImage:
-  src: /images/projects/dw-jafaar/Jafaar00000.jpg
+  src: /images/projects/dw-jafaar/Jafaar00000.webp
   alt: Deutsche Welle Jafaar
 detailImage:
   src: /images/Logos/DW.svg
@@ -22,25 +22,25 @@ sliderItems:
     videoId: "1171046141"
     title: Cutdown
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: image
-    src: /images/projects/dw-jafaar/Jafaar00001.jpg
+    src: /images/projects/dw-jafaar/Jafaar00001.webp
     alt: ""
     title: Made
   - type: image
-    src: /images/projects/dw-jafaar/Jafaar00002.jpg
+    src: /images/projects/dw-jafaar/Jafaar00002.webp
     alt: ""
     title: ""
   - type: image
-    src: /images/projects/dw-jafaar/Jafaar00005.jpg
+    src: /images/projects/dw-jafaar/Jafaar00005.webp
     alt: ""
     title: ""
   - type: image
-    src: /images/projects/dw-jafaar/Jafaar00006.jpg
+    src: /images/projects/dw-jafaar/Jafaar00006.webp
     alt: ""
     title: ""
   - type: image
-    src: /images/projects/dw-jafaar/Jafaar00009.jpg
+    src: /images/projects/dw-jafaar/Jafaar00009.webp
     title: ""
 slug: dw-jafaar
 table:

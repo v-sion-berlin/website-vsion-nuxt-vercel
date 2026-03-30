@@ -8,7 +8,7 @@ category:
   - studio
   - infographics
 coverImage:
-  src: /images/projects/dw-ttp/dwttp00004a.jpg
+  src: /images/projects/dw-ttp/dwttp00004a.webp
   alt: DW To The Point
 detailImage:
   src: /images/Logos/DW.svg
@@ -18,7 +18,7 @@ projectsHeader: Unsere Projekte
 sliderHeader: Projekt Bilder
 sliderItems:
   - type: image
-    src: /images/projects/dw-ttp/dwttp00001.jpg
+    src: /images/projects/dw-ttp/dwttp00001.webp
     alt: ""
     title: ""
   - type: video
@@ -26,13 +26,13 @@ sliderItems:
     videoId: "1175188559"
     title: Behind the Scenes
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
   - type: image
-    src: /images/projects/dw-ttp/dwttp00003.jpg
+    src: /images/projects/dw-ttp/dwttp00003.webp
   - type: image
-    src: /images/projects/dw-ttp/dwttp00006.jpg
+    src: /images/projects/dw-ttp/dwttp00006.webp
   - type: image
-    src: /images/projects/dw-ttp/dwttp00008.jpg
+    src: /images/projects/dw-ttp/dwttp00008.webp
 slug: dwttp
 table:
   header:
