@@ -54,6 +54,8 @@
               'is-video-playing':
                 item.type === 'video' &&
                 (item.autoPlay || activeVideoIndices.has(index)),
+              'ratio-16-9': item.aspectRatio === '16/9',
+              'ratio-1-1': item.aspectRatio === '1/1',
             }"
           >
             <!-- image slide -->
@@ -419,6 +421,23 @@ useScrollReveal();
 .slide-card.is-video {
   aspect-ratio: 16 / 9;
   background: #000;
+}
+
+.slide-card.ratio-16-9 {
+  aspect-ratio: 16 / 9;
+  width: auto;
+}
+
+.slide-card.ratio-1-1 {
+  aspect-ratio: 1 / 1;
+  width: auto;
+}
+
+.slide-card.ratio-16-9 :deep(img),
+.slide-card.ratio-1-1 :deep(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .slide-card h2 {
