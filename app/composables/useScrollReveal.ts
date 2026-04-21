@@ -17,7 +17,7 @@ export const useScrollReveal = (options: ScrollRevealOptions = {}) => {
     selector = "[data-reveal]",
     threshold = 0.1,
     rootMargin = "0px 0px -50px 0px",
-    duration = 600,
+    duration = 900,
     delay = 0,
     stagger = 30,
     distance = "30px",
