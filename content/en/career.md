@@ -46,13 +46,6 @@ to our team and send us your application.
 We look forward to getting to know you!
 ::
 
-::career-images-section
----
-:careerImage1: careerImage1
-:careerImage2: careerImage2
----
-::
-
 ::career-benefits
 ---
 :cards: smallCards
