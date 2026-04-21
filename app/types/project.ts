@@ -3,6 +3,7 @@ export type SliderImage = {
   src: string;
   alt: string;
   title: string;
+  aspectRatio?: "16/9" | "1/1";
 };
 
 export type SliderVideo = {
@@ -12,6 +13,7 @@ export type SliderVideo = {
   title: string;
   poster?: string;
   autoPlay?: boolean;
+  aspectRatio?: "16/9" | "1/1";
 };
 
 export type SliderItem = SliderImage | SliderVideo;
