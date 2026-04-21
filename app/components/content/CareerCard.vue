@@ -40,6 +40,7 @@ useScrollReveal();
 .career-container {
   z-index: 200;
   position: relative;
+  margin-bottom: 2.5rem;
 }
 
 section {
