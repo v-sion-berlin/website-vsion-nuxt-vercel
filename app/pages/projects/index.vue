@@ -37,9 +37,7 @@ const projectsFull = computed(
     })) || [],
 );
 
-useScrollReveal({
-  threshold: 0.001,
-});
+useScrollReveal();
 
 usePageSeo({ title: locale.value === "de" ? "Projekte" : "Projects" });
 </script>
