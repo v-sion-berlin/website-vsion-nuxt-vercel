@@ -12,6 +12,12 @@ useScrollReveal({
 
 <template>
   <Hero :page="{ hero: page.hero, heroImage: page.heroImage }" />
+  <TextBlockLive
+    :page="{
+      textblock_live_header: page.textblocks.live.header,
+      textblock_live_body: page.textblocks.live.body_text,
+    }"
+  />
   <Interview
     :page="{
       interview_header: page.interview.header,
@@ -19,12 +25,6 @@ useScrollReveal({
       interview_body_part_2: page.interview.body_part_2,
       interview_source_text: page.interview.source_text,
       interview_watch_text: page.interview.watch_text,
-    }"
-  />
-  <TextBlockLive
-    :page="{
-      textblock_live_header: page.textblocks.live.header,
-      textblock_live_body: page.textblocks.live.body_text,
     }"
   />
   <TextBlockLeistungen
