@@ -45,13 +45,6 @@ Ergänzung für unser Team bist und schicke uns deine Bewerbung.
 Wir freuen uns darauf, dich kennenzulernen!
 ::
 
-::career-images-section
----
-:careerImage1: careerImage1
-:careerImage2: careerImage2
----
-::
-
 ::career-benefits
 ---
 :cards: smallCards
