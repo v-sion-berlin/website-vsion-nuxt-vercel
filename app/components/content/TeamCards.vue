@@ -58,6 +58,7 @@ section {
 picture {
   display: block;
   width: clamp(150px, 30vw, 830px);
+  aspect-ratio: 4 / 3;
   flex-shrink: 0;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -68,6 +69,7 @@ picture:deep(img) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 p {
