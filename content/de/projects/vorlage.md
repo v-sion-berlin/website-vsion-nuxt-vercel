@@ -24,12 +24,14 @@ sliderItems:
     src: /images/projects/ARDMittagsmagazin/001-ard-mima-studio-dunkel.webp
     alt: Studio View 1
     title: Studio
+    aspectRatio: '16/9'
   - type: video
     provider: vimeo
     videoId: "1058566689"
     title: Behind the Scenes
     autoPlay: true
     poster: /images/projects/idlePlay.webp
+    aspectRatio: '1/1'
   - type: image
     src: /images/projects/test.webp
     alt: Studio View 2
