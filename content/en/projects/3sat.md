@@ -19,15 +19,23 @@ projectsHeader: Our Projekte
 sliderHeader: Project Images
 sliderItems:
   - type: image
-    src: /images/projects/test.webp
+    src: /images/team/squareTest.png
     alt: Studio View 1
     title: Studio View from 3SAT Studio
+    aspectRatio: '1/1'
   - type: video
     provider: vimeo
     videoId: "1058566689"
     title: Behind the Scenes
     poster: /images/projects/idlePlay.webp
     autoPlay: true
+  - type: video
+    provider: vimeo
+    videoId: "1185061878"
+    title: SquareTest
+    poster: /images/projects/idlePlay.webp
+    autoPlay: true
+    aspectRatio: '1/1'
   - type: image
     src: /images/projects/test.webp
     alt: Studio View 2
