@@ -5,7 +5,7 @@ category:
   - infographics
   - storytelling
 coverImage:
-  src: /images/projects/zdf-terra-x/Terra-X-Logo.jpg
+  src: /images/projects/zdf-terra-x/Terra-X-Logo.webp
   alt: ZDF Terra X
 detailImage:
   src: /images/Logos/ZDF.svg
@@ -19,56 +19,56 @@ sliderItems:
     videoId: "1184834267"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
   - type: video
     provider: vimeo
     videoId: "1185191162"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
   - type: video
     provider: vimeo
     videoId: "1185178172"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
   - type: video
     provider: vimeo
     videoId: "1185190854"
     title: ""
     autoPlay: false
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
   - type: video
     provider: vimeo
     videoId: "1185191241"
     title: ""
     autoPlay: false
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
   - type: video
     provider: vimeo
     videoId: "1185190192"
     title: ""
     autoPlay: false
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
   - type: video
     provider: vimeo
     videoId: "1185189280"
     title: ""
     autoPlay: false
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
   - type: video
     provider: vimeo
     videoId: "1185180404"
     title: ""
     autoPlay: false
-    poster: /images/projects/idlePlay.jpg
+    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
 slug: zdf-terra-x
 table:
