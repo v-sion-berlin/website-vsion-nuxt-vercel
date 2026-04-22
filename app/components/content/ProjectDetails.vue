@@ -88,18 +88,11 @@
                   @click="playVideo(index)"
                 >
                   <NuxtPicture
-                    v-if="item.poster && !item.poster.startsWith('http')"
                     format="avif,webp"
                     :alt="item.title"
-                    :src="item.poster"
+                    :src="item.poster || '/images/projects/test.webp'"
                     loading="lazy"
                     sizes="sm:640px md:768px lg:1024px xl:1280px 2xl:1536px"
-                  />
-                  <img
-                    v-else-if="item.poster"
-                    :src="item.poster"
-                    :alt="item.title"
-                    loading="lazy"
                   />
                   <button class="play-button" aria-label="Play video">
                     <img :src="PlayButton" alt="" aria-hidden="true" />
@@ -263,42 +256,6 @@ const { createPlayer, destroyAll } = usePlyrPlayer();
 const activeVideoIndices = reactive<Set<number>>(new Set());
 const videoRefs = ref<Map<number, HTMLElement>>(new Map());
 
-const vimeoIdsNeedingPoster = computed(() =>
-  (props.sliderItems || [])
-    .filter(
-      (i): i is SliderVideo =>
-        i.type === "video" &&
-        (i as SliderVideo).provider === "vimeo" &&
-        !(i as SliderVideo).poster,
-    )
-    .map((i) => i.videoId),
-);
-
-const { data: vimeoPosters } = await useAsyncData(
-  () => `vimeo-posters-${slug.value}`,
-  async () => {
-    const ids = vimeoIdsNeedingPoster.value;
-
-    if (ids.length === 0) return {} as Record<string, string>;
-
-    const entries = await Promise.all(
-      ids.map(async (id) => {
-        try {
-          const res = await $fetch<{ thumbnail_url?: string }>(
-            `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${id}`,
-          );
-          return [id, res.thumbnail_url ?? ""] as const;
-        } catch {
-          return [id, ""] as const;
-        }
-      }),
-    );
-
-    return Object.fromEntries(entries) as Record<string, string>;
-  },
-  { watch: [vimeoIdsNeedingPoster] },
-);
-
 const sliderItemsFull = computed(() => {
   const items = props.sliderItems || [];
 
@@ -310,16 +267,12 @@ const sliderItemsFull = computed(() => {
         src: useImagePath((item as SliderImage).src) ?? "",
       };
     }
-    const video = item as SliderVideo;
-    let poster: string | undefined;
-    if (video.poster) {
-      poster = useImagePath(video.poster);
-    } else if (video.provider === "youtube") {
-      poster = `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`;
-    } else if (video.provider === "vimeo") {
-      poster = vimeoPosters.value?.[video.videoId] || undefined;
-    }
-    return { ...video, poster };
+    return {
+      ...item,
+      poster: (item as SliderVideo).poster
+        ? useImagePath((item as SliderVideo).poster!)
+        : undefined,
+    };
   });
 });
 
