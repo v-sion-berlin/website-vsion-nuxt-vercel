@@ -90,7 +90,7 @@
                   <NuxtPicture
                     format="avif,webp"
                     :alt="item.title"
-                    :src="item.poster || '/images/projects/test.webp'"
+                    :src="item.poster || ''"
                     loading="lazy"
                     sizes="sm:640px md:768px lg:1024px xl:1280px 2xl:1536px"
                   />
