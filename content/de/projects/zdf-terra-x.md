@@ -19,21 +19,18 @@ sliderItems:
     videoId: "1184834267"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
   - type: video
     provider: vimeo
     videoId: "1185191162"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
   - type: video
     provider: vimeo
     videoId: "1185178172"
     title: ""
     autoPlay: true
-    poster: /images/projects/idlePlay.webp
     aspectRatio: '1/1'
   - type: video
     provider: vimeo
