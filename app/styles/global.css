@@ -275,7 +275,7 @@ h1 {
   cursor: none;
   border-radius: clamp(8px, 2.5vw, 16px);
   color: var(--color-text);
-  font-size: clamp(8px, 2vw, 24px);
+  font-size: clamp(12px, 2vw, 24px);
   width: max-content;
   margin: 0;
 }
