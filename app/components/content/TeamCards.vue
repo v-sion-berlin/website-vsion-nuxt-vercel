@@ -57,7 +57,7 @@ section {
 
 picture {
   display: block;
-  width: clamp(150px, 30vw, 830px);
+  width: clamp(250px, 30vw, 830px);
   aspect-ratio: 4 / 3;
   flex-shrink: 0;
   border-radius: 0.5rem;
