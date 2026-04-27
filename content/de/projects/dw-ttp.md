@@ -33,7 +33,7 @@ sliderItems:
     src: /images/projects/dw-ttp/dwttp00006.webp
   - type: image
     src: /images/projects/dw-ttp/dwttp00008.webp
-slug: dwttp
+slug: dw-ttp
 table:
   header:
     firstCol: Unsere Aufgaben

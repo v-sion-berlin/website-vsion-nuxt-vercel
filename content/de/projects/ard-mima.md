@@ -41,7 +41,7 @@ sliderItems:
     src: /images/projects/ARDMittagsmagazin/010-ard-mima-abmoderation.webp
     alt: Verabschiedung
     title: Closer
-slug: ardmima
+slug: ard-mima
 table:
   header:
     firstCol: Unsere Aufgaben

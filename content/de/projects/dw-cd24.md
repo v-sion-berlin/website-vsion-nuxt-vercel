@@ -45,7 +45,7 @@ sliderItems:
     src: /images/projects/dw-cd24/DWCD24-Wall-03.webp
     alt: ""
     title: ""
-slug: dwcd24
+slug: dw-cd24
 table:
   header:
     firstCol: Unsere Aufgaben
