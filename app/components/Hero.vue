@@ -58,10 +58,6 @@ useScrollReveal();
   padding: clamp(10rem, 12vw, 13.75rem) 0 clamp(2rem, 5vw, 4rem) 0;
 }
 
-h1 {
-  line-break: anywhere;
-}
-
 .wrapper {
   margin-inline-end: auto;
   margin-inline-start: auto;
