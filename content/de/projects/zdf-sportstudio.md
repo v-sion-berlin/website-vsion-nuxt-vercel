@@ -105,7 +105,7 @@ sliderItems:
     poster: /images/projects/idlePlay.webp
     aspectRatio: 16/9
   - type: image
-    src: /images/projects/Tabellen.webp
+    src: /images/projects/ZDFSport/Tabellen.webp
     alt: Tabellen
     title: ""
   - type: video
@@ -116,7 +116,7 @@ sliderItems:
     poster: /images/projects/idlePlay.webp
     aspectRatio: 16/9
   - type: image
-    src: /images/projects/Diagramme.webp
+    src: /images/projects/ZDFSport/Diagramme.webp
     alt: Diagramme
     title: ""
   - type: video
@@ -127,7 +127,7 @@ sliderItems:
     poster: /images/projects/idlePlay.webp
     aspectRatio: 16/9
   - type: image
-    src: /images/projects/Facts.webp
+    src: /images/projects/ZDFSport/Facts.webp
     alt: Facts
     title: ""
   - type: video
@@ -145,7 +145,7 @@ sliderItems:
     poster: /images/projects/idlePlay.webp
     aspectRatio: 16/9
   - type: image
-    src: /images/projects/Fotoloops.webp
+    src: /images/projects/ZDFSport/Fotoloops.webp
     alt: Fotoloops
     title: ""
   - type: video
