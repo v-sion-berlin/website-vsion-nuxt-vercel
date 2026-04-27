@@ -8,7 +8,7 @@ category:
   - studio
   - infographics
 coverImage:
-  src: /images/projects/cover_sportstudio_logo_heat.webp
+  src: /images/projects/ZDFSport/cover_sportstudio_logo_heat.webp
   alt: ZDF
 detailImage:
   src: /images/Logos/ZDF.svg
@@ -146,7 +146,7 @@ sliderItems:
     aspectRatio: '16/9'
   - type: image
     src: /images/projects/Fotoloops.webp
-    alt: Facts
+    alt: Fotoloops
     title: ""
   - type: video
     provider: vimeo
