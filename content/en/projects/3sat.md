@@ -2,57 +2,54 @@
 title: 3sat Redesign
 active: true
 category:
-  - studio
-  - storytelling
-  - wall
-  - sport
   - code
   - infographics
+  - operations
 coverImage:
-  src: /images/projects/3sat_cover.webp
+  src: /images/projects/3sat/3sat-bunt.webp
   alt: 3SAT
 detailImage:
   src: /images/projects/3sat_detail.svg
   alt: 3SAT
 header: 3SAT
-projectsHeader: Our Projekte
+projectsHeader: Our Projects
 sliderHeader: Project Images
 sliderItems:
   - type: image
-    src: /images/team/squareTest.png
-    alt: Studio View 1
-    title: Studio View from 3SAT Studio
-    aspectRatio: '1/1'
+    src: /images/projects/3sat/3sat-anders-menschen.webp
+    alt: Screenshot
+    title: Trailer
   - type: video
     provider: vimeo
-    videoId: "1058566689"
-    title: Behind the Scenes
+    videoId: "313115516"
+    title: BDA Trailer
     poster: /images/projects/idlePlay.webp
     autoPlay: true
-  - type: video
-    provider: vimeo
-    videoId: "1185061878"
-    title: SquareTest
-    poster: /images/projects/idlePlay.webp
-    autoPlay: true
-    aspectRatio: '1/1'
   - type: image
-    src: /images/projects/test.webp
-    alt: Studio View 2
-    title: Wettervorschau Animation
+    src: /images/projects/3sat/3sat-wilde-schweiz.webp
+    alt: Wild Switzerland
+    title: Program Note
+  - type: image
+    src: /images/projects/3sat/3sat-winter.webp
+    alt: Winter Landscape
+    title: Trailer
+  - type: image
+    src: /images/projects/3sat/3sat-wildes-europa.webp
+    alt: "Wild Europe "
+    title: Broadcast Note
+  - type: image
+    src: /images/projects/3sat/3sat-theatertreffen.webp
 slug: 3sat
 table:
   header:
     firstCol: Our Tasks
     secondCol: Technologies
   tasks:
-    - Technical Concepts
-    - Graphic Szenes, Templates
-    - Newsroom System Integration
+    - Design Integration, Technical Concept
+    - Graphic Scenes, Templates
   technologies:
-    - Viz Artist, Viz Pilot, Viz MSE
-    - Open Media
-    - Vidiwall
+    - Viz Artist, Viz Pilot
+    - Adobe CC
 type: project
 ---
 
@@ -70,8 +67,9 @@ type: project
 Redesign
 
 #body
-The new 3sat design is being implemented in the broadcast operations at ZDF in Mainz. Modern, automated branding graphics are being created in close coordination and will be flexibly deployed on air in real time.
+The new 3sat design is being integrated into the broadcast operations at ZDF in Mainz. In close coordination, modern, automated branding graphics are being created that go on air flexibly and automatically.
 
 #sub
-The visual identity was developed by the Munich-based agency [BDA Creative](https://www.bdacreative.com/project/3sat){:target="_blank"}. The development of the new design was overseen by the 3sat marketing team at ZDF.
+The visual identity was developed by Munich-based agency
+[BDA Creative](https://www.bdacreative.com/project/3sat){:target="_blank"}. The development of the new design was overseen by the 3sat marketing team at ZDF.
 ::
