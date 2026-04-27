@@ -53,7 +53,7 @@ sliderItems:
   - type: image
     src: /images/projects/ZDFSport/Aufstellungen.webp
     alt: Line-ups
-    title:
+    title: ""
     aspectRatio: 16/9
   - type: video
     provider: vimeo
