@@ -121,8 +121,8 @@ sliderItems:
     title: ""
   - type: video
     provider: vimeo
-    videoId: "1185291766"
-    title: Zitate
+    videoId: "1185291702"
+    title: Tabelle
     autoPlay: true
     poster: /images/projects/idlePlay.webp
     aspectRatio: 16/9
