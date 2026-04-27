@@ -138,7 +138,7 @@ h1 {
 
 h2 {
   color: var(--color-text);
-  font-size: clamp(16px, 4vw, 100px);
+  font-size: clamp(18px, 4vw, 100px);
   font-family: Montserrat, sans-serif;
   font-weight: 500;
   z-index: 30;
@@ -148,7 +148,7 @@ h2 {
 
 h3 {
   color: var(--color-text);
-  font-size: clamp(16px, 2vw, 48px);
+  font-size: clamp(18px, 2vw, 48px);
   font-family: Montserrat, sans-serif;
   font-weight: 500;
   margin: 0;
@@ -158,7 +158,7 @@ h3 {
 
 p {
   margin-bottom: 0;
-  font-size: clamp(10px, 2vw, 32px);
+  font-size: clamp(16px, 2vw, 32px);
 }
 
 #card-section {
