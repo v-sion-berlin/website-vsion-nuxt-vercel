@@ -228,7 +228,7 @@ h1 {
 }
 
 .project-card {
-  flex: 0 0 clamp(150px, 30vw, 30vw);
+  flex: 0 0 clamp(250px, 30vw, 30vw);
   aspect-ratio: 16/9;
   border-radius: 1rem;
   overflow: hidden;
