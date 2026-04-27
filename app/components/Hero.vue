@@ -49,7 +49,7 @@ useScrollReveal();
 <style scoped>
 #hero {
   position: relative;
-  min-height: clamp(450px, calc(20vh + 40vw), 100vw);
+  min-height: clamp(450px, calc(20vh + 37vw), 100vw);
   overflow-x: clip;
 }
 
