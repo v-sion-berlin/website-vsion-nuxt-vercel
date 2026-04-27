@@ -8,6 +8,7 @@ category:
   - news
   - studio
   - infographics
+  - operations
   - storytelling
 coverImage:
   src: /images/projects/welt-us-wahl-2024/Welt-US-Wahl-2024-Home.webp

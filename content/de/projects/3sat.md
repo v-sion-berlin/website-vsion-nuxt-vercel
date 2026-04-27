@@ -4,6 +4,7 @@ active: true
 category:
   - code
   - infographics
+  - operations
 coverImage:
   src: /images/projects/3sat/3sat-bunt.webp
   alt: 3SAT

@@ -9,6 +9,7 @@ category:
   - news
   - studio
   - infographics
+  - operations
   - storytelling
 coverImage:
   src: /images/projects/test.webp

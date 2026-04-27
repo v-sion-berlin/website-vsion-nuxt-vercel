@@ -6,6 +6,7 @@ category:
   - news
   - studio
   - infographics
+  - operations
 coverImage:
   src: /images/projects/zdf-spezial/zdfspezial00001.webp
   alt: ZDF Spezial Logo
