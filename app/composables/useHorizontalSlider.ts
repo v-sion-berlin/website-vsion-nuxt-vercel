@@ -168,6 +168,9 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   // Cleanup
   let abortController: AbortController | null = null;
 
+  // Last known width for resize handling
+  let lastWindowWidth = 0;
+
   // Cursor
   const cursor = showCustomCursor
     ? useDragCursor(sliderRef, videoPlayingSelector)
@@ -453,6 +456,10 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   };
 
   const handleResize = () => {
+    const currentWidth = window.innerWidth;
+    if (currentWidth === lastWindowWidth) return;
+    lastWindowWidth = currentWidth;
+
     if (continuous) {
       isSetup = false;
       setupContinuousLoop();
@@ -466,6 +473,8 @@ export const useHorizontalSlider = (options: SliderOptions = {}) => {
   const init = async () => {
     const slider = sliderRef.value;
     if (!slider) return;
+
+    lastWindowWidth = window.innerWidth;
 
     // Destroy listeners with abort controller
     abortController?.abort();
