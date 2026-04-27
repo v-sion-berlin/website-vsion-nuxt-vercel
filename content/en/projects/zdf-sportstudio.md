@@ -23,87 +23,87 @@ sliderItems:
     title: Orange Heat Brand New Media Promo
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: image
     src: /images/projects/ZDFSport/Programmuebersicht.webp
     alt: Program Overview
     title: ""
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185294746"
     title: Program Overview Tower
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185294781"
     title: Program Overview VIP
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185294830"
     title: Program Overview Full Screen
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: image
     src: /images/projects/ZDFSport/Aufstellungen.webp
     alt: Line-ups
     title:
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185291635"
     title: Fact Box 1
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185291667"
     title: Fact Box 2
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185294867"
     title: Social Media Slideshow Cut In
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185294905"
     title: Social Media Slideshow Full Screen
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185294960"
     title: Social Media Slideshow Tower
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185492469"
     title: Paralympics
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185291740"
     title: Tables
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: image
     src: /images/projects/Tabellen.webp
     alt: Tables
@@ -114,7 +114,7 @@ sliderItems:
     title: Quotes
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: image
     src: /images/projects/Diagramme.webp
     alt: Charts
@@ -125,7 +125,7 @@ sliderItems:
     title: Quotes
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: image
     src: /images/projects/Facts.webp
     alt: Facts
@@ -136,14 +136,14 @@ sliderItems:
     title: ZDF Winter Sports Trailer
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: video
     provider: vimeo
     videoId: "1185492422"
     title: ZDF Paralympics
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
   - type: image
     src: /images/projects/Fotoloops.webp
     alt: Photo Loops
@@ -154,7 +154,7 @@ sliderItems:
     title: ZDF Tour de France Curve
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '16/9'
+    aspectRatio: 16/9
 slug: zdf-sportstudio
 table:
   header:

@@ -20,56 +20,56 @@ sliderItems:
     title: ""
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '1/1'
+    aspectRatio: 1/1
   - type: video
     provider: vimeo
     videoId: "1185191162"
     title: ""
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '1/1'
+    aspectRatio: 1/1
   - type: video
     provider: vimeo
     videoId: "1185178172"
     title: ""
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '1/1'
+    aspectRatio: 1/1
   - type: video
     provider: vimeo
     videoId: "1185190854"
     title: ""
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '1/1'
+    aspectRatio: 1/1
   - type: video
     provider: vimeo
     videoId: "1185191241"
     title: ""
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '1/1'
+    aspectRatio: 1/1
   - type: video
     provider: vimeo
     videoId: "1185190192"
     title: ""
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '1/1'
+    aspectRatio: 1/1
   - type: video
     provider: vimeo
     videoId: "1185189280"
     title: ""
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '1/1'
+    aspectRatio: 1/1
   - type: video
     provider: vimeo
     videoId: "1185180404"
     title: ""
     autoPlay: true
     poster: /images/projects/idlePlay.webp
-    aspectRatio: '1/1'
+    aspectRatio: 1/1
 slug: zdf-terra-x
 table:
   header:
