@@ -1,5 +1,5 @@
 ---
-hero: Exzellentes Design und wegweisende Technologie für moderne Medienproduktionen!
+hero: Exzellentes Design und wegweisende Technologie für moderne Medienproduktionen
 heroImage:
   src: /images/home/bg_main_top_full.webp
   alt: Hero image showing Berlin skyline
