@@ -21,7 +21,9 @@
       <div class="contact-right">
         <div class="info-box-first">
           <LegalLinksVue :page="page" />
-          <p class="light">©2025, v-sion GmbH.<br />All rights reserved.</p>
+          <p class="light">
+            ©{{ year }}, v-sion GmbH.<br />All rights reserved.
+          </p>
         </div>
 
         <a class="info-box" href="tel:+493029381928">
@@ -68,6 +70,7 @@ import WhiteCheck from "~/assets/White_checkmark.svg";
 import type { ContactData } from "~/types/content";
 
 const emailEl = ref<HTMLAnchorElement | null>(null);
+const year = new Date().getFullYear();
 
 const props = defineProps<{
   page: ContactData;
